@@ -1025,20 +1025,20 @@ const FinalCTA = () => {
       {/* Background ambient visuals */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-brand-blue/10 rounded-[100%] blur-[120px] pointer-events-none" />
-      
+
       {/* Floating particles background layer */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            animate={{ 
-              y: [0, -100], 
-              opacity: [0, 0.5, 0] 
+            animate={{
+              y: [0, -100],
+              opacity: [0, 0.5, 0]
             }}
-            transition={{ 
-              duration: 5 + ((i * 13) % 5), 
-              repeat: Infinity, 
-              delay: (i * 7) % 10 
+            transition={{
+              duration: 5 + ((i * 13) % 5),
+              repeat: Infinity,
+              delay: (i * 7) % 10
             }}
             className="absolute w-1 h-1 bg-brand-blue/40 rounded-full"
             style={{ left: `${(i * 19) % 100}%`, top: `${70 + (i * 5) % 30}%` }}
@@ -1047,7 +1047,7 @@ const FinalCTA = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -1083,10 +1083,10 @@ const Footer = () => {
   return (
     <footer className="bg-[#081120] border-t border-brand-border/40 pt-24 pb-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay pointer-events-none" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
-          
+
           {/* Column 1 - Company */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
@@ -1153,10 +1153,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-brand-border/40 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-             <div className="flex gap-1.5 items-center">
-               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80 shadow-[0_0_8px_#10b981] animate-pulse" />
-               <div className="text-[10px] font-mono text-brand-slate uppercase tracking-wider">All Systems Operational</div>
-             </div>
+            <div className="flex gap-1.5 items-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80 shadow-[0_0_8px_#10b981] animate-pulse" />
+              <div className="text-[10px] font-mono text-brand-slate uppercase tracking-wider">All Systems Operational</div>
+            </div>
           </div>
           <p className="text-[11px] text-brand-slate/60 font-mono">
             &copy; {new Date().getFullYear()} NATIONWIDE TRANS INC. ALL RIGHTS RESERVED.
