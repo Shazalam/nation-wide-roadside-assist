@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { RootProvider } from "@/providers/root-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,9 +27,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${inter.variable} ${ibmPlexMono.variable} antialiased selection:bg-brand-blue/30 selection:text-white`}
+      suppressHydrationWarning
+      className={`${inter.variable} ${ibmPlexMono.variable} antialiased selection:bg-brand-blue/30 selection:text-white`}
     >
-      <body className="min-h-screen bg-background text-foreground flex flex-col">{children}</body>
+      <body 
+        className="min-h-screen bg-background text-foreground flex flex-col"
+        suppressHydrationWarning
+      >
+        <RootProvider>{children}</RootProvider>
+      </body>
     </html>
   );
 }
