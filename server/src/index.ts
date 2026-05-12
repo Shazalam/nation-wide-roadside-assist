@@ -13,6 +13,7 @@ import telemetryRoutes from './routes/telemetryRoutes';
 import vendorRoutes from './routes/vendorRoutes';
 import auditRoutes from './routes/auditRoutes';
 import webhookRoutes from './routes/webhookRoutes';
+import fleetRoutes from './routes/fleetRoutes';
 
 // Middleware
 import { notFound, errorHandler } from './middleware/errorMiddleware';
@@ -46,6 +47,7 @@ app.use('/api/telemetry', telemetryRoutes);
 app.use('/api/vendors', vendorRoutes);
 app.use('/api/audit', auditRoutes);
 app.use('/api/webhooks', webhookRoutes);
+app.use('/api/fleets', fleetRoutes);
 
 // Background Services: SLA Monitoring (Runs every 30 seconds)
 setInterval(async () => {

@@ -45,16 +45,16 @@ export default function AuthenticationPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-4">
-               <div className="flex items-center gap-3">
-                 <div className="h-6 w-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-xs font-bold text-brand-blue border border-brand-blue/30">1</div>
-                 <h4 className="font-bold text-white">Exchange Credentials</h4>
-               </div>
-               <p className="text-sm text-brand-slate pl-9">
-                 Post your `client_id` and `client_secret` to our token endpoint to receive a scoped access token.
-               </p>
+              <div className="flex items-center gap-3">
+                <div className="h-6 w-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-xs font-bold text-brand-blue border border-brand-blue/30">1</div>
+                <h4 className="font-bold text-white">Exchange Credentials</h4>
+              </div>
+              <p className="text-sm text-brand-slate pl-9">
+                Post your `client_id` and `client_secret` to our token endpoint to receive a scoped access token.
+              </p>
             </div>
 
-            <APIBlock 
+            <APIBlock
               method="POST"
               endpoint="/oauth/token"
               code={`curl -X POST https://auth.nationwidetrans.com/oauth/token \\
@@ -68,18 +68,18 @@ export default function AuthenticationPage() {
 
           <div className="lg:col-span-6">
             <div className="space-y-4">
-               <div className="flex items-center gap-3">
-                 <div className="h-6 w-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs font-bold text-emerald-500 border border-emerald-500/30">2</div>
-                 <h4 className="font-bold text-white">Receive Bearer Token</h4>
-               </div>
-               <p className="text-sm text-brand-slate pl-9">
-                 You will receive a JWT token valid for 3600 seconds. Use this token in the `Authorization` header of all subsequent API requests.
-               </p>
+              <div className="flex items-center gap-3">
+                <div className="h-6 w-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs font-bold text-emerald-500 border border-emerald-500/30">2</div>
+                <h4 className="font-bold text-white">Receive Bearer Token</h4>
+              </div>
+              <p className="text-sm text-brand-slate pl-9">
+                You will receive a JWT token valid for 3600 seconds. Use this token in the `Authorization` header of all subsequent API requests.
+              </p>
             </div>
 
             <GlassPanel className="mt-4 p-4 bg-black/40 border-white/5 font-mono text-xs">
               <pre className="text-brand-slate whitespace-pre-wrap">
-{`{
+                {`{
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "token_type": "Bearer",
   "expires_in": 3600,
