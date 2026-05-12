@@ -111,6 +111,11 @@ const features = [
 export default function APIInfrastructure() {
   const [activeTab, setActiveTab] = useState('Dispatch API');
   const [copied, setCopied] = useState(false);
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(codeSnippets[activeTab].code);
@@ -119,6 +124,37 @@ export default function APIInfrastructure() {
   };
 
   const snippet = codeSnippets[activeTab];
+
+  const highlightCode = (code: string) => {
+    return code.split('\n').map((line, i) => {
+      const isComment = line.trim().startsWith('//') || line.trim().startsWith('*') || line.trim().startsWith('/*');
+      if (isComment) {
+        return { 
+          lineNumber: i + 1, 
+          html: `<span class="text-[#94A3B8] italic">${line}</span>` 
+        };
+      }
+
+      // Simple highlight logic that avoids re-processing tags
+      let styled = line
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+      // Now apply styling to the escaped text
+      styled = styled
+        .replace(/\b(const|let|var|await|async|return|new|if|else|forEach|on)\b/g, '<span class="text-[#FF7A1A]">$1</span>')
+        .replace(/\b(fetch|subscribe|search|create|nti\.\w+)\b/g, '<span class="text-[#2F80FF]">$1</span>')
+        .replace(/&quot;([^&]*)&quot;/g, '<span class="text-amber-300">&quot;$1&quot;</span>')
+        .replace(/&#039;([^&]*)&#039;/g, '<span class="text-amber-300">&#039;$1&#039;</span>')
+        .replace(/\b(\d+)\b/g, '<span class="text-pink-400">$1</span>')
+        .replace(/\b(true|false|null)\b/g, '<span class="text-purple-400">$1</span>');
+
+      return { lineNumber: i + 1, html: styled };
+    });
+  };
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-12 border-t border-[rgba(255,255,255,0.06)]">
@@ -208,26 +244,21 @@ export default function APIInfrastructure() {
               {/* Code area */}
               <AnimatePresence mode="wait">
                 <motion.div key={activeTab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                  className="p-5 overflow-x-auto font-mono text-xs leading-relaxed max-h-96 overflow-y-auto">
-                  <pre className="text-[#E2E8F0]">
-                    {snippet.code.split('\n').map((line, i) => {
-                      const isComment = line.trim().startsWith('//') || line.trim().startsWith('*') || line.trim().startsWith('/*');
-                      const styled = isComment
-                        ? `<span class="text-[#94A3B8] italic">${line}</span>`
-                        : line
-                          .replace(/\b(const|let|var|await|async|return|new|if|else|forEach|on)\b/g, '<span class="text-[#FF7A1A]">$1</span>')
-                          .replace(/\b(fetch|subscribe|search|create|nti\.\w+)/g, '<span class="text-[#2F80FF]">$1</span>')
-                          .replace(/"([^"]*)"/g, '<span class="text-amber-300">"$1"</span>')
-                          .replace(/\b(\d+)\b/g, '<span class="text-pink-400">$1</span>')
-                          .replace(/\b(true|false|null)\b/g, '<span class="text-purple-400">$1</span>');
-                      return (
+                  className="p-5 overflow-x-auto font-mono text-xs leading-relaxed max-h-96 overflow-y-auto min-h-[300px]">
+                  {isMounted ? (
+                    <pre className="text-[#E2E8F0]">
+                      {highlightCode(snippet.code).map((line, i) => (
                         <div key={i} className="flex">
-                          <span className="select-none text-[#94A3B8]/40 pr-4 w-8 text-right shrink-0">{i + 1}</span>
-                          <span dangerouslySetInnerHTML={{ __html: styled }} />
+                          <span className="select-none text-[#94A3B8]/40 pr-4 w-8 text-right shrink-0">{line.lineNumber}</span>
+                          <span dangerouslySetInnerHTML={{ __html: line.html }} />
                         </div>
-                      );
-                    })}
-                  </pre>
+                      ))}
+                    </pre>
+                  ) : (
+                    <div className="flex items-center justify-center h-full text-[#94A3B8] font-mono text-[10px] uppercase tracking-widest animate-pulse">
+                      Initializing Terminal...
+                    </div>
+                  )}
                 </motion.div>
               </AnimatePresence>
 

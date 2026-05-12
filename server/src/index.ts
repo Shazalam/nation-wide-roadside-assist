@@ -18,6 +18,9 @@ import rvDispatchRoutes from './routes/rvDispatchRoutes';
 import commercialRecoveryRoutes from './modules/commercial-recovery/routes/commercialRecoveryRoutes';
 import insuranceRoutes from './modules/insurance-programs/routes/insuranceRoutes';
 import fleetOpsRoutes from './modules/fleet-operations/routes/fleetRoutes';
+import enterpriseDispatchRoutes from './modules/dispatch/routes/dispatchRoutes';
+import roadsideAssistanceRoutes from './modules/roadside-assistance/routes/roadsideRoutes';
+import heavyDutyRecoveryRoutes from './modules/heavy-duty-towing/routes/recoveryRoutes';
 
 // Middleware
 import { notFound, errorHandler } from './middleware/errorMiddleware';
@@ -56,6 +59,9 @@ app.use('/api/rv', rvDispatchRoutes);
 app.use('/api/recovery', commercialRecoveryRoutes);
 app.use('/api/insurance-programs', insuranceRoutes);
 app.use('/api/fleet-operations', fleetOpsRoutes);
+app.use('/api/enterprise-dispatch', enterpriseDispatchRoutes);
+app.use('/api/roadside-assistance', roadsideAssistanceRoutes);
+app.use('/api/heavy-duty-recovery', heavyDutyRecoveryRoutes);
 
 // Background Services: SLA Monitoring (Runs every 30 seconds)
 setInterval(async () => {

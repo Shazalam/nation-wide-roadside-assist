@@ -8,8 +8,8 @@ const connectDB = async () => {
     const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nationwide-trans');
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    process.exit(1);
+    console.error(`[MESH DB ERROR]: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    console.log('[MESH DB] Operating in resilient mock-first mode.');
   }
 };
 

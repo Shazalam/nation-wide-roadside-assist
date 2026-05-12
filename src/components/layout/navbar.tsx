@@ -46,7 +46,7 @@ const navItems = [
         title: "Enterprise",
         items: [
           { label: "Commercial Recovery", href: "/solutions/commercial-vehicle-recovery", icon: Wrench, desc: "Enterprise heavy-duty recovery" },
-          { label: "Dispatch Solutions", href: "/solutions/dispatch", icon: Zap, desc: "Mesh-driven logistics" }
+          { label: "Dispatch Solutions", href: "/solutions/enterprise-dispatch-solutions", icon: Zap, desc: "Mesh-driven logistics" }
         ]
       }
     ]
@@ -58,8 +58,8 @@ const navItems = [
       {
         title: "Response",
         items: [
-          { label: "Roadside Assistance", href: "/services/roadside", icon: Navigation, desc: "24/7 emergency support" },
-          { label: "Heavy-Duty Towing", href: "/services/towing", icon: Truck, desc: "Class 8 specialized" },
+          { label: "Roadside Assistance", href: "/services/roadside-assistance", icon: Navigation, desc: "24/7 emergency support" },
+          { label: "Heavy-Duty Towing", href: "/services/heavy-duty-towing", icon: Truck, desc: "Class 8 specialized" },
           { label: "Mobile Repairs", href: "/services/repairs", icon: Wrench, desc: "On-site mechanical" }
         ]
       },

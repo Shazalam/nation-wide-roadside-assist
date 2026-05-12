@@ -46,4 +46,4 @@ const FleetVehicleSchema: Schema = new Schema({
   metadata: { type: Schema.Types.Mixed, default: {} }
 }, { timestamps: true });
 
-export default mongoose.model<IFleetVehicle>('FleetVehicle', FleetVehicleSchema);
+export default mongoose.models.FleetVehicle || mongoose.model<IFleetVehicle & Document>('FleetVehicle', FleetVehicleSchema);
