@@ -1,12 +1,15 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IFleet extends Document {
-  owner: mongoose.Types.ObjectId;
+  enterpriseOwner: string; // e.g., 'Enterprise', 'Hertz', 'Penske'
   name: string;
-  type: 'towing_truck' | 'flatbed' | 'service_vehicle';
+  type: 'rental' | 'logistics' | 'commercial' | 'recovery';
+  subType: string; // e.g., 'Economy', 'Full-size', 'Freight-liner', 'Flatbed'
   licensePlate: string;
-  status: 'active' | 'maintenance' | 'out_of_service';
+  vin: string;
+  status: 'active' | 'maintenance' | 'out_of_service' | 'dispatched';
   currentLocation?: {
+    type: string;
     coordinates: [number, number];
     lastUpdated: Date;
   };
@@ -14,34 +17,41 @@ export interface IFleet extends Document {
     fuelLevel?: number;
     mileage?: number;
     batteryStatus?: string;
+    engineHealth?: number;
+    nextServiceDue?: Date;
   };
+  metadata: Map<string, any>;
 }
 
 const FleetSchema: Schema = new Schema({
-  owner: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  enterpriseOwner: { type: String, required: true, index: true },
   name: { type: String, required: true },
   type: { 
     type: String, 
-    enum: ['towing_truck', 'flatbed', 'service_vehicle'], 
+    enum: ['rental', 'logistics', 'commercial', 'recovery'], 
     required: true 
   },
+  subType: { type: String },
   licensePlate: { type: String, required: true, unique: true },
+  vin: { type: String, required: true, unique: true },
   status: { 
     type: String, 
-    enum: ['active', 'maintenance', 'out_of_service'], 
+    enum: ['active', 'maintenance', 'out_of_service', 'dispatched'], 
     default: 'active' 
   },
   currentLocation: {
-    coordinates: [Number],
+    type: { type: String, default: 'Point' },
+    coordinates: { type: [Number], index: '2dsphere' },
     lastUpdated: { type: Date, default: Date.now },
   },
   telemetry: {
     fuelLevel: Number,
     mileage: Number,
     batteryStatus: String,
+    engineHealth: { type: Number, min: 0, max: 100 },
+    nextServiceDue: Date,
   },
+  metadata: { type: Map, of: Schema.Types.Mixed, default: {} },
 }, { timestamps: true });
-
-FleetSchema.index({ 'currentLocation.coordinates': '2dsphere' });
 
 export default mongoose.model<IFleet>('Fleet', FleetSchema);
