@@ -7,15 +7,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/providers/auth-provider';
 import { Button } from '@/components/ui/button';
 import { GlassPanel } from '@/components/ui/glass-panel';
-import { 
-  ChevronDown, 
-  Menu, 
-  X, 
-  Shield, 
-  Zap, 
-  Globe, 
-  BarChart3, 
-  Cpu, 
+import {
+  ChevronDown,
+  Menu,
+  X,
+  Shield,
+  Zap,
+  Globe,
+  BarChart3,
+  Cpu,
   Terminal,
   ArrowRight,
   User,
@@ -37,15 +37,15 @@ const navItems = [
       {
         title: "Partnerships",
         items: [
-          { label: "Insurance Programs", href: "/solutions/insurance", icon: Shield, desc: "Direct claims integration" },
-          { label: "Fleet & Rental Operations", href: "/solutions/fleet", icon: Truck, desc: "Scale fleet management" },
-          { label: "RV & Camper Support", href: "/solutions/rv", icon: Globe, desc: "Specialized recovery" }
+          { label: "Insurance Programs", href: "/solutions/insurance-programs", icon: Shield, desc: "Direct claims integration" },
+          { label: "Fleet & Rental Operations", href: "/solutions/fleet-rental-operations", icon: Truck, desc: "Scale fleet management" },
+          { label: "RV & Camper Support", href: "/solutions/rv-camper-support", icon: Globe, desc: "Specialized recovery" }
         ]
       },
       {
         title: "Enterprise",
         items: [
-          { label: "Commercial Recovery", href: "/solutions/commercial", icon: Wrench, desc: "Heavy-duty networks" },
+          { label: "Commercial Recovery", href: "/solutions/commercial-vehicle-recovery", icon: Wrench, desc: "Enterprise heavy-duty recovery" },
           { label: "Dispatch Solutions", href: "/solutions/dispatch", icon: Zap, desc: "Mesh-driven logistics" }
         ]
       }
@@ -154,11 +154,11 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header 
+    <header
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-500",
-        scrolled 
-          ? "bg-brand-bg/60 backdrop-blur-xl border-b border-white/5 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)]" 
+        scrolled
+          ? "bg-brand-bg/60 backdrop-blur-xl border-b border-white/5 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
           : "bg-transparent py-6"
       )}
     >
@@ -177,7 +177,7 @@ export const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
-            <div 
+            <div
               key={item.label}
               onMouseEnter={() => setActiveMenu(item.label)}
               onMouseLeave={() => setActiveMenu(null)}
@@ -194,7 +194,7 @@ export const Navbar = () => {
                 )} />
                 {/* Active Underline */}
                 {activeMenu === item.label && (
-                  <motion.div 
+                  <motion.div
                     layoutId="nav-underline"
                     className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-blue shadow-[0_0_8px_rgba(47,128,255,0.8)]"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
@@ -220,7 +220,7 @@ export const Navbar = () => {
                           </h4>
                           <div className="space-y-4">
                             {column.items.map((subItem) => (
-                              <Link 
+                              <Link
                                 key={subItem.label}
                                 href={subItem.href}
                                 className="flex items-start gap-4 group/sub"
@@ -241,7 +241,7 @@ export const Navbar = () => {
                           </div>
                         </div>
                       ))}
-                      
+
                       {/* Featured Promo in Mega Menu */}
                       <div className="col-span-2 mt-4 pt-6 border-t border-white/5 flex items-center justify-between">
                         <div className="flex items-center gap-2">
@@ -295,7 +295,7 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="lg:hidden p-2 text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -320,8 +320,8 @@ export const Navbar = () => {
                   </h3>
                   <div className="grid grid-cols-2 gap-4">
                     {item.columns.flatMap(c => c.items).map((sub) => (
-                      <Link 
-                        key={sub.label} 
+                      <Link
+                        key={sub.label}
                         href={sub.href}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="flex items-center gap-3 text-sm font-bold text-brand-slate hover:text-white transition-colors"

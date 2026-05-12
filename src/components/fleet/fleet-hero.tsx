@@ -8,6 +8,7 @@ import { GlassPanel } from '@/components/ui/glass-panel';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { StatusIndicator } from '@/components/ui/status-indicator';
+import { useFleetStats } from '@/app/solutions/fleet-rental-operations/hooks/use-fleet-stats';
 
 const fleetUptimeData = [
   { name: 'Mon', uptime: 98.2 }, { name: 'Tue', uptime: 99.1 },
@@ -39,7 +40,16 @@ const fleetDots = [
 
 export const FleetHero = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const { stats } = useFleetStats();
+  
   useEffect(() => { setIsMounted(true); }, []);
+
+  const kpis = [
+    { label: 'Fleet Response Efficiency', val: stats?.slaCompliance ? `${stats.slaCompliance}%` : '99.2%', glow: 'from-brand-blue/20', icon: Shield },
+    { label: 'Fleet Dispatch Events', val: stats?.totalVehicles ? `${(stats.totalVehicles / 1000).toFixed(1)}k` : '4.8M+', glow: 'from-emerald-500/20', icon: BarChart3 },
+    { label: 'Nationwide Vendor Coverage', val: 'All 50 States', glow: 'from-brand-orange/20', icon: MapPin },
+    { label: '24/7 Operations Intelligence', val: 'Always On', glow: 'from-purple-500/20', icon: Clock },
+  ];
 
   return (
     <section className="relative pt-28 lg:pt-36 pb-20 lg:pb-28 z-10">
@@ -141,8 +151,8 @@ export const FleetHero = () => {
                     <StatusIndicator status="online" pulse label="Fleet Command Center" />
                   </div>
                   <div className="flex gap-2">
-                    <Badge variant="outline" className="text-[9px] border-white/10 hidden sm:flex">Active: 1,242</Badge>
-                    <Badge variant="outline" className="text-[9px] border-emerald-500/30 text-emerald-400 hidden md:flex">SLA: 99.4%</Badge>
+                    <Badge variant="outline" className="text-[9px] border-white/10 hidden sm:flex">Active: {stats?.totalVehicles?.toLocaleString() || '1,242'}</Badge>
+                    <Badge variant="outline" className="text-[9px] border-emerald-500/30 text-emerald-400 hidden md:flex">SLA: {stats?.slaCompliance || '99.4'}%</Badge>
                   </div>
                 </div>
 
@@ -284,10 +294,10 @@ export const FleetHero = () => {
                 {/* Bottom Stats Bar */}
                 <div className="grid grid-cols-4 divide-x divide-white/5 border-t border-white/5 bg-white/[0.01]">
                   {[
-                    { label: 'Active Fleet', val: '84.2k' },
-                    { label: 'Availability', val: '96.4%' },
-                    { label: 'Avg ETA', val: '18m' },
-                    { label: 'Live Incidents', val: '12' },
+                    { label: 'Active Fleet', val: stats?.totalVehicles ? `${(stats.totalVehicles / 1000).toFixed(1)}k` : '84.2k' },
+                    { label: 'Availability', val: stats?.fleetUtilization ? `${stats.fleetUtilization}%` : '96.4%' },
+                    { label: 'Avg ETA', val: stats?.avgResponseTime ? `${stats.avgResponseTime}m` : '18m' },
+                    { label: 'Live Incidents', val: stats?.activeIncidents || '12' },
                   ].map((stat, i) => (
                     <div key={i} className="p-3 text-center">
                       <p className="text-xs font-bold text-white">{stat.val}</p>
