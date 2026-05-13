@@ -2,73 +2,74 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Shield, Zap, Globe, ArrowRight } from 'lucide-react';
+import { ArrowRight, FileText } from 'lucide-react';
 
 export default function CTASection() {
   return (
-    <section className="py-40 bg-[#081120] relative overflow-hidden">
-      {/* Dynamic Background Accents */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[#2F80FF]/10 blur-[180px] rounded-full pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FF7A1A]/5 blur-[150px] rounded-full pointer-events-none" />
-      
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 text-center">
+    <section className="py-24 bg-[#081120] relative flex items-center justify-center px-4 sm:px-6 lg:px-12">
+      <div className="max-w-[1440px] w-full mx-auto relative z-10">
+        
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          transition={{ duration: 0.6 }}
+          className="relative bg-[#0A192F] border border-white/10 rounded-[20px] shadow-2xl flex flex-col lg:flex-row items-center justify-between p-8 lg:p-12 gap-8 lg:gap-16 overflow-hidden"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-12">
-            <Zap className="w-4 h-4 text-[#2F80FF]" />
-            <span className="text-[11px] font-bold text-[#2F80FF] uppercase tracking-[0.3em]">Operational Readiness</span>
+          {/* Real Globe Image Background */}
+          <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[60%] pointer-events-none flex items-center justify-end z-0">
+             
+             {/* Enhanced Outer Glow behind the globe */}
+             <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#2F80FF]/60 blur-[120px] rounded-full mix-blend-screen" />
+             <div className="absolute right-[10%] top-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#00C6FF]/40 blur-[80px] rounded-full mix-blend-screen" />
+             
+             {/* The Globe Image - Shifted Left and Full Opacity */}
+             <div className="relative w-[150%] h-[150%] md:w-[120%] md:h-[120%] lg:w-[130%] lg:h-[180%] translate-x-[10%] lg:translate-x-[15%] opacity-100 mix-blend-screen filter contrast-125 brightness-110">
+                <img 
+                  src="/images/globe-bg.png" 
+                  alt="Enterprise Network Globe"
+                  className="w-full h-full object-contain object-right object-center"
+                />
+             </div>
+             
+             {/* Dark Gradient Overlays for Seamless Blending */}
+             <div className="absolute inset-0 bg-gradient-to-r from-[#0A192F] via-[#0A192F]/60 to-transparent" />
+             <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-transparent to-[#0A192F] opacity-80" />
+             <div className="absolute inset-0 bg-gradient-to-l from-[#081120]/10 to-transparent" />
           </div>
-          
-          <h2 className="text-5xl lg:text-[5.5rem] font-black tracking-tighter text-white mb-12 leading-[1.1]">
-            Modernize Your Insurance <br />
-            <span className="bg-gradient-to-r from-[#2F80FF] via-[#00C6FF] to-[#2F80FF] bg-clip-text text-transparent">Roadside Operations.</span>
-          </h2>
-          
-          <p className="text-xl lg:text-2xl text-[#94A3B8] mb-16 leading-relaxed max-w-3xl mx-auto">
-            Connect with Nationwide Trans Inc. to streamline roadside dispatch, automate claims workflows, and improve enterprise mobility operations at scale.
-          </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-24">
+          {/* Left Content */}
+          <div className="relative z-10 flex-1 max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-3">
+              Modernize Your Insurance Roadside Operations Infrastructure
+            </h2>
+            <p className="text-[13px] md:text-sm text-[#94A3B8] leading-relaxed">
+              Connect with Nationwide Trans Inc. to streamline roadside dispatch, automate claims workflows, and improve enterprise mobility operations.
+            </p>
+          </div>
+
+          {/* Right Buttons */}
+          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 shrink-0">
             <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 0 60px rgba(47,128,255,0.5)' }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-12 py-6 bg-[#2F80FF] text-white rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center gap-4 group shadow-2xl shadow-blue-500/20"
+              className="w-full sm:w-auto px-6 py-3.5 bg-[#2F80FF] text-white rounded-lg font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group shadow-[0_0_20px_rgba(47,128,255,0.3)] hover:shadow-[0_0_30px_rgba(47,128,255,0.5)] transition-all"
             >
               Contact Enterprise Team
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.08)' }}
+              whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
               whileTap={{ scale: 0.98 }}
-              className="px-12 py-6 bg-transparent border border-white/10 text-white rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center gap-4 group"
+              className="w-full sm:w-auto px-6 py-3.5 bg-[#081120]/80 backdrop-blur-md border border-white/10 text-white rounded-lg font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group transition-colors"
             >
-              Request Capability Report <Shield className="w-5 h-5 text-[#2F80FF]" />
+              Request Capability Report 
+              <FileText className="w-4 h-4 text-white/70" />
             </motion.button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-4xl mx-auto pt-20 border-t border-white/5">
-             {[
-               { label: 'Integration SLA', val: '99.9%' },
-               { label: 'Network Redundancy', val: 'x3 Multi-Node' },
-               { label: 'Compliance Tier', val: 'SOC 2 Type II' },
-               { label: 'Deployment Time', val: '2-4 Weeks' }
-             ].map((stat, i) => (
-               <div key={i} className="text-center">
-                  <div className="text-2xl font-black text-white font-mono mb-2">{stat.val}</div>
-                  <div className="text-[10px] text-[#94A3B8] uppercase tracking-[0.2em] font-bold">{stat.label}</div>
-               </div>
-             ))}
-          </div>
         </motion.div>
       </div>
-
-      {/* Decorative Bottom Background */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2F80FF]/30 to-transparent" />
     </section>
   );
 }

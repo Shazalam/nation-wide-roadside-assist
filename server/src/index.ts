@@ -21,6 +21,16 @@ import fleetOpsRoutes from './modules/fleet-operations/routes/fleetRoutes';
 import enterpriseDispatchRoutes from './modules/dispatch/routes/dispatchRoutes';
 import roadsideAssistanceRoutes from './modules/roadside-assistance/routes/roadsideRoutes';
 import heavyDutyRecoveryRoutes from './modules/heavy-duty-towing/routes/recoveryRoutes';
+import mobileRepairRoutes from './modules/mobile-repairs/routes/repairRoutes';
+import recoveryWinchoutRoutes from './modules/recovery-winchouts/routes/recoveryRoutes';
+import tripContinuationRoutes from './modules/trip-continuation/routes/continuation.routes';
+import vendorCoordinationRoutes from './modules/vendor-coordination/routes/vendor.routes';
+import companyContactRoutes from './modules/company-contact/routes/contact.routes';
+import dispatchCenterRoutes from './modules/dispatch-center/routes/dispatch.routes';
+import vendorNetworkRoutes from './modules/vendor-network/routes/vendor.routes';
+import callCenterRoutes from './modules/call-center-operations/routes/callCenter.routes';
+import escalationRoutes from './modules/escalation-workflows/routes/escalation.routes';
+import slaRoutes from './modules/sla-management/routes/sla.routes';
 
 // Middleware
 import { notFound, errorHandler } from './middleware/errorMiddleware';
@@ -56,12 +66,22 @@ app.use('/api/audit', auditRoutes);
 app.use('/api/webhooks', webhookRoutes);
 app.use('/api/fleets', fleetRoutes);
 app.use('/api/rv', rvDispatchRoutes);
-app.use('/api/recovery', commercialRecoveryRoutes);
-app.use('/api/insurance-programs', insuranceRoutes);
-app.use('/api/fleet-operations', fleetOpsRoutes);
+app.use('/api/commercial-recovery', commercialRecoveryRoutes);
+app.use('/api/insurance', insuranceRoutes);
+app.use('/api/fleet-ops', fleetOpsRoutes);
 app.use('/api/enterprise-dispatch', enterpriseDispatchRoutes);
 app.use('/api/roadside-assistance', roadsideAssistanceRoutes);
-app.use('/api/heavy-duty-recovery', heavyDutyRecoveryRoutes);
+app.use('/api/heavy-duty-towing', heavyDutyRecoveryRoutes);
+app.use('/api/mobile-repairs', mobileRepairRoutes);
+app.use('/api/recovery-winchouts', recoveryWinchoutRoutes);
+app.use('/api/trip-continuation', tripContinuationRoutes);
+app.use('/api/vendor-coordination', vendorCoordinationRoutes);
+app.use('/api/company', companyContactRoutes);
+app.use('/api/dispatch', dispatchCenterRoutes);
+app.use('/api/vendor-network', vendorNetworkRoutes);
+app.use('/api/call-center', callCenterRoutes);
+app.use('/api/escalations', escalationRoutes);
+app.use('/api/sla', slaRoutes);
 
 // Background Services: SLA Monitoring (Runs every 30 seconds)
 setInterval(async () => {

@@ -20,15 +20,15 @@ const footerLinks = [
     links: [
       { name: 'Roadside Assistance', href: '/services/roadside-assistance' },
       { name: 'Heavy-Duty Towing', href: '/services/heavy-duty-towing' },
-      { name: 'Winch-Out Events', href: '#' },
-      { name: 'Mobile Mechanic', href: '#' },
+      { name: 'Recovery & Winch-outs', href: '/services/recovery-winchouts' },
+      { name: 'Mobile Repairs', href: '/services/mobile-repairs' },
       { name: 'Tire Change Assistance', href: '#' },
     ]
   },
   {
     title: 'Operations',
     links: [
-      { name: '24/7 Dispatch Center', href: '#' },
+      { name: '24/7 Dispatch Center', href: '/operations/24-7-dispatch-center' },
       { name: 'Vendor Network', href: '#' },
       { name: 'SLA Management', href: '#' },
       { name: 'Fleet Support', href: '#' },
@@ -49,33 +49,48 @@ const footerLinks = [
 
 export const EnterpriseFooter = () => {
   return (
-    <footer className="bg-[#0A192F] border-t border-white/5 pt-32 pb-12 relative z-10">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-16 mb-24">
-          <div className="lg:col-span-2 space-y-8">
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 bg-brand-blue rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(47,128,255,0.4)]">
-                <Shield className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-xl font-black tracking-tighter text-white">NATIONWIDE <span className="text-brand-blue">TRANS INC.</span></span>
-            </div>
-            <p className="text-[#94A3B8] text-sm leading-relaxed max-w-xs font-medium">
+    <footer className="bg-[#081120] border-t border-white/5 py-12 relative z-10 overflow-hidden">
+      {/* Subtle Ambient Glow */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#2F80FF]/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2" />
+      
+      <div className="container mx-auto px-6 lg:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
+          
+          {/* Brand Section */}
+          <div className="lg:col-span-2 space-y-6 relative z-10">
+            <Link href="/" className="flex items-center gap-3 group inline-flex">
+               <div className="flex items-center italic font-black text-2xl tracking-tighter mr-1">
+                  <span className="text-white">N</span>
+                  <span className="text-[#2F80FF]">T</span>
+               </div>
+               <div className="flex flex-col">
+                  <span className="text-white font-bold text-[13px] leading-tight tracking-wide group-hover:text-white/80 transition-colors">
+                     NATIONWIDE<br/>TRANS INC.
+                  </span>
+               </div>
+            </Link>
+            
+            <p className="text-[#94A3B8] text-[15px] leading-7 max-w-[320px] font-medium">
               Building the mission-critical infrastructure for the nationwide enterprise heavy-duty recovery economy.
             </p>
-            <div className="flex gap-6">
-              <Link href="#" className="text-[#94A3B8] hover:text-white transition-colors"><Globe className="h-5 w-5" /></Link>
-              <Link href="#" className="text-[#94A3B8] hover:text-white transition-colors"><Share2 className="h-5 w-5" /></Link>
-              <Link href="#" className="text-[#94A3B8] hover:text-white transition-colors"><Activity className="h-5 w-5" /></Link>
+            
+            <div className="flex gap-3">
+              {[Globe, Share2, Activity].map((Icon, i) => (
+                <Link key={i} href="#" className="h-10 w-10 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:text-[#2F80FF] hover:bg-[#2F80FF]/10 transition-colors group shadow-sm">
+                  <Icon className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                </Link>
+              ))}
             </div>
           </div>
 
+          {/* Links Columns */}
           {footerLinks.map((group) => (
-            <div key={group.title} className="space-y-8">
-              <h4 className="text-[10px] font-black text-white uppercase tracking-[0.3em]">{group.title}</h4>
-              <ul className="space-y-4">
+            <div key={group.title} className="space-y-5 relative z-10">
+              <h4 className="text-xs font-bold text-white uppercase tracking-[0.22em]">{group.title}</h4>
+              <ul className="space-y-3">
                 {group.links.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-[#94A3B8] text-[13px] font-medium hover:text-brand-blue transition-colors flex items-center gap-2 group">
+                    <Link href={link.href} className="text-[#94A3B8] text-sm font-medium hover:text-[#2F80FF] transition-colors flex items-center gap-2 group">
                       {link.name}
                       {link.href === '#' && <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-50 transition-opacity" />}
                     </Link>
@@ -86,23 +101,26 @@ export const EnterpriseFooter = () => {
           ))}
         </div>
 
-        <div className="pt-12 border-t border-white/5 flex flex-col md:row items-center justify-between gap-8">
-          <div className="flex flex-wrap justify-center gap-8 text-[11px] font-bold text-[#94A3B8] uppercase tracking-widest">
+        {/* Bottom Legal & Status Row */}
+        <div className="py-5 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-4 relative z-10">
+          
+          <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-xs font-mono text-[#94A3B8]">
+            <span className="text-white/40">© {new Date().getFullYear()} NTI</span>
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="#" className="hover:text-white transition-colors">Cookie Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">SLA Agreement</Link>
           </div>
           
-          <div className="flex items-center gap-6">
-             <div className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-                <div className="h-2 w-2 bg-emerald-500 rounded-full animate-pulse" />
-                <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest">System Operational</span>
+          <div className="flex items-center gap-5">
+             <span className="text-xs text-[#94A3B8] font-mono">ISO 27001 Certified</span>
+             <div className="h-3 w-px bg-white/10" />
+             <div className="flex items-center gap-2 bg-[#2F80FF]/5 px-3 py-1.5 rounded-full border border-[#2F80FF]/10">
+                <div className="h-1.5 w-1.5 bg-emerald-500 rounded-full animate-pulse" />
+                <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Operational</span>
              </div>
-             <p className="text-[11px] font-bold text-[#94A3B8] uppercase tracking-widest opacity-40">
-               © 2026 Nationwide Trans Inc. All rights reserved.
-             </p>
           </div>
+
         </div>
       </div>
     </footer>

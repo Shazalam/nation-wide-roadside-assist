@@ -96,11 +96,11 @@ export default function APIInfrastructure() {
               ))}
             </div>
 
-            <div className="flex gap-6 pt-4">
-              <button className="px-8 py-4 bg-[#2F80FF] text-white rounded-2xl font-bold text-[11px] uppercase tracking-widest hover:shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4">
+              <button className="w-full sm:w-auto px-8 py-4 bg-[#2F80FF] text-white rounded-2xl font-bold text-[11px] uppercase tracking-widest hover:shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all flex items-center justify-center gap-3">
                 Explore API Docs <ArrowRight className="w-4 h-4" />
               </button>
-              <button className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-bold text-[11px] uppercase tracking-widest hover:bg-white/10 transition-all">
+              <button className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-bold text-[11px] uppercase tracking-widest hover:bg-white/10 transition-all">
                 Request API Key
               </button>
             </div>
@@ -113,8 +113,8 @@ export default function APIInfrastructure() {
 
             <div className="relative bg-[#081120] rounded-[2.5rem] border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
               {/* Terminal Header */}
-              <div className="bg-[#0A192F] px-8 py-6 border-b border-white/5 flex items-center justify-between">
-                <div className="flex items-center gap-8">
+              <div className="bg-[#0A192F] px-4 md:px-8 py-4 md:py-6 border-b border-white/5 flex items-center justify-between">
+                <div className="flex items-center gap-4 md:gap-8 overflow-x-auto no-scrollbar pr-4">
                   {(['dispatch', 'claims', 'webhooks'] as const).map(t => (
                     <button
                       key={t}
@@ -141,14 +141,14 @@ export default function APIInfrastructure() {
               </div>
 
               {/* Code Area */}
-              <div className="p-10 h-[450px] overflow-auto font-mono text-[14px] leading-relaxed no-scrollbar bg-[#081120]">
+              <div className="p-6 md:p-10 h-[350px] md:h-[450px] overflow-auto font-mono text-[12px] md:text-[14px] leading-relaxed no-scrollbar bg-[#081120]">
                 <pre className="text-white/90">
                   <code>{apiExamples[activeTab]}</code>
                 </pre>
               </div>
 
               {/* Terminal Footer */}
-              <div className="bg-[#0A192F]/50 px-8 py-4 border-t border-white/5 flex items-center justify-between">
+              <div className="bg-[#0A192F]/50 px-4 md:px-8 py-4 border-t border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-widest font-bold">API v1.4.2 // Latency: 24ms</span>

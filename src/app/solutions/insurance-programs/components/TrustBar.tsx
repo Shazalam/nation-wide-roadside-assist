@@ -21,59 +21,91 @@ const compliance = [
 ];
 
 export default function TrustBar() {
+  // We duplicate the array multiple times to ensure it fills the screen width easily
+  const marqueeItems = [...partners, ...partners, ...partners, ...partners];
+
   return (
-    <section className="relative py-14 border-y border-white/5 bg-[#0A192F]/40 backdrop-blur-sm overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
-          
-          {/* Logo Section */}
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 flex-1">
-            <div className="text-[11px] font-black text-[#94A3B8] uppercase tracking-[0.3em] whitespace-nowrap opacity-60">
-              Trusted by the World's Leading Organizations
-            </div>
-            
-            <div className="flex flex-wrap justify-center lg:justify-between items-center gap-10 lg:gap-16">
-              {partners.map((p) => (
-                <motion.div 
-                  key={p.name}
-                  whileHover={{ opacity: 1, scale: 1.05 }}
-                  className="text-2xl font-black text-white/30 transition-all cursor-default select-none tracking-tighter hover:text-white/70"
-                >
-                  {p.logo}
-                </motion.div>
-              ))}
-            </div>
-          </div>
+    <section className="relative h-[140px] md:h-[160px] lg:h-[180px] border-y border-white/5 bg-[#081120] overflow-hidden flex flex-col justify-center">
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+        .animate-marquee:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
 
-          <div className="h-10 w-[1px] bg-white/10 hidden lg:block" />
-
-          {/* Compliance Section */}
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            <div className="text-[11px] font-black text-[#94A3B8] uppercase tracking-[0.3em] opacity-60">
-              Enterprise-Grade Compliance
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              {compliance.map((c, i) => {
-                const Icon = c.icon;
-                return (
-                  <motion.div
-                    key={i}
-                    whileHover={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/5 transition-colors"
-                  >
-                    <Icon className="w-3.5 h-3.5 text-[#2F80FF]" />
-                    <span className="text-[10px] font-bold text-white uppercase tracking-widest">{c.label}</span>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-        </div>
-      </div>
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(47,128,255,0.05)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.02] pointer-events-none" />
       
-      {/* Background Accent Line */}
-      <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-y-1/2" />
+      {/* Edge Fades for Marquee */}
+      <div className="absolute left-0 top-0 w-16 md:w-32 h-full bg-gradient-to-r from-[#081120] to-transparent z-20 pointer-events-none" />
+      <div className="absolute right-0 top-0 w-16 md:w-32 h-full bg-gradient-to-l from-[#081120] to-transparent z-20 pointer-events-none" />
+      
+      {/* Animated Telemetry Particles */}
+      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+        <motion.div
+          animate={{ x: ['-100vw', '100vw'] }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-[30%] left-0 w-[40vw] h-[1px] bg-gradient-to-r from-transparent via-[#2F80FF]/60 to-transparent"
+        />
+        <motion.div
+          animate={{ x: ['100vw', '-100vw'] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          className="absolute bottom-[30%] right-0 w-[30vw] h-[1px] bg-gradient-to-l from-transparent via-emerald-500/40 to-transparent"
+        />
+      </div>
+
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 w-full relative z-10 flex flex-col gap-6 md:gap-8">
+        
+        {/* Top Header Row */}
+        <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 md:gap-8">
+          <div className="text-[10px] md:text-[11px] font-bold text-[#94A3B8] font-mono tracking-[0.2em] uppercase shrink-0">
+            Trusted By The World's Leading Organizations
+          </div>
+          
+          <div className="hidden md:block flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#2F80FF]/30 to-transparent" />
+          
+          <div className="flex items-center gap-3 md:gap-4 flex-wrap justify-center shrink-0">
+            <span className="hidden xl:block text-[10px] font-bold text-[#94A3B8] font-mono tracking-[0.2em] uppercase mr-2">
+              Enterprise-Grade Compliance
+            </span>
+            {compliance.map((c, i) => {
+              const Icon = c.icon;
+              return (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0A192F]/50 border border-white/10 hover:border-[#2F80FF]/50 hover:bg-[#2F80FF]/10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_20px_rgba(47,128,255,0.15)] transition-all duration-300 group cursor-default backdrop-blur-md"
+                >
+                  <Icon className="w-3.5 h-3.5 text-[#2F80FF] group-hover:drop-shadow-[0_0_8px_rgba(47,128,255,0.8)] transition-all" />
+                  <span className="text-[9px] font-bold text-white uppercase tracking-widest">{c.label}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Infinite Logo Marquee */}
+        <div className="relative w-full flex items-center overflow-hidden">
+          <div className="flex items-center whitespace-nowrap animate-marquee w-max">
+            {marqueeItems.map((p, i) => (
+              <div key={i} className="flex items-center">
+                <div className="px-10 md:px-14 lg:px-16 text-2xl md:text-3xl font-black text-[#94A3B8]/40 hover:text-white transition-all duration-300 cursor-default select-none tracking-tighter filter grayscale hover:grayscale-0 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+                  {p.logo}
+                </div>
+                {/* Glowing Separator Dot */}
+                <div className="w-1.5 h-1.5 rounded-full bg-[#2F80FF]/20 shadow-[0_0_10px_rgba(47,128,255,0.4)]" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </section>
   );
 }
