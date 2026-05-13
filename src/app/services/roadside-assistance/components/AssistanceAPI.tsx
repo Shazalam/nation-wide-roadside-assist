@@ -116,6 +116,7 @@ export const AssistanceAPI = () => {
                         <button 
                           key={t}
                           onClick={() => setActiveTab(t)}
+                          suppressHydrationWarning
                           className={`text-[11px] font-mono font-bold uppercase tracking-widest transition-colors relative ${
                             activeTab === t ? 'text-brand-blue' : 'text-[#94A3B8] hover:text-white'
                           }`}
@@ -127,7 +128,7 @@ export const AssistanceAPI = () => {
                         </button>
                       ))}
                    </div>
-                   <button onClick={handleCopy} className="text-[#94A3B8] hover:text-white transition-colors">
+                   <button onClick={handleCopy} suppressHydrationWarning className="text-[#94A3B8] hover:text-white transition-colors">
                       {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
                    </button>
                 </div>

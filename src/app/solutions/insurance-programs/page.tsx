@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSection from './components/HeroSection';
+import MarketIntelligence from './components/MarketIntelligence';
 import TrustBar from './components/TrustBar';
 import CapabilitiesGrid from './components/CapabilitiesGrid';
 import TechShowcase from './components/TechShowcase';
@@ -21,6 +22,7 @@ export default function InsuranceProgramsPage() {
       <Navbar />
       
       <HeroSection />
+      <MarketIntelligence />
       <TrustBar />
       <CapabilitiesGrid />
       <TechShowcase />

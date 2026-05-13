@@ -3,122 +3,284 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  AppWindow, Cpu, Code2, Shield, 
-  ChevronRight, Zap, Globe, Activity 
+  Tag, BrainCircuit, Code2, Shield, 
+  ArrowRight, CheckCircle, AlertTriangle, 
+  Cloud, Database, CreditCard, Users, Zap
 } from 'lucide-react';
-
-const capabilities = [
-  {
-    title: 'White-Label Roadside Operations',
-    description: 'Deliver seamless branded roadside experiences integrated directly into your insurance ecosystem. Total control over member interaction and service delivery.',
-    icon: AppWindow,
-    stats: '100% Brand Control',
-    features: ['Custom Mobile Apps', 'Branded Dispatch Portals', 'Member SMS Tracking'],
-    color: '#2F80FF',
-  },
-  {
-    title: 'Claims & Dispatch Intelligence',
-    description: 'Automated dispatch orchestration and intelligent escalation systems designed for enterprise roadside efficiency. SLA-driven routing logic.',
-    icon: Cpu,
-    stats: '97.8% SLA Match',
-    features: ['AI-Driven Vendor Routing', 'Predictive ETA Logic', 'Fraud Detection Mesh'],
-    color: '#FF7A1A',
-  },
-  {
-    title: 'API-Driven Integrations',
-    description: 'Integrate roadside workflows directly into policy systems, claims infrastructure, and mobility platforms via our enterprise developer ecosystem.',
-    icon: Code2,
-    stats: '24ms Response Time',
-    features: ['Claims Lifecycle APIs', 'Real-time Webhooks', 'Secure OAuth 2.0 Auth'],
-    color: '#2F80FF',
-  },
-];
 
 export default function CapabilitiesGrid() {
   return (
     <section className="py-32 bg-[#081120] relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+      {/* Background Ambience */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#2F80FF]/10 blur-[150px] rounded-full pointer-events-none" />
+      
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         
-        <div className="text-center max-w-3xl mx-auto mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
+        {/* Header Section */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6"
+          >
             <Shield className="w-3.5 h-3.5 text-[#2F80FF]" />
-            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Enterprise Core Capabilities</span>
-          </div>
-          <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-white mb-8">
+            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-[0.2em]">Insurance Infrastructure Platform</span>
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl lg:text-5xl font-black tracking-tight text-white mb-6"
+          >
             Engineered for Modern Insurance Operations
-          </h2>
-          <p className="text-[#94A3B8] text-xl leading-relaxed">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-[#94A3B8] text-lg leading-relaxed max-w-2xl mx-auto"
+          >
             Our platform provides the infrastructure needed to modernize roadside claims, improve loss ratios, and elevate member satisfaction at scale.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {capabilities.map((cap, i) => {
-            const Icon = cap.icon;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="group relative h-full"
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          
+          {/* Card 1: White-Label */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="group relative bg-[#0A192F] border border-white/10 rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            {/* Left Content Area */}
+            <div className="flex-1 flex flex-col w-full h-full relative z-10 justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2F80FF]/20 to-transparent border border-[#2F80FF]/30 flex items-center justify-center shrink-0">
+                  <Tag className="w-5 h-5 text-[#2F80FF]" />
+                </div>
+                <h3 className="text-lg font-bold text-white leading-snug">
+                  White-Label<br/>Operations
+                </h3>
+              </div>
+              <p className="text-[13px] text-[#94A3B8] leading-relaxed mb-6">
+                Deliver seamless branded roadside experiences integrated directly into your insurance ecosystem.
+              </p>
+              <button className="mt-auto self-start px-4 py-2 rounded-xl border border-[#2F80FF]/30 text-[#2F80FF] text-[10px] font-bold uppercase tracking-widest hover:bg-[#2F80FF]/10 transition-colors flex items-center gap-2 group/btn">
+                Learn More <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            {/* Visual Area */}
+            <div className="flex-1 relative h-[250px] w-full flex items-center justify-center mt-6 lg:mt-0 pointer-events-none overflow-visible">
+              <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[220px] h-[80px] border border-[#2F80FF]/20 rounded-[100%] rotate-x-60 opacity-50" />
+              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[140px] h-[40px] border border-[#2F80FF]/30 rounded-[100%] rotate-x-60 opacity-80 shadow-[0_0_30px_rgba(47,128,255,0.4)]" />
+              
+              <motion.div 
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute right-0 top-6 w-36 h-24 bg-[#081120]/80 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl p-2.5 transform perspective-1000 rotate-y-[-15deg] rotate-x-[5deg]"
               >
-                {/* Outer Glow Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[2.5rem] blur-2xl -z-10" />
-                
-                <div className="relative bg-[#0A192F]/60 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-10 h-full flex flex-col hover:border-[#2F80FF]/40 transition-all duration-500 shadow-2xl">
-                  {/* Icon & Meta Row */}
-                  <div className="flex justify-between items-start mb-10">
-                    <div className="p-5 rounded-2xl bg-[#081120] border border-white/5 group-hover:bg-[#2F80FF] group-hover:border-[#2F80FF] group-hover:text-white transition-all duration-500">
-                      <Icon className="w-10 h-10 text-[#2F80FF] group-hover:text-white transition-colors" />
-                    </div>
-                    <div className="text-right">
-                       <div className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-widest mb-1">Infrastructure Metric</div>
-                       <div className="text-lg font-black text-white font-mono">{cap.stats}</div>
-                    </div>
+                <div className="flex gap-1.5 mb-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-500/50" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-500/50" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-500/50" />
+                </div>
+                <div className="w-1/2 h-1 bg-white/10 rounded mb-3" />
+                <div className="flex gap-2">
+                  <div className="w-8 h-8 rounded-full border-2 border-[#2F80FF]/40 border-t-[#2F80FF]" />
+                  <div className="flex-1 space-y-1.5 pt-1">
+                    <div className="w-full h-1 bg-white/10 rounded" />
+                    <div className="w-2/3 h-1 bg-white/10 rounded" />
+                    <div className="w-4/5 h-1 bg-[#2F80FF]/40 rounded" />
                   </div>
-
-                  {/* Content */}
-                  <h3 className="text-2xl font-black text-white mb-6 group-hover:text-[#2F80FF] transition-colors">
-                    {cap.title}
-                  </h3>
-                  <p className="text-[#94A3B8] text-sm leading-relaxed mb-10 flex-grow">
-                    {cap.description}
-                  </p>
-
-                  {/* Feature Tags */}
-                  <div className="space-y-4 mb-10">
-                    {cap.features.map((feat, fi) => (
-                      <div key={fi} className="flex items-center gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#2F80FF]" />
-                        <span className="text-[11px] font-bold text-white/70 uppercase tracking-widest">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <button className="w-full py-5 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/10 transition-all flex items-center justify-center gap-2 group/btn">
-                    Explore Capabilities <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
                 </div>
               </motion.div>
-            );
-          })}
-        </div>
 
-        {/* Floating background stats */}
-        <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-8 opacity-40">
-           {[
-             { label: 'System Uptime', val: '99.99%' },
-             { label: 'Dispatch Latency', val: '< 18s' },
-             { label: 'Claims Sync', val: 'Real-time' },
-             { label: 'Global Coverage', val: '100%' }
-           ].map((s, i) => (
-             <div key={i} className="text-center py-6 border-r border-white/5 last:border-0">
-                <div className="text-2xl font-black text-white font-mono">{s.val}</div>
-                <div className="text-[10px] text-[#94A3B8] uppercase tracking-[0.2em] mt-2">{s.label}</div>
-             </div>
-           ))}
+              <motion.div 
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                className="absolute left-2 bottom-4 w-20 h-36 bg-[#0A192F] border-4 border-[#081120] rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col"
+              >
+                <div className="bg-[#2F80FF] h-8 w-full flex items-center justify-center">
+                  <div className="w-6 h-1 bg-white/30 rounded-full" />
+                </div>
+                <div className="p-2 space-y-2 flex-1">
+                  <div className="w-full h-12 bg-[#2F80FF]/10 rounded-lg flex items-center justify-center border border-[#2F80FF]/20">
+                    <div className="w-4 h-4 rounded-full bg-[#2F80FF]/40 animate-pulse" />
+                  </div>
+                  <div className="w-3/4 h-1 bg-white/10 rounded" />
+                  <div className="w-1/2 h-1 bg-white/10 rounded" />
+                </div>
+              </motion.div>
+              
+              <div className="absolute bottom-[10%] left-[20%] w-1.5 h-1.5 rounded-full bg-[#2F80FF] shadow-[0_0_15px_#2F80FF]" />
+              <div className="absolute bottom-[30%] right-[20%] w-1 h-1 rounded-full bg-[#FF7A1A] shadow-[0_0_15px_#FF7A1A]" />
+            </div>
+          </motion.div>
+
+          {/* Card 2: Claims & Dispatch */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="group relative bg-[#0A192F] border border-white/10 rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            {/* Left Content Area */}
+            <div className="flex-1 flex flex-col w-full h-full relative z-10 justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2F80FF]/20 to-transparent border border-[#2F80FF]/30 flex items-center justify-center shrink-0">
+                  <BrainCircuit className="w-5 h-5 text-[#2F80FF]" />
+                </div>
+                <h3 className="text-lg font-bold text-white leading-snug">
+                  Dispatch<br/>Intelligence
+                </h3>
+              </div>
+              <p className="text-[13px] text-[#94A3B8] leading-relaxed mb-6">
+                Automated dispatch orchestration and intelligent escalation systems designed for enterprise roadside efficiency.
+              </p>
+              <button className="mt-auto self-start px-4 py-2 rounded-xl border border-[#2F80FF]/30 text-[#2F80FF] text-[10px] font-bold uppercase tracking-widest hover:bg-[#2F80FF]/10 transition-colors flex items-center gap-2 group/btn">
+                Learn More <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            <div className="flex-1 relative h-[250px] w-full flex items-center justify-center mt-6 lg:mt-0 pointer-events-none overflow-visible">
+              <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 300 200">
+                <path d="M50,100 Q100,50 150,100 T250,100" fill="none" stroke="#2F80FF" strokeWidth="1" strokeDasharray="4" />
+                <path d="M50,150 Q100,100 150,150 T250,150" fill="none" stroke="#2F80FF" strokeWidth="1" strokeDasharray="4" />
+                <circle cx="150" cy="100" r="3" fill="#2F80FF" />
+                <circle cx="200" cy="100" r="2" fill="#FF7A1A" />
+                <circle cx="100" cy="150" r="2" fill="#2F80FF" />
+              </svg>
+
+              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[180px] h-[60px] border border-white/5 rounded-[100%] rotate-x-60" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-[30px] border border-[#2F80FF]/30 rounded-[100%] rotate-x-60 shadow-[0_0_20px_rgba(47,128,255,0.3)]" />
+
+              <div className="absolute right-0 top-4 w-[140px] space-y-2 z-20">
+                <motion.div 
+                  animate={{ x: [0, -3, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  className="flex items-center gap-2 px-2.5 py-1.5 bg-[#081120]/90 border border-emerald-500/30 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] backdrop-blur-md"
+                >
+                  <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" />
+                  <span className="text-[8px] text-white font-medium leading-tight">AI Routing<br/>Optimal</span>
+                </motion.div>
+                
+                <motion.div 
+                  animate={{ x: [0, -5, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                  className="flex items-center gap-2 px-2.5 py-1.5 bg-[#081120]/90 border border-[#2F80FF]/30 rounded-xl shadow-[0_0_15px_rgba(47,128,255,0.15)] backdrop-blur-md ml-3"
+                >
+                  <Shield className="w-3 h-3 text-[#2F80FF] shrink-0" />
+                  <span className="text-[8px] text-white font-medium leading-tight">SLA Sync<br/>97.8%</span>
+                </motion.div>
+
+                <motion.div 
+                  animate={{ x: [0, -3, 0] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+                  className="flex items-center gap-2 px-2.5 py-1.5 bg-[#081120]/90 border border-[#FF7A1A]/30 rounded-xl shadow-[0_0_15px_rgba(255,122,26,0.15)] backdrop-blur-md ml-6"
+                >
+                  <AlertTriangle className="w-3 h-3 text-[#FF7A1A] shrink-0" />
+                  <span className="text-[8px] text-white font-medium leading-tight">Risk Level<br/>Low</span>
+                </motion.div>
+              </div>
+
+              <div className="absolute bottom-[20%] left-[30%]">
+                 <div className="relative">
+                    <div className="w-8 h-8 rounded-full bg-[#2F80FF]/20 animate-ping absolute inset-0" />
+                    <div className="w-8 h-8 rounded-full bg-[#2F80FF] shadow-[0_0_30px_#2F80FF] flex items-center justify-center relative z-10 border-2 border-white/20">
+                       <Zap className="w-3.5 h-3.5 text-white" />
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 3: API-Driven */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="group relative bg-[#0A192F] border border-white/10 rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            {/* Left Content Area */}
+            <div className="flex-1 flex flex-col w-full h-full relative z-10 justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2F80FF]/20 to-transparent border border-[#2F80FF]/30 flex items-center justify-center shrink-0">
+                  <Code2 className="w-5 h-5 text-[#2F80FF]" />
+                </div>
+                <h3 className="text-lg font-bold text-white leading-snug">
+                  API-Driven<br/>Integrations
+                </h3>
+              </div>
+              <p className="text-[13px] text-[#94A3B8] leading-relaxed mb-6">
+                Integrate workflows directly into policy systems, claims infrastructure, and mobility platforms.
+              </p>
+              <button className="mt-auto self-start px-4 py-2 rounded-xl border border-[#2F80FF]/30 text-[#2F80FF] text-[10px] font-bold uppercase tracking-widest hover:bg-[#2F80FF]/10 transition-colors flex items-center gap-2 group/btn">
+                Learn More <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            <div className="flex-1 relative h-[250px] w-full flex items-center mt-6 lg:mt-0 pointer-events-none overflow-visible">
+              <div className="absolute bottom-[0%] left-[30%] -translate-x-1/2 w-[140px] h-[50px] border border-[#2F80FF]/20 rounded-[100%] rotate-x-60" />
+              <div className="absolute bottom-[5%] left-[30%] -translate-x-1/2 w-[90px] h-[30px] border border-[#2F80FF]/40 rounded-[100%] rotate-x-60 shadow-[0_0_20px_rgba(47,128,255,0.4)]" />
+
+              <div className="absolute bottom-[15%] left-[30%] -translate-x-1/2 flex items-center justify-center">
+                <div className="absolute w-14 h-14 rounded-full bg-[#2F80FF]/10 animate-ping" />
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0A192F] to-[#081120] border border-[#2F80FF] shadow-[0_0_30px_rgba(47,128,255,0.5)] flex items-center justify-center relative z-20">
+                  <span className="text-[#2F80FF] font-black text-xs tracking-wider">API</span>
+                </div>
+              </div>
+
+              <div className="absolute top-[10%] left-[30%] -translate-x-1/2">
+                 <Cloud className="w-8 h-8 text-[#2F80FF]/40 drop-shadow-[0_0_10px_rgba(47,128,255,0.5)]" />
+                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-8 bg-gradient-to-b from-[#2F80FF]/50 to-transparent" />
+              </div>
+
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 250" preserveAspectRatio="none" style={{ zIndex: 10 }}>
+                <path d="M80,200 Q140,200 180,60" fill="none" stroke="rgba(47,128,255,0.3)" strokeWidth="1" />
+                <path d="M80,200 Q140,200 180,110" fill="none" stroke="rgba(47,128,255,0.3)" strokeWidth="1" />
+                <path d="M80,200 Q140,200 180,160" fill="none" stroke="rgba(47,128,255,0.3)" strokeWidth="1" />
+                <path d="M80,200 Q140,200 180,210" fill="none" stroke="rgba(47,128,255,0.3)" strokeWidth="1" />
+              </svg>
+
+              <div className="absolute right-0 top-4 w-[110px] space-y-3 z-20">
+                {[
+                  { label: 'Policy Sys', icon: Shield },
+                  { label: 'Claims API', icon: Database },
+                  { label: 'CRM Sync', icon: Users },
+                  { label: 'Payments', icon: CreditCard }
+                ].map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div 
+                      key={i}
+                      animate={{ x: [0, -2, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
+                      className="flex items-center gap-2 px-2.5 py-1.5 bg-[#081120] border border-white/10 rounded-lg shadow-xl"
+                    >
+                      <Icon className="w-3 h-3 text-[#94A3B8]" />
+                      <span className="text-[8px] text-[#94A3B8] font-mono uppercase">{item.label}</span>
+                    </motion.div>
+                  )
+                })}
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

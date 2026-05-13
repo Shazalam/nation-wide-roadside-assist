@@ -4,33 +4,33 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Users, Shield, Globe, Truck, 
-  AppWindow, Activity, BarChart3, Radio 
+  AppWindow, Activity, BarChart3, Radio, ShieldCheck
 } from 'lucide-react';
 
 const ecosystems = [
   {
     title: 'Motor Clubs',
-    description: 'Deliver premium roadside experiences at scale with automated dispatch and member intelligence.',
+    description: 'Deliver premium roadside experiences at scale.',
     metrics: [
       { label: 'SLA Compliance', val: '98.2%' },
       { label: 'Annual Dispatches', val: '1.2M+' }
     ],
-    icon: Users,
+    icon: ShieldCheck,
     color: '#2F80FF'
   },
   {
     title: 'Insurance Carriers',
-    description: 'Streamline claims and reduce loss ratios with integrated roadside infrastructure.',
+    description: 'Streamline claims and reduce loss ratios.',
     metrics: [
       { label: 'Faster Resolution', val: '23%' },
       { label: 'Lower Loss Ratio', val: '18%' }
     ],
-    icon: Shield,
+    icon: BarChart3,
     color: '#FF7A1A'
   },
   {
     title: 'Connected Ecosystems',
-    description: 'Power OEM and connected vehicle platforms with native roadside API integration.',
+    description: 'Power OEM and connected vehicle platforms.',
     metrics: [
       { label: 'API Uptime', val: '99.9%' },
       { label: 'Integrations', val: '200+' }
@@ -40,17 +40,17 @@ const ecosystems = [
   },
   {
     title: 'Fleet Insurance',
-    description: 'Reduce downtime and improve fleet performance with heavy-duty recovery dispatch.',
+    description: 'Reduce downtime and improve fleet performance.',
     metrics: [
       { label: 'Downtime Reduction', val: '31%' },
       { label: 'Fleet Events', val: '2.4M+' }
     ],
-    icon: Truck,
+    icon: Activity,
     color: '#FF7A1A'
   },
   {
     title: 'Enterprise Platforms',
-    description: 'API-first infrastructure for modern mobility and logistics platforms.',
+    description: 'API-first infrastructure for modern mobility operations.',
     metrics: [
       { label: 'API Calls / Year', val: '500M+' },
       { label: 'Support Ops', val: '24/7' }
@@ -62,48 +62,61 @@ const ecosystems = [
 
 export default function IndustryEcosystem() {
   return (
-    <section className="py-32 bg-[#081120] relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+    <section className="py-12 md:py-16 bg-[#081120] relative border-y border-white/5 flex flex-col justify-center">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(47,128,255,0.05)_0%,transparent_70%)] pointer-events-none" />
+      
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 w-full relative z-10">
         
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
-            <Globe className="w-3.5 h-3.5 text-[#2F80FF]" />
-            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Industry Ecosystem</span>
-          </div>
-          <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-white mb-8">
+        {/* Compact Header */}
+        <div className="text-center mb-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-black tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+          >
             Built for Every Insurance & Mobility Ecosystem
-          </h2>
-          <p className="text-[#94A3B8] text-xl leading-relaxed">
-            From global carriers to emerging mobility platforms, our infrastructure is the backbone of modern roadside operations.
-          </p>
+          </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        {/* Compact KPI Strip */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {ecosystems.map((eco, i) => {
             const Icon = eco.icon;
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="group relative bg-[#0A192F]/60 backdrop-blur-3xl border border-white/5 rounded-3xl p-8 flex flex-col hover:border-[#2F80FF]/30 transition-all duration-500"
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                className="group relative bg-[#0A192F] border border-white/10 rounded-2xl p-5 hover:border-[#2F80FF]/40 transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(47,128,255,0.1)] overflow-hidden flex flex-col"
               >
-                <div className="p-4 rounded-2xl bg-[#081120] border border-white/5 w-fit mb-8 group-hover:bg-[#2F80FF] transition-all duration-500">
-                  <Icon className="w-6 h-6 text-[#2F80FF] group-hover:text-white transition-colors" />
+                {/* Subtle Hover Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                
+                {/* Header: Icon + Title */}
+                <div className="flex items-center gap-3 mb-2 relative z-10">
+                  <div className="p-1.5 rounded-lg bg-[#081120] border border-white/10 group-hover:bg-[#2F80FF]/10 group-hover:border-[#2F80FF]/30 transition-colors">
+                    <Icon className="w-4 h-4 text-[#2F80FF]" />
+                  </div>
+                  <h3 className="text-sm font-bold text-white tracking-tight leading-none">{eco.title}</h3>
                 </div>
-
-                <h3 className="text-lg font-black text-white mb-4 group-hover:text-[#2F80FF] transition-colors">{eco.title}</h3>
-                <p className="text-[11px] text-[#94A3B8] leading-relaxed mb-10 opacity-70 group-hover:opacity-100 transition-opacity">
+                
+                {/* Description */}
+                <p className="text-[11px] text-[#94A3B8] leading-snug mb-3 line-clamp-2 relative z-10 min-h-[32px]">
                   {eco.description}
                 </p>
 
-                <div className="mt-auto pt-8 border-t border-white/5 space-y-6">
+                {/* Divider */}
+                <div className="h-px w-full bg-gradient-to-r from-white/10 via-white/5 to-transparent mb-3 relative z-10" />
+
+                {/* Metrics */}
+                <div className="flex items-start justify-between mt-auto relative z-10 gap-2">
                    {eco.metrics.map((m, mi) => (
-                     <div key={mi}>
-                        <div className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-widest mb-1">{m.label}</div>
-                        <div className="text-xl font-black text-white font-mono">{m.val}</div>
+                     <div key={mi} className="flex flex-col">
+                        <div className="text-base font-black text-white font-mono tracking-tight group-hover:text-[#2F80FF] transition-colors">{m.val}</div>
+                        <div className="text-[9px] font-mono text-[#94A3B8] uppercase tracking-wider leading-tight mt-0.5">{m.label}</div>
                      </div>
                    ))}
                 </div>
@@ -112,27 +125,6 @@ export default function IndustryEcosystem() {
           })}
         </div>
 
-        {/* Live Operational Stats Strip */}
-        <div className="mt-20 p-8 bg-[#0A192F]/80 backdrop-blur-xl border border-white/5 rounded-[2.5rem] flex flex-wrap justify-between items-center gap-8">
-           <div className="flex items-center gap-6">
-              <div className="flex items-center gap-3">
-                 <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                 <span className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-[0.2em]">Network Integration: Online</span>
-              </div>
-              <div className="h-4 w-[1px] bg-white/10" />
-              <div className="flex items-center gap-3">
-                 <Radio className="w-4 h-4 text-blue-400" />
-                 <span className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-[0.2em]">Telemetry Nodes: 14.2k</span>
-              </div>
-           </div>
-           <div className="flex gap-4">
-              {[Activity, BarChart3, Globe].map((Icon, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-blue-500/10 transition-colors cursor-pointer">
-                   <Icon className="w-4 h-4 text-white/40 hover:text-blue-400 transition-colors" />
-                </div>
-              ))}
-           </div>
-        </div>
       </div>
     </section>
   );

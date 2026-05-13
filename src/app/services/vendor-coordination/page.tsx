@@ -1,0 +1,44 @@
+import React from 'react';
+import { Metadata } from 'next';
+import { Navbar } from '@/components/layout/navbar';
+import { EnterpriseFooter } from '@/app/services/heavy-duty-towing/components/EnterpriseFooter';
+import { VendorHero } from './components/VendorHero';
+import { TrustSection } from './components/TrustSection';
+import { VendorOperationsGrid } from './components/VendorOperationsGrid';
+import { DispatchCommandCenter } from './components/DispatchCommandCenter';
+import { VendorServiceCategories } from './components/VendorServiceCategories';
+import { VehicleClassOperations } from './components/VehicleClassOperations';
+import { DispatchWorkflowSystem } from './components/DispatchWorkflowSystem';
+import { EnterpriseAnalytics } from './components/EnterpriseAnalytics';
+import { APIInfrastructure } from './components/APIInfrastructure';
+import { EnterpriseMetricsDashboard } from './components/EnterpriseMetricsDashboard';
+import { VendorCTA } from './components/VendorCTA';
+
+export const metadata: Metadata = {
+  title: 'Vendor Coordination & Dispatch Intelligence | Nationwide Trans Inc.',
+  description: 'Enterprise roadside vendor orchestration, SLA-driven dispatch systems, and API-first coordination infrastructure.',
+};
+
+export default function VendorCoordinationPage() {
+  return (
+    <main className="bg-[#081120] min-h-screen text-brand-slate selection:bg-brand-blue/30 selection:text-white font-sans overflow-x-hidden">
+      <Navbar />
+      
+      <div className="relative z-10">
+        <VendorHero />
+        <TrustSection />
+        <VendorOperationsGrid />
+        <DispatchCommandCenter />
+        <VendorServiceCategories />
+        <VehicleClassOperations />
+        <DispatchWorkflowSystem />
+        <EnterpriseAnalytics />
+        <APIInfrastructure />
+        <EnterpriseMetricsDashboard />
+        <VendorCTA />
+      </div>
+
+      <EnterpriseFooter />
+    </main>
+  );
+}

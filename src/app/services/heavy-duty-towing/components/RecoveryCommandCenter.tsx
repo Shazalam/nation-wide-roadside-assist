@@ -91,7 +91,7 @@ export const RecoveryCommandCenter = () => {
                    <div className="flex items-center gap-4">
                       <div className="relative">
                          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-brand-slate" />
-                         <input type="text" placeholder="Search Incidents..." className="bg-white/5 border border-white/10 rounded-xl py-2 pl-10 pr-4 text-[10px] font-bold text-white focus:outline-none focus:border-brand-blue/50 w-48" />
+                         <input type="text" placeholder="Search Incidents..." suppressHydrationWarning className="bg-white/5 border border-white/10 rounded-xl py-2 pl-10 pr-4 text-[10px] font-bold text-white focus:outline-none focus:border-brand-blue/50 w-48" />
                       </div>
                       <button className="p-2.5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors">
                          <Filter className="h-4 w-4 text-brand-slate" />

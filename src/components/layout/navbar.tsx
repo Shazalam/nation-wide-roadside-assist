@@ -17,15 +17,14 @@ import {
   BarChart3,
   Cpu,
   Terminal,
-  ArrowRight,
-  User,
-  LogOut,
-  Bell,
   Truck,
   Settings,
   Headphones,
   Wrench,
-  Navigation
+  Navigation,
+  ArrowRight,
+  LogOut,
+  User
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -60,15 +59,15 @@ const navItems = [
         items: [
           { label: "Roadside Assistance", href: "/services/roadside-assistance", icon: Navigation, desc: "24/7 emergency support" },
           { label: "Heavy-Duty Towing", href: "/services/heavy-duty-towing", icon: Truck, desc: "Class 8 specialized" },
-          { label: "Mobile Repairs", href: "/services/repairs", icon: Wrench, desc: "On-site mechanical" }
+          { label: "Mobile Repairs", href: "/services/mobile-repairs", icon: Wrench, desc: "On-site mechanical" }
         ]
       },
       {
         title: "Coordination",
         items: [
-          { label: "Recovery & Winch-Outs", href: "/services/recovery", icon: Globe, desc: "Off-road & complex" },
-          { label: "Trip Continuation", href: "/services/trip", icon: Zap, desc: "Travel logistics" },
-          { label: "Vendor Coordination", href: "/services/vendors", icon: Settings, desc: "Network management" }
+          { label: "Recovery & Winch-outs", href: "/services/recovery-winchouts", icon: Globe, desc: "Off-road & complex" },
+          { label: "Trip Continuation", href: "/services/trip-continuation", icon: Zap, desc: "Travel logistics" },
+          { label: "Vendor Coordination", href: "/services/vendor-coordination", icon: Settings, desc: "Network management" }
         ]
       }
     ]
@@ -80,16 +79,16 @@ const navItems = [
       {
         title: "Command Center",
         items: [
-          { label: "24/7 Dispatch Center", href: "/operations/dispatch", icon: Zap, desc: "Global coordination" },
-          { label: "Vendor Network", href: "/operations/vendors", icon: Globe, desc: "Certified partners" },
-          { label: "SLA Management", href: "/operations/sla", icon: Shield, desc: "Performance tracking" }
+          { label: "24/7 Dispatch Center", href: "/operations/24-7-dispatch-center", icon: Zap, desc: "Global coordination" },
+          { label: "Vendor Network", href: "/operations/vendor-network", icon: Globe, desc: "Certified partners" },
+          { label: "SLA Management", href: "/operations/sla-management", icon: Shield, desc: "Performance tracking" }
         ]
       },
       {
         title: "Workflows",
         items: [
-          { label: "Call Center Operations", href: "/operations/call-center", icon: Headphones, desc: "Voice & digital" },
-          { label: "Escalation Workflows", href: "/operations/escalations", icon: BarChart3, desc: "Critical pathing" }
+          { label: "Call Center Operations", href: "/operations/call-center-operations", icon: Headphones, desc: "Voice & digital" },
+          { label: "Escalation Workflows", href: "/operations/escalation-workflows", icon: BarChart3, desc: "Critical pathing" }
         ]
       }
     ]
@@ -116,13 +115,13 @@ const navItems = [
     ]
   },
   {
-    label: "About",
-    href: "/about",
+    label: "Company",
+    href: "/company",
     columns: [
       {
         title: "Company",
         items: [
-          { label: "Overview", href: "/about/company", icon: Globe, desc: "Our history & mission" },
+          { label: "Overview", href: "/company/overview", icon: Globe, desc: "Our history & mission" },
           { label: "Infrastructure", href: "/about/infrastructure", icon: Cpu, desc: "Global mesh specs" },
           { label: "Leadership", href: "/about/leadership", icon: Shield, desc: "Executive team" }
         ]
@@ -130,8 +129,8 @@ const navItems = [
       {
         title: "Join Us",
         items: [
-          { label: "Careers", href: "/careers", icon: Zap, desc: "Shape mobility future" },
-          { label: "Contact", href: "/contact", icon: Headphones, desc: "24/7 support channels" }
+          { label: "Careers", href: "/company/careers", icon: Zap, desc: "Shape mobility future" },
+          { label: "Contact", href: "/company/contact", icon: Headphones, desc: "24/7 support channels" }
         ]
       }
     ]
@@ -140,218 +139,216 @@ const navItems = [
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const { isAuthenticated, logout, user } = useAuth();
   const pathname = usePathname();
 
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-500",
-        scrolled
-          ? "bg-brand-bg/60 backdrop-blur-xl border-b border-white/5 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-          : "bg-transparent py-6"
-      )}
-    >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="h-10 w-10 rounded-xl bg-brand-blue flex items-center justify-center shadow-[0_0_20px_rgba(47,128,255,0.4)] group-hover:scale-105 transition-transform duration-300">
-            <Shield className="text-white h-6 w-6" />
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 pb-2 pointer-events-none">
+      <div className="container mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className={cn(
+            "relative mx-auto pointer-events-auto rounded-2xl transition-all duration-300",
+            scrolled ? "w-full lg:w-[95%] shadow-[0_20px_40px_rgba(0,0,0,0.4)]" : "w-full lg:w-full"
+          )}
+        >
+          {/* Top-Left Shine Effect */}
+          <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ zIndex: 0 }}>
+             {/* Large ambient blue shine emanating from top-left */}
+             <div className="absolute -top-12 -left-12 w-[250px] h-[250px] bg-[#2F80FF]/20 blur-[50px] rounded-full" />
+             {/* Intense core shine right at the corner */}
+             <div className="absolute -top-6 -left-6 w-[120px] h-[120px] bg-[#2F80FF]/40 blur-[30px] rounded-full" />
           </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-white tracking-tight leading-none">NATIONWIDE</span>
-            <span className="text-[10px] font-black text-brand-blue tracking-[0.3em] mt-1">TRANS INC.</span>
+
+          {/* Sharp Edge Gradient (Matches Image Inner Border) */}
+          <div className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+             <div className="absolute top-0 left-0 w-1/3 h-[1px] bg-gradient-to-r from-[#2F80FF] to-transparent" />
+             <div className="absolute top-0 left-0 w-[1px] h-1/2 bg-gradient-to-b from-[#2F80FF] to-transparent" />
           </div>
-        </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {navItems.map((item) => (
-            <div
-              key={item.label}
-              onMouseEnter={() => setActiveMenu(item.label)}
-              onMouseLeave={() => setActiveMenu(null)}
-              className="relative px-4 py-2"
-            >
-              <button className={cn(
-                "flex items-center gap-1.5 text-sm font-bold uppercase tracking-widest transition-colors relative group py-2",
-                activeMenu === item.label ? "text-brand-blue" : "text-brand-slate hover:text-white"
-              )}>
-                {item.label}
-                <ChevronDown className={cn(
-                  "h-3 w-3 transition-transform duration-300",
-                  activeMenu === item.label && "rotate-180 text-brand-blue"
-                )} />
-                {/* Active Underline */}
-                {activeMenu === item.label && (
-                  <motion.div
-                    layoutId="nav-underline"
-                    className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-blue shadow-[0_0_8px_rgba(47,128,255,0.8)]"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-              </button>
+          {/* Glass Navbar Container */}
+          <div className="relative bg-[#0A192F]/70 backdrop-blur-[18px] border border-white/[0.08] rounded-2xl flex items-center justify-between h-16 px-6">
+            
+            {/* Logo Section */}
+            <div className="flex items-center gap-3 shrink-0">
+               <Link href="/" className="flex items-center gap-3 group relative z-10">
+                  <div className="flex items-center italic font-black text-2xl tracking-tighter mr-1">
+                     <span className="text-white">N</span>
+                     <span className="text-[#2F80FF]">T</span>
+                  </div>
+                  <div className="hidden sm:flex flex-col">
+                     <span className="text-white font-bold text-[13px] leading-tight tracking-wide group-hover:text-white/80 transition-colors">
+                        NATIONWIDE<br/>TRANS INC.
+                     </span>
+                  </div>
+               </Link>
+            </div>
 
-              {/* Mega Menu Dropdown */}
-              <AnimatePresence>
-                {activeMenu === item.label && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[700px] z-50 pt-4"
-                  >
-                    <GlassPanel className="p-8 grid grid-cols-2 gap-10 border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                      {item.columns.map((column) => (
-                        <div key={column.title} className="space-y-6">
-                          <h4 className="text-[10px] font-black text-brand-blue uppercase tracking-[0.3em] border-b border-brand-blue/20 pb-2">
-                            {column.title}
-                          </h4>
-                          <div className="space-y-4">
-                            {column.items.map((subItem) => (
-                              <Link
-                                key={subItem.label}
-                                href={subItem.href}
-                                className="flex items-start gap-4 group/sub"
-                              >
-                                <div className="h-10 w-10 shrink-0 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center group-hover/sub:bg-brand-blue/10 group-hover/sub:border-brand-blue/20 transition-all">
-                                  <subItem.icon className="h-5 w-5 text-brand-slate group-hover/sub:text-brand-blue transition-colors" />
-                                </div>
-                                <div>
-                                  <p className="text-sm font-bold text-white group-hover/sub:text-brand-blue transition-colors">
-                                    {subItem.label}
-                                  </p>
-                                  <p className="text-[10px] text-brand-slate mt-1 line-clamp-1">
-                                    {subItem.desc}
-                                  </p>
-                                </div>
-                              </Link>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2 h-full">
+              {navItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="h-full px-4 flex items-center relative group"
+                  onMouseEnter={() => setActiveMenu(item.label)}
+                  onMouseLeave={() => setActiveMenu(null)}
+                >
+                  <button className="flex items-center gap-1.5 text-[13px] font-bold text-[#94A3B8] hover:text-white transition-colors py-2 relative z-10">
+                    {item.label}
+                    <ChevronDown className="h-3 w-3 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
+                  </button>
+
+                  {/* Dropdown Panel */}
+                  <AnimatePresence>
+                    {activeMenu === item.label && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[600px] cursor-default"
+                      >
+                        <GlassPanel className="p-6 border-white/10 bg-[#081120]/95 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                          <div className="grid grid-cols-2 gap-8">
+                            {item.columns.map((col, idx) => (
+                              <div key={idx}>
+                                <h4 className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest mb-4 flex items-center gap-2">
+                                   <div className="h-px flex-1 bg-gradient-to-r from-[#2F80FF]/50 to-transparent" />
+                                   {col.title}
+                                   <div className="h-px flex-1 bg-gradient-to-l from-[#2F80FF]/50 to-transparent" />
+                                </h4>
+                                <ul className="space-y-2">
+                                  {col.items.map((link, i) => (
+                                    <li key={i}>
+                                      <Link
+                                        href={link.href}
+                                        className="flex items-start gap-3 p-2 rounded-lg hover:bg-white/[0.04] transition-colors group/link"
+                                        onClick={() => setActiveMenu(null)}
+                                      >
+                                        <div className="mt-0.5 h-8 w-8 rounded-md bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover/link:border-[#2F80FF]/30 group-hover/link:bg-[#2F80FF]/10 transition-colors">
+                                          <link.icon className="h-4 w-4 text-[#94A3B8] group-hover/link:text-[#2F80FF] transition-colors" />
+                                        </div>
+                                        <div>
+                                          <div className="text-[13px] font-bold text-white group-hover/link:text-[#2F80FF] transition-colors">{link.label}</div>
+                                          <div className="text-[11px] text-[#94A3B8] mt-0.5">{link.desc}</div>
+                                        </div>
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
                             ))}
                           </div>
-                        </div>
-                      ))}
+                        </GlassPanel>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </nav>
 
-                      {/* Featured Promo in Mega Menu */}
-                      <div className="col-span-2 mt-4 pt-6 border-t border-white/5 flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                          <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Mesh Network Live v4.2</span>
-                        </div>
-                        <Link href="/developer-api" className="text-[10px] font-bold text-brand-blue uppercase tracking-widest flex items-center gap-1 hover:underline">
-                          Developer Portal <ArrowRight className="h-3 w-3" />
-                        </Link>
-                      </div>
-                    </GlassPanel>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            {/* Right Actions */}
+            <div className="hidden lg:flex items-center gap-4 shrink-0 relative z-10">
+              {isMounted && isAuthenticated ? (
+                <div className="flex items-center gap-4">
+                  <Link href="/dashboard" className="text-[13px] font-bold text-[#94A3B8] hover:text-white transition-colors">
+                    Dashboard
+                  </Link>
+                  <Button variant="ghost" size="sm" onClick={logout} className="text-[#94A3B8] hover:text-white hover:bg-white/5 h-8 px-3 rounded-lg text-[13px] font-bold">
+                    <LogOut className="h-4 w-4 mr-2" /> Logout
+                  </Button>
+                </div>
+              ) : (
+                <>
+                  <Link href="/auth/login" className="text-[13px] font-bold text-[#94A3B8] hover:text-white transition-colors">
+                    Partner Login
+                  </Link>
+                  <Button 
+                    className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-bold h-9 px-5 rounded-xl shadow-[0_4px_14px_rgba(47,128,255,0.3)] hover:shadow-[0_6px_20px_rgba(47,128,255,0.4)] transition-all hover:-translate-y-0.5 text-[12px] relative overflow-hidden group"
+                  >
+                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-out" />
+                     Partner With Us
+                  </Button>
+                </>
+              )}
             </div>
-          ))}
-        </nav>
 
-        {/* Auth Actions */}
-        <div className="hidden lg:flex items-center gap-4">
-          {isAuthenticated ? (
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon" className="text-brand-slate hover:text-white transition-colors relative">
-                <Bell className="h-5 w-5" />
-                <span className="absolute top-2 right-2 h-2 w-2 bg-brand-blue rounded-full border-2 border-brand-bg" />
-              </Button>
-              <div className="h-8 w-[1px] bg-white/10 mx-2" />
-              <Link href="/dashboard">
-                <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(47,128,255,0.3)] gap-2">
-                  <User className="h-4 w-4" /> Operations
-                </Button>
-              </Link>
-              <Button variant="ghost" onClick={logout} className="text-red-400 hover:bg-red-500/10 gap-2 font-bold uppercase tracking-widest text-xs">
-                <LogOut className="h-4 w-4" />
-              </Button>
-            </div>
-          ) : (
-            <>
-              <Link href="/login">
-                <Button variant="ghost" className="text-brand-slate hover:text-white font-bold uppercase tracking-widest text-xs">
-                  Access Node
-                </Button>
-              </Link>
-              <Link href="/register">
-                <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.3)] h-11 px-6">
-                  Get Started
-                </Button>
-              </Link>
-            </>
-          )}
-        </div>
-
-        {/* Mobile Toggle */}
-        <button
-          className="lg:hidden p-2 text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
-        </button>
+            {/* Mobile Menu Toggle */}
+            <button
+              className="lg:hidden p-2 text-[#94A3B8] hover:text-white transition-colors relative z-10"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </motion.div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-brand-bg border-b border-white/5 overflow-hidden"
+            className="lg:hidden absolute top-[80px] left-4 right-4 bg-[#081120]/95 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl pointer-events-auto"
           >
-            <div className="container mx-auto px-4 py-8 space-y-8">
+            <div className="p-4 max-h-[70vh] overflow-y-auto flex flex-col gap-6">
               {navItems.map((item) => (
                 <div key={item.label} className="space-y-4">
-                  <h3 className="text-[10px] font-black text-brand-blue uppercase tracking-[0.3em]">
-                    {item.label}
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {item.columns.flatMap(c => c.items).map((sub) => (
+                  <h3 className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest px-2">{item.label}</h3>
+                  <div className="space-y-2">
+                    {item.columns.flatMap(col => col.items).map((link, i) => (
                       <Link
-                        key={sub.label}
-                        href={sub.href}
+                        key={i}
+                        href={link.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-3 text-sm font-bold text-brand-slate hover:text-white transition-colors"
+                        className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#2F80FF]/30 transition-colors"
                       >
-                        <sub.icon className="h-4 w-4 text-brand-blue" />
-                        {sub.label}
+                        <link.icon className="h-4 w-4 text-[#94A3B8]" />
+                        <span className="text-[13px] font-bold text-white">{link.label}</span>
                       </Link>
                     ))}
                   </div>
                 </div>
               ))}
-
-              <div className="pt-8 border-t border-white/5 flex flex-col gap-4">
-                {isAuthenticated ? (
-                  <>
-                    <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
-                      <Button className="w-full bg-brand-blue h-12 text-white font-bold uppercase tracking-widest">Dashboard</Button>
-                    </Link>
-                    <Button variant="ghost" onClick={() => { logout(); setIsMobileMenuOpen(false); }} className="w-full text-red-400">Logout</Button>
-                  </>
-                ) : (
-                  <>
-                    <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                      <Button variant="outline" className="w-full border-white/10 text-white h-12 font-bold uppercase tracking-widest">Login</Button>
-                    </Link>
-                    <Link href="/register" onClick={() => setIsMobileMenuOpen(false)}>
-                      <Button className="w-full bg-brand-blue h-12 text-white font-bold uppercase tracking-widest">Get Started</Button>
-                    </Link>
-                  </>
-                )}
+              
+              <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+                 {isMounted && isAuthenticated ? (
+                    <>
+                       <Link href="/dashboard" className="w-full">
+                          <Button className="w-full bg-white/5 text-white hover:bg-white/10">Dashboard</Button>
+                       </Link>
+                       <Button onClick={() => { logout(); setIsMobileMenuOpen(false); }} className="w-full border border-red-500/20 text-red-400 bg-red-500/10 hover:bg-red-500/20">
+                          Logout
+                       </Button>
+                    </>
+                 ) : (
+                    <>
+                       <Link href="/auth/login" className="w-full">
+                          <Button className="w-full bg-white/5 text-white hover:bg-white/10 font-bold">Partner Login</Button>
+                       </Link>
+                       <Link href="/company/contact" className="w-full">
+                          <Button className="w-full bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-bold shadow-[0_4px_14px_rgba(47,128,255,0.3)]">
+                             Partner With Us
+                          </Button>
+                       </Link>
+                    </>
+                 )}
               </div>
             </div>
           </motion.div>
