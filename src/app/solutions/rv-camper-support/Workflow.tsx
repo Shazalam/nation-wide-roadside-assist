@@ -2,126 +2,187 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertTriangle, Search, Users, Radio, Wrench, FileText } from 'lucide-react';
+import { AlertTriangle, Search, Users, Radio, Wrench, FileText, ChevronRight, Activity, Zap } from 'lucide-react';
 
 const steps = [
   {
-    num: '01', icon: AlertTriangle, title: 'RV Incident Reported',
-    desc: 'Incident submitted via mobile app, voice agent, or connected system.',
-    color: '#FF7A1A',
+    id: 1,
+    title: 'RV Incident Reported',
+    description: 'Incident submitted via mobile app, voice agent, or connected system.',
+    icon: AlertTriangle,
+    image: 'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&q=80'
   },
   {
-    num: '02', icon: Search, title: 'Diagnostics Validation',
-    desc: 'Remote or on-site diagnostics validate issue, vehicle type and service requirements.',
-    color: '#2F80FF',
+    id: 2,
+    title: 'Diagnostics Validation',
+    description: 'Remote or on-site diagnostics validate issue, vehicle type and service requirements.',
+    icon: Search,
+    image: 'https://images.unsplash.com/photo-1454165833762-02ad50e8958d?auto=format&fit=crop&q=80'
   },
   {
-    num: '03', icon: Users, title: 'Vendor Assignment',
-    desc: 'AI matches the best vendor based on location, capacity &amp; expertise.',
-    color: '#2F80FF',
+    id: 3,
+    title: 'Vendor Assignment',
+    description: 'AI matches the best vendor based on location, capacity & expertise.',
+    icon: Users,
+    image: 'https://images.unsplash.com/photo-1551288049-bbbda536ad0a?auto=format&fit=crop&q=80'
   },
   {
-    num: '04', icon: Radio, title: 'Dispatch Coordination',
-    desc: 'Live coordination with vendor based on location and ETA tracking.',
-    color: '#2F80FF',
+    id: 4,
+    title: 'Dispatch Coordination',
+    description: 'Live coordination with vendor based on location and ETA tracking.',
+    icon: Radio,
+    image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80'
   },
   {
-    num: '05', icon: Wrench, title: 'Roadside Resolution',
-    desc: 'Onsite repair, towing, or recovery with real-time status updates.',
-    color: '#FF7A1A',
+    id: 5,
+    title: 'Roadside Resolution',
+    description: 'Onsite repair, towing, or recovery with real-time status updates.',
+    icon: Wrench,
+    image: 'https://images.unsplash.com/photo-1566860299613-76e627747acf?auto=format&fit=crop&q=80'
   },
   {
-    num: '06', icon: FileText, title: 'Automated Reporting',
-    desc: 'Reports, billing, and analytics reports automatically generated.',
-    color: '#2F80FF',
+    id: 6,
+    title: 'Automated Reporting',
+    description: 'Reports, billing, and analytics reports automatically generated.',
+    icon: FileText,
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80'
   },
 ];
 
 export default function Workflow() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-12 relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute inset-0 bg-[#0A192F]/10 pointer-events-none" />
+    <section className="py-32 bg-brand-bg relative z-10 overflow-hidden border-t border-brand-border">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }} />
+      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-[#2F80FF]/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[rgba(47,128,255,0.08)] border border-[rgba(47,128,255,0.15)] rounded-full mb-5">
-            <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-[0.3em]">Operations</span>
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-4">
-            RV Roadside Operations <span className="text-[#2F80FF]">Workflow</span>
-          </h2>
-          <p className="text-[#94A3B8] max-w-2xl mx-auto leading-relaxed">
-            A seamless, automated sequence from the moment an incident is reported to final resolution and analytics logging.
-          </p>
+      <div className="max-w-[1536px] mx-auto px-6 lg:px-12">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-32">
+           <motion.div
+             initial={{ opacity: 0, y: 10 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             className="flex items-center justify-center gap-2 mb-4"
+           >
+              <div className="h-1.5 w-1.5 rounded-full bg-[#2F80FF]" />
+              <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.4em]">Operational Sequence</span>
+           </motion.div>
+           <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
+              RV Roadside <span className="text-[#2F80FF]">Operations</span> Workflow
+           </h2>
+           <p className="text-brand-slate font-medium text-lg max-w-2xl mx-auto leading-relaxed">
+             A mission-critical orchestration layer designed specifically for the complex requirements of RV and camper support.
+           </p>
         </div>
 
-        {/* Timeline */}
+        {/* Workflow Pipeline */}
         <div className="relative">
-          {/* Desktop connector line */}
-          <div className="hidden lg:block absolute top-10 left-[calc(8.33%+16px)] right-[calc(8.33%+16px)] h-px bg-[rgba(255,255,255,0.05)] z-0" />
-          <motion.div
-            className="hidden lg:block absolute top-10 left-[calc(8.33%+16px)] h-px z-0 bg-gradient-to-r from-[#2F80FF] via-[#00C6FF] to-[#FF7A1A]"
-            initial={{ width: 0 }}
-            whileInView={{ width: 'calc(100% - 16.66% - 32px)' }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
-          />
+           {/* Primary Pipeline Trace (Desktop) */}
+           <div className="absolute top-[40px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2F80FF]/20 to-transparent hidden lg:block z-0" />
+           
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-4 relative z-10">
+              {steps.map((step, i) => {
+                const Icon = step.icon;
+                return (
+                  <motion.div
+                    key={step.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className="flex flex-col items-center text-center group"
+                  >
+                    {/* Node Container */}
+                    <div className="relative mb-8">
+                       
+                       {/* Floating Visual Preview (Just above) */}
+                       <div className="absolute -top-4 left-1/2 -translate-x-1/2 -translate-y-full w-56 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none z-30">
+                          <div className="relative p-3 bg-card/90 backdrop-blur-2xl border border-[#2F80FF]/40 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden group-hover:-translate-y-3 transition-transform duration-500">
+                             <div className="h-28 w-full rounded-xl overflow-hidden relative border border-brand-border">
+                                <div className="absolute inset-0 bg-cover bg-center mix-blend-luminosity opacity-70 group-hover:opacity-100 transition-opacity duration-700" 
+                                     style={{ backgroundImage: `url(${step.image})` }} />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-transparent to-transparent opacity-80" />
+                             </div>
+                             <div className="mt-3 text-center">
+                                <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-[0.2em]">Operational View 0{step.id}</span>
+                             </div>
+                          </div>
+                          {/* Anchor Arrow */}
+                          <div className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-[#2F80FF]/40 mx-auto" />
+                       </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 relative z-10">
-            {steps.map((step, idx) => {
-              const Icon = step.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.15, duration: 0.5 }}
-                  className="flex flex-col items-center lg:items-start"
-                >
-                  {/* Circle node */}
-                  <div className="relative mb-6">
-                    <div className="w-10 h-10 rounded-full border-2 flex items-center justify-center relative z-10 shadow-[0_0_20px_rgba(47,128,255,0.4)]"
-                      style={{ borderColor: step.color, backgroundColor: `${step.color}15` }}>
-                      <Icon className="w-4 h-4" style={{ color: step.color }} />
+                       {/* Connection Indicator (To next) */}
+                       {i < steps.length - 1 && (
+                         <div className="absolute top-1/2 left-full w-full h-px bg-[#2F80FF]/20 hidden lg:block overflow-hidden">
+                            <motion.div 
+                               animate={{ x: ['-100%', '200%'] }}
+                               transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: i * 0.4 }}
+                               className="h-full w-1/2 bg-gradient-to-r from-transparent via-[#2F80FF] to-transparent"
+                            />
+                         </div>
+                       )}
+
+                       {/* The Node Bubble */}
+                       <div className="relative h-20 w-20 bg-card/90 backdrop-blur-2xl border border-brand-border rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-[#2F80FF]/40 group-hover:shadow-[0_0_40px_rgba(47,128,255,0.3)] group-hover:-translate-y-2 transition-all duration-500 z-10">
+                          <Icon className="h-7 w-7 text-brand-slate group-hover:text-[#2F80FF] transition-colors" />
+                          
+                          {/* Step Number */}
+                          <div className="absolute -top-3 -right-3 h-7 w-7 rounded-lg bg-[#2F80FF] text-foreground dark:text-white flex items-center justify-center text-[10px] font-black border border-brand-border shadow-lg shadow-[#2F80FF]/20">
+                             {step.id}
+                          </div>
+
+                          {/* Inner Glow */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                       </div>
+
+                       {/* Active Telemetry Dot */}
+                       <motion.div
+                         animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.8, 0.3] }}
+                         transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                         className="absolute -bottom-4 left-1/2 -translate-x-1/2 h-1.5 w-1.5 rounded-full bg-[#2F80FF]/50"
+                       />
                     </div>
-                    {/* Pulse ring */}
-                    <div className="absolute inset-0 rounded-full animate-ping opacity-20"
-                      style={{ backgroundColor: step.color, animationDuration: `${2 + idx * 0.3}s` }} />
-                  </div>
 
-                  <div className="bg-[#0A192F]/60 backdrop-blur-sm border border-[rgba(255,255,255,0.07)] p-5 rounded-xl w-full hover:border-[#2F80FF]/30 transition-colors group">
-                    <span className="font-mono text-[10px] block mb-2 font-black" style={{ color: step.color }}>{step.num}</span>
-                    <h4 className="font-black text-sm text-white mb-2 leading-snug">{step.title}</h4>
-                    <p className="text-[#94A3B8] text-xs leading-relaxed">{step.desc}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                    {/* Content */}
+                    <div className="px-2">
+                       <h3 className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-[0.2em] mb-4 group-hover:text-[#2F80FF] transition-colors h-10 flex items-center justify-center">
+                          {step.title}
+                       </h3>
+                       <p className="text-[12px] text-brand-slate font-medium leading-relaxed max-w-[160px] opacity-60 group-hover:opacity-100 transition-opacity">
+                          {step.description}
+                       </p>
+                    </div>
+
+                    {/* Arrow Indicator for Mobile */}
+                    {i < steps.length - 1 && (
+                      <div className="mt-8 lg:hidden">
+                        <ChevronRight className="h-5 w-5 text-[#2F80FF]/40 rotate-90" />
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
+           </div>
         </div>
 
-        {/* Bottom stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          {[
-            { val: '< 90s', label: 'Avg. Dispatch Time' },
-            { val: '98.7%', label: 'Workflow Completion' },
-            { val: '4.8★', label: 'Customer Satisfaction' },
-            { val: '0 Touch', label: 'Automated Resolution' },
-          ].map((s, i) => (
-            <div key={i} className="bg-[#0A192F]/40 border border-[rgba(255,255,255,0.06)] rounded-xl p-5 text-center">
-              <div className="text-2xl font-black text-white font-mono mb-1">{s.val}</div>
-              <div className="text-[10px] text-[#94A3B8] uppercase tracking-widest">{s.label}</div>
-            </div>
-          ))}
-        </motion.div>
+        {/* Global Operational Metrics Footer */}
+        <div className="mt-32 border-t border-brand-border pt-16 flex flex-wrap justify-center gap-16">
+           {[
+             { label: 'Dispatch Velocity', val: '< 90s', detail: 'Real-Time' },
+             { label: 'Workflow Sync', val: '98.7%', detail: 'Optimized' },
+             { label: 'Cust. Satisfaction', val: '4.8★', detail: 'Enterprise' },
+             { label: 'Automation Load', val: 'Active', detail: 'Live' }
+           ].map((m, i) => (
+             <div key={i} className="flex flex-col items-center">
+                <span className="text-[9px] font-black text-brand-slate uppercase tracking-[0.4em] mb-2">{m.label}</span>
+                <div className="flex items-baseline gap-2">
+                   <span className="text-2xl font-black text-foreground dark:text-white">{m.val}</span>
+                   <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-widest">{m.detail}</span>
+                </div>
+             </div>
+           ))}
+        </div>
       </div>
     </section>
   );

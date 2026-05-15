@@ -16,9 +16,9 @@ const metrics = [
 
 export const OperationalMetrics = () => {
   return (
-    <section className="py-12 border-t border-white/5 bg-[#0A192F]/20">
+    <section className="py-12 border-t border-brand-border bg-card/20">
       <div className="container mx-auto px-4">
-         <h3 className="text-xl font-bold text-white mb-8">Operational Metrics</h3>
+         <h3 className="text-xl font-bold text-foreground dark:text-white mb-8">Operational Metrics</h3>
          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
             {metrics.map((metric, i) => (
                <motion.div
@@ -27,10 +27,10 @@ export const OperationalMetrics = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.05 }}
-                  className="p-4 border-l border-white/10"
+                  className="p-4 border-l border-brand-border"
                >
-                  <div className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-wider mb-2">{metric.label}</div>
-                  <div className="text-lg font-mono text-white mb-1">{metric.value}</div>
+                  <div className="text-[10px] font-bold text-brand-slate uppercase tracking-wider mb-2">{metric.label}</div>
+                  <div className="text-lg font-mono text-foreground dark:text-white mb-1">{metric.value}</div>
                   <div className={`text-[10px] font-mono ${metric.negative ? 'text-emerald-400' : 'text-emerald-400'}`}>
                      {metric.trend}
                   </div>

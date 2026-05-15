@@ -14,10 +14,10 @@ const values = [
 
 export const EnterpriseValues = () => {
   return (
-    <section className="py-24 bg-[#081120] relative z-10 border-t border-white/5">
+    <section className="py-24 bg-brand-bg relative z-10 border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-           <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+           <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-4">
               Enterprise Values
            </h2>
         </div>
@@ -31,14 +31,14 @@ export const EnterpriseValues = () => {
                transition={{ delay: i * 0.1 }}
                viewport={{ once: true }}
              >
-                <GlassPanel className="p-8 border-white/5 bg-white/[0.01] hover:bg-[#2F80FF]/5 hover:border-[#2F80FF]/20 transition-all group flex flex-col h-full">
+                <GlassPanel className="p-8 border-brand-border bg-white/[0.01] hover:bg-[#2F80FF]/5 hover:border-[#2F80FF]/20 transition-all group flex flex-col h-full">
                    <div className="flex items-center gap-4 mb-4">
-                      <div className="h-10 w-10 shrink-0 rounded border border-white/10 bg-white/5 flex items-center justify-center group-hover:border-[#2F80FF]/50 transition-colors">
-                         <val.icon className="h-5 w-5 text-[#94A3B8] group-hover:text-[#2F80FF] transition-colors" />
+                      <div className="h-10 w-10 shrink-0 rounded border border-brand-border bg-white/5 flex items-center justify-center group-hover:border-[#2F80FF]/50 transition-colors">
+                         <val.icon className="h-5 w-5 text-brand-slate group-hover:text-[#2F80FF] transition-colors" />
                       </div>
-                      <h3 className="text-sm font-black text-white uppercase tracking-widest">{val.title}</h3>
+                      <h3 className="text-sm font-black text-foreground dark:text-white uppercase tracking-widest">{val.title}</h3>
                    </div>
-                   <p className="text-[11px] text-[#94A3B8] font-medium leading-relaxed">
+                   <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
                       {val.desc}
                    </p>
                 </GlassPanel>

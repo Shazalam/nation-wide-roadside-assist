@@ -21,7 +21,7 @@ export const VehicleClassOperations = () => {
     <section className="py-24 bg-brand-bg relative z-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-           <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight mb-4">
+           <h2 className="text-3xl lg:text-4xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-4">
               Vehicle Class Support
            </h2>
         </div>
@@ -35,11 +35,11 @@ export const VehicleClassOperations = () => {
                transition={{ delay: i * 0.05 }}
                viewport={{ once: true }}
              >
-                <GlassPanel className="h-full p-4 border-white/5 bg-[#0A192F]/50 flex flex-col items-center text-center relative overflow-hidden group">
+                <GlassPanel className="h-full p-4 border-brand-border bg-card/50 flex flex-col items-center text-center relative overflow-hidden group">
                    <div className={`absolute top-0 left-0 right-0 h-1 ${cls.bg} opacity-50`} />
                    
-                   <h3 className={`text-[11px] font-black uppercase tracking-widest mt-2 ${i >= 6 ? 'text-[#FF7A1A]' : 'text-white'}`}>Class {cls.class}</h3>
-                   <p className="text-[9px] text-[#94A3B8] font-bold uppercase tracking-widest my-2">{cls.weight}</p>
+                   <h3 className={`text-[11px] font-black uppercase tracking-widest mt-2 ${i >= 6 ? 'text-[#FF7A1A]' : 'text-foreground dark:text-white'}`}>Class {cls.class}</h3>
+                   <p className="text-[9px] text-brand-slate font-bold uppercase tracking-widest my-2">{cls.weight}</p>
                    
                    {/* Truck Visualization Placeholder */}
                    <div className="h-16 w-full relative my-4 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity group-hover:scale-110 duration-300">

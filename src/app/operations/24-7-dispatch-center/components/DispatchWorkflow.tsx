@@ -16,10 +16,10 @@ const steps = [
 
 export const DispatchWorkflow = () => {
   return (
-    <section className="py-32 bg-[#0A192F]/20 relative z-10 overflow-hidden border-t border-white/5">
+    <section className="py-32 bg-card/20 relative z-10 overflow-hidden border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20">
-           <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+           <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight">
               Automated Dispatch Workflow
            </h2>
         </div>
@@ -40,18 +40,18 @@ export const DispatchWorkflow = () => {
                   className="flex flex-col items-center text-center group relative"
                 >
                    <div className="relative mb-6">
-                      <div className="h-16 w-16 rounded-xl border border-white/10 flex items-center justify-center relative z-10 group-hover:border-[#2F80FF] group-hover:shadow-[0_0_20px_rgba(47,128,255,0.4)] transition-all bg-[#081120]">
-                         <span className="text-lg font-black text-white">{step.id}</span>
+                      <div className="h-16 w-16 rounded-xl border border-brand-border flex items-center justify-center relative z-10 group-hover:border-[#2F80FF] group-hover:shadow-[0_0_20px_rgba(47,128,255,0.4)] transition-all bg-brand-bg">
+                         <span className="text-lg font-black text-foreground dark:text-white">{step.id}</span>
                       </div>
                       
                       {/* Pulse Indicator */}
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#2F80FF]/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                    </div>
 
-                   <h3 className="text-[9px] font-black text-white uppercase tracking-widest leading-tight mb-2 h-6">
+                   <h3 className="text-[9px] font-black text-foreground dark:text-white uppercase tracking-widest leading-tight mb-2 h-6">
                       {step.title}
                    </h3>
-                   <p className="text-[9px] text-[#94A3B8] font-medium leading-relaxed max-w-[100px] mx-auto">
+                   <p className="text-[9px] text-brand-slate font-medium leading-relaxed max-w-[100px] mx-auto">
                       {step.desc}
                    </p>
                 </motion.div>

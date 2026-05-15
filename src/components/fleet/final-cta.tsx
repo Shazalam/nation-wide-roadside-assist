@@ -9,7 +9,7 @@ export const FinalCTA = () => {
   return (
     <section className="relative z-10 py-28 lg:py-36 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="relative rounded-[2rem] lg:rounded-[3rem] overflow-hidden bg-brand-blue/[0.04] border border-white/10 p-10 lg:p-20 xl:p-24 text-center">
+        <div className="relative rounded-[2rem] lg:rounded-[3rem] overflow-hidden bg-brand-blue/[0.04] border border-brand-border p-10 lg:p-20 xl:p-24 text-center">
           {/* Background dot grid */}
           <div className="absolute inset-0 opacity-[0.03]" style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.5) 1px, transparent 0)`,
@@ -47,7 +47,7 @@ export const FinalCTA = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.05 }}
-              className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-black text-white tracking-tight leading-tight"
+              className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-black text-foreground dark:text-white tracking-tight leading-tight"
             >
               Modernize Your Fleet &{' '}
               <span className="bg-gradient-to-r from-brand-blue to-emerald-400 bg-clip-text text-transparent">
@@ -73,10 +73,10 @@ export const FinalCTA = () => {
               transition={{ delay: 0.15 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
             >
-              <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold h-14 lg:h-16 px-10 lg:px-12 rounded-2xl shadow-[0_0_50px_rgba(47,128,255,0.35)] text-base lg:text-lg transition-all hover:scale-[1.03] hover:shadow-[0_0_70px_rgba(47,128,255,0.5)] w-full sm:w-auto">
+              <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold h-14 lg:h-16 px-10 lg:px-12 rounded-2xl shadow-[0_0_50px_rgba(47,128,255,0.35)] text-base lg:text-lg transition-all hover:scale-[1.03] hover:shadow-[0_0_70px_rgba(47,128,255,0.5)] w-full sm:w-auto">
                 Contact Enterprise Team
               </Button>
-              <Button variant="ghost" size="lg" className="text-white border border-white/10 hover:bg-white/5 hover:border-white/20 font-bold h-14 lg:h-16 px-10 lg:px-12 rounded-2xl text-base lg:text-lg group w-full sm:w-auto transition-all">
+              <Button variant="ghost" size="lg" className="text-foreground dark:text-white border border-brand-border hover:bg-white/5 hover:border-white/20 font-bold h-14 lg:h-16 px-10 lg:px-12 rounded-2xl text-base lg:text-lg group w-full sm:w-auto transition-all">
                 Request Fleet Capability Report <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>

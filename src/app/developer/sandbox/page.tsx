@@ -39,7 +39,7 @@ export default function SandboxPage() {
   return (
     <div className="space-y-8">
       <section className="space-y-4">
-        <h1 className="text-4xl font-bold text-white tracking-tight">API Sandbox</h1>
+        <h1 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">API Sandbox</h1>
         <p className="text-brand-slate text-lg max-w-3xl">
           Test your integration in a safe environment without affecting live data. All requests made in sandbox mode are simulated.
         </p>
@@ -55,9 +55,9 @@ export default function SandboxPage() {
             </div>
           </div>
 
-          <GlassPanel className="flex-1 p-0 overflow-hidden flex flex-col border-white/10">
+          <GlassPanel className="flex-1 p-0 overflow-hidden flex flex-col border-brand-border">
             {/* Address Bar */}
-            <div className="flex items-center gap-2 p-3 bg-white/[0.03] border-b border-white/5">
+            <div className="flex items-center gap-2 p-3 bg-white/[0.03] border-b border-brand-border">
               <select 
                 value={method} 
                 onChange={(e) => setMethod(e.target.value)}
@@ -68,19 +68,19 @@ export default function SandboxPage() {
                 <option>PUT</option>
                 <option>DELETE</option>
               </select>
-              <div className="flex-1 flex items-center bg-black/40 border border-white/10 rounded px-3 py-1.5 font-mono text-xs text-brand-slate">
+              <div className="flex-1 flex items-center bg-black/40 border border-brand-border rounded px-3 py-1.5 font-mono text-xs text-brand-slate">
                 <span className="opacity-50">https://api.nationwidetrans.com</span>
                 <input 
                   type="text" 
                   value={endpoint}
                   onChange={(e) => setEndpoint(e.target.value)}
-                  className="bg-transparent border-none focus:ring-0 p-0 ml-1 text-white flex-1"
+                  className="bg-transparent border-none focus:ring-0 p-0 ml-1 text-foreground dark:text-white flex-1"
                 />
               </div>
               <Button 
                 onClick={handleRun} 
                 disabled={isLoading}
-                className="h-8 px-4 bg-brand-blue hover:bg-brand-blue/90 text-white text-[10px] font-bold uppercase tracking-widest"
+                className="h-8 px-4 bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white text-[10px] font-bold uppercase tracking-widest"
               >
                 {isLoading ? <RefreshCw className="h-3 w-3 animate-spin" /> : <Play className="h-3 w-3 mr-2" />}
                 {isLoading ? 'Sending' : 'Run'}
@@ -89,10 +89,10 @@ export default function SandboxPage() {
 
             {/* Request Body/Headers */}
             <div className="flex-1 flex flex-col bg-brand-bg/40">
-               <div className="flex border-b border-white/5">
-                  <button className="px-4 py-2 text-[10px] font-bold text-white border-b-2 border-brand-blue uppercase tracking-widest bg-white/5">Body</button>
-                  <button className="px-4 py-2 text-[10px] font-bold text-brand-slate hover:text-white uppercase tracking-widest">Headers</button>
-                  <button className="px-4 py-2 text-[10px] font-bold text-brand-slate hover:text-white uppercase tracking-widest">Auth</button>
+               <div className="flex border-b border-brand-border">
+                  <button className="px-4 py-2 text-[10px] font-bold text-foreground dark:text-white border-b-2 border-brand-blue uppercase tracking-widest bg-white/5">Body</button>
+                  <button className="px-4 py-2 text-[10px] font-bold text-brand-slate hover:text-foreground dark:text-white uppercase tracking-widest">Headers</button>
+                  <button className="px-4 py-2 text-[10px] font-bold text-brand-slate hover:text-foreground dark:text-white uppercase tracking-widest">Auth</button>
                </div>
                <div className="p-4 flex-1 font-mono text-xs">
                   <textarea 
@@ -120,7 +120,7 @@ export default function SandboxPage() {
         <div className="lg:col-span-6 flex flex-col gap-4">
            <h3 className="text-xs font-black text-brand-slate uppercase tracking-widest">Response Output</h3>
            
-           <GlassPanel className="flex-1 p-0 overflow-hidden flex flex-col border-white/10 bg-black/60 font-mono">
+           <GlassPanel className="flex-1 p-0 overflow-hidden flex flex-col border-brand-border bg-black/60 font-mono">
               {!response && !isLoading && (
                 <div className="flex-1 flex flex-col items-center justify-center text-brand-slate/40 text-center p-12">
                    <Terminal className="h-12 w-12 mb-4 opacity-10" />
@@ -136,7 +136,7 @@ export default function SandboxPage() {
 
               {response && !isLoading && (
                  <>
-                   <div className="flex items-center justify-between p-3 bg-white/[0.03] border-b border-white/5">
+                   <div className="flex items-center justify-between p-3 bg-white/[0.03] border-b border-brand-border">
                       <div className="flex items-center gap-4 text-[10px] font-bold">
                          <span className={cn(
                            "px-2 py-0.5 rounded",
@@ -146,7 +146,7 @@ export default function SandboxPage() {
                          </span>
                          <span className="text-brand-slate">342ms</span>
                       </div>
-                      <button className="text-[10px] text-brand-slate hover:text-white flex items-center gap-1 uppercase tracking-widest">
+                      <button className="text-[10px] text-brand-slate hover:text-foreground dark:text-white flex items-center gap-1 uppercase tracking-widest">
                          <Box className="h-3 w-3" /> Save Result
                       </button>
                    </div>
@@ -169,9 +169,9 @@ export default function SandboxPage() {
            { label: 'Avg Latency', value: '112ms' },
            { label: 'API Version', value: 'v4.2.0' },
          ].map((stat) => (
-           <div key={stat.label} className="p-4 rounded-xl bg-white/5 border border-white/5 text-center">
+           <div key={stat.label} className="p-4 rounded-xl bg-white/5 border border-brand-border text-center">
               <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mb-1">{stat.label}</p>
-              <p className="text-xl font-bold text-white">{stat.value}</p>
+              <p className="text-xl font-bold text-foreground dark:text-white">{stat.value}</p>
            </div>
          ))}
       </section>

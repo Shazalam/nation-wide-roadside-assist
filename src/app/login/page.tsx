@@ -50,11 +50,11 @@ export default function LoginPage() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-6 group">
             <div className="h-10 w-10 rounded-lg bg-brand-blue flex items-center justify-center shadow-[0_0_20px_rgba(47,128,255,0.4)]">
-              <Shield className="text-white h-6 w-6" />
+              <Shield className="text-foreground dark:text-white h-6 w-6" />
             </div>
-            <span className="text-2xl font-bold text-white tracking-tight">NATIONWIDE <span className="text-brand-blue">TRANS</span></span>
+            <span className="text-2xl font-bold text-foreground dark:text-white tracking-tight">NATIONWIDE <span className="text-brand-blue">TRANS</span></span>
           </Link>
-          <h1 className="text-3xl font-bold text-white tracking-tight">System Access</h1>
+          <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">System Access</h1>
           <p className="text-brand-slate mt-2">Authentication required for operational node entry.</p>
         </div>
 
@@ -72,7 +72,7 @@ export default function LoginPage() {
 
             <div className="space-y-2">
               <div className="flex justify-between items-center px-1">
-                <label className="text-[10px] font-bold text-white uppercase tracking-widest">Access Key</label>
+                <label className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest">Access Key</label>
                 <Link href="#" className="text-[10px] text-brand-blue hover:underline uppercase tracking-widest font-bold">Reset Key</Link>
               </div>
               <EnterpriseInput 
@@ -97,7 +97,7 @@ export default function LoginPage() {
 
             <Button 
               type="submit" 
-              className="w-full h-12 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.3)] group"
+              className="w-full h-12 bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.3)] group"
               disabled={loading}
             >
               {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : (

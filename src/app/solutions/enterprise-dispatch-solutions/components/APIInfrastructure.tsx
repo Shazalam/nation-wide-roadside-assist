@@ -69,7 +69,7 @@ export const APIInfrastructure = () => {
                 <Terminal className="w-3 h-3 text-brand-blue" />
                 <span className="text-[10px] font-bold text-brand-blue uppercase tracking-widest">Developer Hub</span>
               </div>
-              <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-white mb-6">
+              <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-foreground dark:text-white mb-6">
                 Dispatch APIs <br />
                 <span className="text-brand-blue">For Enterprise.</span>
               </h2>
@@ -90,7 +90,7 @@ export const APIInfrastructure = () => {
                        <item.icon className="w-4 h-4 text-brand-blue" />
                     </div>
                     <div>
-                       <div className="text-sm font-bold text-white mb-1">{item.title}</div>
+                       <div className="text-sm font-bold text-foreground dark:text-white mb-1">{item.title}</div>
                        <div className="text-[10px] text-brand-slate leading-normal">{item.desc}</div>
                     </div>
                  </div>
@@ -98,10 +98,10 @@ export const APIInfrastructure = () => {
             </div>
 
             <div className="flex gap-4 pt-4">
-               <button className="px-8 py-3 bg-brand-blue text-white rounded-xl font-bold text-[11px] uppercase tracking-widest hover:shadow-[0_0_20px_rgba(47,128,255,0.4)] transition-all hover:scale-[1.03]">
+               <button className="px-8 py-3 bg-brand-blue text-foreground dark:text-white rounded-xl font-bold text-[11px] uppercase tracking-widest hover:shadow-[0_0_20px_rgba(47,128,255,0.4)] transition-all hover:scale-[1.03]">
                   Read API Docs
                </button>
-               <button className="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-xl font-bold text-[11px] uppercase tracking-widest hover:bg-white/10 transition-all">
+               <button className="px-8 py-3 bg-white/5 border border-brand-border text-foreground dark:text-white rounded-xl font-bold text-[11px] uppercase tracking-widest hover:bg-white/10 transition-all">
                   View SDK Reference
                </button>
             </div>
@@ -112,16 +112,16 @@ export const APIInfrastructure = () => {
              {/* Ambient glow */}
              <div className="absolute -inset-10 bg-brand-blue/10 blur-[100px] pointer-events-none" />
              
-             <GlassPanel className="relative bg-[#081120] rounded-2xl border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden p-0">
+             <GlassPanel className="relative bg-brand-bg rounded-2xl border border-brand-border shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden p-0">
                 {/* Terminal Header */}
-                <div className="bg-[#0A192F] px-6 py-4 border-b border-white/5 flex items-center justify-between">
+                <div className="bg-card px-6 py-4 border-b border-brand-border flex items-center justify-between">
                    <div className="flex items-center gap-6">
                       {(['dispatch', 'telemetry', 'webhooks'] as const).map(t => (
                         <button 
                           key={t}
                           onClick={() => setActiveTab(t)}
                           className={`text-[10px] font-mono uppercase tracking-widest transition-colors relative pb-1 ${
-                            activeTab === t ? 'text-brand-blue' : 'text-brand-slate hover:text-white'
+                            activeTab === t ? 'text-brand-blue' : 'text-brand-slate hover:text-foreground dark:text-white'
                           }`}
                         >
                           {t}.{t === 'webhooks' ? 'json' : 'ts'}
@@ -131,7 +131,7 @@ export const APIInfrastructure = () => {
                    </div>
                    <button 
                     onClick={handleCopy}
-                    className="p-2 hover:bg-white/5 rounded-lg transition-colors text-brand-slate hover:text-white"
+                    className="p-2 hover:bg-white/5 rounded-lg transition-colors text-brand-slate hover:text-foreground dark:text-white"
                    >
                       {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                    </button>
@@ -139,13 +139,13 @@ export const APIInfrastructure = () => {
 
                 {/* Code Content */}
                 <div className="p-8 h-[400px] overflow-auto font-mono text-[13px] leading-relaxed">
-                   <pre className="text-white/90">
+                   <pre className="text-foreground dark:text-white/90">
                       <code>{codeExamples[activeTab]}</code>
                    </pre>
                 </div>
 
                 {/* Terminal Footer */}
-                <div className="bg-[#0A192F]/50 px-6 py-3 border-t border-white/5 flex items-center justify-between">
+                <div className="bg-card/50 px-6 py-3 border-t border-brand-border flex items-center justify-between">
                    <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                       <span className="text-[9px] font-mono text-brand-slate uppercase">Production Node Active - TX-82</span>

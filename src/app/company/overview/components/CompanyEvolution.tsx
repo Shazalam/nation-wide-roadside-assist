@@ -14,12 +14,12 @@ const timeline = [
 
 export const CompanyEvolution = () => {
   return (
-    <section className="py-32 bg-[#081120] relative z-10 overflow-hidden border-y border-white/5">
+    <section className="py-32 bg-brand-bg relative z-10 overflow-hidden border-y border-brand-border">
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#FF7A1A]/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4">
          <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20">
-           <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+           <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight">
               Company Evolution
            </h2>
         </div>
@@ -39,16 +39,16 @@ export const CompanyEvolution = () => {
                   className={`flex flex-col md:flex-row gap-8 items-start md:items-center relative ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                 >
                    {/* Timeline Dot */}
-                   <div className="absolute left-[20px] md:left-1/2 w-4 h-4 rounded-full bg-[#081120] border-2 border-[#2F80FF] -translate-x-1/2 z-10 shadow-[0_0_15px_rgba(47,128,255,0.5)]" />
+                   <div className="absolute left-[20px] md:left-1/2 w-4 h-4 rounded-full bg-brand-bg border-2 border-[#2F80FF] -translate-x-1/2 z-10 shadow-[0_0_15px_rgba(47,128,255,0.5)]" />
 
                    <div className="md:w-1/2 pl-12 md:pl-0" />
                    
                    <div className={`md:w-1/2 pl-12 md:pl-0 ${i % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left'}`}>
-                      <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl backdrop-blur-md hover:bg-white/[0.04] transition-colors relative group">
+                      <div className="p-6 bg-white/[0.02] border border-brand-border rounded-2xl backdrop-blur-md hover:bg-white/[0.04] transition-colors relative group">
                          <div className="absolute inset-0 bg-[#2F80FF]/0 group-hover:bg-[#2F80FF]/5 transition-colors rounded-2xl" />
                          <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-widest mb-2 block">{item.year}</span>
-                         <h3 className="text-sm font-black text-white uppercase tracking-widest mb-2 leading-tight">{item.title}</h3>
-                         <p className="text-[11px] text-[#94A3B8] font-medium leading-relaxed">{item.desc}</p>
+                         <h3 className="text-sm font-black text-foreground dark:text-white uppercase tracking-widest mb-2 leading-tight">{item.title}</h3>
+                         <p className="text-[11px] text-brand-slate font-medium leading-relaxed">{item.desc}</p>
                       </div>
                    </div>
                 </motion.div>

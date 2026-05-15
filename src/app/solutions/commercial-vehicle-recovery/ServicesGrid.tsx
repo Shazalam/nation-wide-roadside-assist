@@ -73,21 +73,21 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="py-32 bg-[#081120]">
+    <section className="py-32 bg-brand-bg">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
         
         <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-20">
           <div className="max-w-2xl">
-            <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-white mb-6">
+            <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-foreground dark:text-white mb-6">
               Full-Spectrum Recovery Services
             </h2>
-            <p className="text-[#94A3B8] text-lg leading-relaxed">
+            <p className="text-brand-slate text-lg leading-relaxed">
               Our infrastructure supports every aspect of commercial roadside operations, from simple lockouts to complex super-heavy recoveries.
             </p>
           </div>
-          <div className="hidden lg:flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/5 rounded-xl">
+          <div className="hidden lg:flex items-center gap-2 px-4 py-2 bg-white/5 border border-brand-border rounded-xl">
              <Activity className="w-4 h-4 text-[#2F80FF]" />
-             <span className="text-[10px] font-bold text-white uppercase tracking-[0.2em]">Live Service Availability Matrix</span>
+             <span className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-[0.2em]">Live Service Availability Matrix</span>
           </div>
         </div>
 
@@ -101,30 +101,30 @@ export default function ServicesGrid() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="group relative bg-[#0A192F]/50 backdrop-blur-xl border border-white/5 rounded-2xl p-6 flex flex-col hover:border-[#2F80FF]/50 transition-all hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+                className="group relative bg-card/50 backdrop-blur-xl border border-brand-border rounded-2xl p-6 flex flex-col hover:border-[#2F80FF]/50 transition-all hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
               >
                 <div className="mb-6 flex justify-between items-start">
-                   <div className="p-3 rounded-xl bg-[#081120] border border-white/5 group-hover:bg-[#2F80FF] group-hover:text-white transition-colors">
-                      <Icon className="w-5 h-5 text-[#2F80FF] group-hover:text-white transition-colors" />
+                   <div className="p-3 rounded-xl bg-brand-bg border border-brand-border group-hover:bg-[#2F80FF] group-hover:text-foreground dark:text-white transition-colors">
+                      <Icon className="w-5 h-5 text-[#2F80FF] group-hover:text-foreground dark:text-white transition-colors" />
                    </div>
-                   <ArrowUpRight className="w-4 h-4 text-[#94A3B8] opacity-0 group-hover:opacity-100 transition-opacity" />
+                   <ArrowUpRight className="w-4 h-4 text-brand-slate opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                <h3 className="text-sm font-black text-white uppercase tracking-wider mb-3 group-hover:text-[#2F80FF] transition-colors">{service.title}</h3>
-                <p className="text-[10px] text-[#94A3B8] leading-relaxed mb-6 flex-grow">{service.description}</p>
+                <h3 className="text-sm font-black text-foreground dark:text-white uppercase tracking-wider mb-3 group-hover:text-[#2F80FF] transition-colors">{service.title}</h3>
+                <p className="text-[10px] text-brand-slate leading-relaxed mb-6 flex-grow">{service.description}</p>
 
-                <div className="pt-4 border-t border-white/5 grid grid-cols-2 gap-2">
+                <div className="pt-4 border-t border-brand-border grid grid-cols-2 gap-2">
                    <div>
-                      <div className="text-[8px] text-[#94A3B8] uppercase tracking-widest flex items-center gap-1 mb-1">
+                      <div className="text-[8px] text-brand-slate uppercase tracking-widest flex items-center gap-1 mb-1">
                         <Clock className="w-2.5 h-2.5" /> Avg ETA
                       </div>
-                      <div className="text-[10px] font-black text-white font-mono">{service.metrics.eta}</div>
+                      <div className="text-[10px] font-black text-foreground dark:text-white font-mono">{service.metrics.eta}</div>
                    </div>
                    <div>
-                      <div className="text-[8px] text-[#94A3B8] uppercase tracking-widest flex items-center gap-1 mb-1">
+                      <div className="text-[8px] text-brand-slate uppercase tracking-widest flex items-center gap-1 mb-1">
                         <Shield className="w-2.5 h-2.5" /> Tier
                       </div>
-                      <div className="text-[10px] font-black text-white font-mono uppercase">{service.metrics.coverage}</div>
+                      <div className="text-[10px] font-black text-foreground dark:text-white font-mono uppercase">{service.metrics.coverage}</div>
                    </div>
                 </div>
               </motion.div>

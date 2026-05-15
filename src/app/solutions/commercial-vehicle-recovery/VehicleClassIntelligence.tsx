@@ -83,7 +83,7 @@ export default function VehicleClassIntelligence() {
   const [selectedClass, setSelectedClass] = useState(vehicleClasses[7]);
 
   return (
-    <section className="py-24 bg-[#081120] relative overflow-hidden">
+    <section className="py-24 bg-brand-bg relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         
         <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
@@ -92,14 +92,14 @@ export default function VehicleClassIntelligence() {
               <Zap className="w-3 h-3 text-[#2F80FF]" />
               <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Classification Intelligence</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-white mb-6">
+            <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground dark:text-white mb-6">
               Vehicle Class Intelligence Dashboard
             </h2>
-            <p className="text-[#94A3B8] text-lg leading-relaxed">
+            <p className="text-brand-slate text-lg leading-relaxed">
               Automated classification systems ensure the right equipment is dispatched for every recovery event. Our platform categorizes over 50,000 vehicle types into 8 operational weight classes.
             </p>
           </div>
-          <div className="flex items-center gap-4 text-xs font-mono text-[#94A3B8]">
+          <div className="flex items-center gap-4 text-xs font-mono text-brand-slate">
             <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-emerald-500" /> Real-time Telemetry</span>
             <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-500" /> Dispatch Sync</span>
           </div>
@@ -114,8 +114,8 @@ export default function VehicleClassIntelligence() {
                 key={cls.id}
                 whileHover={{ y: -4, borderColor: cls.color }}
                 onClick={() => setSelectedClass(cls)}
-                className={`relative p-6 rounded-2xl border bg-[#0A192F]/50 backdrop-blur-xl transition-all text-left overflow-hidden ${
-                  selectedClass.id === cls.id ? 'border-white/20 ring-1 ring-white/10' : 'border-white/5 grayscale opacity-60 hover:grayscale-0 hover:opacity-100'
+                className={`relative p-6 rounded-2xl border bg-card/50 backdrop-blur-xl transition-all text-left overflow-hidden ${
+                  selectedClass.id === cls.id ? 'border-white/20 ring-1 ring-white/10' : 'border-brand-border grayscale opacity-60 hover:grayscale-0 hover:opacity-100'
                 }`}
               >
                 {selectedClass.id === cls.id && (
@@ -126,8 +126,8 @@ export default function VehicleClassIntelligence() {
                 )}
                 <div className="relative z-10">
                   <div className="text-[10px] font-mono mb-1" style={{ color: cls.color }}>{cls.category}</div>
-                  <div className="text-2xl font-black text-white mb-1">{cls.label}</div>
-                  <div className="text-[9px] text-[#94A3B8] font-mono tracking-tight">{cls.weight}</div>
+                  <div className="text-2xl font-black text-foreground dark:text-white mb-1">{cls.label}</div>
+                  <div className="text-[9px] text-brand-slate font-mono tracking-tight">{cls.weight}</div>
                 </div>
                 <div className="absolute bottom-2 right-2 opacity-10">
                    <Truck className="w-12 h-12" />
@@ -145,12 +145,12 @@ export default function VehicleClassIntelligence() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="bg-[#0A192F]/80 backdrop-blur-3xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl"
+                className="bg-card/80 backdrop-blur-3xl border border-brand-border rounded-2xl overflow-hidden shadow-2xl"
               >
-                <div className="bg-[#081120] p-6 border-b border-white/5 flex items-center justify-between">
+                <div className="bg-brand-bg p-6 border-b border-brand-border flex items-center justify-between">
                   <div>
-                    <h3 className="text-xl font-black text-white">{selectedClass.label} Recovery Intelligence</h3>
-                    <div className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-widest mt-1">Operational Parameters</div>
+                    <h3 className="text-xl font-black text-foreground dark:text-white">{selectedClass.label} Recovery Intelligence</h3>
+                    <div className="text-[10px] font-mono text-brand-slate uppercase tracking-widest mt-1">Operational Parameters</div>
                   </div>
                   <div className="p-2 rounded-xl bg-white/5">
                     <Activity className="w-5 h-5 text-[#2F80FF]" />
@@ -162,10 +162,10 @@ export default function VehicleClassIntelligence() {
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-2">
-                        <Weight className="w-4 h-4 text-[#94A3B8]" />
-                        <span className="text-xs font-mono text-[#94A3B8] uppercase">Weight Threshold</span>
+                        <Weight className="w-4 h-4 text-brand-slate" />
+                        <span className="text-xs font-mono text-brand-slate uppercase">Weight Threshold</span>
                       </div>
-                      <span className="text-sm font-black text-white">{selectedClass.weight}</span>
+                      <span className="text-sm font-black text-foreground dark:text-white">{selectedClass.weight}</span>
                     </div>
                     <div className="h-2 bg-white/5 rounded-full overflow-hidden">
                       <motion.div
@@ -179,23 +179,23 @@ export default function VehicleClassIntelligence() {
 
                   {/* Info Cards */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 rounded-xl bg-[#081120] border border-white/5">
-                      <div className="text-[9px] text-[#94A3B8] uppercase tracking-widest mb-2">Category</div>
-                      <div className="text-sm font-bold text-white">{selectedClass.category}</div>
+                    <div className="p-4 rounded-xl bg-brand-bg border border-brand-border">
+                      <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-2">Category</div>
+                      <div className="text-sm font-bold text-foreground dark:text-white">{selectedClass.category}</div>
                     </div>
-                    <div className="p-4 rounded-xl bg-[#081120] border border-white/5">
-                      <div className="text-[9px] text-[#94A3B8] uppercase tracking-widest mb-2">Recovery Target</div>
+                    <div className="p-4 rounded-xl bg-brand-bg border border-brand-border">
+                      <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-2">Recovery Target</div>
                       <div className="text-sm font-bold text-[#2F80FF]">{selectedClass.towType}</div>
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <div className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-widest flex items-center gap-2">
+                    <div className="text-[10px] font-mono text-brand-slate uppercase tracking-widest flex items-center gap-2">
                       <Info className="w-3 h-3" /> Vehicle Examples
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {selectedClass.examples.split(', ').map((ex, i) => (
-                        <span key={i} className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-[10px] font-medium text-white">
+                        <span key={i} className="px-3 py-1 rounded-full bg-white/5 border border-brand-border text-[10px] font-medium text-foreground dark:text-white">
                           {ex}
                         </span>
                       ))}
@@ -203,19 +203,19 @@ export default function VehicleClassIntelligence() {
                   </div>
 
                   {/* Dispatch Intelligence */}
-                  <div className="pt-6 border-t border-white/5">
+                  <div className="pt-6 border-t border-brand-border">
                     <div className="bg-blue-500/5 rounded-xl p-4 border border-blue-500/10 flex items-start gap-4">
                       <Shield className="w-5 h-5 text-blue-400 mt-1" />
                       <div>
-                        <div className="text-[11px] font-black text-white uppercase tracking-wider mb-1">Dispatch Intelligence</div>
-                        <p className="text-[10px] text-[#94A3B8] leading-normal">
+                        <div className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-wider mb-1">Dispatch Intelligence</div>
+                        <p className="text-[10px] text-brand-slate leading-normal">
                           Requires specialized {selectedClass.towType.toLowerCase()} units with certified {selectedClass.category.toLowerCase()} operators. Automated routing will prioritize proximity to heavy-duty recovery nodes.
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <button className="w-full py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 group">
+                  <button className="w-full py-4 bg-white/5 hover:bg-white/10 border border-brand-border rounded-xl text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 group">
                     View Technical Specifications <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

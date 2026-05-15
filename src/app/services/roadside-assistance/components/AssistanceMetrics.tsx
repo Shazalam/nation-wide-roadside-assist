@@ -28,7 +28,7 @@ export const AssistanceMetrics = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Operational Performance</p>
-          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">Enterprise Assistance Metrics</h2>
+          <h2 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight">Enterprise Assistance Metrics</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -40,16 +40,16 @@ export const AssistanceMetrics = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <GlassPanel className="p-8 border-white/5 bg-[#0A192F]/60 group hover:border-brand-blue/30 transition-all">
+              <GlassPanel className="p-8 border-brand-border bg-card/60 group hover:border-brand-blue/30 transition-all">
                 <div className="flex justify-between items-start mb-8">
                    <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                       <m.icon className={`h-6 w-6 ${m.color}`} />
                    </div>
-                   <div className="px-2 py-1 bg-white/5 border border-white/10 rounded-lg text-[8px] font-bold text-emerald-400">
+                   <div className="px-2 py-1 bg-white/5 border border-brand-border rounded-lg text-[8px] font-bold text-emerald-400">
                       {m.trend}
                    </div>
                 </div>
-                <p className="text-3xl font-black text-white tracking-tight leading-none mb-2">{m.val}</p>
+                <p className="text-3xl font-black text-foreground dark:text-white tracking-tight leading-none mb-2">{m.val}</p>
                 <p className="text-[10px] font-bold text-brand-slate uppercase tracking-[0.2em]">{m.label}</p>
                 
                 {/* Micro-sparkline simulation */}

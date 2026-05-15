@@ -46,7 +46,7 @@ const features = [
 
 export const Features = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden transition-colors duration-500">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <motion.div
@@ -64,7 +64,7 @@ export const Features = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-white tracking-tight"
+            className="text-4xl md:text-5xl font-bold text-foreground tracking-tight"
           >
             Engineered for High-Stakes Mobility
           </motion.h2>
@@ -79,11 +79,11 @@ export const Features = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <GlassPanel className="p-8 h-full hover:border-brand-blue/30 transition-all duration-500 group">
-                <div className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-brand-blue/10 transition-colors">
+              <GlassPanel className="p-8 h-full hover:border-brand-blue/30 transition-all duration-500 group shadow-sm dark:shadow-none">
+                <div className="h-12 w-12 rounded-xl bg-foreground/[0.03] flex items-center justify-center mb-6 group-hover:bg-brand-blue/10 transition-colors">
                   <feature.icon className="h-6 w-6 text-brand-blue" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">{feature.title}</h3>
                 <p className="text-brand-slate text-sm leading-relaxed">
                   {feature.description}
                 </p>
@@ -97,7 +97,7 @@ export const Features = () => {
       </div>
 
       {/* Decorative Blur */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/5 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/5 rounded-full blur-[160px] pointer-events-none opacity-50 dark:opacity-100" />
     </section>
   );
 };

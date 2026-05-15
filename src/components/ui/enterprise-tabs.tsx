@@ -25,8 +25,8 @@ export const EnterpriseTabs = ({
 }: EnterpriseTabsProps) => {
   return (
     <div className={cn(
-      "flex p-1",
-      variant === 'pills' ? "bg-white/[0.03] border border-brand-border rounded-xl w-fit" : "border-b border-brand-border w-full gap-8 px-2",
+      "flex p-1 transition-colors duration-500",
+      variant === 'pills' ? "bg-foreground/[0.03] border border-brand-border rounded-xl w-fit" : "border-b border-brand-border w-full gap-8 px-2",
       className
     )}>
       {tabs.map((tab) => {
@@ -37,12 +37,12 @@ export const EnterpriseTabs = ({
             onClick={() => onChange(tab.id)}
             className={cn(
               "relative px-4 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2",
-              isActive ? "text-white" : "text-brand-slate hover:text-white",
+              isActive ? "text-foreground dark:text-foreground dark:text-white" : "text-brand-slate hover:text-foreground dark:hover:text-foreground dark:text-white",
               variant === 'underline' && "px-1 pb-3 pt-2"
             )}
           >
             {tab.icon && <span className={cn("h-4 w-4", isActive ? "text-brand-blue" : "text-brand-slate")}>{tab.icon}</span>}
-            {tab.label}
+            <span className="relative z-10">{tab.label}</span>
             
             {isActive && (
               <motion.div

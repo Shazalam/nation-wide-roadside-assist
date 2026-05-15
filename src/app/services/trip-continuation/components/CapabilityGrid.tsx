@@ -39,12 +39,12 @@ export const CapabilityGrid = () => {
                transition={{ delay: i * 0.1 }}
                viewport={{ once: true }}
              >
-                <GlassPanel className="h-full p-10 border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all group overflow-hidden relative flex flex-col justify-between">
+                <GlassPanel className="h-full p-10 border-brand-border bg-white/[0.01] hover:bg-white/[0.03] transition-all group overflow-hidden relative flex flex-col justify-between">
                    <div className="absolute -right-8 -top-8 h-32 w-32 bg-[#2F80FF]/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                    
                    <div>
-                     <h3 className="text-xl font-black text-white mb-4 leading-tight">{cap.title}</h3>
-                     <p className="text-[#94A3B8] leading-relaxed font-medium text-sm mb-12">
+                     <h3 className="text-xl font-black text-foreground dark:text-white mb-4 leading-tight">{cap.title}</h3>
+                     <p className="text-brand-slate leading-relaxed font-medium text-sm mb-12">
                         {cap.desc}
                      </p>
                    </div>
@@ -53,15 +53,15 @@ export const CapabilityGrid = () => {
                    <div className="h-40 w-full mb-10 relative opacity-60 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                      <div className="absolute inset-0 bg-gradient-to-t from-brand-bg to-transparent z-10" />
                      {i === 0 && (
-                       <div className="w-full h-full border border-white/5 rounded-xl bg-[url('https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-luminosity" />
+                       <div className="w-full h-full border border-brand-border rounded-xl bg-[url('https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-luminosity" />
                      )}
                      {i === 1 && (
-                       <div className="w-full h-full border border-white/5 rounded-xl bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-luminosity" />
+                       <div className="w-full h-full border border-brand-border rounded-xl bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-luminosity" />
                      )}
                      {i === 2 && (
-                       <div className="w-full h-full border border-white/5 rounded-xl bg-[url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-luminosity" />
+                       <div className="w-full h-full border border-brand-border rounded-xl bg-[url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-luminosity" />
                      )}
-                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-[#0A192F] border border-[#2F80FF]/30 flex items-center justify-center z-20 shadow-[0_0_20px_rgba(47,128,255,0.4)]">
+                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-card border border-[#2F80FF]/30 flex items-center justify-center z-20 shadow-[0_0_20px_rgba(47,128,255,0.4)]">
                         <cap.icon className="h-5 w-5 text-[#2F80FF]" />
                      </div>
                    </div>

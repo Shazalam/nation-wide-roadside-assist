@@ -20,19 +20,19 @@ export const RecoveryCTA = () => {
           className="max-w-4xl mx-auto space-y-12"
         >
           <div className="h-16 w-[2px] bg-brand-blue mx-auto mb-10" />
-          <h2 className="text-5xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1]">
+          <h2 className="text-5xl lg:text-7xl font-black text-foreground dark:text-white tracking-tighter leading-[1.1]">
             Modernize Your Heavy-Duty <br />
             <span className="bg-gradient-to-r from-brand-blue via-brand-orange to-brand-blue bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-flow">Recovery Infrastructure</span>
           </h2>
-          <p className="text-xl text-[#94A3B8] leading-relaxed max-w-2xl mx-auto font-medium">
+          <p className="text-xl text-brand-slate leading-relaxed max-w-2xl mx-auto font-medium">
             Connect with Nationwide Trans Inc. to streamline heavy recovery operations, automate fleet dispatch coordination, and optimize enterprise roadside intelligence.
           </p>
           
           <div className="flex flex-wrap justify-center gap-6 pt-10">
-            <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-20 px-12 rounded-[2rem] text-lg shadow-[0_20px_50px_rgba(47,128,255,0.3)] group">
+            <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-black h-20 px-12 rounded-[2rem] text-lg shadow-[0_20px_50px_rgba(47,128,255,0.3)] group">
               Contact Enterprise Team <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="border-white/10 text-white hover:bg-white/5 h-20 px-12 rounded-[2rem] text-lg group">
+            <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-20 px-12 rounded-[2rem] text-lg group">
               <FileText className="mr-3 h-6 w-6 opacity-40 group-hover:opacity-100 transition-opacity" />
               Request Recovery Capability Report
             </Button>

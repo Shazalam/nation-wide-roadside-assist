@@ -41,7 +41,7 @@ export const Sidebar = () => {
                 "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200",
                 pathname === item.href 
                   ? "bg-brand-blue/10 text-brand-blue" 
-                  : "text-brand-slate hover:bg-white/5 hover:text-white"
+                  : "text-brand-slate hover:bg-white/5 hover:text-foreground dark:text-white"
               )}
             >
               <item.icon className={cn("h-5 w-5", pathname === item.href ? "text-brand-blue" : "text-brand-slate")} />

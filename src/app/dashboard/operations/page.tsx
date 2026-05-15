@@ -36,11 +36,11 @@ export default function OperationsPage() {
             <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[10px] font-bold text-brand-blue uppercase tracking-widest">Live Network Active</span>
           </div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">Live Operations Mesh</h1>
+          <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">Live Operations Mesh</h1>
           <p className="text-brand-slate text-sm">Real-time nationwide incident coordination and fleet dispatch.</p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" className="border-white/10 bg-brand-navy/40 text-white gap-2">
+          <Button variant="outline" className="border-brand-border bg-brand-navy/40 text-foreground dark:text-white gap-2">
             <Filter className="h-4 w-4" /> Filter Network
           </Button>
           <Button className="bg-brand-blue hover:bg-brand-blue/90 shadow-[0_0_20px_rgba(47,128,255,0.4)] border-none gap-2">
@@ -88,7 +88,7 @@ export default function OperationsPage() {
         <div className="lg:col-span-4 space-y-6">
           <GlassPanel className="p-6 h-full flex flex-col">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">Operational Feed</h3>
+              <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-wider">Operational Feed</h3>
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse" />
                 <span className="text-[10px] text-brand-slate uppercase font-bold">Live</span>
@@ -111,7 +111,7 @@ export default function OperationsPage() {
                       {incident.priority}
                     </Badge>
                   </div>
-                  <h4 className="text-sm font-bold text-white mb-1">{incident.type}</h4>
+                  <h4 className="text-sm font-bold text-foreground dark:text-white mb-1">{incident.type}</h4>
                   <div className="flex items-center gap-2 text-[10px] text-brand-slate mb-3">
                     <MapPin className="h-3 w-3" /> {incident.location}
                     <div className="h-1 w-1 rounded-full bg-brand-border" />
@@ -119,7 +119,7 @@ export default function OperationsPage() {
                   </div>
                   <div className="flex items-center justify-between mt-4">
                     <StatusIndicator status={incident.status === 'on_site' ? 'online' : 'busy'} label={incident.status.replace('_', ' ')} />
-                    <Button variant="ghost" size="sm" className="h-7 px-2 text-[10px] text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all">
+                    <Button variant="ghost" size="sm" className="h-7 px-2 text-[10px] text-brand-blue group-hover:bg-brand-blue group-hover:text-foreground dark:text-white transition-all">
                       Details
                     </Button>
                   </div>

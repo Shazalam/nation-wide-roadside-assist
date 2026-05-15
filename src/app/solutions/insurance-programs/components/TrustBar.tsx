@@ -25,7 +25,7 @@ export default function TrustBar() {
   const marqueeItems = [...partners, ...partners, ...partners, ...partners];
 
   return (
-    <section className="relative h-[140px] md:h-[160px] lg:h-[180px] border-y border-white/5 bg-[#081120] overflow-hidden flex flex-col justify-center">
+    <section className="relative h-[140px] md:h-[160px] lg:h-[180px] border-y border-brand-border bg-brand-bg overflow-hidden flex flex-col justify-center">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0%); }
@@ -65,14 +65,14 @@ export default function TrustBar() {
         
         {/* Top Header Row */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 md:gap-8">
-          <div className="text-[10px] md:text-[11px] font-bold text-[#94A3B8] font-mono tracking-[0.2em] uppercase shrink-0">
+          <div className="text-[10px] md:text-[11px] font-bold text-brand-slate font-mono tracking-[0.2em] uppercase shrink-0">
             Trusted By The World's Leading Organizations
           </div>
           
           <div className="hidden md:block flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#2F80FF]/30 to-transparent" />
           
           <div className="flex items-center gap-3 md:gap-4 flex-wrap justify-center shrink-0">
-            <span className="hidden xl:block text-[10px] font-bold text-[#94A3B8] font-mono tracking-[0.2em] uppercase mr-2">
+            <span className="hidden xl:block text-[10px] font-bold text-brand-slate font-mono tracking-[0.2em] uppercase mr-2">
               Enterprise-Grade Compliance
             </span>
             {compliance.map((c, i) => {
@@ -80,10 +80,10 @@ export default function TrustBar() {
               return (
                 <div
                   key={i}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0A192F]/50 border border-white/10 hover:border-[#2F80FF]/50 hover:bg-[#2F80FF]/10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_20px_rgba(47,128,255,0.15)] transition-all duration-300 group cursor-default backdrop-blur-md"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/50 border border-brand-border hover:border-[#2F80FF]/50 hover:bg-[#2F80FF]/10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_20px_rgba(47,128,255,0.15)] transition-all duration-300 group cursor-default backdrop-blur-md"
                 >
                   <Icon className="w-3.5 h-3.5 text-[#2F80FF] group-hover:drop-shadow-[0_0_8px_rgba(47,128,255,0.8)] transition-all" />
-                  <span className="text-[9px] font-bold text-white uppercase tracking-widest">{c.label}</span>
+                  <span className="text-[9px] font-bold text-foreground dark:text-white uppercase tracking-widest">{c.label}</span>
                 </div>
               );
             })}
@@ -95,7 +95,7 @@ export default function TrustBar() {
           <div className="flex items-center whitespace-nowrap animate-marquee w-max">
             {marqueeItems.map((p, i) => (
               <div key={i} className="flex items-center">
-                <div className="px-10 md:px-14 lg:px-16 text-2xl md:text-3xl font-black text-[#94A3B8]/40 hover:text-white transition-all duration-300 cursor-default select-none tracking-tighter filter grayscale hover:grayscale-0 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+                <div className="px-10 md:px-14 lg:px-16 text-2xl md:text-3xl font-black text-brand-slate/40 hover:text-foreground dark:text-white transition-all duration-300 cursor-default select-none tracking-tighter filter grayscale hover:grayscale-0 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
                   {p.logo}
                 </div>
                 {/* Glowing Separator Dot */}

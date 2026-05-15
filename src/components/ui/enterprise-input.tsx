@@ -13,7 +13,7 @@ const EnterpriseInput = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full space-y-1.5">
         {label && (
-          <label className="text-[10px] font-bold text-white uppercase tracking-widest ml-1">
+          <label className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest ml-1">
             {label}
           </label>
         )}
@@ -26,7 +26,7 @@ const EnterpriseInput = React.forwardRef<HTMLInputElement, InputProps>(
           <input
             type={type}
             className={cn(
-              "flex h-11 w-full rounded-xl border border-brand-border bg-white/[0.03] px-3 py-2 text-sm text-white ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-brand-slate/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/50 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200",
+              "flex h-11 w-full rounded-xl border border-brand-border bg-white/[0.03] px-3 py-2 text-sm text-foreground dark:text-white ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-brand-slate/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/50 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200",
               icon && "pl-10",
               error && "border-rose-500/50 focus-visible:ring-rose-500/50",
               className

@@ -33,7 +33,7 @@ const capabilities = [
 
 export default function CoreCapabilities() {
   return (
-    <section className="py-24 bg-[#0A192F]/50 relative overflow-hidden">
+    <section className="py-24 bg-card/50 relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
         
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -41,10 +41,10 @@ export default function CoreCapabilities() {
             <Radio className="w-3 h-3 text-[#2F80FF] animate-pulse" />
             <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Enterprise Infrastructure</span>
           </div>
-          <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-white mb-6">
+          <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-foreground dark:text-white mb-6">
             Mission-Critical Core Capabilities
           </h2>
-          <p className="text-[#94A3B8] text-lg leading-relaxed">
+          <p className="text-brand-slate text-lg leading-relaxed">
             Engineered for the demands of modern logistics, our platform provides the infrastructure needed to maintain mobility across enterprise fleets.
           </p>
         </div>
@@ -65,22 +65,22 @@ export default function CoreCapabilities() {
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent transition-opacity group-hover:opacity-100 opacity-50" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 
-                <div className="relative bg-[#081120] rounded-[22px] p-8 lg:p-10 h-full flex flex-col">
+                <div className="relative bg-brand-bg rounded-[22px] p-8 lg:p-10 h-full flex flex-col">
                   <div className="flex justify-between items-start mb-8">
-                    <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:border-blue-500/50 group-hover:bg-blue-500/10 transition-all duration-500">
-                      <Icon className="w-8 h-8 text-white group-hover:text-[#2F80FF]" />
+                    <div className="p-4 rounded-2xl bg-white/5 border border-brand-border group-hover:border-blue-500/50 group-hover:bg-blue-500/10 transition-all duration-500">
+                      <Icon className="w-8 h-8 text-foreground dark:text-white group-hover:text-[#2F80FF]" />
                     </div>
                     <div className="text-right">
-                      <div className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-widest">Global Metric</div>
-                      <div className="text-sm font-black text-white font-mono mt-1">{cap.stats}</div>
+                      <div className="text-[10px] font-mono text-brand-slate uppercase tracking-widest">Global Metric</div>
+                      <div className="text-sm font-black text-foreground dark:text-white font-mono mt-1">{cap.stats}</div>
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-black text-white mb-4 leading-tight group-hover:text-[#2F80FF] transition-colors">
+                  <h3 className="text-2xl font-black text-foreground dark:text-white mb-4 leading-tight group-hover:text-[#2F80FF] transition-colors">
                     {cap.title}
                   </h3>
                   
-                  <p className="text-[#94A3B8] text-sm leading-relaxed mb-8 flex-grow">
+                  <p className="text-brand-slate text-sm leading-relaxed mb-8 flex-grow">
                     {cap.description}
                   </p>
 
@@ -88,13 +88,13 @@ export default function CoreCapabilities() {
                     {cap.features.map((feat, fi) => (
                       <div key={fi} className="flex items-center gap-3">
                         <Zap className="w-3 h-3 text-[#2F80FF]" />
-                        <span className="text-[11px] font-medium text-white/70">{feat}</span>
+                        <span className="text-[11px] font-medium text-foreground dark:text-white/70">{feat}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-10 pt-6 border-t border-white/5 flex items-center justify-between">
-                    <span className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-widest">Capabilities Tier 01</span>
+                  <div className="mt-10 pt-6 border-t border-brand-border flex items-center justify-between">
+                    <span className="text-[10px] font-mono text-brand-slate uppercase tracking-widest">Capabilities Tier 01</span>
                     <div className="flex items-center gap-1">
                       <div className="w-1 h-1 rounded-full bg-[#2F80FF]" />
                       <div className="w-4 h-1 rounded-full bg-[#2F80FF]" />
@@ -114,9 +114,9 @@ export default function CoreCapabilities() {
              { label: 'Requests', val: '1.2B' },
              { label: 'Latency', val: '<40ms' }
            ].map((s, i) => (
-             <div key={i} className="text-center py-4 border-r border-white/5 last:border-0">
-                <div className="text-xl font-mono font-black text-white">{s.val}</div>
-                <div className="text-[9px] uppercase tracking-[0.2em] text-[#94A3B8]">{s.label}</div>
+             <div key={i} className="text-center py-4 border-r border-brand-border last:border-0">
+                <div className="text-xl font-mono font-black text-foreground dark:text-white">{s.val}</div>
+                <div className="text-[9px] uppercase tracking-[0.2em] text-brand-slate">{s.label}</div>
              </div>
            ))}
         </div>

@@ -37,7 +37,7 @@ export const EnterpriseAccordion = ({ items }: EnterpriseAccordionProps) => {
                 {item.icon && <div className={cn("text-brand-slate", isOpen && "text-brand-blue")}>{item.icon}</div>}
                 <span className={cn(
                   "text-sm font-bold tracking-tight transition-colors",
-                  isOpen ? "text-white" : "text-brand-slate"
+                  isOpen ? "text-foreground dark:text-white" : "text-brand-slate"
                 )}>
                   {item.title}
                 </span>

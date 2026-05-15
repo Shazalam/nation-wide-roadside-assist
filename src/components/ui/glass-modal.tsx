@@ -49,14 +49,14 @@ export const GlassModal = ({
             transition={{ type: "spring", duration: 0.5 }}
             className={cn("relative w-full z-10", sizes[size])}
           >
-            <GlassPanel className="shadow-2xl border-white/10 bg-brand-navy/80">
+            <GlassPanel className="shadow-2xl border-brand-border bg-brand-navy/80">
               <div className="flex items-center justify-between px-6 py-4 border-b border-brand-border">
-                <h3 className="text-lg font-bold text-white tracking-tight">{title}</h3>
+                <h3 className="text-lg font-bold text-foreground dark:text-white tracking-tight">{title}</h3>
                 <Button 
                   variant="ghost" 
                   size="icon" 
                   onClick={onClose}
-                  className="h-8 w-8 text-brand-slate hover:text-white"
+                  className="h-8 w-8 text-brand-slate hover:text-foreground dark:text-white"
                 >
                   <X className="h-5 w-5" />
                 </Button>

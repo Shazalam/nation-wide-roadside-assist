@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 export const APIInfrastructure = () => {
   return (
-    <section className="py-24 relative">
+    <section className="py-24 relative transition-colors duration-500">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
@@ -20,8 +20,8 @@ export const APIInfrastructure = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <GlassPanel className="p-0 overflow-hidden bg-[#0A192F]/80 border-white/10 shadow-2xl">
-                <div className="bg-white/[0.03] px-6 py-3 border-b border-white/5 flex items-center justify-between">
+              <GlassPanel className="p-0 overflow-hidden bg-card/80 border-brand-border shadow-xl dark:bg-card/80 dark:shadow-2xl">
+                <div className="bg-foreground/[0.03] px-6 py-3 border-b border-brand-border flex items-center justify-between">
                   <div className="flex gap-1.5">
                     <div className="h-3 w-3 rounded-full bg-rose-500/20 border border-rose-500/40" />
                     <div className="h-3 w-3 rounded-full bg-amber-500/20 border border-amber-500/40" />
@@ -58,19 +58,19 @@ export const APIInfrastructure = () => {
                 transition={{ delay: 0.3 }}
                 className="absolute -bottom-12 -right-8 w-64"
               >
-                <GlassPanel className="p-4 bg-brand-navy border-brand-blue/30 shadow-2xl">
+                <GlassPanel className="p-4 bg-card border-brand-blue/30 shadow-xl dark:bg-brand-navy dark:shadow-2xl">
                   <div className="flex items-center gap-2 mb-2">
                     <Zap className="h-3 w-3 text-brand-blue" />
-                    <span className="text-[10px] font-bold text-white uppercase tracking-widest">Mesh Response</span>
+                    <span className="text-[10px] font-bold text-foreground dark:text-foreground dark:text-white uppercase tracking-widest">Mesh Response</span>
                   </div>
                   <div className="space-y-1">
                     <div className="flex justify-between text-[10px]">
                       <span className="text-brand-slate">Dispatch ID</span>
-                      <span className="text-white font-mono">INC-9214</span>
+                      <span className="text-foreground dark:text-foreground dark:text-white font-mono">INC-9214</span>
                     </div>
                     <div className="flex justify-between text-[10px]">
                       <span className="text-brand-slate">ETA</span>
-                      <span className="text-emerald-400 font-mono">11m 42s</span>
+                      <span className="text-emerald-500 font-mono">11m 42s</span>
                     </div>
                   </div>
                 </GlassPanel>
@@ -83,7 +83,7 @@ export const APIInfrastructure = () => {
               <Terminal className="h-4 w-4 text-brand-blue" />
               <span className="text-[10px] font-bold text-brand-blue uppercase tracking-widest">API-First Core</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
               Built for <span className="text-brand-blue">Engineers</span>, Engineered for Scale.
             </h2>
             <p className="text-brand-slate text-lg leading-relaxed">
@@ -91,29 +91,29 @@ export const APIInfrastructure = () => {
             </p>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/5">
+                <div className="h-10 w-10 rounded-lg bg-foreground/[0.03] flex items-center justify-center border border-brand-border">
                   <ShieldCheck className="h-5 w-5 text-brand-blue" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">OAuth 2.0 Security</h4>
+                  <h4 className="text-sm font-bold text-foreground">OAuth 2.0 Security</h4>
                   <p className="text-[10px] text-brand-slate uppercase tracking-widest">Enterprise Auth Mesh</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/5">
+                <div className="h-10 w-10 rounded-lg bg-foreground/[0.03] flex items-center justify-center border border-brand-border">
                   <Zap className="h-5 w-5 text-brand-blue" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Real-time Webhooks</h4>
+                  <h4 className="text-sm font-bold text-foreground">Real-time Webhooks</h4>
                   <p className="text-[10px] text-brand-slate uppercase tracking-widest">HTTP Push Architecture</p>
                 </div>
               </div>
             </div>
             <div className="pt-4 flex gap-4">
               <Link href="/api-docs">
-                <Button className="bg-brand-blue text-white font-bold h-12 px-8 uppercase tracking-widest">Documentation</Button>
+                <Button className="bg-brand-blue text-foreground dark:text-white font-bold h-12 px-8 uppercase tracking-widest">Documentation</Button>
               </Link>
-              <Button variant="outline" className="border-white/10 text-white h-12 px-8 uppercase tracking-widest">Get API Key</Button>
+              <Button variant="outline" className="border-brand-border text-foreground h-12 px-8 uppercase tracking-widest hover:bg-foreground/[0.03]">Get API Key</Button>
             </div>
           </div>
         </div>

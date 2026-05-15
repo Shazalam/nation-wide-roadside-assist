@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function RVCamperSupportPage() {
   return (
-    <div className="bg-[#081120] text-white selection:bg-[#2F80FF]/30 overflow-hidden font-sans">
+    <div className="bg-brand-bg text-foreground dark:text-white selection:bg-[#2F80FF]/30 overflow-hidden font-sans">
       {/* Background Gradients */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[1000px] h-[500px] bg-[#2F80FF]/10 blur-[120px] rounded-full mix-blend-screen" />

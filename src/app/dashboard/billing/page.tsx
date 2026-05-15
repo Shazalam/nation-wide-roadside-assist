@@ -57,15 +57,15 @@ export default function BillingPage() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <CreditCard className="h-5 w-5 text-brand-blue" />
-            <h1 className="text-3xl font-bold text-white tracking-tight">Enterprise Billing Systems</h1>
+            <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">Enterprise Billing Systems</h1>
           </div>
           <p className="text-brand-slate text-sm">Automated reconciliation, regional payouts, and high-volume transaction mesh.</p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" className="border-white/10 text-white gap-2">
+          <Button variant="outline" className="border-brand-border text-foreground dark:text-white gap-2">
             <FileText className="h-4 w-4" /> Billing API
           </Button>
-          <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white gap-2">
+          <Button className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white gap-2">
             <Download className="h-4 w-4" /> Settlement Report
           </Button>
         </div>
@@ -82,8 +82,8 @@ export default function BillingPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Revenue Chart */}
         <div className="lg:col-span-5">
-          <GlassPanel className="p-8 h-full bg-brand-navy/60 border-white/5">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-8">Regional Revenue Distribution</h3>
+          <GlassPanel className="p-8 h-full bg-brand-navy/60 border-brand-border">
+            <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-wider mb-8">Regional Revenue Distribution</h3>
             <div className="h-80 w-full">
               {isMounted && (
                 <ResponsiveContainer width="100%" height="100%">
@@ -117,8 +117,8 @@ export default function BillingPage() {
             renderRow={(invoice) => (
               <>
                 <td className="px-6 py-4 font-mono text-[10px] text-brand-blue">{invoice.id}</td>
-                <td className="px-6 py-4 text-sm font-bold text-white">{invoice.client}</td>
-                <td className="px-6 py-4 text-sm font-mono text-white">${invoice.amount.toLocaleString()}</td>
+                <td className="px-6 py-4 text-sm font-bold text-foreground dark:text-white">{invoice.client}</td>
+                <td className="px-6 py-4 text-sm font-mono text-foreground dark:text-white">${invoice.amount.toLocaleString()}</td>
                 <td className="px-6 py-4">
                   <Badge className={
                     invoice.status === 'paid' ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' :
@@ -148,11 +148,11 @@ export default function BillingPage() {
                   <CheckCircle2 className="h-6 w-6 text-emerald-500" />
                </div>
                <div className="space-y-1">
-                  <h4 className="text-xl font-bold text-white">Automated Reconciliation Optimal</h4>
+                  <h4 className="text-xl font-bold text-foreground dark:text-white">Automated Reconciliation Optimal</h4>
                   <p className="text-sm text-brand-slate">All MTD transactions have been verified against node logs. Zero discrepancies detected.</p>
                </div>
             </div>
-            <Button className="bg-emerald-500 text-white font-bold h-12 px-8 rounded-xl shadow-[0_0_25px_rgba(16,185,129,0.3)]">
+            <Button className="bg-emerald-500 text-foreground dark:text-white font-bold h-12 px-8 rounded-xl shadow-[0_0_25px_rgba(16,185,129,0.3)]">
                Review Audit Mesh
             </Button>
          </div>

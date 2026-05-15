@@ -39,7 +39,7 @@ export const KPIWidget = ({
       <div className="flex items-start justify-between">
         <div className="space-y-1">
           <p className="text-sm font-medium text-brand-slate uppercase tracking-wider">{title}</p>
-          <h3 className="text-3xl font-bold text-white tracking-tight">{value}</h3>
+          <h3 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">{value}</h3>
         </div>
         {Icon && (
           <div className="h-10 w-10 rounded-xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center text-brand-blue group-hover:scale-110 transition-transform">

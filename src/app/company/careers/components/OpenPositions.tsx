@@ -20,11 +20,11 @@ export const OpenPositions = () => {
   const filtered = filter === 'All' ? positions : positions.filter(p => p.dept === filter);
 
   return (
-    <section className="py-24 bg-brand-bg relative z-10 border-t border-white/5">
+    <section className="py-24 bg-brand-bg relative z-10 border-t border-brand-border">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
            <div>
-              <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+              <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-4">
                  Open Positions
               </h2>
            </div>
@@ -37,8 +37,8 @@ export const OpenPositions = () => {
                   suppressHydrationWarning
                   className={`px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest whitespace-nowrap transition-colors ${
                     filter === d 
-                    ? 'bg-[#2F80FF] text-white' 
-                    : 'bg-white/5 text-[#94A3B8] hover:bg-white/10 hover:text-white'
+                    ? 'bg-[#2F80FF] text-foreground dark:text-white' 
+                    : 'bg-white/5 text-brand-slate hover:bg-white/10 hover:text-foreground dark:text-white'
                   }`}
                 >
                    {d}
@@ -56,7 +56,7 @@ export const OpenPositions = () => {
                transition={{ delay: i * 0.05 }}
                viewport={{ once: true }}
              >
-                <div className="p-6 bg-white/[0.02] border border-white/5 hover:border-[#2F80FF]/30 rounded-2xl hover:bg-white/[0.04] transition-all group cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="p-6 bg-white/[0.02] border border-brand-border hover:border-[#2F80FF]/30 rounded-2xl hover:bg-white/[0.04] transition-all group cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6">
                    
                    <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
@@ -64,16 +64,16 @@ export const OpenPositions = () => {
                          <span className="w-1 h-1 rounded-full bg-white/20" />
                          <span className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest">{pos.scope}</span>
                       </div>
-                      <h3 className="text-xl font-black text-white mb-3 group-hover:text-[#2F80FF] transition-colors">{pos.title}</h3>
+                      <h3 className="text-xl font-black text-foreground dark:text-white mb-3 group-hover:text-[#2F80FF] transition-colors">{pos.title}</h3>
                       
-                      <div className="flex flex-wrap items-center gap-4 text-[11px] font-medium text-[#94A3B8]">
+                      <div className="flex flex-wrap items-center gap-4 text-[11px] font-medium text-brand-slate">
                          <div className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {pos.loc}</div>
                          <div className="flex items-center gap-1.5"><Briefcase className="h-3.5 w-3.5" /> {pos.type}</div>
                       </div>
                    </div>
 
-                   <button suppressHydrationWarning className="shrink-0 h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#2F80FF] transition-colors border border-white/10 group-hover:border-[#2F80FF]">
-                      <ArrowRight className="h-5 w-5 text-white" />
+                   <button suppressHydrationWarning className="shrink-0 h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#2F80FF] transition-colors border border-brand-border group-hover:border-[#2F80FF]">
+                      <ArrowRight className="h-5 w-5 text-foreground dark:text-white" />
                    </button>
                 </div>
              </motion.div>

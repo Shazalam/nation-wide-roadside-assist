@@ -62,11 +62,11 @@ export default function RegisterPage() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-6 group">
             <div className="h-10 w-10 rounded-lg bg-brand-blue flex items-center justify-center shadow-[0_0_20px_rgba(47,128,255,0.4)]">
-              <Shield className="text-white h-6 w-6" />
+              <Shield className="text-foreground dark:text-white h-6 w-6" />
             </div>
-            <span className="text-2xl font-bold text-white tracking-tight">NATIONWIDE <span className="text-brand-blue">TRANS</span></span>
+            <span className="text-2xl font-bold text-foreground dark:text-white tracking-tight">NATIONWIDE <span className="text-brand-blue">TRANS</span></span>
           </Link>
-          <h1 className="text-3xl font-bold text-white tracking-tight">Request Provisioning</h1>
+          <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">Request Provisioning</h1>
           <p className="text-brand-slate mt-2">Initialize your enterprise profile on the Nationwide network.</p>
         </div>
 
@@ -124,7 +124,7 @@ export default function RegisterPage() {
 
             <Button 
               type="submit" 
-              className="w-full h-12 bg-brand-blue hover:bg-brand-blue/90 text-white font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.3)] group mt-4"
+              className="w-full h-12 bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.3)] group mt-4"
               disabled={loading}
             >
               {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : (

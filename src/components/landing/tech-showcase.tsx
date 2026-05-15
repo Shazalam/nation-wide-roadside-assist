@@ -17,19 +17,19 @@ export const TechShowcase = () => {
               <Cpu className="h-4 w-4 text-brand-blue" />
               <span className="text-[10px] font-bold text-brand-blue uppercase tracking-widest">Mesh Infrastructure</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1]">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground dark:text-white tracking-tight leading-[1.1]">
               The Operating System for <span className="text-brand-blue">Global Mobility</span>
             </h2>
             <p className="text-brand-slate text-lg max-w-xl">
               Our proprietary mesh network coordinates over 50,000 service nodes with sub-second latency, providing real-time visibility into the world's most complex roadside operations.
             </p>
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <p className="text-2xl font-bold text-white">99.99%</p>
+              <div className="p-4 rounded-xl bg-white/5 border border-brand-border">
+                <p className="text-2xl font-bold text-foreground dark:text-white">99.99%</p>
                 <p className="text-[10px] text-brand-slate uppercase tracking-widest mt-1">Uptime SLA</p>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <p className="text-2xl font-bold text-white">&lt;120ms</p>
+              <div className="p-4 rounded-xl bg-white/5 border border-brand-border">
+                <p className="text-2xl font-bold text-foreground dark:text-white">&lt;120ms</p>
                 <p className="text-[10px] text-brand-slate uppercase tracking-widest mt-1">Dispatch Latency</p>
               </div>
             </div>
@@ -43,11 +43,11 @@ export const TechShowcase = () => {
               viewport={{ once: true }}
               className="relative z-10"
             >
-              <GlassPanel className="p-6 bg-brand-navy/80 border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
+              <GlassPanel className="p-6 bg-brand-navy/80 border-brand-border shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <Activity className="h-5 w-5 text-brand-blue" />
-                    <span className="text-xs font-bold text-white uppercase tracking-widest">Global Telemetry</span>
+                    <span className="text-xs font-bold text-foreground dark:text-white uppercase tracking-widest">Global Telemetry</span>
                   </div>
                   <div className="flex gap-1">
                     <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />

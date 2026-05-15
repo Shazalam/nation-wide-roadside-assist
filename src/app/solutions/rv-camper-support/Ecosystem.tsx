@@ -49,7 +49,7 @@ const cards = [
 
 export default function Ecosystem() {
   return (
-    <section className="py-24 bg-[#0A192F]/30 border-y border-[rgba(255,255,255,0.06)]">
+    <section className="py-24 bg-card/30 border-y border-[rgba(255,255,255,0.06)]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[rgba(47,128,255,0.08)] border border-[rgba(47,128,255,0.15)] rounded-full mb-5">
@@ -58,7 +58,7 @@ export default function Ecosystem() {
           <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-4">
             Powering the Entire <span className="text-[#2F80FF]">RV &amp; Camper</span> Ecosystem
           </h2>
-          <p className="text-[#94A3B8] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-brand-slate max-w-2xl mx-auto leading-relaxed">
             A unified operations platform supporting every layer of the modern RV and camper ecosystem.
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function Ecosystem() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
                 whileHover={{ y: -5, scale: 1.01 }}
-                className="group relative bg-[#081120] border border-[rgba(255,255,255,0.07)] rounded-2xl overflow-hidden hover:border-[#2F80FF]/40 hover:shadow-[0_0_30px_rgba(47,128,255,0.12)] transition-all duration-300"
+                className="group relative bg-brand-bg border border-[rgba(255,255,255,0.07)] rounded-2xl overflow-hidden hover:border-[#2F80FF]/40 hover:shadow-[0_0_30px_rgba(47,128,255,0.12)] transition-all duration-300"
               >
                 {/* Top glow accent */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -88,15 +88,15 @@ export default function Ecosystem() {
                     </div>
                     <span className="text-2xl">{card.image}</span>
                   </div>
-                  <h3 className="font-black text-base text-white leading-snug mb-2">{card.title}</h3>
-                  <p className="text-[#94A3B8] text-xs leading-relaxed mb-4">{card.desc}</p>
+                  <h3 className="font-black text-base text-foreground dark:text-white leading-snug mb-2">{card.title}</h3>
+                  <p className="text-brand-slate text-xs leading-relaxed mb-4">{card.desc}</p>
                 </div>
 
                 {/* Metrics list */}
                 <div className="px-5 pb-4">
                   <ul className="space-y-1.5 mb-4">
                     {card.metrics.map(m => (
-                      <li key={m} className="flex items-center gap-2 text-xs text-[#94A3B8]">
+                      <li key={m} className="flex items-center gap-2 text-xs text-brand-slate">
                         <div className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: card.color }} />
                         {m}
                       </li>
@@ -106,8 +106,8 @@ export default function Ecosystem() {
 
                 {/* Stat footer */}
                 <div className="mx-5 mb-5 pt-4 border-t border-[rgba(255,255,255,0.06)]">
-                  <div className="text-xl font-black text-white font-mono" style={{ color: card.color }}>{card.stat}</div>
-                  <div className="text-[9px] text-[#94A3B8] mt-0.5 uppercase tracking-wide">{card.statLabel}</div>
+                  <div className="text-xl font-black text-foreground dark:text-white font-mono" style={{ color: card.color }}>{card.stat}</div>
+                  <div className="text-[9px] text-brand-slate mt-0.5 uppercase tracking-wide">{card.statLabel}</div>
                 </div>
               </motion.div>
             );

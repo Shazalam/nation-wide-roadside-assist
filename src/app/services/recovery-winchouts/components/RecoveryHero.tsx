@@ -1,240 +1,269 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Shield, Zap, Globe, Clock, ArrowRight, Activity, MapPin, Truck, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { GlassPanel } from '@/components/ui/glass-panel';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  ChevronRight, Activity, Database, Globe, Clock, Terminal, Shield, Zap, Truck
+} from 'lucide-react';
+
+const liveIncidents = [
+  { id: 'INC-7821', type: 'Class 8 Rollover', location: 'I-95 North, FL', status: 'In-Progress', eta: '18 min', priority: 'critical' },
+  { id: 'INC-8832', type: 'Off-Road Recovery', location: 'I-80, WY', status: 'En-Route', eta: '32 min', priority: 'high' },
+  { id: 'INC-9910', type: 'Hazmat Towing', location: 'NJ Turnpike', status: 'Active', eta: '12 min', priority: 'critical' },
+];
 
 export const RecoveryHero = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex(p => (p + 1) % liveIncidents.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    <section className="relative pt-24 pb-12 lg:pt-28 lg:pb-16 px-4 sm:px-6 lg:px-12 overflow-hidden bg-brand-bg min-h-[90vh] lg:min-h-screen flex items-center">
+      {/* Cinematic Enterprise Atmosphere */}
+      <div className="absolute top-0 right-0 w-[1200px] h-[900px] bg-[#2F80FF]/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[900px] h-[700px] bg-[#FF7A1A]/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(47,128,255,0.05)_0%,transparent_80%)] pointer-events-none" />
+
+      <div className="max-w-[1536px] mx-auto w-full relative z-10">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Side: Content */}
-          <div className="lg:col-span-5 space-y-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2 text-[10px] font-bold text-[#2F80FF] uppercase tracking-[0.3em]"
-            >
-              <span className="opacity-50">Services</span>
-              <ChevronRight className="h-3 w-3 opacity-30" />
-              <span>Recovery & Winch-Outs</span>
-            </motion.div>
+          {/* ── LEFT CONTENT (xl:col-span-5) ─────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="xl:col-span-5 flex flex-col"
+          >
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-[10px] font-black text-brand-slate uppercase tracking-[0.2em] mb-6">
+              <span className="hover:text-foreground dark:text-white transition-colors cursor-pointer">Services</span>
+              <ChevronRight className="w-3.5 h-3.5 text-[#2F80FF]" />
+              <span className="text-[#2F80FF]">Recovery & Winch-Outs</span>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-6xl lg:text-[5.5rem] font-black leading-[0.95] tracking-tight"
-            >
-              Enterprise <br />
-              <span className="text-[#2F80FF] italic">Recovery</span> <br />
-              Intelligence.
-            </motion.h1>
+            <h1 className="text-4xl lg:text-[3.5rem] xl:text-[4rem] font-black tracking-tighter text-foreground dark:text-white leading-[1.05] mb-6 drop-shadow-lg">
+              Enterprise Recovery <br />
+              <span className="text-[#2F80FF]">Intelligence</span>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-lg lg:text-xl text-[#94A3B8] leading-relaxed max-w-xl"
-            >
-              Real-time recovery dispatch coordination, nationwide heavy-duty response infrastructure, and API-first incident management systems engineered for the enterprise.
-            </motion.p>
+            <p className="text-base lg:text-lg text-brand-slate mb-8 max-w-lg leading-relaxed font-medium">
+              Real-time recovery dispatch coordination, nationwide heavy-duty response infrastructure, and API-first incident management systems engineered for mission-critical scale.
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-bold h-16 px-10 rounded-2xl shadow-[0_0_30px_rgba(47,128,255,0.4)] group">
-                Schedule Recovery Demo <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="border-white/10 text-white hover:bg-white/5 h-16 px-10 rounded-2xl group">
-                Explore Recovery APIs <span className="ml-2 opacity-30 group-hover:opacity-100 font-mono">/&gt;</span>
-              </Button>
-            </motion.div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-6 py-3.5 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-black text-[11px] uppercase tracking-widest flex items-center justify-center gap-3 group shadow-[0_0_20px_rgba(47,128,255,0.3)] hover:shadow-[0_0_30px_rgba(47,128,255,0.5)] transition-all"
+              >
+                Schedule Recovery Demo
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
+                whileTap={{ scale: 0.98 }}
+                className="px-6 py-3.5 bg-card/50 backdrop-blur-md border border-brand-border text-foreground dark:text-white rounded-xl font-black text-[11px] uppercase tracking-widest flex items-center justify-center gap-3 transition-colors hover:border-white/20"
+              >
+                Explore Recovery APIs <Terminal className="w-4 h-4 text-brand-slate" />
+              </motion.button>
+            </div>
 
-            {/* Metric Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="grid grid-cols-2 gap-4 pt-10"
-            >
+            {/* Premium KPI Metric Cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { label: 'Recovery Coverage', val: '99.1%', icon: Shield },
-                { label: 'Annual Events', val: '3.2M+', icon: Activity },
-                { label: 'Heavy-Duty Network', val: 'Nationwide', icon: Globe },
-                { label: 'Operations', val: '24/7', icon: Clock }
-              ].map((m, i) => (
-                <div key={i} className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-2">
-                  <m.icon className="h-4 w-4 text-[#2F80FF] opacity-50" />
-                  <p className="text-2xl font-black text-white">{m.val}</p>
-                  <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest">{m.label}</p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Right Side: Command Dashboard */}
-          <div className="lg:col-span-7 relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, rotateY: -10 }}
-              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <GlassPanel className="p-0 border-white/10 bg-[#0A192F]/90 shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
-                {/* Dashboard Header */}
-                <div className="px-10 py-8 border-b border-white/5 flex items-center justify-between">
-                  <div className="flex items-center gap-6">
-                    <div className="flex flex-col">
-                      <span className="text-[11px] font-black text-white uppercase tracking-widest">Live Recovery Operations</span>
-                      <div className="flex items-center gap-2 mt-1">
-                        <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                        <span className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest">System Live</span>
+                { value: '99.1%', label: 'Recovery Coverage', icon: Shield },
+                { value: '3.2M+', label: 'Annual Events', icon: Database },
+                { value: 'Nationwide', label: 'Response Network', icon: Globe },
+                { value: '24/7', label: 'Command Center', icon: Clock },
+              ].map((kpi, i) => {
+                const Icon = kpi.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + i * 0.1 }}
+                    className="bg-card/60 backdrop-blur-md border border-brand-border rounded-xl p-3.5 hover:border-[#2F80FF]/40 transition-colors group"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="p-1.5 rounded-md bg-brand-bg border border-brand-border group-hover:border-[#2F80FF]/30 transition-colors">
+                        <Icon className="w-3.5 h-3.5 text-[#2F80FF]" />
                       </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-8">
-                    <div className="text-right">
-                      <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest">Active Rotators</p>
-                      <p className="text-xl font-black text-white">142</p>
+                    <div className="text-lg lg:text-xl font-black text-foreground dark:text-white mb-1 tracking-tighter">{kpi.value}</div>
+                    <div className="text-[8px] font-black text-brand-slate uppercase tracking-widest leading-tight">{kpi.label}</div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* ── RIGHT DASHBOARD (xl:col-span-7) ─────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="xl:col-span-7 relative"
+          >
+            {/* Cinematic Dashboard Container */}
+            <div className="relative bg-[#070D18]/90 backdrop-blur-3xl border border-brand-border rounded-[32px] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.1)] p-5 lg:p-8">
+              
+              {/* Top KPIs Row */}
+              <div className="grid grid-cols-4 gap-4 pb-6 border-b border-brand-border mb-8">
+                {[
+                  { label: 'Active Recoveries', val: '1,248', delta: '+8.3%', pos: true },
+                  { label: 'Avg. Arrival Time', val: '32.4 min', delta: '-12.3%', pos: true },
+                  { label: 'Asset Extraction', val: '98.6%', delta: '+5.7%', pos: true },
+                  { label: 'Service Efficiency', val: '4.9/5', delta: '+3.2%', pos: true },
+                ].map((s, i) => (
+                  <div key={i} className="flex flex-col">
+                    <div className="text-[10px] text-brand-slate font-black uppercase tracking-widest mb-1 truncate">{s.label}</div>
+                    <div className="flex items-baseline gap-1.5">
+                       <span className="text-lg lg:text-2xl font-black text-foreground dark:text-white tracking-tighter">{s.val}</span>
+                       <span className={`text-[9px] font-black px-1.5 py-0.5 rounded-full ${s.pos ? 'text-emerald-400 bg-emerald-400/10' : 'text-rose-400 bg-rose-400/10'}`}>{s.delta}</span>
                     </div>
-                    <div className="text-right">
-                      <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest">SLA Compliance</p>
-                      <p className="text-xl font-black text-emerald-400">99.1%</p>
-                    </div>
                   </div>
+                ))}
+              </div>
+
+              {/* Main Dashboard Split */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                {/* Map Area */}
+                <div className="lg:col-span-7 bg-[#0B1221] rounded-2xl border border-brand-border relative overflow-hidden h-[300px] lg:h-[400px]">
+                  <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                     <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                     <span className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest">Live Recovery Mesh</span>
+                  </div>
+                  
+                  {/* Grid Lines */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+                  {/* Telemetry Dots & Connections */}
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 400">
+                     {/* Dynamic Paths */}
+                     <path d="M150,150 L300,200 L450,100 L600,250" fill="none" stroke="rgba(47,128,255,0.2)" strokeWidth="1" />
+                     <path d="M300,200 L400,300 L550,220" fill="none" stroke="rgba(47,128,255,0.2)" strokeWidth="1" />
+                     
+                     {/* Recovery Nodes */}
+                     {[
+                       {cx: 150, cy: 150}, {cx: 300, cy: 200}, {cx: 450, cy: 100}, {cx: 600, cy: 250},
+                       {cx: 400, cy: 300}, {cx: 550, cy: 220}, {cx: 200, cy: 280}, {cx: 500, cy: 180}
+                     ].map((dot, i) => (
+                        <g key={i}>
+                          <circle cx={dot.cx} cy={dot.cy} r="3" fill="#2F80FF" className="animate-pulse" style={{animationDelay: `${i * 0.2}s`}} />
+                          <circle cx={dot.cx} cy={dot.cy} r="10" fill="#2F80FF" opacity="0.1" />
+                        </g>
+                     ))}
+
+                     {/* Active Heavy Duty Event */}
+                     <g>
+                       <circle cx="550" cy="220" r="4" fill="#FF7A1A" />
+                       <circle cx="550" cy="220" r="12" fill="#FF7A1A" opacity="0.3" className="animate-ping" />
+                     </g>
+                  </svg>
+
+                  {/* Dynamic Incident Popover */}
+                  <AnimatePresence mode="wait">
+                    <motion.div 
+                      key={activeIndex}
+                      initial={{ y: 10, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      className="absolute top-[30%] right-[10%] bg-card/95 backdrop-blur-xl border border-brand-border rounded-xl p-4 shadow-[0_0_40px_rgba(47,128,255,0.25)] w-48"
+                    >
+                       <div className="flex justify-between items-start mb-3">
+                          <span className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest">{liveIncidents[activeIndex].id}</span>
+                          <Truck className="h-3 w-3 text-[#2F80FF]" />
+                       </div>
+                       <div className="text-[12px] text-foreground dark:text-white font-black uppercase mb-1">{liveIncidents[activeIndex].type}</div>
+                       <div className="text-[10px] text-brand-slate font-bold mb-3 uppercase tracking-tighter">{liveIncidents[activeIndex].location}</div>
+                       <div className="flex items-center justify-between pt-3 border-t border-brand-border">
+                          <span className="text-[9px] font-black text-emerald-400 uppercase">ETA {liveIncidents[activeIndex].eta}</span>
+                          <span className="text-[8px] font-black text-[#2F80FF] uppercase">Tracking Live</span>
+                       </div>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
-                <div className="grid grid-cols-1 xl:grid-cols-12 h-[600px]">
-                   {/* Left Stats Rail */}
-                   <div className="xl:col-span-4 border-r border-white/5 p-8 space-y-8 bg-[#081120]/40">
+                {/* Right Side Sidebar */}
+                <div className="lg:col-span-5 flex flex-col gap-6">
+                  
+                  {/* Live Fleet Availability */}
+                  <div className="bg-[#0B1221] rounded-2xl border border-brand-border p-5 flex-1 flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
+                       <div className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-widest">Fleet Availability</div>
+                       <div className="flex items-center gap-1.5 bg-emerald-400/10 px-2 py-0.5 rounded-full">
+                          <div className="h-1 w-1 rounded-full bg-emerald-400" />
+                          <span className="text-[8px] font-black text-emerald-400 uppercase">Active</span>
+                       </div>
+                    </div>
+                    <div className="space-y-4">
                       {[
-                        { label: 'Active Incidents', val: '1,248', trend: '+8.3%' },
-                        { label: 'En Route', val: '642', trend: '+6.1%' },
-                        { label: 'On Scene', val: '426', trend: '+4.7%' },
-                        { label: 'Completed Today', val: '2,381', trend: '+12.4%' }
-                      ].map((stat, i) => (
-                        <div key={i} className="space-y-2">
-                           <div className="flex justify-between items-center">
-                              <span className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-widest">{stat.label}</span>
-                              <span className="text-[9px] font-bold text-emerald-400">{stat.trend}</span>
-                           </div>
-                           <p className="text-3xl font-black text-white">{stat.val}</p>
-                           <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                              <motion.div 
-                                initial={{ width: 0 }} 
-                                animate={{ width: '70%' }} 
-                                transition={{ delay: i * 0.1 }}
-                                className="h-full bg-[#2F80FF]" 
-                              />
-                           </div>
+                        { label: 'Heavy Duty Rotators', val: '142', progress: 85 },
+                        { label: 'Medium Duty Units', val: '384', progress: 92 },
+                        { label: 'Recovery Flatbeds', val: '612', progress: 78 },
+                        { label: 'Support Equipment', val: '1,204', progress: 95 },
+                      ].map((item, i) => (
+                        <div key={i} className="space-y-1.5">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[10px] text-brand-slate font-black uppercase tracking-widest">{item.label}</span>
+                            <span className="text-[10px] font-bold text-foreground dark:text-white font-mono">{item.val}</span>
+                          </div>
+                          <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                             <motion.div 
+                               initial={{ width: 0 }}
+                               whileInView={{ width: `${item.progress}%` }}
+                               transition={{ duration: 1, delay: i * 0.1 }}
+                               className="h-full bg-[#2F80FF]"
+                             />
+                          </div>
                         </div>
                       ))}
-                   </div>
+                    </div>
+                    <div className="mt-auto pt-6">
+                       <button className="w-full h-11 bg-white/5 border border-brand-border rounded-xl text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                          View Fleet Intel <ArrowUpRight className="w-3 h-3 text-[#2F80FF]" />
+                       </button>
+                    </div>
+                  </div>
 
-                   {/* Main Visualization Area */}
-                   <div className="xl:col-span-8 relative bg-[#081120]/60 overflow-hidden">
-                      {/* Map Mesh Overlay */}
-                      <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#2F80FF1A 1px, transparent 1px), linear-gradient(90deg, #2F80FF1A 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-                      
-                      {/* Animated Map Points */}
-                      {[
-                        { x: 20, y: 30, color: '#2F80FF', id: 'INC-7821' },
-                        { x: 60, y: 45, color: '#FF7A1A', id: 'INC-7822' },
-                        { x: 45, y: 70, color: '#2F80FF', id: 'INC-7823' },
-                        { x: 80, y: 20, color: '#2F80FF', id: 'INC-7824' }
-                      ].map((p, i) => (
-                        <div key={i} className="absolute" style={{ left: `${p.x}%`, top: `${p.y}%` }}>
-                           <motion.div
-                             animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-                             transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
-                             className="h-3 w-3 rounded-full shadow-[0_0_15px_rgba(47,128,255,0.6)]"
-                             style={{ backgroundColor: p.color }}
-                           />
-                           <div className="absolute top-4 left-0 whitespace-nowrap">
-                              <span className="text-[9px] font-black text-white bg-[#0A192F] px-2 py-1 rounded border border-white/10 uppercase tracking-widest">{p.id}</span>
-                           </div>
-                        </div>
-                      ))}
+                  {/* Recovery Load Line Chart */}
+                  <div className="bg-[#0B1221] rounded-2xl border border-brand-border p-5 h-[120px] lg:h-[140px] flex flex-col justify-between relative overflow-hidden">
+                    <div className="flex justify-between items-center z-10 relative">
+                      <span className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-widest">Incident Load (24h)</span>
+                      <span className="text-[11px] font-mono font-bold text-[#2F80FF]">STABLE_OPS</span>
+                    </div>
+                    
+                    {/* SVG Line Chart */}
+                    <div className="absolute bottom-0 left-0 right-0 h-[60px] lg:h-[70px]">
+                      <svg viewBox="0 0 300 70" className="w-full h-full" preserveAspectRatio="none">
+                         <path d="M0,70 L0,40 Q45,20 90,50 T180,30 T270,45 T300,35 L300,70 Z" fill="rgba(47,128,255,0.05)" />
+                         <path d="M0,40 Q45,20 90,50 T180,30 T270,45 T300,35" fill="none" stroke="#2F80FF" strokeWidth="2" />
+                      </svg>
+                    </div>
+                  </div>
 
-                      {/* Bottom Quick Analytics Bar */}
-                      <div className="absolute bottom-0 left-0 right-0 p-8 grid grid-cols-4 gap-6 bg-gradient-to-t from-brand-bg to-transparent">
-                         {[
-                           { label: 'Avg. Response', val: '32 min' },
-                           { label: 'SLA Compliance', val: '99.1%' },
-                           { label: 'Rotator Avail.', val: '85%' },
-                           { label: 'Satisfaction', val: '4.9 / 5' }
-                         ].map((m, i) => (
-                           <div key={i} className="space-y-1">
-                              <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest">{m.label}</p>
-                              <p className="text-sm font-black text-white">{m.val}</p>
-                              <div className="flex gap-1 h-0.5 mt-2">
-                                 {[1,2,3,4,5].map(b => (
-                                   <div key={b} className={`flex-1 ${b < 4 ? 'bg-[#2F80FF]' : 'bg-white/10'}`} />
-                                 ))}
-                              </div>
-                           </div>
-                         ))}
-                      </div>
-                   </div>
                 </div>
-              </GlassPanel>
-            </motion.div>
+              </div>
 
-            {/* Floating Incident Card Decoration */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -right-12 top-1/4 z-20"
-            >
-               <GlassPanel className="p-6 bg-brand-navy border-[#2F80FF]/30 w-72 shadow-2xl">
-                  <div className="flex justify-between items-center mb-6">
-                    <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-widest">Active Incident</span>
-                    <Zap className="h-3 w-3 text-[#FF7A1A]" />
-                  </div>
-                  <div className="flex items-center gap-5 mb-8">
-                     <div className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                        <Truck className="h-8 w-8 text-white" />
-                     </div>
-                     <div>
-                        <p className="text-xs font-black text-white">INC-88219</p>
-                        <p className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-widest">Class 8 Rollover</p>
-                     </div>
-                  </div>
-                  <div className="space-y-4 mb-8">
-                     <div className="flex justify-between text-[11px]">
-                        <span className="text-[#94A3B8] font-bold uppercase tracking-widest">Location</span>
-                        <span className="text-white font-black">I-95 South • MP 142</span>
-                     </div>
-                     <div className="flex justify-between text-[11px]">
-                        <span className="text-[#94A3B8] font-bold uppercase tracking-widest">ETA Rotator</span>
-                        <span className="text-white font-black">14 Minutes</span>
-                     </div>
-                  </div>
-                  <Button className="w-full bg-[#2F80FF] text-white font-black text-[10px] uppercase tracking-widest h-12 rounded-xl">
-                     Track Incident Live
-                  </Button>
-               </GlassPanel>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
-      </div>
-
-      {/* Nighttime Roadway Decoration (Overlay) */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <img 
-          src="https://images.unsplash.com/photo-1542362567-b05260f89d41?auto=format&fit=crop&q=80&w=2000" 
-          alt="Nighttime Roadway" 
-          className="w-full h-full object-cover grayscale"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg via-transparent to-brand-bg" />
       </div>
     </section>
   );
 };
+
+const ArrowUpRight = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <line x1="7" y1="17" x2="17" y2="7"></line>
+    <polyline points="7 7 17 7 17 17"></polyline>
+  </svg>
+);

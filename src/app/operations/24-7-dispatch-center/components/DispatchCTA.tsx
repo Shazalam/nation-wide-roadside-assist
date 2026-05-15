@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 
 export const DispatchCTA = () => {
   return (
-    <section className="py-24 relative z-10 bg-[#081120] overflow-hidden border-t border-white/5">
+    <section className="py-24 relative z-10 bg-brand-bg overflow-hidden border-t border-brand-border">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2F80FF]/5 blur-[150px] rounded-full pointer-events-none" />
       
       <div className="container mx-auto px-4">
@@ -18,18 +18,18 @@ export const DispatchCTA = () => {
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
              >
-                <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+                <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-6">
                    Modernize Enterprise <br />Dispatch Infrastructure
                 </h2>
-                <p className="text-sm text-[#94A3B8] font-medium leading-relaxed mb-10 max-w-xl">
+                <p className="text-sm text-brand-slate font-medium leading-relaxed mb-10 max-w-xl">
                    Streamline nationwide dispatch coordination with Nationwide Trans Inc. Built for enterprise fleets, insurers, logistics providers, and mobility platforms.
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                   <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-bold h-12 px-8 rounded-lg shadow-[0_10px_30px_rgba(47,128,255,0.3)] group text-xs">
+                   <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-12 px-8 rounded-lg shadow-[0_10px_30px_rgba(47,128,255,0.3)] group text-xs">
                       Contact Dispatch Operations <ArrowRight className="ml-3 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                    </Button>
-                   <Button variant="outline" size="lg" suppressHydrationWarning className="border-white/10 text-white hover:bg-white/5 h-12 px-8 rounded-lg font-bold uppercase tracking-widest text-[10px] group">
+                   <Button variant="outline" size="lg" suppressHydrationWarning className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-12 px-8 rounded-lg font-bold uppercase tracking-widest text-[10px] group">
                       Request Capability Report <Server className="ml-3 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                    </Button>
                 </div>

@@ -19,7 +19,7 @@ import { MountedOnly } from '@/components/utils/mounted-only';
 
 export default function EnterpriseDispatchPage() {
   return (
-    <div className="min-h-screen bg-[#081120] text-white selection:bg-[#2F80FF]/30">
+    <div className="min-h-screen bg-brand-bg text-foreground dark:text-white selection:bg-[#2F80FF]/30">
       <Navbar />
       
       <main>

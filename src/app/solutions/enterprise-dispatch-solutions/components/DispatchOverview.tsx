@@ -20,9 +20,9 @@ export const DispatchOverview = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mb-20">
           <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Operational Intelligence</p>
-          <h2 className="text-4xl lg:text-6xl font-black text-white mb-8 tracking-tight">
+          <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white mb-8 tracking-tight">
             Premium Operational <br />
-            <span className="text-white/40">Infrastructure Orchestration</span>
+            <span className="text-foreground dark:text-white/40">Infrastructure Orchestration</span>
           </h2>
           <p className="text-brand-slate text-lg leading-relaxed">
             Our platform provides the backbone for enterprise-scale dispatch operations, combining AI intelligence with real-time network visibility to ensure mission-critical roadside recovery.
@@ -38,11 +38,11 @@ export const DispatchOverview = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <GlassPanel className="p-8 border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all group h-full">
+              <GlassPanel className="p-8 border-brand-border bg-white/[0.01] hover:bg-white/[0.03] transition-all group h-full">
                 <div className="h-12 w-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   <h.icon className="h-6 w-6 text-brand-blue" />
                 </div>
-                <h4 className="text-xl font-bold text-white mb-3 tracking-tight">{h.title}</h4>
+                <h4 className="text-xl font-bold text-foreground dark:text-white mb-3 tracking-tight">{h.title}</h4>
                 <p className="text-brand-slate text-sm leading-relaxed">{h.desc}</p>
               </GlassPanel>
             </motion.div>

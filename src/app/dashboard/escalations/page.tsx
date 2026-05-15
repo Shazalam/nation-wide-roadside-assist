@@ -34,7 +34,7 @@ export default function EscalationsPage() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <AlertTriangle className="h-5 w-5 text-brand-orange" />
-            <h1 className="text-3xl font-bold text-white tracking-tight">Escalation Workflows</h1>
+            <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">Escalation Workflows</h1>
           </div>
           <p className="text-brand-slate text-sm">Critical path management and high-stakes operational intervention protocols.</p>
         </div>
@@ -42,7 +42,7 @@ export default function EscalationsPage() {
           <Button variant="outline" className="border-brand-orange/20 text-brand-orange gap-2">
             <ShieldAlert className="h-4 w-4" /> View Crisis Log
           </Button>
-          <Button className="bg-brand-orange hover:bg-brand-orange/90 text-white gap-2">
+          <Button className="bg-brand-orange hover:bg-brand-orange/90 text-foreground dark:text-white gap-2">
             <Zap className="h-4 w-4" /> Override Protocol
           </Button>
         </div>
@@ -60,7 +60,7 @@ export default function EscalationsPage() {
         
         {/* Critical Queue */}
         <div className="lg:col-span-8 space-y-6">
-          <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-2 flex items-center gap-2">
+          <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-wider mb-2 flex items-center gap-2">
              <ShieldAlert className="h-4 w-4 text-brand-orange" /> Critical Intervention Queue
           </h3>
           
@@ -78,7 +78,7 @@ export default function EscalationsPage() {
                            <div className="h-1 w-1 rounded-full bg-white/20" />
                            <span className="text-[10px] font-mono text-brand-blue">{esc.incident}</span>
                         </div>
-                        <h4 className="text-lg font-bold text-white">{esc.type}</h4>
+                        <h4 className="text-lg font-bold text-foreground dark:text-white">{esc.type}</h4>
                         <div className="flex items-center gap-4 text-[10px] text-brand-slate uppercase font-bold tracking-widest">
                            <span className="flex items-center gap-1"><Users className="h-3 w-3" /> {esc.level}</span>
                            <span className="flex items-center gap-1 text-rose-500"><Clock className="h-3 w-3" /> {esc.time}</span>
@@ -88,7 +88,7 @@ export default function EscalationsPage() {
                      <div className="flex items-center gap-4">
                         <StatusIndicator status="alert" label={esc.status} pulse />
                         <div className="h-8 w-px bg-white/10" />
-                        <Button className="bg-brand-orange/10 border border-brand-orange/20 text-brand-orange hover:bg-brand-orange hover:text-white transition-all text-xs font-bold uppercase tracking-widest px-6 h-10">
+                        <Button className="bg-brand-orange/10 border border-brand-orange/20 text-brand-orange hover:bg-brand-orange hover:text-foreground dark:text-white transition-all text-xs font-bold uppercase tracking-widest px-6 h-10">
                            Take Command
                         </Button>
                      </div>
@@ -102,8 +102,8 @@ export default function EscalationsPage() {
 
         {/* Workflow Chain Visualizer */}
         <div className="lg:col-span-4">
-          <GlassPanel className="p-8 h-full bg-brand-navy/80 border-white/5">
-             <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-8">Protocol Chain: L3-EXEC</h3>
+          <GlassPanel className="p-8 h-full bg-brand-navy/80 border-brand-border">
+             <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-wider mb-8">Protocol Chain: L3-EXEC</h3>
              
              <div className="space-y-12 relative">
                 {/* Connecting Line */}
@@ -117,20 +117,20 @@ export default function EscalationsPage() {
                 ].map((node, i) => (
                   <div key={node.step} className="flex items-start gap-6 relative z-10">
                      <div className={`h-12 w-12 rounded-full flex items-center justify-center border transition-all ${
-                       node.active ? 'bg-brand-orange/10 border-brand-orange text-brand-orange shadow-[0_0_15px_rgba(249,115,22,0.4)]' : 'bg-white/5 border-white/10 text-brand-slate'
+                       node.active ? 'bg-brand-orange/10 border-brand-orange text-brand-orange shadow-[0_0_15px_rgba(249,115,22,0.4)]' : 'bg-white/5 border-brand-border text-brand-slate'
                      }`}>
                         <node.icon className="h-5 w-5" />
                      </div>
                      <div className="space-y-1">
-                        <h4 className={`text-sm font-bold ${node.active ? 'text-white' : 'text-brand-slate'}`}>{node.step}</h4>
+                        <h4 className={`text-sm font-bold ${node.active ? 'text-foreground dark:text-white' : 'text-brand-slate'}`}>{node.step}</h4>
                         <p className="text-[10px] text-brand-slate">{node.desc}</p>
                      </div>
                   </div>
                 ))}
              </div>
 
-             <div className="mt-12 pt-8 border-t border-white/5">
-                <Button variant="ghost" className="w-full text-brand-slate hover:text-white gap-2 text-[10px] font-bold uppercase tracking-widest">
+             <div className="mt-12 pt-8 border-t border-brand-border">
+                <Button variant="ghost" className="w-full text-brand-slate hover:text-foreground dark:text-white gap-2 text-[10px] font-bold uppercase tracking-widest">
                    Edit Protocol Rules <ArrowRight className="h-3 w-3" />
                 </Button>
              </div>

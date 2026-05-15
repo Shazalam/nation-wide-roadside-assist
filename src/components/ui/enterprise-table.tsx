@@ -23,7 +23,7 @@ export const EnterpriseTable = ({
     <GlassPanel className="overflow-hidden">
       {(title || actions) && (
         <div className="flex items-center justify-between px-6 py-4 border-b border-brand-border bg-white/[0.02]">
-          {title && <h3 className="text-sm font-bold text-white uppercase tracking-wider">{title}</h3>}
+          {title && <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-wider">{title}</h3>}
           {actions && <div className="flex items-center gap-2">{actions}</div>}
         </div>
       )}

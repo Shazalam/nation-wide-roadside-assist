@@ -1,177 +1,278 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Terminal, Code, ArrowRight } from 'lucide-react';
-import { GlassPanel } from '@/components/ui/glass-panel';
-import { Button } from '@/components/ui/button';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Terminal, 
+  Code, 
+  ArrowRight, 
+  CheckCircle2, 
+  ChevronRight, 
+  Globe, 
+  ShieldCheck, 
+  Cpu, 
+  Zap,
+  Copy
+} from 'lucide-react';
 
-const features = [
-  "OAuth 2.0 Auth", "Real-time Webhooks", "Idempotent APIs",
-  "Multi-region SDKs", "Sandbox Testing", "Event Streams",
+const tabs = [
+  { id: 'fleet', label: 'Fleet API' },
+  { id: 'dispatch', label: 'Dispatch API' },
+  { id: 'telemetry', label: 'Telemetry API' },
+  { id: 'webhooks', label: 'Webhook Events' },
 ];
 
-const apiEndpoints = [
-  { method: 'POST', path: '/v2/dispatches', desc: 'Create fleet dispatch event' },
-  { method: 'GET', path: '/v2/fleet/:id/telemetry', desc: 'Vehicle telemetry stream' },
-  { method: 'POST', path: '/v2/vendors/assign', desc: 'Intelligent vendor routing' },
-  { method: 'GET', path: '/v2/analytics/regional', desc: 'Regional performance data' },
-  { method: 'POST', path: '/v2/webhooks', desc: 'Register webhook endpoints' },
-  { method: 'GET', path: '/v2/vendors/:id/availability', desc: 'Vendor availability check' },
+const codeSamples = {
+  fleet: {
+    method: 'GET',
+    path: '/v1/fleet/VH-782910',
+    code: `{
+  "id": "VH-782910",
+  "status": "active",
+  "type": "box-truck",
+  "location": {
+    "lat": 33.7490,
+    "lng": -84.3880
+  },
+  "telemetry": {
+    "speed": 65,
+    "fuel": 82
+  }
+}`
+  },
+  dispatch: {
+    method: 'POST',
+    path: '/v1/dispatch',
+    code: `{
+  "vehicleId": "VH-782910",
+  "incidentType": "Tire Service",
+  "location": {
+    "lat": 33.7490,
+    "lng": -84.3880
+  },
+  "priority": "High",
+  "customerRef": "RNT-99821"
+}`
+  },
+  telemetry: {
+    method: 'GET',
+    path: '/v1/telemetry/stream',
+    code: `{
+  "event": "telemetry.pulse",
+  "timestamp": "2026-05-13T09:48:00Z",
+  "data": {
+    "coordinates": [33.74, -84.38],
+    "velocity": 42.5,
+    "heading": 182
+  }
+}`
+  },
+  webhooks: {
+    method: 'POST',
+    path: '/v1/webhooks',
+    code: `{
+  "url": "https://api.yourdomain.com/hooks",
+  "events": [
+    "dispatch.created",
+    "dispatch.completed"
+  ]
+}`
+  }
+};
+
+const webhookEvents = [
+  { id: '1', name: 'dispatch.created', active: true },
+  { id: '2', name: 'dispatch.assigned', active: true },
+  { id: '3', name: 'dispatch.enroute', active: false },
+  { id: '4', name: 'dispatch.completed', active: false },
+  { id: '5', name: 'incident.updated', active: false },
+  { id: '6', name: 'vendor.status', active: false },
 ];
 
 export const FleetAPISection = () => {
+  const [activeTab, setActiveTab] = useState('dispatch');
+
   return (
-    <section className="relative z-10 py-32">
-      <div className="container mx-auto px-4">
-        <GlassPanel className="bg-[#0A192F]/80 border-white/10 p-8 lg:p-14 xl:p-20 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 xl:gap-20 items-start">
-            {/* Left Side */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/20">
-                <Terminal className="h-4 w-4 text-brand-blue" />
-                <span className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.2em]">Developer Hub</span>
-              </div>
-              <h2 className="text-3xl lg:text-5xl xl:text-6xl font-black text-white leading-tight">API-First <br />Fleet Operations</h2>
-              <p className="text-brand-slate text-lg leading-relaxed">
-                Integrate nationwide recovery and roadside dispatch directly into your fleet management platforms with our robust REST infrastructure.
+    <section className="relative z-10 py-24 md:py-32 bg-brand-bg overflow-hidden">
+      <div className="container mx-auto px-4 max-w-[1450px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* ── LEFT COLUMN: VALUE PROP ────────────────────── */}
+          <div className="lg:col-span-4 space-y-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6 tracking-tight">
+                API Infrastructure
+              </h2>
+              <p className="text-brand-slate text-lg leading-relaxed mb-8">
+                Powerful, secure, and scalable APIs that integrate fleet operations, dispatch workflows, and telemetry directly into your systems.
               </p>
 
-              {/* API Endpoints */}
-              <div className="space-y-2">
-                <p className="text-[9px] font-bold text-brand-slate uppercase tracking-[0.3em] mb-3">Fleet API Endpoints</p>
-                {apiEndpoints.map((ep) => (
+              <div className="space-y-4 mb-10">
+                {[
+                  'RESTful APIs', 
+                  'Webhook Events', 
+                  'Real-time Telemetry', 
+                  'Sandbox Environment', 
+                  'SDKs & Libraries'
+                ].map((feature, i) => (
                   <motion.div 
-                    key={ep.path + ep.method} 
-                    whileHover={{ borderColor: 'rgba(47,128,255,0.25)', x: 2 }}
-                    className="flex items-center gap-3 p-2.5 rounded-lg bg-white/[0.02] border border-white/5 transition-all group cursor-default"
+                    key={feature}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-center gap-3"
                   >
-                    <span className={`text-[8px] font-bold font-mono px-2 py-0.5 rounded shrink-0 ${ep.method === 'POST' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-brand-blue/10 text-brand-blue'}`}>
-                      {ep.method}
-                    </span>
-                    <span className="text-[10px] font-mono text-white/80 flex-1 truncate">{ep.path}</span>
-                    <span className="text-[8px] text-brand-slate hidden sm:block shrink-0">{ep.desc}</span>
+                    <CheckCircle2 className="w-5 h-5 text-[#2F80FF]" />
+                    <span className="text-foreground dark:text-white/90 font-medium">{feature}</span>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                {features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-2.5">
-                    <div className="h-1.5 w-1.5 rounded-full bg-brand-blue shadow-[0_0_6px_#2F80FF]" />
-                    <span className="text-[12px] text-white/80 font-medium">{feature}</span>
-                  </div>
+              <button className="px-8 py-4 bg-[#2F80FF] hover:bg-[#1E4BA3] text-foreground dark:text-white font-bold rounded-xl transition-all shadow-[0_0_30px_rgba(47,128,255,0.3)] flex items-center gap-2 group">
+                View API Docs
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </button>
+            </motion.div>
+          </div>
+
+          {/* ── CENTER PANEL: API EXPLORER ──────────────────── */}
+          <div className="lg:col-span-5 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-[#030812] border border-brand-border rounded-2xl overflow-hidden shadow-2xl relative z-10"
+            >
+              {/* Tab Header */}
+              <div className="flex bg-white/5 border-b border-brand-border overflow-x-auto no-scrollbar">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`px-5 py-4 text-xs font-bold transition-all whitespace-nowrap relative ${
+                      activeTab === tab.id ? 'text-[#2F80FF]' : 'text-brand-slate hover:text-foreground dark:text-white'
+                    }`}
+                  >
+                    {tab.label}
+                    {activeTab === tab.id && (
+                      <motion.div 
+                        layoutId="activeTab" 
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2F80FF]" 
+                      />
+                    )}
+                  </button>
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Button className="bg-brand-blue text-white font-bold gap-2 rounded-xl h-13 px-7 hover:shadow-[0_0_30px_rgba(47,128,255,0.4)] transition-all hover:scale-[1.03]">
-                  Explore Fleet Documentation <Code className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" className="text-brand-blue border border-brand-blue/20 hover:bg-brand-blue/5 font-bold gap-2 rounded-xl h-13 px-7">
-                  SDK Reference <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Right Side: Code Block */}
-            <div className="lg:col-span-7 space-y-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="rounded-2xl bg-[#030812] border border-white/10 shadow-2xl overflow-hidden"
-              >
-                <div className="flex items-center justify-between px-5 py-3.5 bg-white/[0.03] border-b border-white/5">
-                  <div className="flex gap-1.5">
-                    <div className="h-2.5 w-2.5 rounded-full bg-rose-500/40" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-amber-500/40" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-emerald-500/40" />
+              {/* Code Area */}
+              <div className="p-6 font-mono">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
+                      codeSamples[activeTab as keyof typeof codeSamples].method === 'POST' 
+                        ? 'bg-emerald-500/10 text-emerald-400' 
+                        : 'bg-[#2F80FF]/10 text-[#2F80FF]'
+                    }`}>
+                      {codeSamples[activeTab as keyof typeof codeSamples].method}
+                    </span>
+                    <span className="text-xs text-foreground dark:text-white/50">
+                      {codeSamples[activeTab as keyof typeof codeSamples].path}
+                    </span>
                   </div>
-                  <span className="text-[9px] font-mono text-brand-slate uppercase tracking-widest">create_dispatch.ts</span>
+                  <div className="flex items-center gap-2">
+                    <div className="px-2 py-1 rounded bg-white/5 text-[9px] text-foreground dark:text-white/40 border border-brand-border flex items-center gap-1 cursor-pointer hover:bg-white/10 transition-colors">
+                      curl <ChevronRight className="w-2.5 h-2.5 rotate-90" />
+                    </div>
+                    <Copy className="w-3.5 h-3.5 text-foreground dark:text-white/30 hover:text-foreground dark:text-white transition-colors cursor-pointer" />
+                  </div>
                 </div>
-                <div className="p-6 lg:p-8 font-mono text-[13px] leading-[1.9] overflow-x-auto">
-                  <pre className="text-brand-slate">
-<span className="text-purple-400">import</span> <span className="text-white">{'{ NationwideTrans }'}</span> <span className="text-purple-400">from</span> <span className="text-emerald-400">&apos;@nwt/sdk&apos;</span>;{'\n'}
-{'\n'}
-<span className="text-purple-400">const</span> <span className="text-white">nwt</span> = <span className="text-purple-400">new</span> <span className="text-brand-blue">NationwideTrans</span>(process.env.<span className="text-amber-400">NWT_SECRET</span>);{'\n'}
-{'\n'}
-<span className="text-purple-400">const</span> <span className="text-white">dispatch</span> = <span className="text-purple-400">await</span> nwt.dispatches.<span className="text-amber-400">create</span>({'{'}
-{'\n'}  <span className="text-white">fleet_id</span>: <span className="text-emerald-400">&apos;FLEET-8291-TX&apos;</span>,
-{'\n'}  <span className="text-white">vehicle</span>: {'{'}
-{'\n'}    <span className="text-white">vin</span>: <span className="text-emerald-400">&apos;1N4AL3AP5KC...&apos;</span>,
-{'\n'}    <span className="text-white">type</span>: <span className="text-emerald-400">&apos;light-duty&apos;</span>
-{'\n'}  {'}'},
-{'\n'}  <span className="text-white">location</span>: {'{'}
-{'\n'}    <span className="text-white">lat</span>: <span className="text-brand-orange">32.7767</span>,
-{'\n'}    <span className="text-white">lng</span>: <span className="text-brand-orange">-96.7970</span>,
-{'\n'}    <span className="text-white">address</span>: <span className="text-emerald-400">&apos;Downtown Dallas, TX&apos;</span>
-{'\n'}  {'}'},
-{'\n'}  <span className="text-white">service_type</span>: <span className="text-emerald-400">&apos;roadside_recovery&apos;</span>,
-{'\n'}  <span className="text-white">priority</span>: <span className="text-emerald-400">&apos;high_priority&apos;</span>
-{'\n'}{'}'});{'\n'}
-{'\n'}
-console.<span className="text-amber-400">log</span>(<span className="text-emerald-400">{`\`Dispatch active: \${dispatch.id}\``}</span>);
-                  </pre>
-                </div>
-              </motion.div>
 
-              {/* Response Preview */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.15 }}
-                className="rounded-2xl bg-[#030812] border border-white/5 p-5 font-mono text-xs"
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[8px] font-bold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded">200 OK</span>
-                  <span className="text-[8px] text-brand-slate">Response • 42ms</span>
+                <div className="text-[13px] leading-relaxed overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    <motion.pre
+                      key={activeTab}
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -5 }}
+                      className="text-brand-slate"
+                    >
+                      {codeSamples[activeTab as keyof typeof codeSamples].code.split('\n').map((line, i) => (
+                        <div key={i} className="flex">
+                          <span className="w-6 shrink-0 text-foreground dark:text-white/10 text-[10px] select-none">{i + 1}</span>
+                          <span dangerouslySetInnerHTML={{ 
+                            __html: line
+                              .replace(/"([^"]+)":/g, '<span class="text-foreground dark:text-white">$1</span>:')
+                              .replace(/: "([^"]+)"/g, ': <span class="text-emerald-400">"$1"</span>')
+                              .replace(/: ([\d.-]+)/g, ': <span class="text-[#FF7A1A]">$1</span>')
+                          }} />
+                        </div>
+                      ))}
+                    </motion.pre>
+                  </AnimatePresence>
                 </div>
-                <pre className="text-brand-slate leading-relaxed">
-{`{
-  "id": "dsp_9x8f7g6h5j4k",
-  "status": "dispatched",
-  "vendor": {
-    "id": "RYDER-TX-1042",
-    "eta_minutes": 14,
-    "distance_miles": 8.2
-  },
-  "sla_target": "25min",
-  "created_at": "2026-05-12T06:30:00Z"
-}`}
-                </pre>
-              </motion.div>
+              </div>
+            </motion.div>
 
-              {/* Webhook Event */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.25 }}
-                className="rounded-2xl bg-[#030812] border border-white/5 p-5 font-mono text-xs"
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[8px] font-bold bg-brand-blue/10 text-brand-blue px-2 py-0.5 rounded">WEBHOOK</span>
-                  <span className="text-[8px] text-brand-slate">dispatch.status.updated</span>
-                </div>
-                <pre className="text-brand-slate leading-relaxed">
-{`{
-  "event": "dispatch.status.updated",
-  "dispatch_id": "dsp_9x8f7g6h5j4k",
-  "status": "vendor_en_route",
-  "eta_minutes": 12
-}`}
-                </pre>
-              </motion.div>
-            </div>
+            {/* Background Glows */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#2F80FF]/5 blur-[100px] rounded-full pointer-events-none" />
           </div>
 
-          {/* Decorative Glow */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full -mr-64 -mt-64 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-blue/3 blur-[100px] rounded-full -ml-32 -mb-32 pointer-events-none" />
-        </GlassPanel>
+          {/* ── RIGHT PANEL: WEBHOOK EVENTS ─────────────────── */}
+          <div className="lg:col-span-3">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-[#030812]/50 border border-brand-border rounded-2xl p-6 shadow-xl relative"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-sm font-bold text-foreground dark:text-white">Webhook Events</h3>
+                <div className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[9px] font-bold border border-emerald-500/20">
+                  LIVE
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {webhookEvents.map((event, i) => (
+                  <motion.div
+                    key={event.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-center justify-between group cursor-default"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="relative">
+                        <div className={`w-1.5 h-1.5 rounded-full ${event.active ? 'bg-emerald-500 shadow-[0_0_8px_#10B981]' : 'bg-white/10'}`} />
+                        {event.active && (
+                          <div className="absolute inset-0 w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping opacity-50" />
+                        )}
+                      </div>
+                      <span className="text-[11px] font-mono text-brand-slate group-hover:text-foreground dark:text-white transition-colors">
+                        {event.name}
+                      </span>
+                    </div>
+                    <ChevronRight className="w-3 h-3 text-foreground dark:text-white/10 group-hover:text-[#2F80FF] transition-colors" />
+                  </motion.div>
+                ))}
+              </div>
+
+              <button className="w-full mt-8 py-2.5 rounded-lg border border-brand-border hover:border-[#2F80FF]/40 text-[10px] font-bold text-brand-slate hover:text-foreground dark:text-white transition-all flex items-center justify-center gap-2 group">
+                View All Events
+                <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+              </button>
+            </motion.div>
+          </div>
+
+        </div>
       </div>
+
+      {/* Grid Texture Background */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 0)', backgroundSize: '32px 32px' }} />
     </section>
   );
 };

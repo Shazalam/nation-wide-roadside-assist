@@ -39,16 +39,16 @@ export const APIInfrastructure = () => {
   };
 
   return (
-    <section className="py-24 bg-[#0A192F]/40 relative z-10 border-t border-white/5">
+    <section className="py-24 bg-card/40 relative z-10 border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left: Info */}
           <div>
-            <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight mb-6">
+            <h2 className="text-3xl lg:text-4xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-6">
               API-Infrastructure
             </h2>
-            <p className="text-[#94A3B8] font-medium text-sm max-w-md mb-10 leading-relaxed">
+            <p className="text-brand-slate font-medium text-sm max-w-md mb-10 leading-relaxed">
               Power your systems with our robust APIs.
             </p>
             
@@ -63,14 +63,14 @@ export const APIInfrastructure = () => {
                ].map((item, i) => (
                  <div key={i} className="flex items-center gap-2">
                     <div className="h-4 w-4 rounded-full bg-[#2F80FF] flex items-center justify-center">
-                       <Check className="h-2.5 w-2.5 text-white" />
+                       <Check className="h-2.5 w-2.5 text-foreground dark:text-white" />
                     </div>
-                    <span className="text-[10px] font-bold text-white uppercase tracking-wider">{item.label}</span>
+                    <span className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-wider">{item.label}</span>
                  </div>
                ))}
             </div>
 
-            <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-bold h-10 px-6 rounded-lg text-xs">
+            <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-10 px-6 rounded-lg text-xs">
                View API Documentation <ArrowRight className="ml-2 h-3 w-3" />
             </Button>
           </div>
@@ -79,20 +79,20 @@ export const APIInfrastructure = () => {
           <div className="relative">
              <div className="absolute inset-0 bg-gradient-to-r from-[#2F80FF]/10 to-transparent blur-3xl -z-10 rounded-[3rem]" />
              
-             <div className="rounded-xl border border-white/10 bg-[#081120] overflow-hidden shadow-2xl">
+             <div className="rounded-xl border border-brand-border bg-brand-bg overflow-hidden shadow-2xl">
                 {/* Header */}
-                <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/[0.02]">
+                <div className="flex items-center justify-between px-4 py-3 border-b border-brand-border bg-white/[0.02]">
                    <div className="flex gap-4">
-                      <button onClick={() => setActiveTab('vendor')} suppressHydrationWarning className={`text-[9px] font-bold uppercase tracking-widest transition-colors relative pb-3 -mb-3 ${activeTab === 'vendor' ? 'text-white' : 'text-[#94A3B8] hover:text-white'}`}>Vendor API {activeTab==='vendor' && <motion.div layoutId="apitab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2F80FF]" />}</button>
-                      <button suppressHydrationWarning className={`text-[9px] font-bold uppercase tracking-widest transition-colors text-[#94A3B8] hover:text-white pb-3 -mb-3`}>Dispatch API</button>
-                      <button onClick={() => setActiveTab('telemetry')} suppressHydrationWarning className={`text-[9px] font-bold uppercase tracking-widest transition-colors relative pb-3 -mb-3 ${activeTab === 'telemetry' ? 'text-white' : 'text-[#94A3B8] hover:text-white'}`}>Telemetry API {activeTab==='telemetry' && <motion.div layoutId="apitab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2F80FF]" />}</button>
-                      <button suppressHydrationWarning className={`text-[9px] font-bold uppercase tracking-widest transition-colors text-[#94A3B8] hover:text-white pb-3 -mb-3`}>Webhooks</button>
+                      <button onClick={() => setActiveTab('vendor')} suppressHydrationWarning className={`text-[9px] font-bold uppercase tracking-widest transition-colors relative pb-3 -mb-3 ${activeTab === 'vendor' ? 'text-foreground dark:text-white' : 'text-brand-slate hover:text-foreground dark:text-white'}`}>Vendor API {activeTab==='vendor' && <motion.div layoutId="apitab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2F80FF]" />}</button>
+                      <button suppressHydrationWarning className={`text-[9px] font-bold uppercase tracking-widest transition-colors text-brand-slate hover:text-foreground dark:text-white pb-3 -mb-3`}>Dispatch API</button>
+                      <button onClick={() => setActiveTab('telemetry')} suppressHydrationWarning className={`text-[9px] font-bold uppercase tracking-widest transition-colors relative pb-3 -mb-3 ${activeTab === 'telemetry' ? 'text-foreground dark:text-white' : 'text-brand-slate hover:text-foreground dark:text-white'}`}>Telemetry API {activeTab==='telemetry' && <motion.div layoutId="apitab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2F80FF]" />}</button>
+                      <button suppressHydrationWarning className={`text-[9px] font-bold uppercase tracking-widest transition-colors text-brand-slate hover:text-foreground dark:text-white pb-3 -mb-3`}>Webhooks</button>
                    </div>
                    <div className="flex items-center gap-3">
-                      <select className="bg-white/5 border border-white/10 rounded text-[9px] text-white font-mono px-2 py-1 outline-none">
+                      <select className="bg-white/5 border border-brand-border rounded text-[9px] text-foreground dark:text-white font-mono px-2 py-1 outline-none">
                          <option>curl</option>
                       </select>
-                      <button onClick={handleCopy} suppressHydrationWarning className="text-[#94A3B8] hover:text-white transition-colors">
+                      <button onClick={handleCopy} suppressHydrationWarning className="text-brand-slate hover:text-foreground dark:text-white transition-colors">
                          {copied ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
                       </button>
                    </div>
@@ -118,7 +118,7 @@ export const APIInfrastructure = () => {
 </span>
 ) : (
 <span>
-<span className="text-[#94A3B8] italic">// WebSocket connection for real-time telemetry</span>
+<span className="text-brand-slate italic">// WebSocket connection for real-time telemetry</span>
 <br/><span className="text-purple-400">const</span> socket = <span className="text-purple-400">new</span> <span className="text-[#2F80FF]">WebSocket</span>(<span className="text-emerald-300">'wss://stream.nationwidetrans.com/vendor-telemetry'</span>);
 <br/><br/>socket.<span className="text-blue-300">onmessage</span> = (event) =&gt; {'{'}
 <br/>  <span className="text-purple-400">const</span> data = JSON.<span className="text-blue-300">parse</span>(event.data);

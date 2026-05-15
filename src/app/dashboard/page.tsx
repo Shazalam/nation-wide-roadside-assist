@@ -47,11 +47,11 @@ export default function DashboardOverview() {
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">Operations Intelligence</h1>
+          <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">Operations Intelligence</h1>
           <p className="text-brand-slate mt-1">Real-time nationwide infrastructure performance telemetry.</p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" className="bg-brand-navy/40 border-brand-border hover:bg-brand-blue/10 border-white/10 text-white">
+          <Button variant="outline" className="bg-brand-navy/40 border-brand-border hover:bg-brand-blue/10 border-brand-border text-foreground dark:text-white">
             Export Report
           </Button>
           <Button className="bg-brand-blue hover:bg-brand-blue/90 shadow-[0_0_20px_rgba(47,128,255,0.3)] border-none">
@@ -109,7 +109,7 @@ export default function DashboardOverview() {
 
         <Card className="bg-brand-navy/40 border-brand-border backdrop-blur-xl">
           <CardHeader>
-            <CardTitle className="text-lg font-bold text-white">Regional Surge Risk</CardTitle>
+            <CardTitle className="text-lg font-bold text-foreground dark:text-white">Regional Surge Risk</CardTitle>
             <p className="text-sm text-brand-slate">Predicted demand by region</p>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -141,7 +141,7 @@ export default function DashboardOverview() {
         renderRow={(incident) => (
           <>
             <td className="px-6 py-4 text-sm font-mono text-brand-blue">{incident.id}</td>
-            <td className="px-6 py-4 text-sm font-medium text-white">{incident.type}</td>
+            <td className="px-6 py-4 text-sm font-medium text-foreground dark:text-white">{incident.type}</td>
             <td className="px-6 py-4 text-sm text-brand-slate">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3 h-3" /> {incident.location}
@@ -158,7 +158,7 @@ export default function DashboardOverview() {
               </Badge>
             </td>
             <td className="px-6 py-4">
-              <div className="flex items-center gap-2 text-sm text-white">
+              <div className="flex items-center gap-2 text-sm text-foreground dark:text-white">
                 <span className={`w-2 h-2 rounded-full ${
                   incident.status === 'Completed' ? 'bg-emerald-500' :
                   incident.status === 'In Progress' ? 'bg-brand-blue animate-pulse' :
@@ -169,13 +169,13 @@ export default function DashboardOverview() {
             </td>
             <td className="px-6 py-4 text-sm text-brand-slate">{incident.time}</td>
             <td className="px-6 py-4 text-right">
-              <button className="p-1 hover:text-white text-brand-slate transition-colors">
+              <button className="p-1 hover:text-foreground dark:text-white text-brand-slate transition-colors">
                 <MoreVertical className="w-4 h-4" />
               </button>
             </td>
           </>
         )}
-        actions={<Button variant="ghost" className="text-brand-slate hover:text-white text-xs">Refresh Feed</Button>}
+        actions={<Button variant="ghost" className="text-brand-slate hover:text-foreground dark:text-white text-xs">Refresh Feed</Button>}
       />
     </div>
   );

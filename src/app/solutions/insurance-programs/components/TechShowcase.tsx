@@ -19,7 +19,7 @@ export default function TechShowcase() {
    const [activeTab, setActiveTab] = useState('claims');
 
    return (
-      <section className="py-16 lg:py-24 bg-[#081120] relative overflow-hidden flex items-center min-h-[90vh] lg:min-h-screen">
+      <section className="py-16 lg:py-24 bg-brand-bg relative overflow-hidden flex items-center min-h-[90vh] lg:min-h-screen">
          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 w-full">
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -31,11 +31,11 @@ export default function TechShowcase() {
                         <Globe className="w-3 h-3 text-[#2F80FF]" />
                         <span className="text-[9px] font-bold text-[#2F80FF] uppercase tracking-widest">Insurance Tech Stack</span>
                      </div>
-                     <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight text-white mb-4">
+                     <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight text-foreground dark:text-white mb-4">
                         Operational Visibility. <br />
                         <span className="text-[#2F80FF]">Real-Time Control.</span>
                      </h2>
-                     <p className="text-[#94A3B8] text-base leading-relaxed">
+                     <p className="text-brand-slate text-base leading-relaxed">
                         Experience the next generation of roadside claims management. Real-time telemetry gives you total visibility across every incident, every dispatch, and every customer.
                      </p>
                   </div>
@@ -48,33 +48,33 @@ export default function TechShowcase() {
                               key={tab.id}
                               onClick={() => setActiveTab(tab.id)}
                               className={`w-full flex items-center gap-4 p-4 lg:p-5 rounded-2xl border transition-all duration-300 text-left group relative overflow-hidden ${activeTab === tab.id
-                                    ? 'bg-[#0A192F] border-blue-500/40 shadow-xl'
-                                    : 'bg-transparent border-white/5 hover:border-white/10 hover:bg-white/5'
+                                    ? 'bg-card border-blue-500/40 shadow-xl'
+                                    : 'bg-transparent border-brand-border hover:border-brand-border hover:bg-white/5'
                                  }`}
                            >
-                              <div className={`p-3 rounded-xl transition-colors duration-300 ${activeTab === tab.id ? 'bg-[#2F80FF] text-white' : 'bg-white/5 text-[#94A3B8] group-hover:text-white'
+                              <div className={`p-3 rounded-xl transition-colors duration-300 ${activeTab === tab.id ? 'bg-[#2F80FF] text-foreground dark:text-white' : 'bg-white/5 text-brand-slate group-hover:text-foreground dark:text-white'
                                  }`}>
                                  <Icon className="w-5 h-5" />
                               </div>
                               <div className="flex-1">
-                                 <div className={`text-xs font-black uppercase tracking-widest ${activeTab === tab.id ? 'text-white' : 'text-[#94A3B8]'
+                                 <div className={`text-xs font-black uppercase tracking-widest ${activeTab === tab.id ? 'text-foreground dark:text-white' : 'text-brand-slate'
                                     }`}>{tab.label}</div>
-                                 <div className="text-[9px] font-mono text-[#94A3B8] mt-1">Enterprise Active Node</div>
+                                 <div className="text-[9px] font-mono text-brand-slate mt-1">Enterprise Active Node</div>
                               </div>
-                              <ChevronRight className={`w-4 h-4 transition-all duration-300 ${activeTab === tab.id ? 'text-[#2F80FF] translate-x-0' : 'text-white/10 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0'
+                              <ChevronRight className={`w-4 h-4 transition-all duration-300 ${activeTab === tab.id ? 'text-[#2F80FF] translate-x-0' : 'text-foreground dark:text-white/10 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0'
                                  }`} />
                            </button>
                         );
                      })}
                   </div>
 
-                  <div className="bg-[#0A192F]/80 p-6 rounded-2xl border border-white/5 relative overflow-hidden group hidden md:block">
+                  <div className="bg-card/80 p-6 rounded-2xl border border-brand-border relative overflow-hidden group hidden md:block">
                      <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Database className="w-10 h-10 text-white" />
+                        <Database className="w-10 h-10 text-foreground dark:text-white" />
                      </div>
                      <div className="relative z-10">
-                        <h4 className="text-white text-sm font-black uppercase tracking-wider mb-1.5">Live Cloud Sync</h4>
-                        <p className="text-[10px] text-[#94A3B8] leading-relaxed mb-4">
+                        <h4 className="text-foreground dark:text-white text-sm font-black uppercase tracking-wider mb-1.5">Live Cloud Sync</h4>
+                        <p className="text-[10px] text-brand-slate leading-relaxed mb-4">
                            Data is synchronized across all policy management platforms in under 150ms.
                         </p>
                         <div className="flex items-center gap-2">
@@ -91,14 +91,14 @@ export default function TechShowcase() {
                      {/* Dashboard Backdrop Glow */}
                      <div className="absolute -inset-10 bg-blue-500/10 blur-[100px] pointer-events-none" />
 
-                     <div className="relative bg-[#0A192F]/90 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl lg:min-h-[540px]">
+                     <div className="relative bg-card/90 backdrop-blur-3xl border border-brand-border rounded-[2.5rem] overflow-hidden shadow-2xl lg:min-h-[540px]">
                         {/* Header Bar */}
-                        <div className="bg-[#081120] px-6 md:px-8 py-4 border-b border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                        <div className="bg-brand-bg px-6 md:px-8 py-4 border-b border-brand-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                            <div className="flex items-center gap-3">
                               <Activity className="w-5 h-5 text-[#2F80FF]" />
                               <div>
-                                 <span className="text-[11px] font-black text-white uppercase tracking-[0.2em]">Operational Command v8.0</span>
-                                 <div className="text-[8px] font-mono text-[#94A3B8] mt-0.5">NODE: GLOBAL_NORTH_INSURE // STATUS: OPTIMAL</div>
+                                 <span className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-[0.2em]">Operational Command v8.0</span>
+                                 <div className="text-[8px] font-mono text-brand-slate mt-0.5">NODE: GLOBAL_NORTH_INSURE // STATUS: OPTIMAL</div>
                               </div>
                            </div>
                            <div className="flex items-center gap-4 hidden sm:flex">
@@ -106,7 +106,7 @@ export default function TechShowcase() {
                                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                                  <span className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Live Operations</span>
                               </div>
-                              <span className="text-[10px] font-mono text-[#94A3B8]">12:44:02 UTC</span>
+                              <span className="text-[10px] font-mono text-brand-slate">12:44:02 UTC</span>
                            </div>
                         </div>
 
@@ -121,7 +121,7 @@ export default function TechShowcase() {
                                     className="space-y-5"
                                  >
                                     {/* Map Visualization */}
-                                    <div className="h-[280px] lg:h-[320px] bg-[#081120] rounded-[2rem] border border-white/5 relative overflow-hidden">
+                                    <div className="h-[280px] lg:h-[320px] bg-brand-bg rounded-[2rem] border border-brand-border relative overflow-hidden">
                                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(47,128,255,0.08)_0%,transparent_70%)]" />
                                        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
 
@@ -148,8 +148,8 @@ export default function TechShowcase() {
                                           ))}
                                        </svg>
 
-                                       <div className="absolute top-6 left-6 p-4 bg-[#0A192F]/80 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl w-60 hidden md:block">
-                                          <div className="text-[9px] font-black text-white uppercase tracking-widest mb-3">Live Incident Matrix</div>
+                                       <div className="absolute top-6 left-6 p-4 bg-card/80 backdrop-blur-xl border border-brand-border rounded-xl shadow-2xl w-60 hidden md:block">
+                                          <div className="text-[9px] font-black text-foreground dark:text-white uppercase tracking-widest mb-3">Live Incident Matrix</div>
                                           <div className="space-y-2.5">
                                              {[
                                                 { id: 'INC-784512', loc: 'I-75, Georgia', status: 'Tow' },
@@ -159,8 +159,8 @@ export default function TechShowcase() {
                                                 <div key={i} className="flex items-center gap-2.5">
                                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                                                    <div>
-                                                      <div className="text-[10px] font-bold text-white">{inc.id}</div>
-                                                      <div className="text-[8px] text-[#94A3B8]">{inc.loc} • {inc.status}</div>
+                                                      <div className="text-[10px] font-bold text-foreground dark:text-white">{inc.id}</div>
+                                                      <div className="text-[8px] text-brand-slate">{inc.loc} • {inc.status}</div>
                                                    </div>
                                                 </div>
                                              ))}
@@ -168,12 +168,12 @@ export default function TechShowcase() {
                                        </div>
 
                                        <div className="absolute bottom-4 right-4 flex gap-3">
-                                          <div className="bg-[#0A192F]/80 backdrop-blur-xl border border-white/10 px-4 py-3 rounded-xl text-center">
-                                             <div className="text-[8px] text-[#94A3B8] uppercase mb-1">Total Claims</div>
-                                             <div className="text-lg font-black text-white font-mono">2,847</div>
+                                          <div className="bg-card/80 backdrop-blur-xl border border-brand-border px-4 py-3 rounded-xl text-center">
+                                             <div className="text-[8px] text-brand-slate uppercase mb-1">Total Claims</div>
+                                             <div className="text-lg font-black text-foreground dark:text-white font-mono">2,847</div>
                                           </div>
-                                          <div className="bg-[#0A192F]/80 backdrop-blur-xl border border-white/10 px-4 py-3 rounded-xl text-center">
-                                             <div className="text-[8px] text-[#94A3B8] uppercase mb-1">Efficiency</div>
+                                          <div className="bg-card/80 backdrop-blur-xl border border-brand-border px-4 py-3 rounded-xl text-center">
+                                             <div className="text-[8px] text-brand-slate uppercase mb-1">Efficiency</div>
                                              <div className="text-lg font-black text-emerald-400 font-mono">94.2%</div>
                                           </div>
                                        </div>
@@ -187,12 +187,12 @@ export default function TechShowcase() {
                                           { label: 'Latency', val: '14ms', icon: Clock },
                                           { label: 'Encryption', val: 'TLS 1.3', icon: Shield }
                                        ].map((m, i) => (
-                                          <div key={i} className="bg-[#081120] rounded-xl p-4 border border-white/5 flex flex-col justify-between">
+                                          <div key={i} className="bg-brand-bg rounded-xl p-4 border border-brand-border flex flex-col justify-between">
                                              <div className="flex items-center gap-1.5 mb-2">
                                                 <m.icon className="w-3 h-3 text-[#2F80FF]" />
-                                                <span className="text-[8px] text-[#94A3B8] uppercase tracking-widest">{m.label}</span>
+                                                <span className="text-[8px] text-brand-slate uppercase tracking-widest">{m.label}</span>
                                              </div>
-                                             <div className="text-xl font-black text-white font-mono">{m.val}</div>
+                                             <div className="text-xl font-black text-foreground dark:text-white font-mono">{m.val}</div>
                                           </div>
                                        ))}
                                     </div>
@@ -207,33 +207,33 @@ export default function TechShowcase() {
                                     exit={{ opacity: 0, scale: 1.02 }}
                                     className="flex flex-col md:grid md:grid-cols-2 gap-5 lg:gap-6 h-full"
                                  >
-                                    <div className="bg-[#081120] rounded-[2rem] p-6 lg:p-8 border border-white/5 space-y-5 lg:space-y-6 flex flex-col">
-                                       <div className="text-sm font-black text-white uppercase tracking-wider">Dispatch Intelligence Queue</div>
+                                    <div className="bg-brand-bg rounded-[2rem] p-6 lg:p-8 border border-brand-border space-y-5 lg:space-y-6 flex flex-col">
+                                       <div className="text-sm font-black text-foreground dark:text-white uppercase tracking-wider">Dispatch Intelligence Queue</div>
                                        <div className="space-y-2.5 flex-1 overflow-y-auto pr-2 no-scrollbar">
                                           {[1, 2, 3, 4, 5].map(i => (
-                                             <div key={i} className="bg-white/5 border border-white/5 p-3 rounded-xl flex items-center justify-between group hover:border-[#2F80FF]/30 transition-all">
+                                             <div key={i} className="bg-white/5 border border-brand-border p-3 rounded-xl flex items-center justify-between group hover:border-[#2F80FF]/30 transition-all">
                                                 <div className="flex items-center gap-3">
                                                    <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
                                                       <Zap className="w-4 h-4 text-[#2F80FF]" />
                                                    </div>
                                                    <div>
-                                                      <div className="text-[10px] font-black text-white">DISPATCH-NODE-0{i}</div>
-                                                      <div className="text-[8px] text-[#94A3B8] uppercase tracking-widest">Allocating Optimal Vendor...</div>
+                                                      <div className="text-[10px] font-black text-foreground dark:text-white">DISPATCH-NODE-0{i}</div>
+                                                      <div className="text-[8px] text-brand-slate uppercase tracking-widest">Allocating Optimal Vendor...</div>
                                                    </div>
                                                 </div>
                                                 <div className="text-right">
                                                    <div className="text-[9px] font-mono text-emerald-400">SYNCED</div>
-                                                   <div className="text-[8px] text-white/40">14:22:0{i}</div>
+                                                   <div className="text-[8px] text-foreground dark:text-white/40">14:22:0{i}</div>
                                                 </div>
                                              </div>
                                           ))}
                                        </div>
                                     </div>
 
-                                    <div className="bg-[#081120] rounded-[2rem] p-6 lg:p-8 border border-white/5 flex flex-col justify-between h-full">
+                                    <div className="bg-brand-bg rounded-[2rem] p-6 lg:p-8 border border-brand-border flex flex-col justify-between h-full">
                                        <div>
-                                          <div className="text-sm font-black text-white uppercase tracking-wider mb-1">Vendor Availability</div>
-                                          <p className="text-[9px] text-[#94A3B8] uppercase tracking-widest">Real-time Network Capacity</p>
+                                          <div className="text-sm font-black text-foreground dark:text-white uppercase tracking-wider mb-1">Vendor Availability</div>
+                                          <p className="text-[9px] text-brand-slate uppercase tracking-widest">Real-time Network Capacity</p>
                                        </div>
                                        <div className="flex-1 flex items-center justify-center py-6">
                                           {/* Circular Progress Visual */}
@@ -243,19 +243,19 @@ export default function TechShowcase() {
                                                 <circle cx="50%" cy="50%" r="40%" fill="none" stroke="#2F80FF" strokeWidth="12" strokeDasharray="250" strokeDashoffset="40" strokeLinecap="round" />
                                              </svg>
                                              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                                <div className="text-3xl font-black text-white font-mono">85%</div>
-                                                <div className="text-[8px] text-[#94A3B8] uppercase tracking-widest mt-1">Network Capacity</div>
+                                                <div className="text-3xl font-black text-foreground dark:text-white font-mono">85%</div>
+                                                <div className="text-[8px] text-brand-slate uppercase tracking-widest mt-1">Network Capacity</div>
                                              </div>
                                           </div>
                                        </div>
                                        <div className="grid grid-cols-2 gap-3">
-                                          <div className="p-3 rounded-xl bg-white/5 border border-white/5 text-center">
+                                          <div className="p-3 rounded-xl bg-white/5 border border-brand-border text-center">
                                              <div className="text-[9px] text-emerald-400 font-mono mb-1">AVAILABLE</div>
-                                             <div className="text-lg font-black text-white">4,892</div>
+                                             <div className="text-lg font-black text-foreground dark:text-white">4,892</div>
                                           </div>
-                                          <div className="p-3 rounded-xl bg-white/5 border border-white/5 text-center">
+                                          <div className="p-3 rounded-xl bg-white/5 border border-brand-border text-center">
                                              <div className="text-[9px] text-blue-400 font-mono mb-1">BUSY</div>
-                                             <div className="text-lg font-black text-white">1,244</div>
+                                             <div className="text-lg font-black text-foreground dark:text-white">1,244</div>
                                           </div>
                                        </div>
                                     </div>
@@ -270,20 +270,20 @@ export default function TechShowcase() {
                                     exit={{ opacity: 0, scale: 1.02 }}
                                     className="space-y-5"
                                  >
-                                    <div className="bg-[#081120] rounded-[2rem] p-6 lg:p-8 border border-white/5 h-[260px] lg:h-[300px] flex flex-col">
+                                    <div className="bg-brand-bg rounded-[2rem] p-6 lg:p-8 border border-brand-border h-[260px] lg:h-[300px] flex flex-col">
                                        <div className="flex justify-between items-center mb-6">
                                           <div>
-                                             <h3 className="text-sm font-black text-white uppercase tracking-wider">Predictive SLA Forecasting</h3>
-                                             <p className="text-[9px] text-[#94A3B8] mt-1 font-mono uppercase tracking-widest">Horizon: 24h Ops Intelligence</p>
+                                             <h3 className="text-sm font-black text-foreground dark:text-white uppercase tracking-wider">Predictive SLA Forecasting</h3>
+                                             <p className="text-[9px] text-brand-slate mt-1 font-mono uppercase tracking-widest">Horizon: 24h Ops Intelligence</p>
                                           </div>
                                           <div className="flex gap-4">
                                              <div className="flex items-center gap-1.5">
                                                 <div className="w-2 h-2 rounded-full bg-[#2F80FF]" />
-                                                <span className="text-[9px] text-[#94A3B8] uppercase">Target SLA</span>
+                                                <span className="text-[9px] text-brand-slate uppercase">Target SLA</span>
                                              </div>
                                              <div className="flex items-center gap-1.5">
                                                 <div className="w-2 h-2 rounded-full bg-[#FF7A1A]" />
-                                                <span className="text-[9px] text-[#94A3B8] uppercase">Actual Perf</span>
+                                                <span className="text-[9px] text-brand-slate uppercase">Actual Perf</span>
                                              </div>
                                           </div>
                                        </div>
@@ -303,7 +303,7 @@ export default function TechShowcase() {
                                              </div>
                                           ))}
                                        </div>
-                                       <div className="flex justify-between mt-3 px-2 text-[8px] font-mono text-[#94A3B8] uppercase tracking-[0.2em]">
+                                       <div className="flex justify-between mt-3 px-2 text-[8px] font-mono text-brand-slate uppercase tracking-[0.2em]">
                                           <span>00:00</span>
                                           <span>06:00</span>
                                           <span>12:00</span>
@@ -313,30 +313,30 @@ export default function TechShowcase() {
                                     </div>
 
                                     <div className="flex flex-col md:grid md:grid-cols-3 gap-3 md:gap-4 mt-4 md:mt-0">
-                                       <div className="bg-[#081120] rounded-[1.5rem] border border-white/5 p-5 flex items-center gap-4">
+                                       <div className="bg-brand-bg rounded-[1.5rem] border border-brand-border p-5 flex items-center gap-4">
                                           <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
                                              <PieChart className="w-5 h-5 text-[#2F80FF]" />
                                           </div>
                                           <div>
-                                             <div className="text-[9px] text-[#94A3B8] uppercase tracking-widest mb-0.5">Fraud Risk Mesh</div>
-                                             <div className="text-xl font-black text-white font-mono">0.004%</div>
+                                             <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-0.5">Fraud Risk Mesh</div>
+                                             <div className="text-xl font-black text-foreground dark:text-white font-mono">0.004%</div>
                                           </div>
                                        </div>
-                                       <div className="bg-[#081120] rounded-[1.5rem] border border-white/5 p-5 flex items-center gap-4">
+                                       <div className="bg-brand-bg rounded-[1.5rem] border border-brand-border p-5 flex items-center gap-4">
                                           <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center">
                                              <Clock className="w-5 h-5 text-orange-500" />
                                           </div>
                                           <div>
-                                             <div className="text-[9px] text-[#94A3B8] uppercase tracking-widest mb-0.5">Time To Assign</div>
-                                             <div className="text-xl font-black text-white font-mono">1.2m</div>
+                                             <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-0.5">Time To Assign</div>
+                                             <div className="text-xl font-black text-foreground dark:text-white font-mono">1.2m</div>
                                           </div>
                                        </div>
-                                       <div className="bg-[#081120] rounded-[1.5rem] border border-white/5 p-5 flex items-center gap-4">
+                                       <div className="bg-brand-bg rounded-[1.5rem] border border-brand-border p-5 flex items-center gap-4">
                                           <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
                                              <TrendingUp className="w-5 h-5 text-blue-400" />
                                           </div>
                                           <div>
-                                             <div className="text-[9px] text-[#94A3B8] uppercase tracking-widest mb-0.5">Cost Efficiency</div>
+                                             <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-0.5">Cost Efficiency</div>
                                              <div className="text-xl font-black text-emerald-400 font-mono">+18.4%</div>
                                           </div>
                                        </div>

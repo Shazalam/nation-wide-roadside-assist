@@ -53,7 +53,7 @@ export const APIInfrastructure = () => {
   };
 
   return (
-    <section className="py-32 bg-brand-bg/50 relative z-10 border-t border-white/5">
+    <section className="py-32 bg-brand-bg/50 relative z-10 border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
            
@@ -67,10 +67,10 @@ export const APIInfrastructure = () => {
                  >
                     Developer Portal
                  </motion.div>
-                 <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-8">
+                 <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-8">
                     API-First <br />Infrastructure
                  </h2>
-                 <p className="text-lg text-[#94A3B8] leading-relaxed font-medium">
+                 <p className="text-lg text-brand-slate leading-relaxed font-medium">
                     Powerful APIs and real-time webhooks to integrate recovery operations directly into your logistics, fleet, or insurance platforms.
                  </p>
               </div>
@@ -91,7 +91,7 @@ export const APIInfrastructure = () => {
                  ))}
               </div>
 
-              <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-black h-16 px-10 rounded-2xl shadow-xl flex items-center gap-3">
+              <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-black h-16 px-10 rounded-2xl shadow-xl flex items-center gap-3">
                  View API Documentation <Code2 className="h-4 w-4" />
               </Button>
            </div>
@@ -102,9 +102,9 @@ export const APIInfrastructure = () => {
                  {/* Glow Effect */}
                  <div className="absolute -inset-10 bg-[#2F80FF]/5 blur-[100px] pointer-events-none" />
                  
-                 <GlassPanel className="p-0 border-white/10 bg-[#081120] relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
+                 <GlassPanel className="p-0 border-brand-border bg-brand-bg relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
                     {/* Terminal Header */}
-                    <div className="px-8 py-5 border-b border-white/5 bg-white/[0.01] flex items-center justify-between">
+                    <div className="px-8 py-5 border-b border-brand-border bg-white/[0.01] flex items-center justify-between">
                        <div className="flex items-center gap-8">
                           {(['recovery', 'dispatch', 'webhooks'] as const).map(tab => (
                             <button
@@ -112,7 +112,7 @@ export const APIInfrastructure = () => {
                               onClick={() => setActiveTab(tab)}
                               suppressHydrationWarning
                               className={`text-[11px] font-mono font-bold uppercase tracking-widest transition-colors relative pb-1 ${
-                                activeTab === tab ? 'text-[#2F80FF]' : 'text-[#94A3B8] hover:text-white'
+                                activeTab === tab ? 'text-[#2F80FF]' : 'text-brand-slate hover:text-foreground dark:text-white'
                               }`}
                             >
                                {tab}.{tab === 'webhooks' ? 'json' : tab === 'dispatch' ? 'ts' : 'sh'}
@@ -122,27 +122,27 @@ export const APIInfrastructure = () => {
                             </button>
                           ))}
                        </div>
-                       <button onClick={handleCopy} suppressHydrationWarning className="text-[#94A3B8] hover:text-white transition-colors">
+                       <button onClick={handleCopy} suppressHydrationWarning className="text-brand-slate hover:text-foreground dark:text-white transition-colors">
                           {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
                        </button>
                     </div>
 
                     {/* Code Body */}
-                    <div className="p-10 h-[450px] overflow-auto font-mono text-[14px] leading-relaxed bg-[#081120]/80">
-                       <pre className="text-white/80">
+                    <div className="p-10 h-[450px] overflow-auto font-mono text-[14px] leading-relaxed bg-brand-bg/80">
+                       <pre className="text-foreground dark:text-white/80">
                           <code>{codeExamples[activeTab]}</code>
                        </pre>
                     </div>
 
                     {/* Terminal Footer */}
-                    <div className="px-8 py-4 border-t border-white/5 bg-white/[0.02] flex items-center justify-between">
+                    <div className="px-8 py-4 border-t border-brand-border bg-white/[0.02] flex items-center justify-between">
                        <div className="flex items-center gap-3">
                           <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                          <span className="text-[9px] font-mono text-[#94A3B8] uppercase tracking-widest">Production Node Active • v4.2.0</span>
+                          <span className="text-[9px] font-mono text-brand-slate uppercase tracking-widest">Production Node Active • v4.2.0</span>
                        </div>
                        <div className="flex gap-6">
-                          <span className="text-[9px] font-mono text-[#94A3B8] uppercase tracking-widest cursor-pointer hover:text-[#2F80FF] transition-colors">System Status</span>
-                          <span className="text-[9px] font-mono text-[#94A3B8] uppercase tracking-widest opacity-20">Secure Link Enabled</span>
+                          <span className="text-[9px] font-mono text-brand-slate uppercase tracking-widest cursor-pointer hover:text-[#2F80FF] transition-colors">System Status</span>
+                          <span className="text-[9px] font-mono text-brand-slate uppercase tracking-widest opacity-20">Secure Link Enabled</span>
                        </div>
                     </div>
                  </GlassPanel>

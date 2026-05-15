@@ -16,18 +16,18 @@ const partners = [
 
 export default function TrustBar() {
   return (
-    <section className="relative py-12 border-y border-white/5 bg-[#0A192F]/50 backdrop-blur-sm overflow-hidden">
+    <section className="relative py-12 border-y border-brand-border bg-card/50 backdrop-blur-sm overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex flex-col gap-10">
           
           {/* Logo Marquee-style Trust Bar */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
-            <div className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.3em] whitespace-nowrap opacity-50">
+            <div className="text-[10px] font-black text-brand-slate uppercase tracking-[0.3em] whitespace-nowrap opacity-50">
               Enterprise Recovery Partners
             </div>
             <div className="flex flex-wrap justify-center lg:justify-between items-center gap-8 lg:gap-12 flex-1">
               {partners.map((partner) => (
-                <div key={partner.name} className="text-xl font-black text-white/20 hover:text-white/60 transition-colors cursor-default select-none tracking-tighter">
+                <div key={partner.name} className="text-xl font-black text-foreground dark:text-white/20 hover:text-foreground dark:text-white/60 transition-colors cursor-default select-none tracking-tighter">
                   {partner.logo}
                 </div>
               ))}
@@ -54,10 +54,10 @@ export default function TrustBar() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/5"
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-brand-border"
                 >
                   <Icon className="w-3 h-3 text-[#2F80FF]" />
-                  <span className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-wider whitespace-nowrap">{badge.label}</span>
+                  <span className="text-[9px] font-bold text-brand-slate uppercase tracking-wider whitespace-nowrap">{badge.label}</span>
                 </motion.div>
               );
             })}

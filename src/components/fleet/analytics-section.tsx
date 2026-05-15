@@ -55,7 +55,7 @@ export const AnalyticsSection = () => {
         >
           <div className="max-w-2xl">
             <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Analytics Engine</p>
-            <h2 className="text-3xl lg:text-5xl font-black text-white mb-6">Intelligence-Driven Recovery</h2>
+            <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white mb-6">Intelligence-Driven Recovery</h2>
             <p className="text-brand-slate text-lg">Predictive fleet downtime reduction through real-time operational analytics and regional performance monitoring.</p>
           </div>
         </motion.div>
@@ -64,13 +64,13 @@ export const AnalyticsSection = () => {
           {/* Main Column */}
           <div className="lg:col-span-8 space-y-6">
             {/* Dispatch Volume Chart */}
-            <GlassPanel className="p-7 lg:p-9 bg-[#0A192F]/40 border-white/5 h-[400px] flex flex-col">
+            <GlassPanel className="p-7 lg:p-9 bg-card/40 border-brand-border h-[400px] flex flex-col">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
                 <div>
                   <p className="text-[9px] font-bold text-brand-blue uppercase tracking-[0.2em] mb-1">Dispatch Performance</p>
-                  <h4 className="text-xl font-black text-white tracking-tight">Fleet Operations Volume</h4>
+                  <h4 className="text-xl font-black text-foreground dark:text-white tracking-tight">Fleet Operations Volume</h4>
                 </div>
-                <Badge variant="outline" className="border-white/10 text-white text-[9px]">2026 Q1 Intelligence</Badge>
+                <Badge variant="outline" className="border-brand-border text-foreground dark:text-white text-[9px]">2026 Q1 Intelligence</Badge>
               </div>
               <div className="flex-1 min-h-0">
                 {isMounted && (
@@ -95,7 +95,7 @@ export const AnalyticsSection = () => {
             {/* Bottom Row: Regional + Utilization */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Regional SLA */}
-              <GlassPanel className="p-7 bg-[#0A192F]/40 border-white/5 h-[240px] flex flex-col">
+              <GlassPanel className="p-7 bg-card/40 border-brand-border h-[240px] flex flex-col">
                 <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest mb-5">Regional SLA Compliance</p>
                 <div className="flex-1 min-h-0">
                   {isMounted && (
@@ -115,7 +115,7 @@ export const AnalyticsSection = () => {
               </GlassPanel>
 
               {/* Fleet Utilization Trend */}
-              <GlassPanel className="p-7 bg-[#0A192F]/40 border-white/5 h-[240px] flex flex-col">
+              <GlassPanel className="p-7 bg-card/40 border-brand-border h-[240px] flex flex-col">
                 <div className="flex justify-between items-center mb-5">
                   <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest">Fleet Utilization Trend</p>
                   <span className="text-[9px] text-emerald-400 font-bold">↑ +12% YoY</span>
@@ -146,7 +146,7 @@ export const AnalyticsSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <GlassPanel className="p-6 flex flex-col justify-center border-white/5 hover:border-white/15 transition-all bg-white/[0.02] group">
+                <GlassPanel className="p-6 flex flex-col justify-center border-brand-border hover:border-white/15 transition-all bg-white/[0.02] group">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="h-9 w-9 rounded-xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <stat.icon className={cn("h-4 w-4", stat.color)} />
@@ -159,7 +159,7 @@ export const AnalyticsSection = () => {
             ))}
 
             {/* SLA Compliance Indicators */}
-            <GlassPanel className="p-6 border-white/5 bg-white/[0.02]">
+            <GlassPanel className="p-6 border-brand-border bg-white/[0.02]">
               <div className="flex items-center gap-2 mb-4">
                 <Target className="h-4 w-4 text-brand-blue" />
                 <p className="text-[9px] font-bold text-brand-blue uppercase tracking-widest">SLA Compliance</p>
@@ -181,7 +181,7 @@ export const AnalyticsSection = () => {
                     </div>
                     <div className="flex justify-between mt-1">
                       <span className="text-[7px] text-brand-slate">Target: {sla.target}</span>
-                      <span className="text-[7px] text-white font-medium">Actual: {sla.actual}</span>
+                      <span className="text-[7px] text-foreground dark:text-white font-medium">Actual: {sla.actual}</span>
                     </div>
                   </div>
                 ))}
@@ -203,7 +203,7 @@ export const AnalyticsSection = () => {
                 ].map((item) => (
                   <div key={item.label} className="flex justify-between items-center">
                     <span className="text-[10px] text-brand-slate">{item.label}</span>
-                    <span className="text-[10px] text-white font-bold">{item.val}</span>
+                    <span className="text-[10px] text-foreground dark:text-white font-bold">{item.val}</span>
                   </div>
                 ))}
               </div>

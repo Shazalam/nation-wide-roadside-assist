@@ -5,19 +5,17 @@ import { Navbar } from '@/components/layout/navbar';
 import { RecoveryHero } from './components/RecoveryHero';
 import { TrustSection } from './components/TrustSection';
 import { CapabilitiesGrid } from './components/CapabilitiesGrid';
-import { CommandCenter } from './components/CommandCenter';
 import { ServicesGrid } from './components/ServicesGrid';
 import { VehicleClassMatrix } from './components/VehicleClassMatrix';
 import { RecoveryWorkflow } from './components/RecoveryWorkflow';
 import { FleetOperations } from './components/FleetOperations';
-import { RecoveryAnalytics } from './components/RecoveryAnalytics';
 import { APIInfrastructure } from './components/APIInfrastructure';
 import { RecoveryCTA } from './components/RecoveryCTA';
-import { EnterpriseFooter } from '../../services/heavy-duty-towing/components/EnterpriseFooter';
+import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
 
 export default function RecoveryWinchoutsPage() {
   return (
-    <main className="bg-[#081120] min-h-screen text-white selection:bg-[#2F80FF]/30 overflow-x-hidden">
+    <main className="bg-brand-bg min-h-screen text-foreground dark:text-white selection:bg-[#2F80FF]/30 overflow-x-hidden">
       <Navbar />
       
       {/* Background Ambience */}
@@ -30,12 +28,10 @@ export default function RecoveryWinchoutsPage() {
         <RecoveryHero />
         <TrustSection />
         <CapabilitiesGrid />
-        <CommandCenter />
         <ServicesGrid />
         <VehicleClassMatrix />
         <RecoveryWorkflow />
         <FleetOperations />
-        <RecoveryAnalytics />
         <APIInfrastructure />
         <RecoveryCTA />
         <EnterpriseFooter />

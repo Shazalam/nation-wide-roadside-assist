@@ -52,7 +52,7 @@ export const RepairAPI = () => {
   };
 
   return (
-    <section className="py-32 relative z-10 bg-brand-bg/50 border-t border-white/5">
+    <section className="py-32 relative z-10 bg-brand-bg/50 border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
            
@@ -60,10 +60,10 @@ export const RepairAPI = () => {
            <div className="lg:col-span-5 space-y-12">
               <div>
                  <p className="text-[10px] font-black text-brand-blue uppercase tracking-[0.4em] mb-4">Developer Platform</p>
-                 <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-8">
+                 <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-8">
                     API-First <br />Infrastructure
                  </h2>
-                 <p className="text-lg text-[#94A3B8] leading-relaxed font-medium">
+                 <p className="text-lg text-brand-slate leading-relaxed font-medium">
                     Integrate mobile repair operations directly into your systems with our powerful APIs and webhooks. Developer-first tools built for high-scale enterprise mobility.
                  </p>
               </div>
@@ -84,7 +84,7 @@ export const RepairAPI = () => {
                  ))}
               </div>
 
-              <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-14 px-10 rounded-xl shadow-xl flex items-center gap-3 group">
+              <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-black h-14 px-10 rounded-xl shadow-xl flex items-center gap-3 group">
                  View API Documentation <Code2 className="h-4 w-4 group-hover:scale-110 transition-transform" />
               </Button>
            </div>
@@ -94,16 +94,16 @@ export const RepairAPI = () => {
               <div className="relative">
                  <div className="absolute -inset-10 bg-brand-blue/5 blur-[80px] pointer-events-none" />
                  
-                 <GlassPanel className="p-0 border-white/10 bg-[#081120] relative overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
+                 <GlassPanel className="p-0 border-brand-border bg-brand-bg relative overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
                     {/* Header Tabs */}
-                    <div className="px-8 py-5 border-b border-white/5 bg-white/[0.01] flex items-center justify-between">
+                    <div className="px-8 py-5 border-b border-brand-border bg-white/[0.01] flex items-center justify-between">
                        <div className="flex items-center gap-8">
                           {(['repair', 'dispatch', 'webhooks'] as const).map(tab => (
                             <button
                               key={tab}
                               onClick={() => setActiveTab(tab)}
                               className={`text-[11px] font-mono font-bold uppercase tracking-widest transition-colors relative pb-1 ${
-                                activeTab === tab ? 'text-brand-blue' : 'text-[#94A3B8] hover:text-white'
+                                activeTab === tab ? 'text-brand-blue' : 'text-brand-slate hover:text-foreground dark:text-white'
                               }`}
                             >
                                {tab === 'repair' ? 'repair.sh' : tab === 'dispatch' ? 'dispatch.ts' : 'webhooks.json'}
@@ -113,27 +113,27 @@ export const RepairAPI = () => {
                             </button>
                           ))}
                        </div>
-                       <button onClick={handleCopy} suppressHydrationWarning className="text-[#94A3B8] hover:text-white transition-colors">
+                       <button onClick={handleCopy} suppressHydrationWarning className="text-brand-slate hover:text-foreground dark:text-white transition-colors">
                           {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
                        </button>
                     </div>
 
                     {/* Code Body */}
-                    <div className="p-10 h-[450px] overflow-auto font-mono text-[14px] leading-relaxed bg-[#081120]/80">
-                       <pre className="text-white/80">
+                    <div className="p-10 h-[450px] overflow-auto font-mono text-[14px] leading-relaxed bg-brand-bg/80">
+                       <pre className="text-foreground dark:text-white/80">
                           <code>{codeExamples[activeTab]}</code>
                        </pre>
                     </div>
 
                     {/* Footer */}
-                    <div className="px-8 py-4 border-t border-white/5 bg-white/[0.02] flex items-center justify-between">
+                    <div className="px-8 py-4 border-t border-brand-border bg-white/[0.02] flex items-center justify-between">
                        <div className="flex items-center gap-3">
                           <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                          <span className="text-[9px] font-mono text-[#94A3B8] uppercase">Production Node Active • v4.2.1</span>
+                          <span className="text-[9px] font-mono text-brand-slate uppercase">Production Node Active • v4.2.1</span>
                        </div>
                        <div className="flex gap-6">
-                          <span className="text-[9px] font-mono text-[#94A3B8] uppercase cursor-pointer hover:text-brand-blue transition-colors">System Status</span>
-                          <span className="text-[9px] font-mono text-white/20 uppercase">SECURE SSL</span>
+                          <span className="text-[9px] font-mono text-brand-slate uppercase cursor-pointer hover:text-brand-blue transition-colors">System Status</span>
+                          <span className="text-[9px] font-mono text-foreground dark:text-white/20 uppercase">SECURE SSL</span>
                        </div>
                     </div>
                  </GlassPanel>

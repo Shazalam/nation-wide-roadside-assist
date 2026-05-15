@@ -35,13 +35,13 @@ const complianceBadges = [
 
 export default function TrustBar() {
   return (
-    <section className="py-14 border-y border-[rgba(255,255,255,0.06)] bg-[#0A192F]/40 backdrop-blur-sm overflow-hidden">
+    <section className="py-14 border-y border-[rgba(255,255,255,0.06)] bg-card/40 backdrop-blur-sm overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
 
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[rgba(255,255,255,0.08)]" />
-          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#94A3B8]">
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-slate">
             Trusted by the RV &amp; Mobility Ecosystem
           </span>
           <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[rgba(255,255,255,0.08)]" />
@@ -57,7 +57,7 @@ export default function TrustBar() {
                 <div className="w-8 h-8 rounded-lg bg-[rgba(47,128,255,0.1)] border border-[rgba(47,128,255,0.2)] flex items-center justify-center">
                   <span className="text-[8px] font-black text-[#2F80FF]">{p.abbr}</span>
                 </div>
-                <span className="text-white font-bold text-sm tracking-wide">{p.name}</span>
+                <span className="text-foreground dark:text-white font-bold text-sm tracking-wide">{p.name}</span>
               </div>
             ))}
           </div>
@@ -67,7 +67,7 @@ export default function TrustBar() {
         <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between pt-6 border-t border-[rgba(255,255,255,0.05)]">
           {/* Operational */}
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#94A3B8] shrink-0">Operational</span>
+            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-brand-slate shrink-0">Operational</span>
             {operationalBadges.map((b) => {
               const Icon = b.icon;
               return (
@@ -85,13 +85,13 @@ export default function TrustBar() {
 
           {/* Compliance */}
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#94A3B8] shrink-0">Compliance</span>
+            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-brand-slate shrink-0">Compliance</span>
             {complianceBadges.map((b) => {
               const Icon = b.icon;
               return (
                 <div key={b.label} className="flex items-center gap-2 px-3 py-1.5 bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-lg">
-                  <Icon className="w-3 h-3 text-[#94A3B8]" />
-                  <span className="text-[10px] font-bold text-[#94A3B8] whitespace-nowrap">{b.label}</span>
+                  <Icon className="w-3 h-3 text-brand-slate" />
+                  <span className="text-[10px] font-bold text-brand-slate whitespace-nowrap">{b.label}</span>
                 </div>
               );
             })}

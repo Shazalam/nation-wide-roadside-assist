@@ -39,10 +39,10 @@ export const IndustryTabs = () => {
   const activeSolution = solutions.find(s => s.id === activeTab) || solutions[0];
 
   return (
-    <section className="py-24 bg-brand-bg/30">
+    <section className="py-24 bg-brand-bg/30 transition-colors duration-500">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Vertical Specific <span className="text-brand-blue">Solutions</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Vertical Specific <span className="text-brand-blue">Solutions</span></h2>
           <p className="text-brand-slate text-lg">Engineered to meet the unique demands of global enterprise mobility sectors.</p>
         </div>
 
@@ -68,14 +68,14 @@ export const IndustryTabs = () => {
                   <div className="h-16 w-16 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center">
                     <activeSolution.icon className="h-8 w-8 text-brand-blue" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white">{activeSolution.title}</h3>
+                  <h3 className="text-3xl font-bold text-foreground">{activeSolution.title}</h3>
                 </div>
                 <p className="text-brand-slate text-lg leading-relaxed">{activeSolution.desc}</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {activeSolution.features.map(f => (
                     <div key={f} className="flex items-center gap-3">
-                      <div className="h-1.5 w-1.5 rounded-full bg-brand-blue shadow-[0_0_8px_#2F80FF]" />
-                      <span className="text-sm text-white font-medium">{f}</span>
+                      <div className="h-1.5 w-1.5 rounded-full bg-brand-blue shadow-[0_0_8px_var(--brand-blue)]" />
+                      <span className="text-sm text-foreground font-medium">{f}</span>
                     </div>
                   ))}
                 </div>
@@ -91,24 +91,24 @@ export const IndustryTabs = () => {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <GlassPanel className="p-8 h-full bg-brand-navy/40 border-white/5 flex flex-col justify-center">
+            <GlassPanel className="p-8 h-full bg-card/40 border-brand-border flex flex-col justify-center shadow-sm dark:shadow-none transition-all duration-500">
                <div className="space-y-6">
-                 <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+                 <div className="p-4 rounded-xl bg-foreground/[0.03] border border-brand-border">
                     <p className="text-[10px] font-bold text-brand-blue uppercase tracking-widest mb-1">Active Integration</p>
-                    <p className="text-sm font-bold text-white">CORE-V4.API-MESH</p>
+                    <p className="text-sm font-bold text-foreground">CORE-V4.API-MESH</p>
                  </div>
-                 <div className="h-px w-full bg-white/5" />
+                 <div className="h-px w-full bg-brand-border" />
                  <div className="flex justify-between items-center">
                     <span className="text-xs text-brand-slate">Operational Status</span>
                     <span className="text-[10px] font-bold text-emerald-500 uppercase">Optimized</span>
                  </div>
                  <div className="flex justify-between items-center">
                     <span className="text-xs text-brand-slate">Regional Latency</span>
-                    <span className="text-[10px] font-bold text-white uppercase tracking-widest font-mono">14ms</span>
+                    <span className="text-[10px] font-bold text-foreground uppercase tracking-widest font-mono">14ms</span>
                  </div>
                </div>
             </GlassPanel>
-            <div className="absolute -top-6 -right-6 h-12 w-12 rounded-full bg-brand-blue/20 blur-xl" />
+            <div className="absolute -top-6 -right-6 h-12 w-12 rounded-full bg-brand-blue/10 blur-xl opacity-50 dark:opacity-100" />
           </div>
         </div>
       </div>

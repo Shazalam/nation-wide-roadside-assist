@@ -29,12 +29,12 @@ export const AssistanceAnalytics = () => {
         <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-20">
           <div className="max-w-2xl">
             <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Operational Intelligence</p>
-            <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">Assistance Analytics Hub</h2>
+            <h2 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight">Assistance Analytics Hub</h2>
           </div>
           <div className="flex gap-4">
-             <GlassPanel className="p-4 py-2 border-white/5 bg-white/5 flex items-center gap-3">
+             <GlassPanel className="p-4 py-2 border-brand-border bg-white/5 flex items-center gap-3">
                 <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse" />
-                <span className="text-[10px] font-bold text-white uppercase tracking-widest">Real-time Stream</span>
+                <span className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest">Real-time Stream</span>
              </GlassPanel>
           </div>
         </div>
@@ -42,16 +42,16 @@ export const AssistanceAnalytics = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
            {/* Volume Area Chart */}
            <div className="lg:col-span-8">
-              <GlassPanel className="p-10 border-white/10 bg-[#0A192F]/60 h-[500px] flex flex-col">
+              <GlassPanel className="p-10 border-brand-border bg-card/60 h-[500px] flex flex-col">
                  <div className="flex justify-between items-start mb-10">
                     <div>
-                       <h4 className="text-lg font-black text-white tracking-tight">Request Volume Velocity</h4>
-                       <p className="text-[10px] text-[#94A3B8] uppercase tracking-widest mt-1">Weekly incident distribution</p>
+                       <h4 className="text-lg font-black text-foreground dark:text-white tracking-tight">Request Volume Velocity</h4>
+                       <p className="text-[10px] text-brand-slate uppercase tracking-widest mt-1">Weekly incident distribution</p>
                     </div>
                     <div className="flex gap-6">
                        <div className="flex items-center gap-2">
                           <div className="h-2 w-2 rounded-full bg-brand-blue" />
-                          <span className="text-[9px] font-bold text-[#94A3B8] uppercase">Requests</span>
+                          <span className="text-[9px] font-bold text-brand-slate uppercase">Requests</span>
                        </div>
                     </div>
                  </div>
@@ -91,14 +91,14 @@ export const AssistanceAnalytics = () => {
 
            {/* Metrics Column */}
            <div className="lg:col-span-4 space-y-8">
-              <GlassPanel className="p-8 border-white/10 bg-[#0A192F]/60">
+              <GlassPanel className="p-8 border-brand-border bg-card/60">
                  <div className="flex items-center gap-4 mb-8">
                     <div className="h-10 w-10 rounded-xl bg-brand-blue/10 flex items-center justify-center">
                        <Shield className="h-5 w-5 text-brand-blue" />
                     </div>
                     <div>
-                       <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-widest">SLA Compliance</p>
-                       <p className="text-2xl font-black text-white">97.8%</p>
+                       <p className="text-[10px] font-black text-brand-slate uppercase tracking-widest">SLA Compliance</p>
+                       <p className="text-2xl font-black text-foreground dark:text-white">97.8%</p>
                     </div>
                  </div>
                  <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
@@ -106,14 +106,14 @@ export const AssistanceAnalytics = () => {
                  </div>
               </GlassPanel>
 
-              <GlassPanel className="p-8 border-white/10 bg-[#0A192F]/60 flex-1">
+              <GlassPanel className="p-8 border-brand-border bg-card/60 flex-1">
                  <div className="flex items-center gap-4 mb-8">
                     <div className="h-10 w-10 rounded-xl bg-[#FF7A1A]/10 flex items-center justify-center">
                        <Map className="h-5 w-5 text-[#FF7A1A]" />
                     </div>
                     <div>
-                       <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-widest">Incident Density</p>
-                       <p className="text-2xl font-black text-white">High (East Coast)</p>
+                       <p className="text-[10px] font-black text-brand-slate uppercase tracking-widest">Incident Density</p>
+                       <p className="text-2xl font-black text-foreground dark:text-white">High (East Coast)</p>
                     </div>
                  </div>
                  <div className="space-y-4">

@@ -14,16 +14,16 @@ const features = [
 
 export const DispatchInfrastructure = () => {
   return (
-    <section className="py-24 bg-[#081120] relative z-10 border-t border-white/5">
+    <section className="py-24 bg-brand-bg relative z-10 border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
            
            <div className="lg:col-span-5">
-              <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight mb-8">
+              <h2 className="text-3xl lg:text-4xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-8">
                  Nationwide Dispatch <br />
-                 <span className="text-[#94A3B8]">Infrastructure</span>
+                 <span className="text-brand-slate">Infrastructure</span>
               </h2>
-              <div className="space-y-6 text-[#94A3B8] font-medium leading-relaxed text-sm md:text-base mb-10">
+              <div className="space-y-6 text-brand-slate font-medium leading-relaxed text-sm md:text-base mb-10">
                  <p>
                     Nationwide Trans Inc. operates a multi-region dispatch topology designed for extreme availability and low-latency vendor coordination.
                  </p>
@@ -40,8 +40,8 @@ export const DispatchInfrastructure = () => {
                    { label: 'Active Regions', val: '4' }
                  ].map((stat, i) => (
                    <div key={i} className="border-l-2 border-[#2F80FF]/50 pl-4">
-                      <p className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-widest mb-1">{stat.label}</p>
-                      <p className="text-xl font-black text-white">{stat.val}</p>
+                      <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mb-1">{stat.label}</p>
+                      <p className="text-xl font-black text-foreground dark:text-white">{stat.val}</p>
                    </div>
                  ))}
               </div>
@@ -57,12 +57,12 @@ export const DispatchInfrastructure = () => {
                      transition={{ delay: i * 0.1 }}
                      viewport={{ once: true }}
                    >
-                      <GlassPanel className="p-8 border-white/5 bg-[#0A192F]/40 hover:bg-[#2F80FF]/5 transition-colors group h-full">
-                         <div className="h-10 w-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#2F80FF]/50 transition-colors">
+                      <GlassPanel className="p-8 border-brand-border bg-card/40 hover:bg-[#2F80FF]/5 transition-colors group h-full">
+                         <div className="h-10 w-10 rounded-xl bg-white/5 border border-brand-border flex items-center justify-center mb-6 group-hover:border-[#2F80FF]/50 transition-colors">
                             <feature.icon className="h-5 w-5 text-[#2F80FF]" />
                          </div>
-                         <h3 className="text-sm font-black text-white uppercase tracking-widest mb-3 leading-snug">{feature.title}</h3>
-                         <p className="text-[11px] text-[#94A3B8] font-medium leading-relaxed">
+                         <h3 className="text-sm font-black text-foreground dark:text-white uppercase tracking-widest mb-3 leading-snug">{feature.title}</h3>
+                         <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
                             {feature.desc}
                          </p>
                       </GlassPanel>

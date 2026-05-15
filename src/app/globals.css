@@ -5,13 +5,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-brand-bg: #081120;
-  --color-brand-navy: #0A192F;
-  --color-brand-blue: #2F80FF;
-  --color-brand-orange: #FF7A1A;
-  --color-brand-slate: #94A3B8;
-  --color-brand-border: rgba(255, 255, 255, 0.08);
-  --color-brand-glow: rgba(47, 128, 255, 0.25);
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-slate: var(--brand-slate);
+  --color-brand-border: var(--border);
+  --color-brand-glow: var(--brand-glow);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -57,41 +57,59 @@
 }
 
 :root {
-  --background: #081120;
-  --foreground: #ffffff;
-  --card: #0A192F;
-  --card-foreground: #ffffff;
-  --popover: #0A192F;
-  --popover-foreground: #ffffff;
+  /* Brand Variables */
+  --brand-bg: #F8FAFC;
+  --brand-navy: #FFFFFF;
+  --brand-blue: #2F80FF;
+  --brand-orange: #FF7A1A;
+  --brand-slate: #64748B;
+  --brand-glow: rgba(47, 128, 255, 0.12);
+
+  /* shadcn/ui Variables - Light Mode */
+  --background: #F8FAFC;
+  --foreground: #0A192F;
+  --card: rgba(255, 255, 255, 0.75);
+  --card-foreground: #0A192F;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A192F;
   --primary: #2F80FF;
   --primary-foreground: #ffffff;
-  --secondary: #0A192F;
-  --secondary-foreground: #ffffff;
-  --muted: rgba(255,255,255,0.08);
-  --muted-foreground: #94A3B8;
-  --accent: rgba(47,128,255,0.1);
-  --accent-foreground: #ffffff;
-  --destructive: #ff3333;
-  --border: rgba(255,255,255,0.08);
-  --input: rgba(255,255,255,0.08);
-  --ring: rgba(47,128,255,0.5);
+  --secondary: #FFFFFF;
+  --secondary-foreground: #0A192F;
+  --muted: rgba(15, 23, 42, 0.04);
+  --muted-foreground: #64748B;
+  --accent: rgba(47, 128, 255, 0.05);
+  --accent-foreground: #0A192F;
+  --destructive: #ef4444;
+  --border: rgba(15, 23, 42, 0.08);
+  --input: rgba(15, 23, 42, 0.08);
+  --ring: rgba(47, 128, 255, 0.4);
   --chart-1: #2F80FF;
   --chart-2: #FF7A1A;
-  --chart-3: #94A3B8;
-  --chart-4: #ffffff;
-  --chart-5: #0A192F;
-  --radius: 0.5rem;
-  --sidebar: #0A192F;
-  --sidebar-foreground: #ffffff;
+  --chart-3: #64748B;
+  --chart-4: #0A192F;
+  --chart-5: #cbd5e1;
+  --radius: 0.6rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0A192F;
   --sidebar-primary: #2F80FF;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: rgba(47,128,255,0.1);
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255,255,255,0.08);
-  --sidebar-ring: rgba(47,128,255,0.5);
+  --sidebar-accent: rgba(15, 23, 42, 0.03);
+  --sidebar-accent-foreground: #0A192F;
+  --sidebar-border: rgba(15, 23, 42, 0.08);
+  --sidebar-ring: rgba(47, 128, 255, 0.4);
 }
 
 .dark {
+  /* Brand Variables - Preserving Dark Experience */
+  --brand-bg: #081120;
+  --brand-navy: #0A192F;
+  --brand-blue: #2F80FF;
+  --brand-orange: #FF7A1A;
+  --brand-slate: #94A3B8;
+  --brand-glow: rgba(47, 128, 255, 0.25);
+
+  /* shadcn/ui Variables - Dark Mode */
   --background: #081120;
   --foreground: #ffffff;
   --card: #0A192F;
@@ -102,14 +120,14 @@
   --primary-foreground: #ffffff;
   --secondary: #0A192F;
   --secondary-foreground: #ffffff;
-  --muted: rgba(255,255,255,0.08);
+  --muted: rgba(255, 255, 255, 0.08);
   --muted-foreground: #94A3B8;
-  --accent: rgba(47,128,255,0.1);
+  --accent: rgba(47, 128, 255, 0.1);
   --accent-foreground: #ffffff;
   --destructive: #ff3333;
-  --border: rgba(255,255,255,0.08);
-  --input: rgba(255,255,255,0.08);
-  --ring: rgba(47,128,255,0.5);
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: rgba(47, 128, 255, 0.5);
   --chart-1: #2F80FF;
   --chart-2: #FF7A1A;
   --chart-3: #94A3B8;
@@ -119,10 +137,10 @@
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #2F80FF;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: rgba(47,128,255,0.1);
+  --sidebar-accent: rgba(47, 128, 255, 0.1);
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255,255,255,0.08);
-  --sidebar-ring: rgba(47,128,255,0.5);
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: rgba(47, 128, 255, 0.5);
 }
 
 @layer base {

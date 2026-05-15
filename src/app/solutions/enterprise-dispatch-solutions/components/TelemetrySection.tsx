@@ -29,7 +29,7 @@ export const TelemetrySection = () => {
         <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
             <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Real-Time Telemetry</p>
-            <h2 className="text-4xl lg:text-5xl font-black text-white mb-6">Advanced Operational Analytics</h2>
+            <h2 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white mb-6">Advanced Operational Analytics</h2>
             <p className="text-brand-slate text-lg leading-relaxed">
               Monitor dispatch heatmaps, incident density, and regional SLA performance through our mission-critical telemetry engine.
             </p>
@@ -37,7 +37,7 @@ export const TelemetrySection = () => {
           <GlassPanel className="p-4 px-6 border-brand-blue/20 bg-brand-blue/5 hidden lg:flex items-center gap-4">
              <Activity className="h-5 w-5 text-brand-blue animate-pulse" />
              <div>
-                <p className="text-[10px] font-bold text-white uppercase tracking-widest">Global Stream</p>
+                <p className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest">Global Stream</p>
                 <p className="text-xs text-brand-blue font-bold">14.2 GB/sec telemetry load</p>
              </div>
           </GlassPanel>
@@ -45,11 +45,11 @@ export const TelemetrySection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Main Chart */}
-          <GlassPanel className="lg:col-span-8 p-8 border-white/10 bg-[#0A192F]/40 h-[500px] flex flex-col">
+          <GlassPanel className="lg:col-span-8 p-8 border-brand-border bg-card/40 h-[500px] flex flex-col">
             <div className="flex items-center justify-between mb-8">
                <div className="flex items-center gap-3">
                   <TrendingUp className="h-5 w-5 text-brand-blue" />
-                  <h4 className="text-xl font-bold text-white tracking-tight">Dispatch Performance Forecasting</h4>
+                  <h4 className="text-xl font-bold text-foreground dark:text-white tracking-tight">Dispatch Performance Forecasting</h4>
                </div>
                <div className="flex gap-2">
                   <div className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
@@ -82,10 +82,10 @@ export const TelemetrySection = () => {
 
           {/* Sidebar Stats */}
           <div className="lg:col-span-4 flex flex-col gap-8">
-            <GlassPanel className="flex-1 p-8 border-white/10 bg-[#0A192F]/40 flex flex-col">
+            <GlassPanel className="flex-1 p-8 border-brand-border bg-card/40 flex flex-col">
                <div className="flex items-center gap-3 mb-6">
                   <Map className="h-5 w-5 text-brand-blue" />
-                  <h4 className="text-lg font-bold text-white tracking-tight">Regional SLA Scoring</h4>
+                  <h4 className="text-lg font-bold text-foreground dark:text-white tracking-tight">Regional SLA Scoring</h4>
                </div>
                <div className="flex-1 w-full min-h-[200px]">
                   {mounted && (
@@ -107,10 +107,10 @@ export const TelemetrySection = () => {
                </div>
             </GlassPanel>
 
-            <GlassPanel className="p-8 border-white/5 bg-white/[0.02]">
+            <GlassPanel className="p-8 border-brand-border bg-white/[0.02]">
                <div className="flex items-center gap-3 mb-4">
                   <PieChart className="h-5 w-5 text-brand-blue" />
-                  <h4 className="text-lg font-bold text-white tracking-tight">Incident Density</h4>
+                  <h4 className="text-lg font-bold text-foreground dark:text-white tracking-tight">Incident Density</h4>
                </div>
                <div className="space-y-4">
                   {[
@@ -121,7 +121,7 @@ export const TelemetrySection = () => {
                     <div key={i}>
                        <div className="flex justify-between text-[10px] text-brand-slate mb-1.5 font-bold">
                           <span>{s.l}</span>
-                          <span className="text-white">{s.v}%</span>
+                          <span className="text-foreground dark:text-white">{s.v}%</span>
                        </div>
                        <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
                           <motion.div initial={{ width: 0 }} whileInView={{ width: `${s.v}%` }} transition={{ duration: 1.5 }} className={`h-full ${s.color}`} />

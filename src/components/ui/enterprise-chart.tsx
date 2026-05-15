@@ -33,7 +33,7 @@ export const EnterpriseChart = ({
 }: EnterpriseChartProps) => {
   return (
     <GlassPanel className="p-6 h-[400px]">
-      {title && <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-8">{title}</h3>}
+      {title && <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-wider mb-8">{title}</h3>}
       <ResponsiveContainer width="100%" height="85%">
         {type === 'area' ? (
           <AreaChart data={data}>

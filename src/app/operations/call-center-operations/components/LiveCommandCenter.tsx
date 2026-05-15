@@ -22,7 +22,7 @@ export const LiveCommandCenter = () => {
       <div className="container mx-auto px-4">
         
         <div className="flex items-center justify-between mb-8">
-           <h2 className="text-2xl font-black text-white">Call Center Operations Command Center</h2>
+           <h2 className="text-2xl font-black text-foreground dark:text-white">Call Center Operations Command Center</h2>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
@@ -36,7 +36,7 @@ export const LiveCommandCenter = () => {
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left w-full text-sm font-bold ${
                   activeTab === tab.id 
                     ? 'bg-[#2F80FF]/10 text-[#2F80FF] border border-[#2F80FF]/20' 
-                    : 'bg-[#0A192F]/40 text-[#94A3B8] border border-transparent hover:bg-white/5 hover:text-white'
+                    : 'bg-card/40 text-brand-slate border border-transparent hover:bg-white/5 hover:text-foreground dark:text-white'
                 }`}
               >
                 <tab.icon className="h-4 w-4" />
@@ -46,12 +46,12 @@ export const LiveCommandCenter = () => {
           </div>
 
           {/* Center Content */}
-          <GlassPanel className="flex-1 p-0 overflow-hidden border-white/10 bg-[#0A192F]/20 relative min-h-[500px]">
+          <GlassPanel className="flex-1 p-0 overflow-hidden border-brand-border bg-card/20 relative min-h-[500px]">
             <div className="flex flex-col lg:flex-row h-full">
                
                {/* Incidents List */}
-               <div className="lg:w-1/2 p-6 border-r border-white/5 bg-[#081120]/40 flex flex-col">
-                  <div className="text-[11px] font-bold text-white uppercase tracking-widest mb-6 flex items-center justify-between">
+               <div className="lg:w-1/2 p-6 border-r border-brand-border bg-brand-bg/40 flex flex-col">
+                  <div className="text-[11px] font-bold text-foreground dark:text-white uppercase tracking-widest mb-6 flex items-center justify-between">
                      Active Roadside Incidents
                      <span className="text-emerald-400 font-mono text-[10px]">↑ 8.2%</span>
                   </div>
@@ -62,23 +62,23 @@ export const LiveCommandCenter = () => {
                         { id: "#INC-78293", type: "Battery Jump", loc: "Austin, TX", time: "5 min ago", priority: "Low" },
                         { id: "#INC-78294", type: "Accident", loc: "San Antonio, TX", time: "7 min ago", priority: "High" }
                      ].map((item, i) => (
-                        <div key={i} className="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#2F80FF]/30 transition-colors cursor-pointer group">
+                        <div key={i} className="p-4 rounded-xl bg-white/[0.02] border border-brand-border hover:border-[#2F80FF]/30 transition-colors cursor-pointer group">
                            <div className="flex justify-between items-start mb-2">
                               <div className="flex items-center gap-2">
                                  <div className={`h-2 w-2 rounded-full ${item.priority === 'High' ? 'bg-red-500' : item.priority === 'Medium' ? 'bg-[#FF7A1A]' : 'bg-[#2F80FF]'}`} />
                                  <span className="text-[10px] font-mono text-[#2F80FF]">{item.id}</span>
                               </div>
-                              <div className="text-[10px] text-[#94A3B8] font-mono">{item.time}</div>
+                              <div className="text-[10px] text-brand-slate font-mono">{item.time}</div>
                            </div>
-                           <div className="text-sm font-bold text-white">{item.type}</div>
+                           <div className="text-sm font-bold text-foreground dark:text-white">{item.type}</div>
                            <div className="flex justify-between items-end mt-1">
-                              <div className="text-xs text-[#94A3B8]">{item.loc}</div>
+                              <div className="text-xs text-brand-slate">{item.loc}</div>
                               <div className={`text-[10px] font-bold uppercase tracking-wider ${item.priority === 'High' ? 'text-red-500' : item.priority === 'Medium' ? 'text-[#FF7A1A]' : 'text-[#2F80FF]'}`}>{item.priority}</div>
                            </div>
                         </div>
                      ))}
                   </div>
-                  <button className="text-[11px] font-bold text-[#2F80FF] hover:text-white transition-colors mt-4 w-full text-left">
+                  <button className="text-[11px] font-bold text-[#2F80FF] hover:text-foreground dark:text-white transition-colors mt-4 w-full text-left">
                      View All Incidents
                   </button>
                </div>
@@ -86,7 +86,7 @@ export const LiveCommandCenter = () => {
                {/* Right Telemetry Column */}
                <div className="lg:w-1/2 flex flex-col">
                   {/* Mini Map */}
-                  <div className="h-48 relative border-b border-white/5 bg-[#081120]">
+                  <div className="h-48 relative border-b border-brand-border bg-brand-bg">
                      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#2F80FF 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                      <svg className="absolute inset-0 w-full h-full" style={{ filter: 'drop-shadow(0 0 8px rgba(47,128,255,0.5))' }}>
                         <path d="M 50,150 C 100,50 200,180 300,100" fill="none" stroke="#2F80FF" strokeWidth="2" strokeDasharray="4,4" />
@@ -103,34 +103,34 @@ export const LiveCommandCenter = () => {
                   <div className="p-6 flex-1 flex flex-col gap-6">
                      <div>
                         <div className="flex items-center justify-between mb-4">
-                           <div className="text-[11px] font-bold text-white uppercase tracking-widest">Dispatch Assignment</div>
+                           <div className="text-[11px] font-bold text-foreground dark:text-white uppercase tracking-widest">Dispatch Assignment</div>
                            <div className="flex items-center gap-1.5"><div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" /><span className="text-[10px] font-mono text-emerald-400">Live</span></div>
                         </div>
-                        <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                        <div className="p-4 bg-white/[0.02] border border-brand-border rounded-xl">
                            <div className="flex justify-between items-start mb-4">
                               <div className="flex items-center gap-3">
                                  <div className="h-8 w-8 rounded-lg bg-[#2F80FF]/20 flex items-center justify-center"><Navigation className="h-4 w-4 text-[#2F80FF]" /></div>
                                  <div>
                                     <div className="text-xs font-bold text-[#2F80FF]">Heavy-Duty Tow</div>
-                                    <div className="text-[10px] text-[#94A3B8]">Assigned to Prime Towing</div>
+                                    <div className="text-[10px] text-brand-slate">Assigned to Prime Towing</div>
                                  </div>
                               </div>
                               <div className="text-right">
-                                 <div className="text-[10px] text-[#94A3B8] uppercase">ETA</div>
+                                 <div className="text-[10px] text-brand-slate uppercase">ETA</div>
                                  <div className="text-sm font-mono text-emerald-400">24 min</div>
                               </div>
                            </div>
-                           <Button className="w-full bg-white/5 hover:bg-white/10 text-white text-xs h-8 border border-white/10">Track Live</Button>
+                           <Button className="w-full bg-white/5 hover:bg-white/10 text-foreground dark:text-white text-xs h-8 border border-brand-border">Track Live</Button>
                         </div>
                      </div>
 
                      <div className="grid grid-cols-2 gap-4">
-                        <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                           <div className="text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider mb-1">Service Level</div>
-                           <div className="text-xl font-mono text-white">90 <span className="text-[12px] text-[#94A3B8]">sec</span></div>
+                        <div className="p-4 bg-white/[0.02] border border-brand-border rounded-xl">
+                           <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Service Level</div>
+                           <div className="text-xl font-mono text-foreground dark:text-white">90 <span className="text-[12px] text-brand-slate">sec</span></div>
                         </div>
-                        <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
-                           <div className="text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider mb-1">Abandonment</div>
+                        <div className="p-4 bg-white/[0.02] border border-brand-border rounded-xl">
+                           <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Abandonment</div>
                            <div className="text-xl font-mono text-red-400">2.1%</div>
                         </div>
                      </div>

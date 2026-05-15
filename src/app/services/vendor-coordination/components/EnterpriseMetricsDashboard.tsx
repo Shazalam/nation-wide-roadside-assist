@@ -23,15 +23,15 @@ export const EnterpriseMetricsDashboard = () => {
     <section className="py-12 bg-brand-bg relative z-10">
       <div className="container mx-auto px-4">
         <div className="mb-6">
-           <h3 className="text-sm font-black text-white uppercase tracking-widest">Operational Metrics <span className="text-[#2F80FF] ml-1">(Live)</span></h3>
+           <h3 className="text-sm font-black text-foreground dark:text-white uppercase tracking-widest">Operational Metrics <span className="text-[#2F80FF] ml-1">(Live)</span></h3>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 border-y border-white/5 py-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 border-y border-brand-border py-8">
            {metrics.map((metric, i) => (
-             <div key={i} className="flex flex-col border-r border-white/5 last:border-0 pr-4">
-                <span className="text-[8px] font-bold text-[#94A3B8] uppercase tracking-widest mb-2">{metric.label}</span>
+             <div key={i} className="flex flex-col border-r border-brand-border last:border-0 pr-4">
+                <span className="text-[8px] font-bold text-brand-slate uppercase tracking-widest mb-2">{metric.label}</span>
                 <div className="flex items-end justify-between mb-2">
-                   <span className="text-xl font-black text-white leading-none">{metric.val}</span>
+                   <span className="text-xl font-black text-foreground dark:text-white leading-none">{metric.val}</span>
                    <span className={`text-[8px] font-bold ${metric.color} leading-none`}>{metric.trend}</span>
                 </div>
                 <div className="h-8 w-full mt-auto">

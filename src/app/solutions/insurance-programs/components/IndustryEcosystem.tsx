@@ -62,7 +62,7 @@ const ecosystems = [
 
 export default function IndustryEcosystem() {
   return (
-    <section className="py-12 md:py-16 bg-[#081120] relative border-y border-white/5 flex flex-col justify-center">
+    <section className="py-12 md:py-16 bg-brand-bg relative border-y border-brand-border flex flex-col justify-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(47,128,255,0.05)_0%,transparent_70%)] pointer-events-none" />
       
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 w-full relative z-10">
@@ -73,7 +73,7 @@ export default function IndustryEcosystem() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-black tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+            className="text-2xl md:text-3xl font-black tracking-tight text-foreground dark:text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
           >
             Built for Every Insurance & Mobility Ecosystem
           </motion.h2>
@@ -90,21 +90,21 @@ export default function IndustryEcosystem() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.4 }}
-                className="group relative bg-[#0A192F] border border-white/10 rounded-2xl p-5 hover:border-[#2F80FF]/40 transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(47,128,255,0.1)] overflow-hidden flex flex-col"
+                className="group relative bg-card border border-brand-border rounded-2xl p-5 hover:border-[#2F80FF]/40 transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_rgba(47,128,255,0.1)] overflow-hidden flex flex-col"
               >
                 {/* Subtle Hover Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
                 {/* Header: Icon + Title */}
                 <div className="flex items-center gap-3 mb-2 relative z-10">
-                  <div className="p-1.5 rounded-lg bg-[#081120] border border-white/10 group-hover:bg-[#2F80FF]/10 group-hover:border-[#2F80FF]/30 transition-colors">
+                  <div className="p-1.5 rounded-lg bg-brand-bg border border-brand-border group-hover:bg-[#2F80FF]/10 group-hover:border-[#2F80FF]/30 transition-colors">
                     <Icon className="w-4 h-4 text-[#2F80FF]" />
                   </div>
-                  <h3 className="text-sm font-bold text-white tracking-tight leading-none">{eco.title}</h3>
+                  <h3 className="text-sm font-bold text-foreground dark:text-white tracking-tight leading-none">{eco.title}</h3>
                 </div>
                 
                 {/* Description */}
-                <p className="text-[11px] text-[#94A3B8] leading-snug mb-3 line-clamp-2 relative z-10 min-h-[32px]">
+                <p className="text-[11px] text-brand-slate leading-snug mb-3 line-clamp-2 relative z-10 min-h-[32px]">
                   {eco.description}
                 </p>
 
@@ -115,8 +115,8 @@ export default function IndustryEcosystem() {
                 <div className="flex items-start justify-between mt-auto relative z-10 gap-2">
                    {eco.metrics.map((m, mi) => (
                      <div key={mi} className="flex flex-col">
-                        <div className="text-base font-black text-white font-mono tracking-tight group-hover:text-[#2F80FF] transition-colors">{m.val}</div>
-                        <div className="text-[9px] font-mono text-[#94A3B8] uppercase tracking-wider leading-tight mt-0.5">{m.label}</div>
+                        <div className="text-base font-black text-foreground dark:text-white font-mono tracking-tight group-hover:text-[#2F80FF] transition-colors">{m.val}</div>
+                        <div className="text-[9px] font-mono text-brand-slate uppercase tracking-wider leading-tight mt-0.5">{m.label}</div>
                      </div>
                    ))}
                 </div>
