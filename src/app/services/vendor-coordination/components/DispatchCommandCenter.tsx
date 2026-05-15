@@ -17,10 +17,10 @@ export const DispatchCommandCenter = () => {
   const [activeTab, setActiveTab] = useState('Vendor Availability');
 
   return (
-    <section className="py-32 bg-brand-bg relative z-10 border-t border-white/5">
+    <section className="py-32 bg-brand-bg relative z-10 border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20">
-           <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+           <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-6">
               Live Dispatch Command Center
            </h2>
         </div>
@@ -43,8 +43,8 @@ export const DispatchCommandCenter = () => {
                   suppressHydrationWarning
                   className={`w-full text-left px-6 py-5 rounded-2xl transition-all font-bold text-sm flex items-center gap-3 group ${
                     activeTab === tab.label 
-                    ? 'bg-[#2F80FF] text-white shadow-[0_0_20px_rgba(47,128,255,0.3)]' 
-                    : 'bg-white/[0.02] text-[#94A3B8] hover:bg-white/[0.05] hover:text-white'
+                    ? 'bg-[#2F80FF] text-foreground dark:text-white shadow-[0_0_20px_rgba(47,128,255,0.3)]' 
+                    : 'bg-white/[0.02] text-brand-slate hover:bg-white/[0.05] hover:text-foreground dark:text-white'
                   }`}
                 >
                    <tab.icon className="h-4 w-4" />
@@ -55,11 +55,11 @@ export const DispatchCommandCenter = () => {
 
            {/* Main Dashboard Area */}
            <div className="lg:col-span-9">
-              <GlassPanel className="p-0 border-white/10 bg-[#0A192F]/80 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden">
+              <GlassPanel className="p-0 border-brand-border bg-card/80 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden">
                  
                  <div className="grid grid-cols-1 lg:grid-cols-12 h-[600px]">
                     {/* Map Simulation - 7 cols */}
-                    <div className="lg:col-span-7 relative border-r border-white/5 bg-[#081120] overflow-hidden">
+                    <div className="lg:col-span-7 relative border-r border-brand-border bg-brand-bg overflow-hidden">
                        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at center, #2F80FF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
                        
                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-luminosity" />
@@ -71,10 +71,10 @@ export const DispatchCommandCenter = () => {
                        </svg>
 
                        {/* Vehicles */}
-                       <div className="absolute top-[250px] left-[350px] bg-[#0A192F]/90 p-3 rounded-xl border border-[#2F80FF]/50 backdrop-blur-md shadow-[0_0_20px_rgba(47,128,255,0.2)]">
-                          <p className="text-[10px] font-black text-white uppercase tracking-widest mb-0.5">Tow Unit 247</p>
-                          <p className="text-[9px] font-bold text-white mb-1">24 min away</p>
-                          <p className="text-[8px] text-[#94A3B8] font-bold uppercase mb-1">Heavy Duty / Rotator</p>
+                       <div className="absolute top-[250px] left-[350px] bg-card/90 p-3 rounded-xl border border-[#2F80FF]/50 backdrop-blur-md shadow-[0_0_20px_rgba(47,128,255,0.2)]">
+                          <p className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest mb-0.5">Tow Unit 247</p>
+                          <p className="text-[9px] font-bold text-foreground dark:text-white mb-1">24 min away</p>
+                          <p className="text-[8px] text-brand-slate font-bold uppercase mb-1">Heavy Duty / Rotator</p>
                           <span className="text-[8px] font-bold text-emerald-400 uppercase tracking-widest bg-emerald-400/10 px-1.5 py-0.5 rounded">En Route</span>
                        </div>
 
@@ -82,17 +82,17 @@ export const DispatchCommandCenter = () => {
                        <div className="absolute top-[400px] left-[450px] h-3 w-3 bg-[#FF7A1A] rounded-full border-2 border-white shadow-[0_0_10px_#FF7A1A]" />
                        <div className="absolute top-[300px] left-[400px] h-3 w-3 bg-emerald-400 rounded-full border-2 border-white shadow-[0_0_10px_#34d399]" />
                        
-                       <div className="absolute bottom-4 left-4 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 p-2 flex flex-col gap-2">
-                          <div className="h-6 w-6 rounded bg-white/10 flex items-center justify-center text-white font-bold text-xs">+</div>
-                          <div className="h-6 w-6 rounded bg-white/10 flex items-center justify-center text-white font-bold text-xs">-</div>
+                       <div className="absolute bottom-4 left-4 bg-white/5 backdrop-blur-md rounded-lg border border-brand-border p-2 flex flex-col gap-2">
+                          <div className="h-6 w-6 rounded bg-white/10 flex items-center justify-center text-foreground dark:text-white font-bold text-xs">+</div>
+                          <div className="h-6 w-6 rounded bg-white/10 flex items-center justify-center text-foreground dark:text-white font-bold text-xs">-</div>
                        </div>
                     </div>
 
                     {/* Active Dispatch List & Vendor Performance - 5 cols */}
-                    <div className="lg:col-span-5 bg-[#0A192F]/40 overflow-y-auto flex flex-col">
+                    <div className="lg:col-span-5 bg-card/40 overflow-y-auto flex flex-col">
                        {/* Active Dispatches */}
-                       <div className="p-5 border-b border-white/5 sticky top-0 bg-[#0A192F] z-10 flex justify-between items-center">
-                          <span className="text-[10px] font-black text-white uppercase tracking-widest">Active Dispatches</span>
+                       <div className="p-5 border-b border-brand-border sticky top-0 bg-card z-10 flex justify-between items-center">
+                          <span className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest">Active Dispatches</span>
                           <button className="text-[9px] font-bold text-[#2F80FF] uppercase hover:underline">View All</button>
                        </div>
                        
@@ -100,28 +100,28 @@ export const DispatchCommandCenter = () => {
                           {activeDispatches.map((inc, i) => (
                             <div key={i} className="p-4 hover:bg-white/[0.02] transition-colors cursor-pointer flex items-center justify-between group">
                                <div className="flex items-center gap-3">
-                                  <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center bg-white/5">
-                                     <Activity className="h-3 w-3 text-[#94A3B8] group-hover:text-[#2F80FF] transition-colors" />
+                                  <div className="h-8 w-8 rounded-full border border-brand-border flex items-center justify-center bg-white/5">
+                                     <Activity className="h-3 w-3 text-brand-slate group-hover:text-[#2F80FF] transition-colors" />
                                   </div>
                                   <div>
-                                     <p className="text-[10px] font-black text-white uppercase tracking-wider">{inc.id}</p>
-                                     <p className="text-[9px] font-medium text-[#94A3B8] mt-0.5">{inc.loc}</p>
+                                     <p className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-wider">{inc.id}</p>
+                                     <p className="text-[9px] font-medium text-brand-slate mt-0.5">{inc.loc}</p>
                                   </div>
                                </div>
                                <div className="text-right">
                                   <span className={`text-[9px] font-bold uppercase tracking-widest ${inc.status === 'En Route' ? 'text-emerald-400' : inc.status === 'On Scene' ? 'text-[#2F80FF]' : 'text-[#FF7A1A]'}`}>
                                      {inc.status}
                                   </span>
-                                  <p className="text-[9px] font-medium text-[#94A3B8] mt-0.5">{inc.eta}</p>
+                                  <p className="text-[9px] font-medium text-brand-slate mt-0.5">{inc.eta}</p>
                                </div>
                             </div>
                           ))}
                        </div>
 
                        {/* Vendor Performance Snapshot */}
-                       <div className="border-t border-white/5 p-5">
+                       <div className="border-t border-brand-border p-5">
                           <div className="flex justify-between items-center mb-4">
-                            <span className="text-[10px] font-black text-white uppercase tracking-widest">Vendor Performance</span>
+                            <span className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest">Vendor Performance</span>
                             <span className="text-[9px] font-bold text-[#2F80FF] uppercase">This Month</span>
                           </div>
                           <div className="space-y-3">
@@ -134,8 +134,8 @@ export const DispatchCommandCenter = () => {
                              ].map((v, i) => (
                                <div key={i} className="flex items-center justify-between text-[10px] font-bold">
                                   <div className="flex items-center gap-2">
-                                     <span className="text-[#94A3B8]">{i+1}</span>
-                                     <span className="text-white">{v.name}</span>
+                                     <span className="text-brand-slate">{i+1}</span>
+                                     <span className="text-foreground dark:text-white">{v.name}</span>
                                   </div>
                                   <div className="flex gap-4">
                                      <span className="text-emerald-400">{v.score}%</span>

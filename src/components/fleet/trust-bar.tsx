@@ -22,7 +22,7 @@ const complianceBadges = [
 
 export const TrustBar = () => {
   return (
-    <section className="relative z-10 py-14 border-y border-white/5 bg-white/[0.008] overflow-hidden">
+    <section className="relative z-10 py-14 border-y border-brand-border bg-white/[0.008] overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-10">
           {/* Partner Logos Marquee */}
@@ -31,7 +31,7 @@ export const TrustBar = () => {
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#081120] to-transparent z-10" />
             <div className="flex items-center gap-24 animate-marquee whitespace-nowrap">
               {[...brands, ...brands, ...brands].map((brand, i) => (
-                <span key={`${brand}-${i}`} className="text-2xl font-black tracking-tighter text-white/20 hover:text-white/70 transition-colors duration-500 cursor-default select-none">
+                <span key={`${brand}-${i}`} className="text-2xl font-black tracking-tighter text-foreground dark:text-white/20 hover:text-foreground dark:text-white/70 transition-colors duration-500 cursor-default select-none">
                   {brand}
                 </span>
               ))}
@@ -50,7 +50,7 @@ export const TrustBar = () => {
                   className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-brand-blue/[0.04] border border-brand-blue/10 hover:bg-brand-blue/[0.08] transition-all group cursor-default"
                 >
                   <badge.icon className="h-3.5 w-3.5 text-brand-blue group-hover:scale-110 transition-transform" />
-                  <span className="text-[9px] font-bold text-white/90 uppercase tracking-widest">{badge.label}</span>
+                  <span className="text-[9px] font-bold text-foreground dark:text-white/90 uppercase tracking-widest">{badge.label}</span>
                 </motion.div>
               ))}
             </div>
@@ -64,7 +64,7 @@ export const TrustBar = () => {
                   className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-emerald-500/[0.04] border border-emerald-500/10 hover:bg-emerald-500/[0.08] transition-all group cursor-default"
                 >
                   <badge.icon className="h-3.5 w-3.5 text-emerald-500 group-hover:scale-110 transition-transform" />
-                  <span className="text-[9px] font-bold text-white/90 uppercase tracking-widest">{badge.label}</span>
+                  <span className="text-[9px] font-bold text-foreground dark:text-white/90 uppercase tracking-widest">{badge.label}</span>
                 </motion.div>
               ))}
             </div>

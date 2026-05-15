@@ -36,7 +36,7 @@ export const TelemetryIndicator = ({
       <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-brand-slate">
         <span>{label}</span>
         <span className={cn(
-          "px-1.5 py-0.5 rounded border border-white/5",
+          "px-1.5 py-0.5 rounded border border-brand-border",
           status === 'healthy' ? "text-emerald-500 bg-emerald-500/5" :
           status === 'warning' ? "text-amber-500 bg-amber-500/5" :
           "text-rose-500 bg-rose-500/5"
@@ -44,7 +44,7 @@ export const TelemetryIndicator = ({
           {value}%
         </span>
       </div>
-      <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+      <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-brand-border">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${value}%` }}

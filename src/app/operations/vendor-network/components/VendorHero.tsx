@@ -25,15 +25,15 @@ export const VendorHero = () => {
             >
               <div className="flex items-center gap-2 text-[11px] font-bold text-[#2F80FF] uppercase tracking-widest mb-6">
                 <span>Operations</span>
-                <span className="text-white/30">{'>'}</span>
+                <span className="text-foreground dark:text-white/30">{'>'}</span>
                 <span>Vendor Network</span>
               </div>
               
-              <h1 className="text-4xl lg:text-5xl font-black text-white leading-[1.1] tracking-tight mb-6">
+              <h1 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white leading-[1.1] tracking-tight mb-6">
                 Enterprise Vendor Network & <br className="hidden lg:block"/>Dispatch Operations Platform
               </h1>
               
-              <p className="text-[15px] text-[#94A3B8] leading-7 max-w-xl">
+              <p className="text-[15px] text-brand-slate leading-7 max-w-xl">
                 Nationwide roadside vendor coordination, SLA-driven dispatch intelligence, and real-time operational visibility engineered for insurers, fleets, OEMs, and enterprise mobility ecosystems.
               </p>
             </motion.div>
@@ -44,11 +44,11 @@ export const VendorHero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex flex-wrap items-center gap-4"
             >
-              <Button className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-bold h-11 px-6 rounded-xl shadow-[0_0_20px_rgba(47,128,255,0.3)] hover:shadow-[0_0_30px_rgba(47,128,255,0.5)] transition-all">
+              <Button className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-11 px-6 rounded-xl shadow-[0_0_20px_rgba(47,128,255,0.3)] hover:shadow-[0_0_30px_rgba(47,128,255,0.5)] transition-all">
                 Explore Vendor Network <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 h-11 px-6 rounded-xl font-bold bg-[#0A192F]/50 backdrop-blur-md">
-                View Dispatch APIs <Code className="ml-2 h-4 w-4 text-[#94A3B8]" />
+              <Button variant="outline" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-11 px-6 rounded-xl font-bold bg-card/50 backdrop-blur-md">
+                View Dispatch APIs <Code className="ml-2 h-4 w-4 text-brand-slate" />
               </Button>
             </motion.div>
 
@@ -64,9 +64,9 @@ export const VendorHero = () => {
                 { value: "2.8M+", label: "Dispatch Events", trend: "Annual" },
                 { value: "24/7", label: "Enterprise Ops", icon: Activity }
               ].map((metric, i) => (
-                <div key={i} className="border-l border-white/10 pl-4 relative group">
-                  <div className="text-2xl font-black text-white mb-1 group-hover:text-[#2F80FF] transition-colors">{metric.value}</div>
-                  <div className="text-[11px] text-[#94A3B8] font-bold uppercase tracking-wider">{metric.label}</div>
+                <div key={i} className="border-l border-brand-border pl-4 relative group">
+                  <div className="text-2xl font-black text-foreground dark:text-white mb-1 group-hover:text-[#2F80FF] transition-colors">{metric.value}</div>
+                  <div className="text-[11px] text-brand-slate font-bold uppercase tracking-wider">{metric.label}</div>
                   {metric.trend && (
                      <div className="text-[10px] text-emerald-400 mt-1 font-mono">{metric.trend}</div>
                   )}
@@ -85,12 +85,12 @@ export const VendorHero = () => {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:w-1/2 w-full"
           >
-            <GlassPanel className="p-1 rounded-2xl border-white/10 bg-[#0A192F]/40 overflow-hidden relative">
+            <GlassPanel className="p-1 rounded-2xl border-brand-border bg-card/40 overflow-hidden relative">
                {/* Header */}
-               <div className="flex items-center justify-between p-4 border-b border-white/5 bg-[#081120]/60">
+               <div className="flex items-center justify-between p-4 border-b border-brand-border bg-brand-bg/60">
                   <div className="flex items-center gap-2">
                      <Activity className="h-4 w-4 text-[#2F80FF]" />
-                     <span className="text-[11px] font-bold text-white uppercase tracking-widest">Live Network Overview</span>
+                     <span className="text-[11px] font-bold text-foreground dark:text-white uppercase tracking-widest">Live Network Overview</span>
                   </div>
                   <div className="flex items-center gap-3">
                      <div className="flex items-center gap-1.5">
@@ -101,11 +101,11 @@ export const VendorHero = () => {
                </div>
 
                {/* Mock Map Area */}
-               <div className="h-[300px] relative bg-[#081120] overflow-hidden flex items-center justify-center border-b border-white/5">
+               <div className="h-[300px] relative bg-brand-bg overflow-hidden flex items-center justify-center border-b border-brand-border">
                   <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(#2F80FF 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                   
                   {/* Simulated US Map Shape (Abstract) */}
-                  <div className="relative w-[80%] h-[80%] border border-[#2F80FF]/20 rounded-3xl bg-[#0A192F]/50 shadow-[inset_0_0_50px_rgba(47,128,255,0.1)] flex items-center justify-center">
+                  <div className="relative w-[80%] h-[80%] border border-[#2F80FF]/20 rounded-3xl bg-card/50 shadow-[inset_0_0_50px_rgba(47,128,255,0.1)] flex items-center justify-center">
                      <span className="text-[#2F80FF]/30 font-mono text-xs tracking-widest">MAPBOX TELEMETRY FEED</span>
                      
                      {/* Pulse nodes */}
@@ -153,17 +153,17 @@ export const VendorHero = () => {
 
                {/* Bottom Stats Grid */}
                <div className="grid grid-cols-3 gap-px bg-white/5">
-                  <div className="p-4 bg-[#0A192F]/80">
-                     <div className="text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider mb-1">Active Vendors</div>
-                     <div className="text-xl font-mono text-white">18,742 <span className="text-[10px] text-emerald-400">↑ 8.2%</span></div>
+                  <div className="p-4 bg-card/80">
+                     <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Active Vendors</div>
+                     <div className="text-xl font-mono text-foreground dark:text-white">18,742 <span className="text-[10px] text-emerald-400">↑ 8.2%</span></div>
                   </div>
-                  <div className="p-4 bg-[#0A192F]/80">
-                     <div className="text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider mb-1">Active Dispatches</div>
-                     <div className="text-xl font-mono text-white">1,243 <span className="text-[10px] text-emerald-400">↑ 12.5%</span></div>
+                  <div className="p-4 bg-card/80">
+                     <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Active Dispatches</div>
+                     <div className="text-xl font-mono text-foreground dark:text-white">1,243 <span className="text-[10px] text-emerald-400">↑ 12.5%</span></div>
                   </div>
-                  <div className="p-4 bg-[#0A192F]/80">
-                     <div className="text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider mb-1">Avg. ETA</div>
-                     <div className="text-xl font-mono text-white">28 <span className="text-[10px] text-[#94A3B8]">min</span></div>
+                  <div className="p-4 bg-card/80">
+                     <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Avg. ETA</div>
+                     <div className="text-xl font-mono text-foreground dark:text-white">28 <span className="text-[10px] text-brand-slate">min</span></div>
                   </div>
                </div>
             </GlassPanel>

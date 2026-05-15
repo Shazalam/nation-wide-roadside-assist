@@ -29,12 +29,12 @@ export const RecoveryMetrics = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, duration: 0.5 }}
             >
-              <GlassPanel className="p-10 border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all group flex flex-col items-center text-center">
+              <GlassPanel className="p-10 border-brand-border bg-white/[0.01] hover:bg-white/[0.03] transition-all group flex flex-col items-center text-center">
                 <div className="h-16 w-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
                    <m.icon className="h-8 w-8 text-brand-blue" />
                 </div>
-                <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.2em] mb-4 leading-tight">{m.label}</p>
-                <p className="text-4xl font-black text-white tracking-tighter mb-4">{m.val}</p>
+                <p className="text-[10px] font-black text-brand-slate uppercase tracking-[0.2em] mb-4 leading-tight">{m.label}</p>
+                <p className="text-4xl font-black text-foreground dark:text-white tracking-tighter mb-4">{m.val}</p>
                 <div className="flex items-center gap-2">
                    <div className="h-1 w-1 rounded-full bg-emerald-500" />
                    <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">{m.trend}</span>

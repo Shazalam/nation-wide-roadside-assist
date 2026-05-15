@@ -16,10 +16,10 @@ const benefits = [
 
 export const Benefits = () => {
   return (
-    <section className="py-24 bg-[#081120] relative z-10 border-t border-white/5">
+    <section className="py-24 bg-brand-bg relative z-10 border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-           <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+           <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-4">
               Enterprise Support & Benefits
            </h2>
         </div>
@@ -33,12 +33,12 @@ export const Benefits = () => {
                transition={{ delay: i * 0.1 }}
                viewport={{ once: true }}
              >
-                <GlassPanel className="p-6 border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors group flex flex-col items-start h-full">
+                <GlassPanel className="p-6 border-brand-border bg-white/[0.02] hover:bg-white/[0.04] transition-colors group flex flex-col items-start h-full">
                    <div className="h-10 w-10 rounded-lg bg-[#2F80FF]/10 flex items-center justify-center border border-[#2F80FF]/20 group-hover:bg-[#2F80FF]/20 transition-all mb-4">
                       <benefit.icon className="h-4 w-4 text-[#2F80FF]" />
                    </div>
-                   <h3 className="text-[11px] font-black text-white uppercase tracking-widest mb-2">{benefit.title}</h3>
-                   <p className="text-[10px] text-[#94A3B8] leading-relaxed">
+                   <h3 className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-widest mb-2">{benefit.title}</h3>
+                   <p className="text-[10px] text-brand-slate leading-relaxed">
                       {benefit.desc}
                    </p>
                 </GlassPanel>

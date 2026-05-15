@@ -39,7 +39,7 @@ export const CoreCapabilities = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <GlassPanel className="p-10 border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all group relative overflow-hidden h-full">
+              <GlassPanel className="p-10 border-brand-border bg-white/[0.01] hover:bg-white/[0.03] transition-all group relative overflow-hidden h-full">
                 {/* Glow Accent */}
                 <div className="absolute -right-10 -top-10 w-32 h-32 bg-brand-blue/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 
@@ -47,10 +47,10 @@ export const CoreCapabilities = () => {
                    <cap.icon className="h-7 w-7 text-brand-blue" />
                 </div>
 
-                <h4 className="text-2xl font-black text-white mb-4 tracking-tight">{cap.title}</h4>
+                <h4 className="text-2xl font-black text-foreground dark:text-white mb-4 tracking-tight">{cap.title}</h4>
                 <p className="text-brand-slate text-sm leading-relaxed mb-8">{cap.desc}</p>
                 
-                <div className="pt-6 border-t border-white/5">
+                <div className="pt-6 border-t border-brand-border">
                    <p className="text-[10px] font-bold text-brand-blue uppercase tracking-widest">{cap.metrics}</p>
                 </div>
               </GlassPanel>

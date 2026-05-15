@@ -56,7 +56,7 @@ export const TechShowcase = () => {
               className="space-y-4"
             >
               <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em]">Technology Platform</p>
-              <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight">Advanced Core <br />Orchestration</h2>
+              <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight">Advanced Core <br />Orchestration</h2>
               <p className="text-brand-slate">Intelligent operations command center for real-time fleet health and recovery monitoring.</p>
             </motion.div>
 
@@ -69,18 +69,18 @@ export const TechShowcase = () => {
                     "w-full flex items-center gap-4 p-6 rounded-2xl border transition-all text-left group",
                     activeTechTab === tab.id
                       ? "bg-brand-blue/10 border-brand-blue/40 shadow-[0_0_20px_rgba(47,128,255,0.1)]"
-                      : "bg-white/[0.02] border-white/5 hover:border-white/10"
+                      : "bg-white/[0.02] border-brand-border hover:border-brand-border"
                   )}
                 >
                   <div className={cn(
                     "h-10 w-10 rounded-xl flex items-center justify-center transition-colors",
-                    activeTechTab === tab.id ? "bg-brand-blue text-white" : "bg-white/5 text-brand-slate"
+                    activeTechTab === tab.id ? "bg-brand-blue text-foreground dark:text-white" : "bg-white/5 text-brand-slate"
                   )}>
                     <tab.icon className="h-5 w-5" />
                   </div>
                   <span className={cn(
                     "font-bold transition-colors",
-                    activeTechTab === tab.id ? "text-white" : "text-brand-slate group-hover:text-white"
+                    activeTechTab === tab.id ? "text-foreground dark:text-white" : "text-brand-slate group-hover:text-foreground dark:text-white"
                   )}>{tab.label}</span>
                   {activeTechTab === tab.id && (
                     <motion.div layoutId="activeTabIndicator" className="ml-auto h-2 w-2 rounded-full bg-brand-blue shadow-[0_0_8px_#2F80FF]" />
@@ -100,7 +100,7 @@ export const TechShowcase = () => {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <GlassPanel className="p-8 lg:p-10 bg-brand-navy/60 border-white/10 min-h-[550px] flex flex-col relative overflow-hidden">
+                <GlassPanel className="p-8 lg:p-10 bg-brand-navy/60 border-brand-border min-h-[550px] flex flex-col relative overflow-hidden">
                   <div className="absolute inset-0 opacity-[0.03]" style={{
                     backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`,
                     backgroundSize: '24px 24px'
@@ -108,7 +108,7 @@ export const TechShowcase = () => {
 
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 relative z-10 gap-4">
                     <div className="flex items-center gap-4">
-                      <h3 className="text-lg lg:text-xl font-bold text-white uppercase tracking-widest">
+                      <h3 className="text-lg lg:text-xl font-bold text-foreground dark:text-white uppercase tracking-widest">
                         {activeTechTab === 'telemetry' ? 'Vehicle Tracking Mesh' : activeTechTab === 'dispatch' ? 'Dispatch Orchestration' : 'Regional Utilization'}
                       </h3>
                       <StatusIndicator status="online" pulse label="Live Ops" />
@@ -122,7 +122,7 @@ export const TechShowcase = () => {
                   <div className="flex-1 relative z-10">
                     {activeTechTab === 'telemetry' && (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
-                        <div className="rounded-2xl bg-white/[0.02] border border-white/5 p-6 space-y-6">
+                        <div className="rounded-2xl bg-white/[0.02] border border-brand-border p-6 space-y-6">
                           <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest">Fleet Health Monitoring</p>
                           <div className="h-48 w-full">
                             {isMounted && (
@@ -138,7 +138,7 @@ export const TechShowcase = () => {
                           </div>
                           <div className="grid grid-cols-2 gap-4">
                             <div className="p-4 rounded-xl bg-white/5 text-center">
-                              <p className="text-2xl font-black text-white">99.4%</p>
+                              <p className="text-2xl font-black text-foreground dark:text-white">99.4%</p>
                               <p className="text-[8px] text-brand-slate uppercase mt-1">Global Uptime</p>
                             </div>
                             <div className="p-4 rounded-xl bg-white/5 text-center">
@@ -147,7 +147,7 @@ export const TechShowcase = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="rounded-2xl bg-white/[0.02] border border-white/5 p-6">
+                        <div className="rounded-2xl bg-white/[0.02] border border-brand-border p-6">
                           <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mb-6">Active Operations</p>
                           <div className="space-y-4">
                             {[
@@ -156,13 +156,13 @@ export const TechShowcase = () => {
                               { id: '03', label: 'Ryder Dispatch Coord', match: '99%' },
                               { id: '04', label: 'WEX Billing Pipeline', match: '94%' },
                             ].map((op) => (
-                              <div key={op.id} className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5 hover:border-brand-blue/20 transition-colors">
+                              <div key={op.id} className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-brand-border hover:border-brand-blue/20 transition-colors">
                                 <div className="flex items-center gap-3">
                                   <div className="h-8 w-8 rounded-lg bg-brand-blue/10 flex items-center justify-center">
                                     <Truck className="h-4 w-4 text-brand-blue" />
                                   </div>
                                   <div>
-                                    <p className="text-[10px] font-bold text-white">DISPATCH-NODE-{op.id}</p>
+                                    <p className="text-[10px] font-bold text-foreground dark:text-white">DISPATCH-NODE-{op.id}</p>
                                     <p className="text-[8px] text-brand-slate">{op.label}</p>
                                   </div>
                                 </div>
@@ -176,7 +176,7 @@ export const TechShowcase = () => {
 
                     {activeTechTab === 'dispatch' && (
                       <div className="h-full flex flex-col space-y-8">
-                        <div className="flex-1 rounded-2xl bg-white/[0.02] border border-white/5 p-6 flex flex-col">
+                        <div className="flex-1 rounded-2xl bg-white/[0.02] border border-brand-border p-6 flex flex-col">
                           <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mb-8">AI-Powered Dispatch Flow (Last 24h)</p>
                           <div className="flex-1 min-h-[200px]">
                             {isMounted && (
@@ -199,11 +199,11 @@ export const TechShowcase = () => {
                         </div>
                         <div className="grid grid-cols-3 gap-6">
                           {[
-                            { label: 'Automated Match Rate', val: '92.4%', color: 'text-white' },
+                            { label: 'Automated Match Rate', val: '92.4%', color: 'text-foreground dark:text-white' },
                             { label: 'Time to Assign', val: '84s', color: 'text-emerald-400' },
                             { label: 'Ops Reduction', val: '-40%', color: 'text-brand-blue' },
                           ].map((stat) => (
-                            <div key={stat.label} className="p-5 rounded-2xl bg-white/5 border border-white/5">
+                            <div key={stat.label} className="p-5 rounded-2xl bg-white/5 border border-brand-border">
                               <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mb-2">{stat.label}</p>
                               <p className={cn("text-3xl font-black", stat.color)}>{stat.val}</p>
                             </div>
@@ -214,7 +214,7 @@ export const TechShowcase = () => {
 
                     {activeTechTab === 'analytics' && (
                       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full">
-                        <div className="lg:col-span-8 rounded-2xl bg-white/[0.02] border border-white/5 p-6 flex flex-col">
+                        <div className="lg:col-span-8 rounded-2xl bg-white/[0.02] border border-brand-border p-6 flex flex-col">
                           <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mb-8">Regional Operational Performance</p>
                           <div className="flex-1 min-h-[200px]">
                             {isMounted && (
@@ -235,12 +235,12 @@ export const TechShowcase = () => {
                         <div className="lg:col-span-4 space-y-6">
                           <div className="p-6 rounded-2xl bg-brand-blue/5 border border-brand-blue/20 flex flex-col items-center text-center">
                             <TrendingUp className="h-8 w-8 text-brand-blue mb-4" />
-                            <p className="text-4xl font-black text-white">12%</p>
+                            <p className="text-4xl font-black text-foreground dark:text-white">12%</p>
                             <p className="text-[10px] text-brand-slate uppercase mt-1">Fleet Efficiency Gain</p>
                           </div>
-                          <div className="p-6 rounded-2xl bg-white/5 border border-white/5 flex flex-col items-center text-center">
+                          <div className="p-6 rounded-2xl bg-white/5 border border-brand-border flex flex-col items-center text-center">
                             <Clock className="h-8 w-8 text-emerald-400 mb-4" />
-                            <p className="text-4xl font-black text-white">1.8h</p>
+                            <p className="text-4xl font-black text-foreground dark:text-white">1.8h</p>
                             <p className="text-[10px] text-brand-slate uppercase mt-1">Downtime Saved / Incident</p>
                           </div>
                         </div>

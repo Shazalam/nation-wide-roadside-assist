@@ -38,7 +38,7 @@ export const StatusIndicator = ({
         <div className={cn("h-2 w-2 rounded-full z-10", current.color, current.shadow)} />
       </div>
       {label && (
-        <span className="text-xs font-semibold text-white tracking-wide">
+        <span className="text-xs font-semibold text-foreground dark:text-white tracking-wide">
           {label || current.text}
         </span>
       )}

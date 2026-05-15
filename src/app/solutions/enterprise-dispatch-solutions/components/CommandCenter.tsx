@@ -31,7 +31,7 @@ export const CommandCenter = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-end mb-16">
           <div className="max-w-2xl">
             <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Command & Control</p>
-            <h2 className="text-4xl lg:text-6xl font-black text-white mb-8 tracking-tight">Dispatch Command Center</h2>
+            <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white mb-8 tracking-tight">Dispatch Command Center</h2>
             <p className="text-brand-slate text-lg leading-relaxed">
               Real-time roadside incident management with AI-powered routing, GPS vendor tracking, and live SLA monitoring.
             </p>
@@ -47,11 +47,11 @@ export const CommandCenter = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`w-full flex items-center gap-4 px-6 py-5 rounded-2xl transition-all relative overflow-hidden group ${
                   activeTab === tab.id 
-                    ? 'bg-brand-blue text-white shadow-[0_0_30px_rgba(47,128,255,0.3)]' 
-                    : 'bg-white/[0.02] text-brand-slate hover:bg-white/[0.05] border border-white/5'
+                    ? 'bg-brand-blue text-foreground dark:text-white shadow-[0_0_30px_rgba(47,128,255,0.3)]' 
+                    : 'bg-white/[0.02] text-brand-slate hover:bg-white/[0.05] border border-brand-border'
                 }`}
               >
-                <tab.icon className={`h-5 w-5 ${activeTab === tab.id ? 'text-white' : 'text-brand-blue group-hover:scale-110 transition-transform'}`} />
+                <tab.icon className={`h-5 w-5 ${activeTab === tab.id ? 'text-foreground dark:text-white' : 'text-brand-blue group-hover:scale-110 transition-transform'}`} />
                 <span className="text-sm font-bold tracking-tight">{tab.label}</span>
                 {activeTab === tab.id && (
                   <motion.div layoutId="tabActive" className="absolute left-0 top-0 w-1 h-full bg-white" />
@@ -59,12 +59,12 @@ export const CommandCenter = () => {
               </button>
             ))}
 
-            <GlassPanel className="mt-8 p-6 border-white/5 bg-brand-blue/[0.03]">
+            <GlassPanel className="mt-8 p-6 border-brand-border bg-brand-blue/[0.03]">
                <div className="flex items-center gap-3 mb-4">
                   <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Mesh Live</span>
                </div>
-               <p className="text-2xl font-black text-white">99.98%</p>
+               <p className="text-2xl font-black text-foreground dark:text-white">99.98%</p>
                <p className="text-[10px] text-brand-slate uppercase tracking-widest mt-1">Operational Uptime</p>
             </GlassPanel>
           </div>
@@ -79,9 +79,9 @@ export const CommandCenter = () => {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                <GlassPanel className="border-white/10 bg-[#0A192F]/60 p-0 overflow-hidden shadow-2xl">
+                <GlassPanel className="border-brand-border bg-card/60 p-0 overflow-hidden shadow-2xl">
                    {/* Dashboard Header */}
-                   <div className="px-8 py-6 border-b border-white/5 flex flex-wrap items-center justify-between gap-4 bg-white/[0.01]">
+                   <div className="px-8 py-6 border-b border-brand-border flex flex-wrap items-center justify-between gap-4 bg-white/[0.01]">
                       <div className="flex items-center gap-4">
                          <div className="flex -space-x-2">
                             {[1, 2, 3].map(i => (
@@ -91,14 +91,14 @@ export const CommandCenter = () => {
                             ))}
                          </div>
                          <div className="h-8 w-[1px] bg-white/10" />
-                         <p className="text-sm font-bold text-white tracking-tight">Active Dispatches: {stats?.activeIncidents?.toLocaleString() || '1,424'}</p>
+                         <p className="text-sm font-bold text-foreground dark:text-white tracking-tight">Active Dispatches: {stats?.activeIncidents?.toLocaleString() || '1,424'}</p>
                       </div>
                       <div className="flex items-center gap-3">
                          <div className="relative">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-brand-slate" />
-                            <input className="bg-white/5 border border-white/10 rounded-lg py-2 pl-9 pr-4 text-[11px] text-white focus:outline-none focus:border-brand-blue transition-colors w-48" placeholder="Search incidents..." />
+                            <input className="bg-white/5 border border-brand-border rounded-lg py-2 pl-9 pr-4 text-[11px] text-foreground dark:text-white focus:outline-none focus:border-brand-blue transition-colors w-48" placeholder="Search incidents..." />
                          </div>
-                         <button className="p-2 bg-white/5 border border-white/10 rounded-lg text-brand-slate hover:text-white transition-colors">
+                         <button className="p-2 bg-white/5 border border-brand-border rounded-lg text-brand-slate hover:text-foreground dark:text-white transition-colors">
                             <Filter className="h-4 w-4" />
                          </button>
                       </div>
@@ -107,17 +107,17 @@ export const CommandCenter = () => {
                    {/* Dashboard Body */}
                    <div className="grid grid-cols-1 xl:grid-cols-12">
                       {/* Left: Incident Queue */}
-                      <div className="xl:col-span-5 border-r border-white/5 bg-white/[0.01]">
-                         <div className="p-4 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
+                      <div className="xl:col-span-5 border-r border-brand-border bg-white/[0.01]">
+                         <div className="p-4 border-b border-brand-border flex justify-between items-center bg-white/[0.02]">
                             <span className="text-[10px] font-bold text-brand-slate uppercase tracking-widest">Active Queue</span>
-                            <Badge variant="outline" className="text-[9px] border-white/10">Priority: High</Badge>
+                            <Badge variant="outline" className="text-[9px] border-brand-border">Priority: High</Badge>
                          </div>
                          <div className="divide-y divide-white/5 h-[500px] overflow-auto">
                             {incidents.map((inc) => (
                               <div key={inc.id} className="p-5 hover:bg-white/[0.03] transition-colors cursor-pointer group">
                                  <div className="flex justify-between items-start mb-3">
                                     <div className="flex items-center gap-3">
-                                       <p className="text-xs font-black text-white">{inc.id}</p>
+                                       <p className="text-xs font-black text-foreground dark:text-white">{inc.id}</p>
                                        <span className={`text-[9px] font-bold px-2 py-0.5 rounded ${
                                           inc.priority === 'High' ? 'bg-rose-500/10 text-rose-500' : 'bg-emerald-500/10 text-emerald-500'
                                        }`}>
@@ -127,7 +127,7 @@ export const CommandCenter = () => {
                                     <p className="text-[10px] text-brand-slate font-mono">{inc.eta}</p>
                                  </div>
                                  <div className="flex items-center gap-2 mb-2">
-                                    <span className="text-xs font-bold text-white/90">{inc.type}</span>
+                                    <span className="text-xs font-bold text-foreground dark:text-white/90">{inc.type}</span>
                                     <span className="text-[10px] text-brand-slate">•</span>
                                     <span className="text-[10px] text-brand-slate">{inc.status}</span>
                                  </div>
@@ -154,18 +154,18 @@ export const CommandCenter = () => {
                             <GlassPanel className="p-4 bg-brand-navy/90 border-brand-blue/30 w-48 shadow-2xl">
                                <div className="flex items-center gap-2 mb-2">
                                   <MapPin className="h-3.5 w-3.5 text-brand-blue" />
-                                  <span className="text-[9px] font-bold text-white uppercase tracking-widest">Incident Focus</span>
+                                  <span className="text-[9px] font-bold text-foreground dark:text-white uppercase tracking-widest">Incident Focus</span>
                                </div>
-                               <p className="text-[11px] font-bold text-white mb-1">Dallas-Fort Worth Node</p>
+                               <p className="text-[11px] font-bold text-foreground dark:text-white mb-1">Dallas-Fort Worth Node</p>
                                <div className="flex items-center justify-between">
                                   <span className="text-[9px] text-brand-slate">Active Vendors</span>
                                   <span className="text-[10px] font-black text-emerald-400">42</span>
                                </div>
                             </GlassPanel>
 
-                            <GlassPanel className="p-3 bg-brand-navy/90 border-white/10 flex flex-col items-center">
+                            <GlassPanel className="p-3 bg-brand-navy/90 border-brand-border flex flex-col items-center">
                                <Clock className="h-4 w-4 text-brand-blue mb-1" />
-                               <span className="text-xs font-black text-white">12:44</span>
+                               <span className="text-xs font-black text-foreground dark:text-white">12:44</span>
                                <span className="text-[7px] text-brand-slate uppercase">Node Time</span>
                             </GlassPanel>
                          </div>
@@ -201,13 +201,13 @@ export const CommandCenter = () => {
                             <div className="flex gap-2">
                                {['Satellite', 'Mesh', 'Traffic'].map(m => (
                                  <button key={m} className={`px-4 py-1.5 rounded-lg text-[9px] font-bold uppercase tracking-widest border transition-all ${
-                                   m === 'Mesh' ? 'bg-brand-blue text-white border-brand-blue' : 'bg-brand-navy border-white/10 text-brand-slate'
+                                   m === 'Mesh' ? 'bg-brand-blue text-foreground dark:text-white border-brand-blue' : 'bg-brand-navy border-brand-border text-brand-slate'
                                  }`}>
                                     {m}
                                  </button>
                                ))}
                             </div>
-                            <GlassPanel className="p-2 px-4 bg-brand-navy/90 border-white/5 flex items-center gap-4">
+                            <GlassPanel className="p-2 px-4 bg-brand-navy/90 border-brand-border flex items-center gap-4">
                                <div className="flex items-center gap-2">
                                   <div className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
                                   <span className="text-[9px] text-brand-slate uppercase font-bold">428 Connected Vendors</span>

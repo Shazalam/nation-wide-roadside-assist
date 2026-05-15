@@ -12,7 +12,7 @@ export const AssistanceCTA = () => {
       <div className="absolute inset-0 bg-brand-blue/5 blur-[120px] rounded-full translate-y-1/2 pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <GlassPanel className="p-12 lg:p-24 border-white/10 bg-[#0A192F]/60 relative overflow-hidden text-center max-w-6xl mx-auto shadow-2xl">
+        <GlassPanel className="p-12 lg:p-24 border-brand-border bg-card/60 relative overflow-hidden text-center max-w-6xl mx-auto shadow-2xl">
            <div className="relative z-10 space-y-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -24,9 +24,9 @@ export const AssistanceCTA = () => {
                  <span className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.2em]">Enterprise Support Portal</span>
               </motion.div>
 
-              <h2 className="text-4xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight max-w-5xl mx-auto">
+              <h2 className="text-4xl lg:text-7xl font-black text-foreground dark:text-white leading-[1.1] tracking-tight max-w-5xl mx-auto">
                  Modernize Your Roadside <br />
-                 <span className="text-white/40 italic">Assistance Infrastructure</span>
+                 <span className="text-foreground dark:text-white/40 italic">Assistance Infrastructure</span>
               </h2>
 
               <p className="text-brand-slate text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
@@ -34,10 +34,10 @@ export const AssistanceCTA = () => {
               </p>
 
               <div className="flex flex-wrap justify-center gap-6 pt-6">
-                 <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-16 px-12 rounded-2xl shadow-[0_0_40px_rgba(47,128,255,0.4)] group text-base">
+                 <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-black h-16 px-12 rounded-2xl shadow-[0_0_40px_rgba(47,128,255,0.4)] group text-base">
                     Contact Enterprise Team <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                  </Button>
-                 <Button variant="outline" size="lg" className="border-white/10 text-white hover:bg-white/5 h-16 px-12 rounded-2xl group text-base font-bold">
+                 <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-16 px-12 rounded-2xl group text-base font-bold">
                     Request Capability Report <FileText className="ml-3 h-5 w-5 opacity-50" />
                  </Button>
               </div>

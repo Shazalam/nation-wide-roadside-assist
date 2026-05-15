@@ -32,13 +32,13 @@ export default function APIDocsPage() {
               <div>
                 <h3 className="text-[10px] font-bold text-brand-blue uppercase tracking-widest mb-4">Core Reference</h3>
                 <nav className="flex flex-col gap-2">
-                  <button className="text-sm font-medium text-white flex items-center gap-2 px-3 py-2 rounded-lg bg-brand-blue/10 border border-brand-blue/20">
+                  <button className="text-sm font-medium text-foreground dark:text-white flex items-center gap-2 px-3 py-2 rounded-lg bg-brand-blue/10 border border-brand-blue/20">
                     <BookOpen className="h-4 w-4" /> Introduction
                   </button>
-                  <button className="text-sm font-medium text-brand-slate hover:text-white flex items-center gap-2 px-3 py-2 rounded-lg transition-colors">
+                  <button className="text-sm font-medium text-brand-slate hover:text-foreground dark:text-white flex items-center gap-2 px-3 py-2 rounded-lg transition-colors">
                     <ShieldCheck className="h-4 w-4" /> Authentication
                   </button>
-                  <button className="text-sm font-medium text-brand-slate hover:text-white flex items-center gap-2 px-3 py-2 rounded-lg transition-colors">
+                  <button className="text-sm font-medium text-brand-slate hover:text-foreground dark:text-white flex items-center gap-2 px-3 py-2 rounded-lg transition-colors">
                     <Key className="h-4 w-4" /> API Keys
                   </button>
                 </nav>
@@ -48,7 +48,7 @@ export default function APIDocsPage() {
                 <h3 className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mb-4">Endpoints</h3>
                 <nav className="flex flex-col gap-2">
                   {['Dispatch', 'Telemetry', 'Vendors', 'Compliance', 'Webhooks'].map((item) => (
-                    <button key={item} className="text-sm font-medium text-brand-slate hover:text-white px-3 py-2 rounded-lg transition-colors text-left">
+                    <button key={item} className="text-sm font-medium text-brand-slate hover:text-foreground dark:text-white px-3 py-2 rounded-lg transition-colors text-left">
                       {item}
                     </button>
                   ))}
@@ -63,7 +63,7 @@ export default function APIDocsPage() {
               <Badge variant="outline" className="mb-4 border-brand-blue/30 text-brand-blue bg-brand-blue/5">
                 v2.4.0 Stable
               </Badge>
-              <h1 className="text-4xl font-bold text-white mb-4">Developer API & Webhooks</h1>
+              <h1 className="text-4xl font-bold text-foreground dark:text-white mb-4">Developer API & Webhooks</h1>
               <p className="text-brand-slate text-lg leading-relaxed">
                 Build high-performance mobility applications with the Nationwide Trans infrastructure. 
                 Our API-first approach allows for seamless integration into existing ERP, Insurance, or Fleet management systems.
@@ -71,7 +71,7 @@ export default function APIDocsPage() {
             </header>
 
             <section className="mb-16">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-foreground dark:text-white mb-6 flex items-center gap-3">
                 <ShieldCheck className="h-6 w-6 text-brand-blue" /> Quick Start: Authentication
               </h2>
               <GlassPanel className="p-8 mb-8">
@@ -89,7 +89,7 @@ export default function APIDocsPage() {
 
             <section className="mb-16">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-bold text-white flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-foreground dark:text-white flex items-center gap-3">
                   <Zap className="h-6 w-6 text-brand-blue" /> Operational Endpoints
                 </h2>
                 <EnterpriseTabs 
@@ -106,7 +106,7 @@ export default function APIDocsPage() {
               {activeTab === 'dispatch' && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
                   <div className="space-y-4">
-                    <h3 className="text-lg font-bold text-white">Initialize Service Request</h3>
+                    <h3 className="text-lg font-bold text-foreground dark:text-white">Initialize Service Request</h3>
                     <p className="text-brand-slate text-sm">Creates a new incident in the mesh network and initiates automated vendor matching.</p>
                     <APIBlock 
                       method="POST" 
@@ -128,7 +128,7 @@ export default function APIDocsPage() {
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-lg font-bold text-white">Retrieve Real-time ETA</h3>
+                    <h3 className="text-lg font-bold text-foreground dark:text-white">Retrieve Real-time ETA</h3>
                     <p className="text-brand-slate text-sm">Returns the current estimated time of arrival for an active service node.</p>
                     <APIBlock 
                       method="GET" 
@@ -142,7 +142,7 @@ export default function APIDocsPage() {
               {activeTab === 'fleet' && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
                   <div className="space-y-4">
-                    <h3 className="text-lg font-bold text-white">Fetch Asset Telemetry</h3>
+                    <h3 className="text-lg font-bold text-foreground dark:text-white">Fetch Asset Telemetry</h3>
                     <p className="text-brand-slate text-sm">Retrieves real-time diagnostics and coordinates for a specific fleet unit.</p>
                     <APIBlock 
                       method="GET" 
@@ -157,10 +157,10 @@ export default function APIDocsPage() {
             <section className="mt-24 pt-12 border-t border-brand-border">
               <GlassPanel variant="blue" className="p-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-bold text-white">Need custom infrastructure?</h2>
+                  <h2 className="text-2xl font-bold text-foreground dark:text-white">Need custom infrastructure?</h2>
                   <p className="text-brand-slate text-sm">Our solution engineers can help build dedicated API clusters for high-volume enterprise clients.</p>
                 </div>
-                <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold h-12 px-8 uppercase tracking-widest shrink-0">
+                <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold h-12 px-8 uppercase tracking-widest shrink-0">
                   Talk to Engineering
                 </Button>
               </GlassPanel>

@@ -60,7 +60,7 @@ export default function InsuranceSolutionsPage() {
               <ShieldCheck className="h-4 w-4 text-brand-blue" />
               <span className="text-xs font-bold text-brand-blue uppercase tracking-widest">InsurTech Core v2.4</span>
             </motion.div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8">
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground dark:text-white tracking-tight mb-8">
               Sovereign Roadside <br />
               <span className="bg-gradient-to-r from-brand-blue to-emerald-400 bg-clip-text text-transparent">
                 Infrastructure for Insurers
@@ -77,11 +77,11 @@ export default function InsuranceSolutionsPage() {
               
               {/* Left Column: Dispatch Intelligence */}
               <div className="lg:col-span-7 space-y-8">
-                <GlassPanel className="p-8 bg-brand-navy/60 border-white/10 shadow-2xl overflow-hidden relative group">
+                <GlassPanel className="p-8 bg-brand-navy/60 border-brand-border shadow-2xl overflow-hidden relative group">
                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                     <Activity className="h-24 w-24 text-brand-blue" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-3">
+                  <h3 className="text-xl font-bold text-foreground dark:text-white mb-8 flex items-center gap-3">
                     <Zap className="h-5 w-5 text-brand-blue" /> 
                     Automated Dispatch Mesh
                   </h3>
@@ -92,10 +92,10 @@ export default function InsuranceSolutionsPage() {
                       { label: 'Vendor Matching', status: 'optimal', time: '84ms' },
                       { label: 'Dispatch Trigger', status: 'optimal', time: '110ms' },
                     ].map((step) => (
-                      <div key={step.label} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5">
+                      <div key={step.label} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-brand-border">
                         <div className="flex items-center gap-4">
                           <StatusIndicator status="online" pulse />
-                          <span className="text-sm font-medium text-white">{step.label}</span>
+                          <span className="text-sm font-medium text-foreground dark:text-white">{step.label}</span>
                         </div>
                         <span className="text-xs font-mono text-brand-blue">{step.time}</span>
                       </div>
@@ -114,7 +114,7 @@ export default function InsuranceSolutionsPage() {
                 <GlassPanel className="p-8 h-full flex flex-col bg-brand-navy/80 border-brand-blue/30 shadow-[0_0_50px_rgba(47,128,255,0.1)]">
                   <div className="flex items-center justify-between mb-8">
                     <div className="space-y-1">
-                      <h4 className="text-xs font-bold text-white uppercase tracking-widest">Regional SLA Compliance</h4>
+                      <h4 className="text-xs font-bold text-foreground dark:text-white uppercase tracking-widest">Regional SLA Compliance</h4>
                       <p className="text-[10px] text-brand-slate uppercase tracking-tighter">Live Network Pulse</p>
                     </div>
                     <PieChart className="h-5 w-5 text-brand-blue" />
@@ -144,7 +144,7 @@ export default function InsuranceSolutionsPage() {
                   <div className="mt-auto space-y-4">
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-brand-slate">Target SLA</span>
-                      <span className="text-white font-bold">95.0%</span>
+                      <span className="text-foreground dark:text-white font-bold">95.0%</span>
                     </div>
                     <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
                       <motion.div 
@@ -189,7 +189,7 @@ export default function InsuranceSolutionsPage() {
                   <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <feature.icon className="h-6 w-6 text-brand-blue" />
                   </div>
-                  <h4 className="text-lg font-bold text-white mb-4">{feature.title}</h4>
+                  <h4 className="text-lg font-bold text-foreground dark:text-white mb-4">{feature.title}</h4>
                   <p className="text-brand-slate text-sm leading-relaxed">{feature.desc}</p>
                 </GlassPanel>
               </motion.div>
@@ -197,14 +197,14 @@ export default function InsuranceSolutionsPage() {
           </div>
 
           {/* Final Enterprise CTA */}
-          <GlassPanel className="p-12 md:p-20 bg-gradient-to-br from-brand-blue/10 to-brand-navy border-white/5 text-center relative overflow-hidden">
+          <GlassPanel className="p-12 md:p-20 bg-gradient-to-br from-brand-blue/10 to-brand-navy border-brand-border text-center relative overflow-hidden">
              <div className="relative z-10 space-y-8">
-               <h2 className="text-4xl font-bold text-white">Elevate Your Membership Core</h2>
+               <h2 className="text-4xl font-bold text-foreground dark:text-white">Elevate Your Membership Core</h2>
                <p className="text-brand-slate max-w-xl mx-auto">
                  Partner with Nationwide Trans to deliver 15-minute roadside response times and real-time operational transparency.
                </p>
                <div className="flex justify-center gap-4">
-                 <Button size="lg" className="bg-brand-blue text-white font-bold h-12 px-8 uppercase tracking-widest">
+                 <Button size="lg" className="bg-brand-blue text-foreground dark:text-white font-bold h-12 px-8 uppercase tracking-widest">
                    Request Partner Access
                  </Button>
                </div>

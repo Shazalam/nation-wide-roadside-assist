@@ -9,16 +9,16 @@ const data2 = [ { v: 80 }, { v: 85 }, { v: 90 }, { v: 85 }, { v: 92 }, { v: 96 }
 
 export const OperationalAnalytics = () => {
   return (
-    <GlassPanel className="p-6 border-white/5 bg-[#0A192F]/40 h-full">
-      <h3 className="text-lg font-bold text-white mb-6">Operational Analytics</h3>
+    <GlassPanel className="p-6 border-brand-border bg-card/40 h-full">
+      <h3 className="text-lg font-bold text-foreground dark:text-white mb-6">Operational Analytics</h3>
       
       <div className="grid grid-cols-2 gap-4 h-48">
          {/* Metric Chart 1 */}
-         <div className="bg-white/[0.02] border border-white/5 rounded-xl p-4 flex flex-col">
+         <div className="bg-white/[0.02] border border-brand-border rounded-xl p-4 flex flex-col">
             <div className="flex justify-between items-start mb-4">
                <div>
-                  <div className="text-[10px] font-bold text-white uppercase mb-1">Response Time</div>
-                  <div className="text-xl font-mono text-white">28 min</div>
+                  <div className="text-[10px] font-bold text-foreground dark:text-white uppercase mb-1">Response Time</div>
+                  <div className="text-xl font-mono text-foreground dark:text-white">28 min</div>
                </div>
                <div className="text-[10px] font-mono text-emerald-400">-8.3%</div>
             </div>
@@ -38,11 +38,11 @@ export const OperationalAnalytics = () => {
          </div>
 
          {/* Metric Chart 2 */}
-         <div className="bg-white/[0.02] border border-white/5 rounded-xl p-4 flex flex-col">
+         <div className="bg-white/[0.02] border border-brand-border rounded-xl p-4 flex flex-col">
             <div className="flex justify-between items-start mb-4">
                <div>
-                  <div className="text-[10px] font-bold text-white uppercase mb-1">Dispatch Efficiency</div>
-                  <div className="text-xl font-mono text-white">92.6%</div>
+                  <div className="text-[10px] font-bold text-foreground dark:text-white uppercase mb-1">Dispatch Efficiency</div>
+                  <div className="text-xl font-mono text-foreground dark:text-white">92.6%</div>
                </div>
                <div className="text-[10px] font-mono text-emerald-400">+9.1%</div>
             </div>

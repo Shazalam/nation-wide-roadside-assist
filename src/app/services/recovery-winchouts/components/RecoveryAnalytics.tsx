@@ -42,7 +42,7 @@ export const RecoveryAnalytics = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-24">
            <p className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.4em] mb-4">Operational Intelligence</p>
-           <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-8">
+           <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-8">
               Advanced Performance <br />Analytics Dashboard
            </h2>
         </div>
@@ -51,14 +51,14 @@ export const RecoveryAnalytics = () => {
            
            {/* Left Large Chart: Recovery Volume */}
            <div className="lg:col-span-8">
-              <GlassPanel className="h-[500px] p-10 border-white/10 bg-[#0A192F]/60 flex flex-col">
+              <GlassPanel className="h-[500px] p-10 border-brand-border bg-card/60 flex flex-col">
                  <div className="flex items-center justify-between mb-12">
                     <div className="flex items-center gap-3">
                        <Activity className="h-5 w-5 text-[#2F80FF]" />
-                       <span className="text-xs font-black text-white uppercase tracking-widest leading-none">Recovery Volume (7D)</span>
+                       <span className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest leading-none">Recovery Volume (7D)</span>
                     </div>
                     <div className="flex items-center gap-6">
-                       <div className="flex items-center gap-2 text-[10px] font-bold text-[#94A3B8] uppercase">
+                       <div className="flex items-center gap-2 text-[10px] font-bold text-brand-slate uppercase">
                           <div className="h-2 w-2 rounded-full bg-[#2F80FF]" />
                           <span>Incident Volume</span>
                        </div>
@@ -101,11 +101,11 @@ export const RecoveryAnalytics = () => {
            {/* Right Column: KPIs and Mini Charts */}
            <div className="lg:col-span-4 space-y-10">
               {/* SLA Compliance Mini Chart */}
-              <GlassPanel className="p-8 border-white/10 bg-[#0A192F]/60">
+              <GlassPanel className="p-8 border-brand-border bg-card/60">
                  <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-3">
                        <ShieldCheck className="h-4 w-4 text-[#22c55e]" />
-                       <span className="text-[10px] font-black text-white uppercase tracking-widest leading-none">SLA Compliance</span>
+                       <span className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest leading-none">SLA Compliance</span>
                     </div>
                     <span className="text-xl font-black text-emerald-400">99.1%</span>
                  </div>
@@ -132,10 +132,10 @@ export const RecoveryAnalytics = () => {
               </GlassPanel>
 
               {/* Class Distribution Pie Chart */}
-              <GlassPanel className="p-8 border-white/10 bg-[#0A192F]/60">
+              <GlassPanel className="p-8 border-brand-border bg-card/60">
                  <div className="flex items-center gap-3 mb-10">
                     <TrendingUp className="h-4 w-4 text-[#2F80FF]" />
-                    <span className="text-[10px] font-black text-white uppercase tracking-widest leading-none">Weight-Class Mix</span>
+                    <span className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest leading-none">Weight-Class Mix</span>
                  </div>
                  <div className="h-48 w-full">
                     <ResponsiveContainer width="100%" height="100%">
@@ -164,7 +164,7 @@ export const RecoveryAnalytics = () => {
                     {classDistributionData.map((item, i) => (
                       <div key={i} className="flex items-center gap-2">
                          <div className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: item.color }} />
-                         <span className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest">{item.name}</span>
+                         <span className="text-[9px] font-bold text-brand-slate uppercase tracking-widest">{item.name}</span>
                       </div>
                     ))}
                  </div>
@@ -179,15 +179,15 @@ export const RecoveryAnalytics = () => {
              { label: 'Client Satisfaction', val: '4.9 / 5', trend: '+0.3', icon: Users }
            ].map((kpi, i) => (
              <div key={i} className="lg:col-span-3">
-                <GlassPanel className="p-8 border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all group overflow-hidden relative">
+                <GlassPanel className="p-8 border-brand-border bg-white/[0.01] hover:bg-white/[0.03] transition-all group overflow-hidden relative">
                    <div className="absolute -inset-10 bg-[#2F80FF]/5 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity" />
                    <div className="flex items-center gap-4 mb-6 relative z-10">
                       <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center">
                          <kpi.icon className="h-5 w-5 text-[#2F80FF] opacity-50" />
                       </div>
                       <div>
-                         <p className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-widest mb-1">{kpi.label}</p>
-                         <p className="text-2xl font-black text-white tracking-tighter leading-none">{kpi.val}</p>
+                         <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mb-1">{kpi.label}</p>
+                         <p className="text-2xl font-black text-foreground dark:text-white tracking-tighter leading-none">{kpi.val}</p>
                       </div>
                    </div>
                    <div className="flex items-center justify-between relative z-10">

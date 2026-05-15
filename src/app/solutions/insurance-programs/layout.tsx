@@ -6,7 +6,7 @@ export default function InsuranceProgramsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="insurance-programs-route bg-[#081120]">
+    <div className="insurance-programs-route bg-brand-bg">
       {children}
     </div>
   );

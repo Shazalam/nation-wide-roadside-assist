@@ -18,25 +18,27 @@ export const GlassPanel = ({
   ...props 
 }: GlassPanelProps) => {
   const variants = {
-    default: 'bg-brand-navy/30 border-brand-border',
+    default: 'bg-card/40 border-brand-border',
     blue: 'bg-brand-blue/5 border-brand-blue/20',
     orange: 'bg-brand-orange/5 border-brand-orange/20',
-    navy: 'bg-brand-navy/60 border-brand-border',
+    navy: 'bg-brand-navy/70 border-brand-border',
   };
 
   return (
     <motion.div
       className={cn(
-        'relative rounded-2xl border backdrop-blur-xl transition-all duration-300',
+        'relative rounded-2xl border backdrop-blur-xl transition-all duration-500',
         variants[variant],
-        hover && 'hover:border-brand-blue/40 hover:bg-brand-navy/40',
+        hover && 'hover:border-brand-blue/40 hover:bg-card/60 dark:hover:bg-brand-navy/40',
         className
       )}
       {...props}
     >
       {/* Subtle Inner Glow */}
-      <div className="absolute inset-px rounded-[15px] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
-      {children}
+      <div className="absolute inset-px rounded-[15px] bg-gradient-to-br from-foreground/[0.03] to-transparent pointer-events-none" />
+      <div className="relative z-10">
+        {children}
+      </div>
     </motion.div>
   );
 };

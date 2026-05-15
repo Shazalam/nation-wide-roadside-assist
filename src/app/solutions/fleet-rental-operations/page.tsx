@@ -15,18 +15,18 @@ import { FinalCTA } from '@/components/fleet/final-cta';
 export default function FleetRentalOperationsPage() {
   return (
     <LandingLayout>
-      <div className="bg-[#081120] text-white min-h-screen overflow-hidden selection:bg-brand-blue/30">
+      <div className="bg-brand-bg text-foreground min-h-screen overflow-hidden selection:bg-brand-blue/30 transition-colors duration-500">
         {/* Grid Background Texture */}
         <div
-          className="fixed inset-0 z-0 pointer-events-none animate-grid-pulse"
+          className="fixed inset-0 z-0 pointer-events-none opacity-[0.015] dark:opacity-100"
           style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(47, 128, 255, 0.15) 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 2px 2px, var(--brand-blue) 1px, transparent 0)`,
             backgroundSize: '48px 48px'
           }}
         />
 
         {/* Scanline Effect */}
-        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-50 dark:opacity-100">
           <div className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-brand-blue/10 to-transparent animate-scanline" />
         </div>
 

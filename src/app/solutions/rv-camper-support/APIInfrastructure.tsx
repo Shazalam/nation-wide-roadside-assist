@@ -131,7 +131,7 @@ export default function APIInfrastructure() {
       if (isComment) {
         return { 
           lineNumber: i + 1, 
-          html: `<span class="text-[#94A3B8] italic">${line}</span>` 
+          html: `<span class="text-brand-slate italic">${line}</span>` 
         };
       }
 
@@ -168,7 +168,7 @@ export default function APIInfrastructure() {
             <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-5 leading-tight">
               RV &amp; Camper <span className="text-[#2F80FF]">Support APIs</span>
             </h2>
-            <p className="text-[#94A3B8] text-lg leading-relaxed mb-8">
+            <p className="text-brand-slate text-lg leading-relaxed mb-8">
               Powerful, secure, and scalable APIs to integrate RV operations into your systems. Developer-first with enterprise-grade reliability.
             </p>
 
@@ -191,17 +191,17 @@ export default function APIInfrastructure() {
 
             {/* Webhook events feed */}
             <div className="mt-10">
-              <div className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.3em] mb-4">Recent Webhook Events</div>
+              <div className="text-[10px] font-black text-brand-slate uppercase tracking-[0.3em] mb-4">Recent Webhook Events</div>
               <div className="space-y-2">
                 {webhookEvents.map((ev, i) => (
                   <motion.div key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="flex items-center justify-between bg-[#0A192F]/60 border border-[rgba(255,255,255,0.06)] rounded-lg px-4 py-2.5">
+                    className="flex items-center justify-between bg-card/60 border border-[rgba(255,255,255,0.06)] rounded-lg px-4 py-2.5">
                     <div className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="font-mono text-xs text-white">{ev.event}</span>
+                      <span className="font-mono text-xs text-foreground dark:text-white">{ev.event}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-[10px] text-[#94A3B8]">
+                    <div className="flex items-center gap-1 text-[10px] text-brand-slate">
                       <Clock className="w-3 h-3" />{ev.time}
                     </div>
                   </motion.div>
@@ -216,9 +216,9 @@ export default function APIInfrastructure() {
           {/* Right: code panel */}
           <div className="relative group">
             <div className="absolute -inset-3 bg-gradient-to-br from-[#2F80FF]/15 to-[#FF7A1A]/10 blur-2xl opacity-60 rounded-3xl group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative bg-[#0A192F] border border-[rgba(255,255,255,0.08)] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative bg-card border border-[rgba(255,255,255,0.08)] rounded-2xl overflow-hidden shadow-2xl">
               {/* Tab bar */}
-              <div className="bg-[#081120] border-b border-[rgba(255,255,255,0.06)] px-4 py-2 flex items-center gap-1 overflow-x-auto">
+              <div className="bg-brand-bg border-b border-[rgba(255,255,255,0.06)] px-4 py-2 flex items-center gap-1 overflow-x-auto">
                 <div className="flex gap-1.5 mr-4 shrink-0">
                   <div className="w-3 h-3 rounded-full bg-red-500/80" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
@@ -228,12 +228,12 @@ export default function APIInfrastructure() {
                   <button key={tab} onClick={() => setActiveTab(tab)}
                     className={`px-3 py-1.5 rounded-md text-[10px] font-bold whitespace-nowrap transition-all ${activeTab === tab
                       ? 'bg-[#2F80FF]/15 text-[#2F80FF] border border-[#2F80FF]/30'
-                      : 'text-[#94A3B8] hover:text-white'
+                      : 'text-brand-slate hover:text-foreground dark:text-white'
                     }`}>
                     {tab}
                   </button>
                 ))}
-                <button onClick={handleCopy} className="ml-auto shrink-0 text-[#94A3B8] hover:text-white transition-colors">
+                <button onClick={handleCopy} className="ml-auto shrink-0 text-brand-slate hover:text-foreground dark:text-white transition-colors">
                   {copied
                     ? <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                     : <Copy className="w-4 h-4" />
@@ -249,13 +249,13 @@ export default function APIInfrastructure() {
                     <pre className="text-[#E2E8F0]">
                       {highlightCode(snippet.code).map((line, i) => (
                         <div key={i} className="flex">
-                          <span className="select-none text-[#94A3B8]/40 pr-4 w-8 text-right shrink-0">{line.lineNumber}</span>
+                          <span className="select-none text-brand-slate/40 pr-4 w-8 text-right shrink-0">{line.lineNumber}</span>
                           <span dangerouslySetInnerHTML={{ __html: line.html }} />
                         </div>
                       ))}
                     </pre>
                   ) : (
-                    <div className="flex items-center justify-center h-full text-[#94A3B8] font-mono text-[10px] uppercase tracking-widest animate-pulse">
+                    <div className="flex items-center justify-center h-full text-brand-slate font-mono text-[10px] uppercase tracking-widest animate-pulse">
                       Initializing Terminal...
                     </div>
                   )}
@@ -263,12 +263,12 @@ export default function APIInfrastructure() {
               </AnimatePresence>
 
               {/* Footer status bar */}
-              <div className="bg-[#081120] border-t border-[rgba(255,255,255,0.05)] px-5 py-2 flex items-center justify-between">
+              <div className="bg-brand-bg border-t border-[rgba(255,255,255,0.05)] px-5 py-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-[9px] font-mono text-emerald-400">API v4.2 · Healthy</span>
                 </div>
-                <span className="text-[9px] font-mono text-[#94A3B8]">99.97% uptime · last 90d</span>
+                <span className="text-[9px] font-mono text-brand-slate">99.97% uptime · last 90d</span>
               </div>
             </div>
           </div>

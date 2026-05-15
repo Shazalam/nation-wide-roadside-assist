@@ -42,14 +42,14 @@ export default function SLAPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">SLA Performance Mesh</h1>
+          <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">SLA Performance Mesh</h1>
           <p className="text-brand-slate text-sm">Real-time service level agreement compliance and optimization analytics.</p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" className="border-white/10 text-white gap-2">
+          <Button variant="outline" className="border-brand-border text-foreground dark:text-white gap-2">
             <Filter className="h-4 w-4" /> Regional Filter
           </Button>
-          <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white gap-2">
+          <Button className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white gap-2">
             <Download className="h-4 w-4" /> Export Report
           </Button>
         </div>
@@ -65,9 +65,9 @@ export default function SLAPage() {
       {/* Main Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Compliance Trend */}
-        <GlassPanel className="p-8 h-full bg-brand-navy/60 border-white/5">
+        <GlassPanel className="p-8 h-full bg-brand-navy/60 border-brand-border">
            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">Regional Compliance Trend</h3>
+              <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-wider">Regional Compliance Trend</h3>
               <div className="flex gap-4">
                  <div className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-brand-blue" />
@@ -109,9 +109,9 @@ export default function SLAPage() {
         </GlassPanel>
 
         {/* Heatmap Mockup */}
-        <GlassPanel className="p-8 h-full bg-brand-navy/60 border-white/5">
+        <GlassPanel className="p-8 h-full bg-brand-navy/60 border-brand-border">
            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">Network Saturation Heatmap</h3>
+              <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-wider">Network Saturation Heatmap</h3>
               <div className="flex items-center gap-2">
                  <span className="text-[10px] text-brand-slate uppercase font-bold">Low</span>
                  <div className="flex gap-1">
@@ -139,9 +139,9 @@ export default function SLAPage() {
                 />
               ))}
            </div>
-           <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
+           <div className="mt-8 pt-8 border-t border-brand-border flex items-center justify-between">
               <div className="space-y-1">
-                 <p className="text-[10px] font-bold text-white uppercase tracking-widest">Active Monitoring</p>
+                 <p className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest">Active Monitoring</p>
                  <p className="text-xs text-brand-slate">Grid synchronized with Node 14.2A</p>
               </div>
               <Button variant="ghost" size="sm" className="text-[10px] font-bold text-brand-blue uppercase tracking-widest">View Full Resolution</Button>

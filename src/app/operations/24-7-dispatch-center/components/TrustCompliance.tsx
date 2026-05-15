@@ -15,11 +15,11 @@ const complianceBadges = [
 
 export const TrustCompliance = () => {
   return (
-    <section className="py-24 relative z-10 border-y border-white/5 bg-[#0A192F]/20 overflow-hidden">
+    <section className="py-24 relative z-10 border-y border-brand-border bg-card/20 overflow-hidden">
       <div className="container mx-auto px-4">
         
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-           <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+           <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-4">
               Enterprise Trust & Compliance
            </h2>
         </div>
@@ -33,11 +33,11 @@ export const TrustCompliance = () => {
                transition={{ delay: i * 0.05 }}
                viewport={{ once: true }}
              >
-                <GlassPanel className="p-6 border-white/5 bg-[#081120]/50 flex flex-col items-center text-center gap-4 group hover:bg-[#2F80FF]/5 transition-colors">
+                <GlassPanel className="p-6 border-brand-border bg-brand-bg/50 flex flex-col items-center text-center gap-4 group hover:bg-[#2F80FF]/5 transition-colors">
                    <div className="h-12 w-12 rounded-xl bg-[#2F80FF]/10 flex items-center justify-center border border-[#2F80FF]/20 group-hover:bg-[#2F80FF]/20 transition-all">
                       <b.icon className="h-5 w-5 text-[#2F80FF]" />
                    </div>
-                   <span className="text-[9px] font-black text-[#94A3B8] group-hover:text-white uppercase tracking-widest leading-tight">{b.label}</span>
+                   <span className="text-[9px] font-black text-brand-slate group-hover:text-foreground dark:text-white uppercase tracking-widest leading-tight">{b.label}</span>
                 </GlassPanel>
              </motion.div>
            ))}
@@ -52,7 +52,7 @@ export const TrustCompliance = () => {
            ].map((feature, i) => (
              <div key={i} className="flex items-center gap-3 border-l-2 border-[#2F80FF]/30 pl-4 py-2 bg-white/[0.01]">
                 <feature.icon className="h-4 w-4 text-[#2F80FF]" />
-                <span className="text-[10px] font-bold text-white uppercase tracking-widest">{feature.label}</span>
+                <span className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest">{feature.label}</span>
              </div>
            ))}
         </div>

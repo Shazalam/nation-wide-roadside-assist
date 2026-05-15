@@ -9,7 +9,7 @@ export default function TrustCenterPage() {
     <div className="space-y-16">
       {/* Hero */}
       <header className="space-y-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Trust Center</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white tracking-tight">Trust Center</h2>
         <p className="text-brand-slate text-lg leading-relaxed">
           Our commitment to security, compliance, and transparency. Nationwide Trans Inc. is engineered to protect the world's most sensitive mobility data.
         </p>
@@ -17,9 +17,9 @@ export default function TrustCenterPage() {
 
       {/* Trust Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <GlassPanel className="p-8 bg-white/5 border-white/10 hover:border-brand-blue/30 transition-all">
+        <GlassPanel className="p-8 bg-white/5 border-brand-border hover:border-brand-blue/30 transition-all">
           <Lock className="h-8 w-8 text-brand-blue mb-6" />
-          <h3 className="text-xl font-bold text-white mb-4">Encryption Mesh</h3>
+          <h3 className="text-xl font-bold text-foreground dark:text-white mb-4">Encryption Mesh</h3>
           <p className="text-brand-slate text-sm leading-relaxed mb-6">
             Enterprise-grade AES-256 encryption at rest and TLS 1.3 in transit. Every data point in our mesh is cryptographically secured.
           </p>
@@ -28,9 +28,9 @@ export default function TrustCenterPage() {
           </button>
         </GlassPanel>
 
-        <GlassPanel className="p-8 bg-white/5 border-white/10 hover:border-emerald-500/30 transition-all">
+        <GlassPanel className="p-8 bg-white/5 border-brand-border hover:border-emerald-500/30 transition-all">
           <Globe className="h-8 w-8 text-emerald-500 mb-6" />
-          <h3 className="text-xl font-bold text-white mb-4">Global Compliance</h3>
+          <h3 className="text-xl font-bold text-foreground dark:text-white mb-4">Global Compliance</h3>
           <p className="text-brand-slate text-sm leading-relaxed mb-6">
             Adherence to international data protection standards including GDPR, CCPA, and regional mobility mandates.
           </p>
@@ -42,7 +42,7 @@ export default function TrustCenterPage() {
 
       {/* Compliance Certificates */}
       <section className="space-y-8">
-        <h3 className="text-2xl font-bold text-white border-b border-white/5 pb-4">Standard & Certifications</h3>
+        <h3 className="text-2xl font-bold text-foreground dark:text-white border-b border-brand-border pb-4">Standard & Certifications</h3>
         <div className="space-y-4">
            {[
              { name: "SOC 2 Type II", status: "Certified", desc: "Security, Availability, and Confidentiality audited." },
@@ -50,9 +50,9 @@ export default function TrustCenterPage() {
              { name: "GDPR Sovereign", status: "Compliant", desc: "Localized data residency for European infrastructures." },
              { name: "HIPAA Compatible", status: "Ready", desc: "Infrastructure ready for medical transport coordination." }
            ].map((cert) => (
-             <div key={cert.name} className="flex items-center justify-between p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+             <div key={cert.name} className="flex items-center justify-between p-6 rounded-2xl bg-white/[0.02] border border-brand-border">
                 <div className="space-y-1">
-                   <h4 className="text-sm font-bold text-white">{cert.name}</h4>
+                   <h4 className="text-sm font-bold text-foreground dark:text-white">{cert.name}</h4>
                    <p className="text-xs text-brand-slate">{cert.desc}</p>
                 </div>
                 <div className="flex items-center gap-2 text-emerald-500">
@@ -67,10 +67,10 @@ export default function TrustCenterPage() {
       {/* Incident Status */}
       <section className="p-8 rounded-3xl bg-brand-blue/5 border border-brand-blue/10 flex flex-col md:flex-row items-center justify-between gap-8">
          <div className="space-y-2">
-            <h4 className="text-lg font-bold text-white">System Transparency</h4>
+            <h4 className="text-lg font-bold text-foreground dark:text-white">System Transparency</h4>
             <p className="text-sm text-brand-slate">View real-time and historical network uptime reports.</p>
          </div>
-         <button className="px-6 py-3 rounded-xl bg-brand-blue text-white font-bold text-xs uppercase tracking-widest">
+         <button className="px-6 py-3 rounded-xl bg-brand-blue text-foreground dark:text-white font-bold text-xs uppercase tracking-widest">
             Network Status Node
          </button>
       </section>

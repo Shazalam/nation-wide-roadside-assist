@@ -38,7 +38,7 @@ const DesignSystemPage = () => {
     <LandingLayout>
       <div className="container mx-auto px-4 py-32">
         <div className="max-w-4xl mb-16">
-          <h1 className="text-4xl font-bold text-white mb-4">Enterprise Design System</h1>
+          <h1 className="text-4xl font-bold text-foreground dark:text-white mb-4">Enterprise Design System</h1>
           <p className="text-brand-slate text-lg">
             Standardized UI components for Nationwide Trans Inc. built with cinematic dark mode, glassmorphism, and high-performance animations.
           </p>
@@ -51,7 +51,7 @@ const DesignSystemPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <GlassPanel className="p-8">
-              <h3 className="text-xl font-bold text-white mb-4">Glass Panel (Default)</h3>
+              <h3 className="text-xl font-bold text-foreground dark:text-white mb-4">Glass Panel (Default)</h3>
               <p className="text-brand-slate text-sm mb-6">
                 The core container for the design system. Features backdrop-blur, subtle borders, and inner glows.
               </p>
@@ -133,7 +133,7 @@ const DesignSystemPage = () => {
                 <div className="absolute inset-0 rounded-full bg-brand-blue/10 animate-ping" />
                 <Zap className="h-8 w-8 text-brand-blue" />
               </div>
-              <h4 className="text-white font-bold mb-1">AI Routing Active</h4>
+              <h4 className="text-foreground dark:text-white font-bold mb-1">AI Routing Active</h4>
               <p className="text-xs text-brand-slate">Processing 422 nodes/sec</p>
             </GlassPanel>
           </div>
@@ -180,7 +180,7 @@ const DesignSystemPage = () => {
                     {item.status}
                   </Badge>
                 </td>
-                <td className="px-6 py-4 text-xs text-white">{item.user}</td>
+                <td className="px-6 py-4 text-xs text-foreground dark:text-white">{item.user}</td>
                 <td className="px-6 py-4">
                   <span className={cn(
                     "text-[10px] font-bold uppercase tracking-wider",
@@ -258,7 +258,7 @@ const DesignSystemPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-8">
-              <h3 className="text-[10px] font-bold text-white uppercase tracking-widest mb-4">Segmented Controls</h3>
+              <h3 className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest mb-4">Segmented Controls</h3>
               <EnterpriseTabs 
                 activeTab={activeTab} 
                 onChange={setActiveTab}
@@ -269,7 +269,7 @@ const DesignSystemPage = () => {
                 ]}
               />
               
-              <h3 className="text-[10px] font-bold text-white uppercase tracking-widest mb-4 mt-8">Underline Variant</h3>
+              <h3 className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest mb-4 mt-8">Underline Variant</h3>
               <EnterpriseTabs 
                 variant="underline"
                 activeTab={activeTab} 
@@ -283,7 +283,7 @@ const DesignSystemPage = () => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-[10px] font-bold text-white uppercase tracking-widest mb-4">Hierarchical Data</h3>
+              <h3 className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest mb-4">Hierarchical Data</h3>
               <EnterpriseAccordion 
                 items={[
                   { 
@@ -331,11 +331,11 @@ const DesignSystemPage = () => {
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-white uppercase tracking-wider">Region</label>
+                    <label className="text-xs font-bold text-foreground dark:text-white uppercase tracking-wider">Region</label>
                     <Skeleton className="h-10 w-full" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-white uppercase tracking-wider">Capacity</label>
+                    <label className="text-xs font-bold text-foreground dark:text-white uppercase tracking-wider">Capacity</label>
                     <Skeleton className="h-10 w-full" />
                   </div>
                 </div>

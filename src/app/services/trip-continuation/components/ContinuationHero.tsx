@@ -10,7 +10,7 @@ export const ContinuationHero = () => {
   return (
     <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden min-h-[90vh] flex items-center">
       {/* Background Ambience */}
-      <div className="absolute inset-0 bg-[#081120] z-0" />
+      <div className="absolute inset-0 bg-brand-bg z-0" />
       <div className="absolute top-0 right-0 w-[1200px] h-[1200px] bg-[#2F80FF]/10 blur-[200px] rounded-full -mr-[400px] -mt-[400px] pointer-events-none z-0" />
       <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#FF7A1A]/5 blur-[150px] rounded-full -ml-[200px] -mb-[200px] pointer-events-none z-0" />
 
@@ -29,7 +29,7 @@ export const ContinuationHero = () => {
               </div>
               <span>Services</span>
               <ArrowRight className="h-3 w-3 opacity-30" />
-              <span className="text-white/60">Trip Continuation</span>
+              <span className="text-foreground dark:text-white/60">Trip Continuation</span>
             </motion.div>
 
             <motion.div
@@ -42,7 +42,7 @@ export const ContinuationHero = () => {
                 <span className="text-[#2F80FF]">Trip Continuation</span> & <br />
                 Mobility Intelligence Platform
               </h1>
-              <p className="text-lg lg:text-xl text-[#94A3B8] leading-relaxed max-w-xl font-medium">
+              <p className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-xl font-medium">
                 Real-time mobility coordination, nationwide customer assistance infrastructure, and API-first trip continuation systems engineered for insurers, fleets, OEMs, and enterprise roadside providers.
               </p>
             </motion.div>
@@ -53,10 +53,10 @@ export const ContinuationHero = () => {
               transition={{ delay: 0.2 }}
               className="flex flex-wrap gap-4"
             >
-              <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-bold h-14 px-8 rounded-xl shadow-[0_0_30px_rgba(47,128,255,0.4)] group">
+              <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-14 px-8 rounded-xl shadow-[0_0_30px_rgba(47,128,255,0.4)] group">
                 Schedule Enterprise Demo <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" suppressHydrationWarning className="border-white/10 text-white hover:bg-white/5 h-14 px-8 rounded-xl group font-mono text-[11px] uppercase tracking-widest">
+              <Button variant="outline" size="lg" suppressHydrationWarning className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-8 rounded-xl group font-mono text-[11px] uppercase tracking-widest">
                 Explore Mobility APIs <span className="ml-2 opacity-30 group-hover:opacity-100 font-mono">/&gt;</span>
               </Button>
             </motion.div>
@@ -74,12 +74,12 @@ export const ContinuationHero = () => {
                 { label: 'Transportation Coverage', val: 'Nationwide', icon: MapPin, color: 'text-purple-400' },
                 { label: 'Mobility Operations', val: '24/7', icon: Clock, color: 'text-emerald-400' }
               ].map((m, i) => (
-                <div key={i} className="space-y-2 border-l border-white/10 pl-4">
+                <div key={i} className="space-y-2 border-l border-brand-border pl-4">
                   <div className={`h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center ${m.color}`}>
                     <m.icon className="h-4 w-4" />
                   </div>
-                  <p className="text-xl font-black text-white tracking-tight">{m.val}</p>
-                  <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest leading-tight pr-4">{m.label}</p>
+                  <p className="text-xl font-black text-foreground dark:text-white tracking-tight">{m.val}</p>
+                  <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest leading-tight pr-4">{m.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -93,48 +93,48 @@ export const ContinuationHero = () => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0"
             >
-              <GlassPanel className="w-full h-full p-0 border-white/10 bg-[#0A192F]/80 backdrop-blur-2xl shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col">
+              <GlassPanel className="w-full h-full p-0 border-brand-border bg-card/80 backdrop-blur-2xl shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col">
                 {/* Header */}
-                <div className="px-6 py-4 border-b border-white/5 bg-white/[0.02] flex items-center justify-between shrink-0">
+                <div className="px-6 py-4 border-b border-brand-border bg-white/[0.02] flex items-center justify-between shrink-0">
                    <div className="flex items-center gap-3">
                       <div className="flex gap-1.5">
                          <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                          <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
                       </div>
-                      <span className="text-[10px] font-mono font-bold text-white uppercase tracking-widest ml-4">Live Mobility Operations <span className="text-emerald-400 ml-2 animate-pulse">• Live</span></span>
+                      <span className="text-[10px] font-mono font-bold text-foreground dark:text-white uppercase tracking-widest ml-4">Live Mobility Operations <span className="text-emerald-400 ml-2 animate-pulse">• Live</span></span>
                    </div>
                    <div className="flex gap-4">
-                     <div className="text-[9px] font-mono text-[#94A3B8] uppercase">Nodes Active: 24</div>
-                     <div className="text-[9px] font-mono text-[#94A3B8] uppercase">System: Healthy</div>
+                     <div className="text-[9px] font-mono text-brand-slate uppercase">Nodes Active: 24</div>
+                     <div className="text-[9px] font-mono text-brand-slate uppercase">System: Healthy</div>
                    </div>
                 </div>
 
                 {/* Dashboard Grid */}
                 <div className="flex-1 grid grid-cols-12 gap-px bg-white/5">
                    {/* Left Sidebar Stats */}
-                   <div className="col-span-4 bg-[#081120]/80 p-6 space-y-6">
+                   <div className="col-span-4 bg-brand-bg/80 p-6 space-y-6">
                       {[
                         { label: 'Active Assistance', val: '1,248', trend: '+8.2%', icon: Activity },
                         { label: 'En Route', val: '642', trend: '+6.1%', icon: Truck },
                         { label: 'Arrived', val: '428', trend: '+4.3%', icon: MapPin },
                         { label: 'Completed Today', val: '1,952', trend: '+12.4%', icon: Shield }
                       ].map((item, i) => (
-                        <div key={i} className="p-4 rounded-xl border border-white/5 bg-white/[0.01]">
+                        <div key={i} className="p-4 rounded-xl border border-brand-border bg-white/[0.01]">
                            <div className="flex items-center justify-between mb-2">
                               <div className="flex items-center gap-2 text-[#2F80FF]">
                                  <item.icon className="h-4 w-4" />
-                                 <span className="text-[10px] font-bold text-white uppercase tracking-widest">{item.label}</span>
+                                 <span className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest">{item.label}</span>
                               </div>
                               <span className="text-[10px] font-bold text-emerald-400">{item.trend}</span>
                            </div>
-                           <div className="text-3xl font-black text-white">{item.val}</div>
+                           <div className="text-3xl font-black text-foreground dark:text-white">{item.val}</div>
                         </div>
                       ))}
                    </div>
 
                    {/* Main Map / Telemetry Area */}
-                   <div className="col-span-8 bg-[#0A192F]/90 relative overflow-hidden flex flex-col">
+                   <div className="col-span-8 bg-card/90 relative overflow-hidden flex flex-col">
                       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556388158-158ea5ccacbd?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-luminosity" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-[#0A192F]/80 to-transparent" />
                       
@@ -148,9 +148,9 @@ export const ContinuationHero = () => {
                            <div key={i} className="absolute" style={{ left: point.x, top: point.y }}>
                              <motion.div animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity, delay: i*0.3 }} className="absolute -inset-2 bg-[#2F80FF]/30 rounded-full blur-sm" />
                              <div className="h-6 w-6 rounded-full bg-[#2F80FF] border-2 border-white flex items-center justify-center relative z-10 shadow-[0_0_15px_#2F80FF]">
-                               <point.icon className="h-3 w-3 text-white" />
+                               <point.icon className="h-3 w-3 text-foreground dark:text-white" />
                              </div>
-                             <div className="absolute top-8 left-1/2 -translate-x-1/2 bg-[#081120] border border-white/10 px-2 py-1 rounded text-[8px] font-bold text-white uppercase tracking-widest whitespace-nowrap">
+                             <div className="absolute top-8 left-1/2 -translate-x-1/2 bg-brand-bg border border-brand-border px-2 py-1 rounded text-[8px] font-bold text-foreground dark:text-white uppercase tracking-widest whitespace-nowrap">
                                {point.type} Active
                              </div>
                            </div>
@@ -158,7 +158,7 @@ export const ContinuationHero = () => {
                       </div>
 
                       {/* Bottom KPI Bar */}
-                      <div className="relative h-32 border-t border-white/5 bg-[#081120]/90 grid grid-cols-4 divide-x divide-white/5">
+                      <div className="relative h-32 border-t border-brand-border bg-brand-bg/90 grid grid-cols-4 divide-x divide-white/5">
                         {[
                           { label: 'Avg. Resolution Time', val: '42 min', change: '↓ 9.2%' },
                           { label: 'SLA Compliance', val: '98.7%', change: '↑ 5.2%' },
@@ -166,8 +166,8 @@ export const ContinuationHero = () => {
                           { label: 'Transportation Availability', val: '85%', change: '↑ 6.7%' }
                         ].map((kpi, i) => (
                           <div key={i} className="p-4 flex flex-col justify-center">
-                            <span className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest mb-1">{kpi.label}</span>
-                            <div className="text-xl font-black text-white mb-1">{kpi.val}</div>
+                            <span className="text-[9px] font-bold text-brand-slate uppercase tracking-widest mb-1">{kpi.label}</span>
+                            <div className="text-xl font-black text-foreground dark:text-white mb-1">{kpi.val}</div>
                             <span className="text-[10px] font-bold text-emerald-400">{kpi.change}</span>
                           </div>
                         ))}

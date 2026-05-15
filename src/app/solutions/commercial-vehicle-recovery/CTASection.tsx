@@ -6,7 +6,7 @@ import { ChevronRight, ArrowRight, Zap, Globe, Shield } from 'lucide-react';
 
 export default function CTASection() {
   return (
-    <section className="py-32 bg-[#081120] relative overflow-hidden">
+    <section className="py-32 bg-brand-bg relative overflow-hidden">
       {/* Dynamic Background Elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2F80FF]/10 blur-[150px] rounded-full pointer-events-none" />
       
@@ -22,12 +22,12 @@ export default function CTASection() {
             <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Enterprise Acceleration</span>
           </div>
           
-          <h2 className="text-5xl lg:text-7xl font-black tracking-tight text-white mb-10 leading-tight">
+          <h2 className="text-5xl lg:text-7xl font-black tracking-tight text-foreground dark:text-white mb-10 leading-tight">
             Modernize Your Commercial <br />
             <span className="bg-gradient-to-r from-[#2F80FF] via-[#00C6FF] to-[#2F80FF] bg-clip-text text-transparent">Recovery Infrastructure.</span>
           </h2>
           
-          <p className="text-xl text-[#94A3B8] mb-14 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-brand-slate mb-14 leading-relaxed max-w-2xl mx-auto">
             Connect with Nationwide Trans Inc. to streamline heavy-duty recovery operations, automate dispatch coordination, and optimize enterprise fleet intelligence.
           </p>
 
@@ -35,7 +35,7 @@ export default function CTASection() {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: '0 0 50px rgba(47,128,255,0.4)' }}
               whileTap={{ scale: 0.98 }}
-              className="px-10 py-5 bg-[#2F80FF] text-white rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center gap-3 group"
+              className="px-10 py-5 bg-[#2F80FF] text-foreground dark:text-white rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center gap-3 group"
             >
               Contact Enterprise Team
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -43,7 +43,7 @@ export default function CTASection() {
             <motion.button
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.08)' }}
               whileTap={{ scale: 0.98 }}
-              className="px-10 py-5 bg-transparent border border-white/10 text-white rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center gap-3"
+              className="px-10 py-5 bg-transparent border border-brand-border text-foreground dark:text-white rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center gap-3"
             >
               Request Recovery Capability Report <Shield className="w-4 h-4 text-[#2F80FF]" />
             </motion.button>
@@ -57,8 +57,8 @@ export default function CTASection() {
                { label: 'Security Standard', val: 'SOC 2 Type II' }
              ].map((stat, i) => (
                <div key={i}>
-                  <div className="text-sm font-black text-white mb-1">{stat.val}</div>
-                  <div className="text-[9px] text-[#94A3B8] uppercase tracking-widest">{stat.label}</div>
+                  <div className="text-sm font-black text-foreground dark:text-white mb-1">{stat.val}</div>
+                  <div className="text-[9px] text-brand-slate uppercase tracking-widest">{stat.label}</div>
                </div>
              ))}
           </div>

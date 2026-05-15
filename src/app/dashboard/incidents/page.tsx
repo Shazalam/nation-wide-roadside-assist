@@ -37,7 +37,7 @@ export default function IncidentsPage() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <ShieldAlert className="h-5 w-5 text-brand-orange" />
-            <h1 className="text-3xl font-bold text-white tracking-tight">Incident Tracking</h1>
+            <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">Incident Tracking</h1>
           </div>
           <p className="text-brand-slate text-sm">Real-time monitoring and coordination of active service nodes.</p>
         </div>
@@ -50,7 +50,7 @@ export default function IncidentsPage() {
                 className="bg-brand-navy/50 border border-brand-border rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-brand-blue/50 transition-all"
               />
            </div>
-           <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white gap-2">
+           <Button className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white gap-2">
               <AlertCircle className="h-4 w-4" /> New Ticket
            </Button>
         </div>
@@ -64,9 +64,9 @@ export default function IncidentsPage() {
           { label: 'Avg. Response', value: '11.4m', color: 'emerald-500' },
           { label: 'SLA Status', value: 'Optimal', color: 'brand-blue' },
         ].map((stat) => (
-          <GlassPanel key={stat.label} className="p-6 border-white/5">
+          <GlassPanel key={stat.label} className="p-6 border-brand-border">
             <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mb-1">{stat.label}</p>
-            <p className={`text-2xl font-black text-white`}>{stat.value}</p>
+            <p className={`text-2xl font-black text-foreground dark:text-white`}>{stat.value}</p>
           </GlassPanel>
         ))}
       </div>
@@ -81,7 +81,7 @@ export default function IncidentsPage() {
             <td className="px-6 py-4 font-mono text-[10px] text-brand-blue">{incident.id}</td>
             <td className="px-6 py-4">
                <div className="flex flex-col">
-                  <span className="text-sm font-bold text-white">{incident.title}</span>
+                  <span className="text-sm font-bold text-foreground dark:text-white">{incident.title}</span>
                   <span className="text-[10px] text-brand-slate uppercase tracking-tighter">{incident.client}</span>
                </div>
             </td>
@@ -116,7 +116,7 @@ export default function IncidentsPage() {
       <GlassPanel className="p-8 border-brand-orange/20 bg-brand-orange/5 relative overflow-hidden">
          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-2">
-               <h3 className="text-xl font-bold text-white flex items-center gap-3">
+               <h3 className="text-xl font-bold text-foreground dark:text-white flex items-center gap-3">
                   <AlertCircle className="h-6 w-6 text-brand-orange" /> Escalation Watch Active
                </h3>
                <p className="text-brand-slate text-sm max-w-xl">
@@ -125,7 +125,7 @@ export default function IncidentsPage() {
             </div>
             <div className="flex gap-4">
                <Button variant="outline" className="border-brand-orange/20 text-brand-orange">Ignore Alert</Button>
-               <Button className="bg-brand-orange text-white font-bold">Intervene Now</Button>
+               <Button className="bg-brand-orange text-foreground dark:text-white font-bold">Intervene Now</Button>
             </div>
          </div>
          {/* Background Glow */}

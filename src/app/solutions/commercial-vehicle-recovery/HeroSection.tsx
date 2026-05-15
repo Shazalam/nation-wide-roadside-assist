@@ -50,7 +50,7 @@ function ProgressCircle({ value, label }: { value: number; label: string }) {
         </text>
       </svg>
       <div>
-        <div className="text-[10px] text-[#94A3B8] uppercase tracking-wider">{label}</div>
+        <div className="text-[10px] text-brand-slate uppercase tracking-wider">{label}</div>
       </div>
     </div>
   );
@@ -67,7 +67,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 px-4 sm:px-6 lg:px-12 overflow-hidden bg-[#081120]">
+    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 px-4 sm:px-6 lg:px-12 overflow-hidden bg-brand-bg">
       {/* Ambient background effects */}
       <div className="absolute top-0 right-0 w-[1000px] h-[800px] bg-[#2F80FF]/5 blur-[160px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[800px] h-[600px] bg-[#FF7A1A]/5 blur-[140px] rounded-full pointer-events-none" />
@@ -82,10 +82,10 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#94A3B8] font-mono mb-8">
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-brand-slate font-mono mb-8">
               <span>Solutions</span>
               <ChevronRight className="w-3 h-3 text-[#2F80FF]" />
-              <span className="text-white">Commercial Vehicle Recovery</span>
+              <span className="text-foreground dark:text-white">Commercial Vehicle Recovery</span>
             </div>
 
             <h1 className="text-5xl lg:text-[5rem] font-black tracking-tighter leading-[0.95] mb-8">
@@ -95,7 +95,7 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            <p className="text-lg text-[#94A3B8] mb-12 max-w-xl leading-relaxed">
+            <p className="text-lg text-brand-slate mb-12 max-w-xl leading-relaxed">
               Nationwide heavy-duty dispatch intelligence, commercial vehicle recovery operations, and API-first roadside infrastructure engineered for fleets, logistics providers, insurers, and enterprise mobility ecosystems.
             </p>
 
@@ -104,7 +104,7 @@ export default function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(47,128,255,0.4)' }}
                 whileTap={{ scale: 0.98 }}
-                className="px-10 py-5 bg-[#2F80FF] text-white rounded-xl font-bold text-sm uppercase tracking-widest shadow-lg flex items-center justify-center gap-3 group"
+                className="px-10 py-5 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest shadow-lg flex items-center justify-center gap-3 group"
               >
                 Schedule Enterprise Demo
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -112,14 +112,14 @@ export default function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.08)' }}
                 whileTap={{ scale: 0.98 }}
-                className="px-10 py-5 bg-transparent border border-white/10 text-white rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-3"
+                className="px-10 py-5 bg-transparent border border-brand-border text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-3"
               >
                 Explore Recovery APIs <Terminal className="w-4 h-4 text-[#2F80FF]" />
               </motion.button>
             </div>
 
             {/* KPI Metric Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-white/5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-brand-border">
               {[
                 { value: '99.1%', label: 'Dispatch Coverage', icon: Activity, color: '#2F80FF' },
                 { value: '3.2M+', label: 'Annual Recovery Events', icon: Globe, color: '#FF7A1A' },
@@ -139,9 +139,9 @@ export default function HeroSection() {
                       <div className="p-1.5 rounded bg-white/5">
                         <Icon className="w-3.5 h-3.5" style={{ color: kpi.color }} />
                       </div>
-                      <span className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-widest">{kpi.label}</span>
+                      <span className="text-[10px] font-mono text-brand-slate uppercase tracking-widest">{kpi.label}</span>
                     </div>
-                    <div className="text-2xl font-black text-white">{kpi.value}</div>
+                    <div className="text-2xl font-black text-foreground dark:text-white">{kpi.value}</div>
                   </motion.div>
                 );
               })}
@@ -156,17 +156,17 @@ export default function HeroSection() {
             className="relative"
           >
             {/* Dashboard Container */}
-            <div className="relative bg-[#0A192F]/80 backdrop-blur-3xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
+            <div className="relative bg-card/80 backdrop-blur-3xl border border-brand-border rounded-2xl overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
               
               {/* Header */}
-              <div className="bg-[#081120] px-6 py-4 border-b border-white/5 flex items-center justify-between">
+              <div className="bg-brand-bg px-6 py-4 border-b border-brand-border flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
                     <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
                   </div>
-                  <span className="text-[11px] font-mono text-[#94A3B8] ml-2">Fleet Operations Intelligence System v4.2.1</span>
+                  <span className="text-[11px] font-mono text-brand-slate ml-2">Fleet Operations Intelligence System v4.2.1</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <LivePulse />
@@ -182,9 +182,9 @@ export default function HeroSection() {
                     { label: 'Fleet Assets', value: '4,892', delta: '+5.2%', up: true },
                     { label: 'Network Load', value: '84%', delta: '-2.1%', up: false },
                   ].map((stat, i) => (
-                    <div key={i} className="bg-[#081120] rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] text-[#94A3B8] uppercase tracking-widest mb-2">{stat.label}</div>
-                      <div className="text-2xl font-black text-white font-mono">{stat.value}</div>
+                    <div key={i} className="bg-brand-bg rounded-xl p-4 border border-brand-border">
+                      <div className="text-[10px] text-brand-slate uppercase tracking-widest mb-2">{stat.label}</div>
+                      <div className="text-2xl font-black text-foreground dark:text-white font-mono">{stat.value}</div>
                       <div className={`text-[10px] font-mono mt-1 flex items-center gap-1 ${stat.up ? 'text-emerald-400' : 'text-blue-400'}`}>
                         {stat.up ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />}
                         {stat.delta}
@@ -196,10 +196,10 @@ export default function HeroSection() {
                 {/* Main Visualization Area */}
                 <div className="grid grid-cols-5 gap-4">
                   {/* Response Time Chart */}
-                  <div className="col-span-3 bg-[#081120] rounded-xl p-4 border border-white/5">
+                  <div className="col-span-3 bg-brand-bg rounded-xl p-4 border border-brand-border">
                     <div className="flex justify-between items-center mb-4">
-                      <div className="text-[10px] text-[#94A3B8] uppercase tracking-widest">Avg. Response Performance</div>
-                      <span className="text-xl font-bold text-white font-mono">24.8<span className="text-xs text-[#94A3B8]">m</span></span>
+                      <div className="text-[10px] text-brand-slate uppercase tracking-widest">Avg. Response Performance</div>
+                      <span className="text-xl font-bold text-foreground dark:text-white font-mono">24.8<span className="text-xs text-brand-slate">m</span></span>
                     </div>
                     {/* Sparkline Visual */}
                     <svg viewBox="0 0 300 80" className="w-full h-24 overflow-visible">
@@ -222,7 +222,7 @@ export default function HeroSection() {
                   </div>
 
                   {/* Incident Alert */}
-                  <div className="col-span-2 bg-[#081120] rounded-xl p-4 border border-white/5 flex flex-col justify-between">
+                  <div className="col-span-2 bg-brand-bg rounded-xl p-4 border border-brand-border flex flex-col justify-between">
                     <div className="flex items-center gap-2 mb-4">
                       <AlertTriangle className="w-4 h-4 text-[#FF7A1A]" />
                       <span className="text-[10px] font-bold text-[#FF7A1A] uppercase tracking-widest">Priority Dispatch</span>
@@ -235,14 +235,14 @@ export default function HeroSection() {
                         exit={{ opacity: 0, y: -10 }}
                         className="space-y-1"
                       >
-                        <div className="text-[11px] font-black text-white">{liveRecoveryIncidents[activeIndex].id}</div>
-                        <div className="text-[10px] text-[#94A3B8]">{liveRecoveryIncidents[activeIndex].type}</div>
-                        <div className="text-[10px] text-[#94A3B8] flex items-center gap-1">
+                        <div className="text-[11px] font-black text-foreground dark:text-white">{liveRecoveryIncidents[activeIndex].id}</div>
+                        <div className="text-[10px] text-brand-slate">{liveRecoveryIncidents[activeIndex].type}</div>
+                        <div className="text-[10px] text-brand-slate flex items-center gap-1">
                           <MapPin className="w-3 h-3" /> {liveRecoveryIncidents[activeIndex].location}
                         </div>
                         <div className="mt-3 py-1.5 px-3 bg-blue-500/10 border border-blue-500/20 rounded flex items-center justify-between">
                           <span className="text-[9px] font-mono text-blue-400 uppercase tracking-widest">ETA Analytics</span>
-                          <span className="text-[10px] font-bold text-white font-mono">{liveRecoveryIncidents[activeIndex].eta}</span>
+                          <span className="text-[10px] font-bold text-foreground dark:text-white font-mono">{liveRecoveryIncidents[activeIndex].eta}</span>
                         </div>
                       </motion.div>
                     </AnimatePresence>
@@ -252,8 +252,8 @@ export default function HeroSection() {
                 {/* Bottom Row */}
                 <div className="grid grid-cols-3 gap-4">
                   {/* Service Mix */}
-                  <div className="bg-[#081120] rounded-xl p-4 border border-white/5">
-                    <div className="text-[9px] text-[#94A3B8] uppercase tracking-widest mb-3">Operational Mix</div>
+                  <div className="bg-brand-bg rounded-xl p-4 border border-brand-border">
+                    <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-3">Operational Mix</div>
                     <div className="space-y-3">
                       {[
                         { label: 'Heavy Tow', val: 68, color: '#2F80FF' },
@@ -262,8 +262,8 @@ export default function HeroSection() {
                       ].map(item => (
                         <div key={item.label}>
                           <div className="flex justify-between text-[9px] mb-1">
-                            <span className="text-[#94A3B8]">{item.label}</span>
-                            <span className="text-white font-mono">{item.val}%</span>
+                            <span className="text-brand-slate">{item.label}</span>
+                            <span className="text-foreground dark:text-white font-mono">{item.val}%</span>
                           </div>
                           <div className="h-1 bg-white/5 rounded-full overflow-hidden">
                             <div className="h-full rounded-full" style={{ width: `${item.val}%`, backgroundColor: item.color }} />
@@ -274,14 +274,14 @@ export default function HeroSection() {
                   </div>
 
                   {/* Weekly Load */}
-                  <div className="bg-[#081120] rounded-xl p-4 border border-white/5">
-                    <div className="text-[9px] text-[#94A3B8] uppercase tracking-widest mb-3">7-Day Event Load</div>
+                  <div className="bg-brand-bg rounded-xl p-4 border border-brand-border">
+                    <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-3">7-Day Event Load</div>
                     <div className="flex items-end gap-1.5 h-16">
                       {weeklyFleetData.map((d, i) => (
                         <div key={i} className="flex-1 group relative">
                           <div className="w-full bg-blue-500/20 rounded-t-sm transition-all group-hover:bg-blue-500/40" 
                                style={{ height: `${(d.completed / 180) * 100}%` }} />
-                          <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[8px] font-mono text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[8px] font-mono text-foreground dark:text-white opacity-0 group-hover:opacity-100 transition-opacity">
                             {d.completed}
                           </div>
                         </div>
@@ -289,14 +289,14 @@ export default function HeroSection() {
                     </div>
                     <div className="flex justify-between mt-2 px-0.5">
                       {['M','T','W','T','F','S','S'].map((day, i) => (
-                        <span key={i} className="text-[8px] text-[#94A3B8]">{day}</span>
+                        <span key={i} className="text-[8px] text-brand-slate">{day}</span>
                       ))}
                     </div>
                   </div>
 
                   {/* SLA Metrics */}
-                  <div className="bg-[#081120] rounded-xl p-4 border border-white/5 flex flex-col items-center justify-center">
-                    <div className="text-[9px] text-[#94A3B8] uppercase tracking-widest mb-2">SLA Compliance</div>
+                  <div className="bg-brand-bg rounded-xl p-4 border border-brand-border flex flex-col items-center justify-center">
+                    <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-2">SLA Compliance</div>
                     <ProgressCircle value={99.1} label="" />
                     <div className="mt-2 text-[9px] font-mono text-emerald-400 flex items-center gap-1">
                       <TrendingUp className="w-3 h-3" /> AT PEAK PERFORMANCE
@@ -310,11 +310,11 @@ export default function HeroSection() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-10 -right-6 bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-xl shadow-2xl z-10"
+              className="absolute -top-10 -right-6 bg-white/5 backdrop-blur-xl border border-brand-border p-3 rounded-xl shadow-2xl z-10"
             >
               <div className="flex items-center gap-2">
                 <Radio className="w-3 h-3 text-red-500" />
-                <span className="text-[10px] font-bold text-white font-mono uppercase">Live Signal Tracking</span>
+                <span className="text-[10px] font-bold text-foreground dark:text-white font-mono uppercase">Live Signal Tracking</span>
               </div>
             </motion.div>
           </motion.div>

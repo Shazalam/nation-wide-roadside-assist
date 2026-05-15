@@ -32,11 +32,11 @@ export default function FleetPage() {
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">Fleet Telemetry</h1>
+          <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">Fleet Telemetry</h1>
           <p className="text-brand-slate text-sm">Real-time asset tracking, health diagnostics, and utilization analytics.</p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" className="border-white/10 bg-brand-navy/40 text-white gap-2">
+          <Button variant="outline" className="border-brand-border bg-brand-navy/40 text-foreground dark:text-white gap-2">
             <BarChart2 className="h-4 w-4" /> Analytics
           </Button>
           <Button className="bg-brand-blue hover:bg-brand-blue/90 shadow-[0_0_20px_rgba(47,128,255,0.4)] border-none gap-2">
@@ -63,12 +63,12 @@ export default function FleetPage() {
             <td className="px-6 py-4 text-sm font-mono text-brand-blue">{asset.id}</td>
             <td className="px-6 py-4">
               <div className="flex flex-col">
-                <span className="text-sm font-bold text-white">{asset.name}</span>
+                <span className="text-sm font-bold text-foreground dark:text-white">{asset.name}</span>
                 <span className="text-[10px] text-brand-slate">{asset.mileage.toLocaleString()} miles</span>
               </div>
             </td>
             <td className="px-6 py-4 text-xs text-brand-slate uppercase tracking-wider">{asset.type.replace('_', ' ')}</td>
-            <td className="px-6 py-4 text-xs font-mono text-white">{asset.plate}</td>
+            <td className="px-6 py-4 text-xs font-mono text-foreground dark:text-white">{asset.plate}</td>
             <td className="px-6 py-4 min-w-[200px]">
               <TelemetryIndicator 
                 label="Fuel Level" 
@@ -81,7 +81,7 @@ export default function FleetPage() {
               <StatusIndicator status={asset.health as any} label={asset.status} />
             </td>
             <td className="px-6 py-4 text-right">
-              <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-brand-slate hover:text-white">
+              <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-brand-slate hover:text-foreground dark:text-white">
                 <Settings className="h-4 w-4" />
               </Button>
             </td>
@@ -98,7 +98,7 @@ export default function FleetPage() {
       {/* Regional Distribution */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <GlassPanel className="p-8">
-          <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-6">Asset Distribution by Node</h3>
+          <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-wider mb-6">Asset Distribution by Node</h3>
           <div className="space-y-6">
             {[
               { node: 'US-EAST-NY', count: 42, load: 85 },
@@ -108,10 +108,10 @@ export default function FleetPage() {
             ].map((node) => (
               <div key={node.node} className="space-y-2">
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-white font-bold">{node.node}</span>
+                  <span className="text-foreground dark:text-white font-bold">{node.node}</span>
                   <span className="text-brand-slate">{node.count} units</span>
                 </div>
-                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-brand-border">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${node.load}%` }}
@@ -127,11 +127,11 @@ export default function FleetPage() {
            <div className="h-20 w-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
              <ShieldCheck className="h-10 w-10 text-emerald-500" />
            </div>
-           <h3 className="text-xl font-bold text-white mb-2">Fleet Integrity Certified</h3>
+           <h3 className="text-xl font-bold text-foreground dark:text-white mb-2">Fleet Integrity Certified</h3>
            <p className="text-sm text-brand-slate max-w-sm">
              All connected assets are currently compliant with Nationwide Trans enterprise safety protocols and emission standards.
            </p>
-           <Button className="mt-8 bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 hover:bg-emerald-500 hover:text-white transition-all font-bold uppercase tracking-widest text-xs h-10 px-6">
+           <Button className="mt-8 bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 hover:bg-emerald-500 hover:text-foreground dark:text-white transition-all font-bold uppercase tracking-widest text-xs h-10 px-6">
              Review Compliance
            </Button>
         </GlassPanel>

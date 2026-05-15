@@ -13,25 +13,36 @@ export interface RecoveryStats {
   avgResponseTime: number;
 }
 
+const MOCK_STATS: RecoveryStats = {
+  activeRecoveries: 1248,
+  enRoute: 642,
+  onScene: 426,
+  completedToday: 2381,
+  totalAnnual: 3200000,
+  slaCompliance: 97.6,
+  vendorAvailability: 85,
+  avgResponseTime: 38
+};
+
 export const useRecoveryStats = () => {
-  const [stats, setStats] = useState<RecoveryStats | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState<RecoveryStats | null>(MOCK_STATS);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const response = await fetch('/api/heavy-duty-recovery/stats');
-        const data = await response.json();
-        setStats(data);
-      } catch (error) {
-        console.error('Error fetching recovery stats:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    // Simulate real-time updates
+    const interval = setInterval(() => {
+      setStats(prev => {
+        if (!prev) return MOCK_STATS;
+        return {
+          ...prev,
+          activeRecoveries: prev.activeRecoveries + (Math.random() > 0.5 ? 1 : -1),
+          enRoute: prev.enRoute + (Math.random() > 0.5 ? 1 : -1),
+          onScene: prev.onScene + (Math.random() > 0.5 ? 1 : -1),
+          completedToday: prev.completedToday + (Math.random() > 0.8 ? 1 : 0),
+        };
+      });
+    }, 5000);
 
-    fetchStats();
-    const interval = setInterval(fetchStats, 30000);
     return () => clearInterval(interval);
   }, []);
 

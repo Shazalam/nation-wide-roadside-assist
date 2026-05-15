@@ -19,10 +19,10 @@ const categories = [
 
 export const VendorServiceCategories = () => {
   return (
-    <section className="py-24 bg-[#0A192F]/20 relative z-10 border-y border-white/5">
+    <section className="py-24 bg-card/20 relative z-10 border-y border-brand-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-           <h2 className="text-2xl lg:text-4xl font-black text-white tracking-tight leading-tight mb-4">
+           <h2 className="text-2xl lg:text-4xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-4">
               Vendor Service Categories
            </h2>
         </div>
@@ -36,11 +36,11 @@ export const VendorServiceCategories = () => {
                transition={{ delay: i * 0.05 }}
                viewport={{ once: true }}
              >
-                <GlassPanel className="h-full p-4 border-white/5 bg-white/[0.01] hover:bg-[#2F80FF]/10 hover:border-[#2F80FF]/30 transition-all group flex flex-col items-center text-center cursor-pointer">
-                   <div className="h-10 w-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-3 group-hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_20px_rgba(47,128,255,0.3)]">
-                      <cat.icon className="h-5 w-5 text-[#94A3B8] group-hover:text-[#2F80FF] transition-colors" />
+                <GlassPanel className="h-full p-4 border-brand-border bg-white/[0.01] hover:bg-[#2F80FF]/10 hover:border-[#2F80FF]/30 transition-all group flex flex-col items-center text-center cursor-pointer">
+                   <div className="h-10 w-10 rounded-xl border border-brand-border bg-white/5 flex items-center justify-center mb-3 group-hover:scale-110 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_20px_rgba(47,128,255,0.3)]">
+                      <cat.icon className="h-5 w-5 text-brand-slate group-hover:text-[#2F80FF] transition-colors" />
                    </div>
-                   <h3 className="text-[9px] font-black text-white uppercase tracking-wider leading-snug">
+                   <h3 className="text-[9px] font-black text-foreground dark:text-white uppercase tracking-wider leading-snug">
                       {cat.title}
                    </h3>
                 </GlassPanel>

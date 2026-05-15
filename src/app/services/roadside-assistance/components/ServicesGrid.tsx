@@ -26,7 +26,7 @@ export const ServicesGrid = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Service Ecosystem</p>
-          <h2 className="text-4xl lg:text-5xl font-black text-white mb-8 tracking-tight">Our Roadside Assistance Services</h2>
+          <h2 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white mb-8 tracking-tight">Our Roadside Assistance Services</h2>
           <div className="h-1 w-20 bg-brand-blue mx-auto rounded-full" />
         </div>
 
@@ -39,20 +39,20 @@ export const ServicesGrid = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
             >
-              <GlassPanel className="p-8 border-white/5 bg-white/[0.01] hover:bg-brand-blue/5 transition-all group cursor-pointer h-full relative overflow-hidden">
+              <GlassPanel className="p-8 border-brand-border bg-white/[0.01] hover:bg-brand-blue/5 transition-all group cursor-pointer h-full relative overflow-hidden">
                 {/* Background Ambient Glow */}
                 <div className="absolute -right-8 -top-8 w-24 h-24 bg-brand-blue/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 
                 <div className="flex flex-col items-center text-center">
-                  <div className="h-16 w-16 rounded-2xl bg-brand-navy border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-2xl">
+                  <div className="h-16 w-16 rounded-2xl bg-brand-navy border border-brand-border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-2xl">
                     <service.icon className="h-7 w-7 text-brand-blue" />
                   </div>
-                  <h4 className="text-sm font-bold text-white mb-6 group-hover:text-brand-blue transition-colors uppercase tracking-widest">{service.label}</h4>
+                  <h4 className="text-sm font-bold text-foreground dark:text-white mb-6 group-hover:text-brand-blue transition-colors uppercase tracking-widest">{service.label}</h4>
                   
-                  <div className="w-full pt-6 border-t border-white/5 grid grid-cols-2 gap-4">
+                  <div className="w-full pt-6 border-t border-brand-border grid grid-cols-2 gap-4">
                     <div>
                       <p className="text-[8px] font-bold text-brand-slate uppercase mb-1">Avg ETA</p>
-                      <p className="text-sm font-black text-white">{service.eta}</p>
+                      <p className="text-sm font-black text-foreground dark:text-white">{service.eta}</p>
                     </div>
                     <div>
                       <p className="text-[8px] font-bold text-brand-slate uppercase mb-1">Availability</p>

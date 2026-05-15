@@ -50,7 +50,7 @@ function DonutChart({ value, label }: { value: number; label: string }) {
         </text>
       </svg>
       <div>
-        <div className="text-xs text-[#94A3B8] uppercase tracking-widest">{label}</div>
+        <div className="text-xs text-brand-slate uppercase tracking-widest">{label}</div>
       </div>
     </div>
   );
@@ -93,7 +93,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-xs text-[#94A3B8] font-mono mb-6">
+            <div className="flex items-center gap-2 text-xs text-brand-slate font-mono mb-6">
               <span>Solutions</span>
               <ChevronRight className="w-3 h-3" />
               <span className="text-[#2F80FF]">RV &amp; Camper Support</span>
@@ -106,7 +106,7 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            <p className="text-lg text-[#94A3B8] mb-10 max-w-xl leading-relaxed">
+            <p className="text-lg text-brand-slate mb-10 max-w-xl leading-relaxed">
               Nationwide roadside intelligence, specialized RV dispatch operations, and API-driven mobility support engineered for motorhomes, travel trailers, campground networks, insurers, and enterprise mobility ecosystems.
             </p>
 
@@ -115,7 +115,7 @@ export default function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(47,128,255,0.5)' }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-[#2F80FF] text-white rounded-xl font-bold text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.3)] flex items-center justify-center gap-2 group"
+                className="px-8 py-4 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.3)] flex items-center justify-center gap-2 group"
               >
                 Schedule Enterprise Demo
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -123,7 +123,7 @@ export default function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.08)' }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-transparent border border-[rgba(255,255,255,0.15)] text-white rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-transparent border border-[rgba(255,255,255,0.15)] text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2"
               >
                 Explore RV APIs <span className="font-mono text-[#2F80FF]">{`</>`}</span>
               </motion.button>
@@ -150,8 +150,8 @@ export default function HeroSection() {
                       <Icon className="w-4 h-4" style={{ color: kpi.color }} />
                     </div>
                     <div>
-                      <div className="text-2xl font-black text-white leading-none mb-0.5">{kpi.value}</div>
-                      <div className="text-[11px] text-[#94A3B8]">{kpi.label}</div>
+                      <div className="text-2xl font-black text-foreground dark:text-white leading-none mb-0.5">{kpi.value}</div>
+                      <div className="text-[11px] text-brand-slate">{kpi.label}</div>
                       <div className="text-[10px] font-mono mt-1" style={{ color: kpi.color }}>{kpi.delta}</div>
                     </div>
                   </motion.div>
@@ -171,17 +171,17 @@ export default function HeroSection() {
             <div className="absolute -inset-6 bg-gradient-to-br from-[#2F80FF]/10 to-[#FF7A1A]/5 blur-2xl rounded-3xl" />
 
             {/* Dashboard Shell */}
-            <div className="relative bg-[#0A192F]/90 backdrop-blur-2xl border border-[rgba(255,255,255,0.08)] rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
+            <div className="relative bg-card/90 backdrop-blur-2xl border border-[rgba(255,255,255,0.08)] rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
 
               {/* Titlebar */}
-              <div className="bg-[#081120] px-5 py-3 border-b border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+              <div className="bg-brand-bg px-5 py-3 border-b border-[rgba(255,255,255,0.06)] flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/80" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                   <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
-                <div className="flex items-center gap-2 font-mono text-[10px] text-[#94A3B8]">
-                  <span className="text-white font-bold">Live RV Operations Overview</span>
+                <div className="flex items-center gap-2 font-mono text-[10px] text-brand-slate">
+                  <span className="text-foreground dark:text-white font-bold">Live RV Operations Overview</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <LiveDot />
@@ -197,9 +197,9 @@ export default function HeroSection() {
                     { label: 'On the Road', value: '8,675', delta: '+6.1%', up: true },
                     { label: 'Active Incidents', value: '156', delta: '-17.4%', up: false },
                   ].map((m, i) => (
-                    <div key={i} className="bg-[#081120] rounded-xl p-3 border border-[rgba(255,255,255,0.05)]">
-                      <div className="text-[10px] text-[#94A3B8] mb-1">{m.label}</div>
-                      <div className="text-xl font-black text-white font-mono">{m.value}</div>
+                    <div key={i} className="bg-brand-bg rounded-xl p-3 border border-[rgba(255,255,255,0.05)]">
+                      <div className="text-[10px] text-brand-slate mb-1">{m.label}</div>
+                      <div className="text-xl font-black text-foreground dark:text-white font-mono">{m.value}</div>
                       <div className={`flex items-center gap-0.5 text-[10px] mt-0.5 font-mono ${m.up ? 'text-emerald-400' : 'text-[#FF7A1A]'}`}>
                         {m.up ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />}
                         {m.delta}
@@ -210,9 +210,9 @@ export default function HeroSection() {
 
                 {/* Avg Response + live incident */}
                 <div className="grid grid-cols-5 gap-3">
-                  <div className="col-span-3 bg-[#081120] rounded-xl p-3 border border-[rgba(255,255,255,0.05)]">
-                    <div className="text-[10px] text-[#94A3B8] mb-1">Avg. Response Time</div>
-                    <div className="text-2xl font-black text-white font-mono">18.6<span className="text-sm text-[#94A3B8]"> min</span></div>
+                  <div className="col-span-3 bg-brand-bg rounded-xl p-3 border border-[rgba(255,255,255,0.05)]">
+                    <div className="text-[10px] text-brand-slate mb-1">Avg. Response Time</div>
+                    <div className="text-2xl font-black text-foreground dark:text-white font-mono">18.6<span className="text-sm text-brand-slate"> min</span></div>
                     <div className="flex items-center gap-1 text-[10px] text-emerald-400 font-mono mt-0.5">
                       <ArrowDown className="w-3 h-3" /> -15.3% vs last period
                     </div>
@@ -233,7 +233,7 @@ export default function HeroSection() {
                   </div>
 
                   {/* Live incident popup */}
-                  <div className="col-span-2 bg-[#081120] rounded-xl border border-[rgba(255,255,255,0.05)] p-3 flex flex-col justify-between">
+                  <div className="col-span-2 bg-brand-bg rounded-xl border border-[rgba(255,255,255,0.05)] p-3 flex flex-col justify-between">
                     <div className="flex items-center gap-1.5 mb-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#FF7A1A] animate-pulse" />
                       <span className="text-[9px] font-mono text-[#FF7A1A] uppercase tracking-widest">Live Incident</span>
@@ -246,9 +246,9 @@ export default function HeroSection() {
                         exit={{ opacity: 0, y: -8 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="text-[10px] font-bold text-white">#{liveIncidents[activeIncident].id}</div>
-                        <div className="text-[9px] text-[#94A3B8] mt-0.5">{liveIncidents[activeIncident].location}</div>
-                        <div className="text-[9px] text-[#94A3B8]">{liveIncidents[activeIncident].type}</div>
+                        <div className="text-[10px] font-bold text-foreground dark:text-white">#{liveIncidents[activeIncident].id}</div>
+                        <div className="text-[9px] text-brand-slate mt-0.5">{liveIncidents[activeIncident].location}</div>
+                        <div className="text-[9px] text-brand-slate">{liveIncidents[activeIncident].type}</div>
                         <div className="mt-2 flex items-center gap-1">
                           <Clock className="w-3 h-3 text-[#2F80FF]" />
                           <span className="text-[10px] font-mono text-[#2F80FF]">ETA {liveIncidents[activeIncident].eta}</span>
@@ -261,9 +261,9 @@ export default function HeroSection() {
                 {/* Dispatch summary + weekly bar chart + ETA donut */}
                 <div className="grid grid-cols-3 gap-3">
                   {/* Dispatch summary */}
-                  <div className="bg-[#081120] rounded-xl p-3 border border-[rgba(255,255,255,0.05)]">
-                    <div className="text-[9px] text-[#94A3B8] font-mono uppercase tracking-widest mb-3">Dispatch Summary</div>
-                    <div className="text-[10px] font-black text-white font-mono mb-2">2.4M <span className="text-[#94A3B8] font-normal">Total</span></div>
+                  <div className="bg-brand-bg rounded-xl p-3 border border-[rgba(255,255,255,0.05)]">
+                    <div className="text-[9px] text-brand-slate font-mono uppercase tracking-widest mb-3">Dispatch Summary</div>
+                    <div className="text-[10px] font-black text-foreground dark:text-white font-mono mb-2">2.4M <span className="text-brand-slate font-normal">Total</span></div>
                     {[
                       { label: 'Completed', val: 81.1, color: '#2F80FF' },
                       { label: 'In Progress', val: 12.4, color: '#FF7A1A' },
@@ -271,10 +271,10 @@ export default function HeroSection() {
                     ].map(s => (
                       <div key={s.label} className="mb-1.5">
                         <div className="flex justify-between text-[9px] mb-0.5">
-                          <span className="text-[#94A3B8]">{s.label}</span>
+                          <span className="text-brand-slate">{s.label}</span>
                           <span className="font-mono" style={{ color: s.color }}>{s.val}%</span>
                         </div>
-                        <div className="w-full h-1 bg-[#0A192F] rounded-full overflow-hidden">
+                        <div className="w-full h-1 bg-card rounded-full overflow-hidden">
                           <div className="h-full rounded-full" style={{ width: `${s.val}%`, backgroundColor: s.color }} />
                         </div>
                       </div>
@@ -282,9 +282,9 @@ export default function HeroSection() {
                   </div>
 
                   {/* Weekly bar chart */}
-                  <div className="bg-[#081120] rounded-xl p-3 border border-[rgba(255,255,255,0.05)]">
-                    <div className="text-[9px] text-[#94A3B8] font-mono uppercase tracking-widest mb-2">Incidents (7 Days)</div>
-                    <div className="text-[10px] font-black text-white font-mono mb-2">2.4K+</div>
+                  <div className="bg-brand-bg rounded-xl p-3 border border-[rgba(255,255,255,0.05)]">
+                    <div className="text-[9px] text-brand-slate font-mono uppercase tracking-widest mb-2">Incidents (7 Days)</div>
+                    <div className="text-[10px] font-black text-foreground dark:text-white font-mono mb-2">2.4K+</div>
                     <div className="flex items-end gap-1 h-14">
                       {weeklyData.map((d, i) => (
                         <div key={i} className="flex-1 flex flex-col items-center gap-0.5">
@@ -293,15 +293,15 @@ export default function HeroSection() {
                             background: 'linear-gradient(to top, #2F80FF, #00C6FF)',
                             opacity: 0.8
                           }} />
-                          <span className="text-[7px] text-[#94A3B8]">{d.day.charAt(0)}</span>
+                          <span className="text-[7px] text-brand-slate">{d.day.charAt(0)}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* ETA compliance donut */}
-                  <div className="bg-[#081120] rounded-xl p-3 border border-[rgba(255,255,255,0.05)] flex flex-col items-center justify-center">
-                    <div className="text-[9px] text-[#94A3B8] font-mono uppercase tracking-widest mb-2">ETA Compliance</div>
+                  <div className="bg-brand-bg rounded-xl p-3 border border-[rgba(255,255,255,0.05)] flex flex-col items-center justify-center">
+                    <div className="text-[9px] text-brand-slate font-mono uppercase tracking-widest mb-2">ETA Compliance</div>
                     <DonutChart value={97} label="" />
                     <div className="flex items-center gap-1 mt-1 text-[9px] font-mono text-emerald-400">
                       <ArrowUp className="w-2.5 h-2.5" /> +5.7% vs 30d
@@ -319,10 +319,10 @@ export default function HeroSection() {
                   ].map((s, i) => {
                     const Icon = s.icon;
                     return (
-                      <div key={i} className="bg-[#081120] rounded-lg p-2.5 border border-[rgba(255,255,255,0.04)] text-center">
+                      <div key={i} className="bg-brand-bg rounded-lg p-2.5 border border-[rgba(255,255,255,0.04)] text-center">
                         <Icon className="w-3.5 h-3.5 text-[#2F80FF] mx-auto mb-1" />
-                        <div className="text-sm font-black text-white font-mono">{s.val}</div>
-                        <div className="text-[8px] text-[#94A3B8] leading-tight mt-0.5">{s.label}</div>
+                        <div className="text-sm font-black text-foreground dark:text-white font-mono">{s.val}</div>
+                        <div className="text-[8px] text-brand-slate leading-tight mt-0.5">{s.label}</div>
                       </div>
                     );
                   })}

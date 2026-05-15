@@ -6,7 +6,7 @@ export default function CommercialRecoveryLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="commercial-recovery-route bg-[#081120]">
+    <div className="commercial-recovery-route bg-brand-bg">
       {children}
     </div>
   );

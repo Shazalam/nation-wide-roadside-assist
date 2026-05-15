@@ -16,10 +16,10 @@ const steps = [
 
 export const DispatchWorkflowSystem = () => {
   return (
-    <section className="py-32 bg-[#0A192F]/30 relative z-10 overflow-hidden border-y border-white/5">
+    <section className="py-32 bg-card/30 relative z-10 overflow-hidden border-y border-brand-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-24">
-           <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+           <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight">
               Dispatch Workflow
            </h2>
         </div>
@@ -40,17 +40,17 @@ export const DispatchWorkflowSystem = () => {
                   className="flex flex-col items-center text-center group relative"
                 >
                    <div className="relative mb-6">
-                      <div className={`h-16 w-16 rounded-full border-2 border-[#2F80FF]/20 flex items-center justify-center relative z-10 group-hover:border-[#2F80FF] group-hover:shadow-[0_0_20px_rgba(47,128,255,0.4)] transition-all bg-[#081120] ${i === 6 ? 'border-[#FF7A1A]/30 group-hover:border-[#FF7A1A] group-hover:shadow-[0_0_20px_rgba(255,122,26,0.4)]' : ''}`}>
+                      <div className={`h-16 w-16 rounded-full border-2 border-[#2F80FF]/20 flex items-center justify-center relative z-10 group-hover:border-[#2F80FF] group-hover:shadow-[0_0_20px_rgba(47,128,255,0.4)] transition-all bg-brand-bg ${i === 6 ? 'border-[#FF7A1A]/30 group-hover:border-[#FF7A1A] group-hover:shadow-[0_0_20px_rgba(255,122,26,0.4)]' : ''}`}>
                          <step.icon className={`h-6 w-6 ${i === 6 ? 'text-[#FF7A1A]' : 'text-[#2F80FF]'}`} />
                       </div>
                       
                       {/* Step Number */}
-                      <div className="absolute -bottom-1 -left-2 text-2xl font-black text-white/10 group-hover:text-white/30 transition-colors z-0">
+                      <div className="absolute -bottom-1 -left-2 text-2xl font-black text-foreground dark:text-white/10 group-hover:text-foreground dark:text-white/30 transition-colors z-0">
                          {step.id}
                       </div>
                    </div>
 
-                   <h3 className="text-[10px] font-black text-white uppercase tracking-widest leading-tight max-w-[120px]">
+                   <h3 className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest leading-tight max-w-[120px]">
                       {step.title}
                    </h3>
                 </motion.div>

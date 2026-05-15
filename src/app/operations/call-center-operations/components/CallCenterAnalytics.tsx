@@ -26,8 +26,8 @@ export const CallCenterAnalytics = () => {
     <section className="container mx-auto px-4 mb-24">
        <div className="grid lg:grid-cols-2 gap-6">
          
-         <GlassPanel className="p-6 border-white/5 bg-[#0A192F]/40 h-full">
-            <h3 className="text-lg font-bold text-white mb-6">Call Center Analytics</h3>
+         <GlassPanel className="p-6 border-brand-border bg-card/40 h-full">
+            <h3 className="text-lg font-bold text-foreground dark:text-white mb-6">Call Center Analytics</h3>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 h-32">
                {[
                   { title: "Call Volume", val: "8,742", trend: "+12.6%", data: lineData1, color: "#10B981" },
@@ -35,10 +35,10 @@ export const CallCenterAnalytics = () => {
                   { title: "SLA Compliance", val: "97.8%", trend: "+2.1%", data: lineData3, color: "#10B981" },
                   { title: "First Call Resolution", val: "79.4%", trend: "+6.2%", data: lineData4, color: "#10B981" },
                ].map((item, i) => (
-                  <div key={i} className="flex flex-col border-r border-white/5 pr-4 last:border-0">
-                     <div className="text-[10px] font-bold text-[#94A3B8] uppercase mb-1">{item.title}</div>
+                  <div key={i} className="flex flex-col border-r border-brand-border pr-4 last:border-0">
+                     <div className="text-[10px] font-bold text-brand-slate uppercase mb-1">{item.title}</div>
                      <div className="flex justify-between items-end mb-2">
-                        <div className="text-lg font-mono text-white">{item.val}</div>
+                        <div className="text-lg font-mono text-foreground dark:text-white">{item.val}</div>
                         <div className="text-[9px] font-mono text-emerald-400">{item.trend}</div>
                      </div>
                      <div className="flex-1">
@@ -59,11 +59,11 @@ export const CallCenterAnalytics = () => {
             </div>
          </GlassPanel>
 
-         <GlassPanel className="p-6 border-white/5 bg-[#0A192F]/40 h-full">
+         <GlassPanel className="p-6 border-brand-border bg-card/40 h-full">
             <div className="grid grid-cols-3 gap-6 h-full items-center">
                
                <div>
-                  <div className="text-[10px] font-bold text-[#94A3B8] uppercase mb-4 text-center">Call Outcome</div>
+                  <div className="text-[10px] font-bold text-brand-slate uppercase mb-4 text-center">Call Outcome</div>
                   <div className="h-24 relative flex justify-center">
                      <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
@@ -76,7 +76,7 @@ export const CallCenterAnalytics = () => {
                </div>
 
                <div>
-                  <div className="text-[10px] font-bold text-[#94A3B8] uppercase mb-4 text-center">Incident Priority</div>
+                  <div className="text-[10px] font-bold text-brand-slate uppercase mb-4 text-center">Incident Priority</div>
                   <div className="h-24 relative flex justify-center">
                      <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
@@ -89,10 +89,10 @@ export const CallCenterAnalytics = () => {
                </div>
 
                <div className="flex flex-col items-center justify-center">
-                  <div className="text-[10px] font-bold text-[#94A3B8] uppercase mb-4 text-center">Customer Satisfaction</div>
+                  <div className="text-[10px] font-bold text-brand-slate uppercase mb-4 text-center">Customer Satisfaction</div>
                   <div className="h-24 w-24 rounded-full border-4 border-[#2F80FF]/20 border-t-[#2F80FF] flex flex-col items-center justify-center">
-                     <div className="text-2xl font-bold text-white">4.8</div>
-                     <div className="text-[9px] text-[#94A3B8] uppercase">Out of 5</div>
+                     <div className="text-2xl font-bold text-foreground dark:text-white">4.8</div>
+                     <div className="text-[9px] text-brand-slate uppercase">Out of 5</div>
                   </div>
                </div>
 

@@ -11,7 +11,7 @@ export default function VendorSearchPage() {
       <section className="space-y-4">
         <div className="flex items-center gap-3">
            <Search className="h-8 w-8 text-brand-blue" />
-           <h1 className="text-4xl font-bold text-white tracking-tight">Vendor Network</h1>
+           <h1 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">Vendor Network</h1>
         </div>
         <p className="text-brand-slate text-lg max-w-3xl">
           Access our nationwide network of over 45,000 certified service providers. Query by location, capabilities, and real-time availability to find the perfect partner for any roadside scenario.
@@ -19,19 +19,19 @@ export default function VendorSearchPage() {
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-         <GlassPanel className="p-6 border-white/5 space-y-3">
+         <GlassPanel className="p-6 border-brand-border space-y-3">
             <Map className="h-6 w-6 text-brand-blue" />
-            <h4 className="text-white font-bold">Geofencing</h4>
+            <h4 className="text-foreground dark:text-white font-bold">Geofencing</h4>
             <p className="text-xs text-brand-slate">Search within specific radial boundaries or along a defined route path.</p>
          </GlassPanel>
-         <GlassPanel className="p-6 border-white/5 space-y-3">
+         <GlassPanel className="p-6 border-brand-border space-y-3">
             <Star className="h-6 w-6 text-amber-400" />
-            <h4 className="text-white font-bold">Smart Scoring</h4>
+            <h4 className="text-foreground dark:text-white font-bold">Smart Scoring</h4>
             <p className="text-xs text-brand-slate">Vendors are ranked by historical ETA accuracy and service quality ratings.</p>
          </GlassPanel>
-         <GlassPanel className="p-6 border-white/5 space-y-3">
+         <GlassPanel className="p-6 border-brand-border space-y-3">
             <ShieldCheck className="h-6 w-6 text-emerald-400" />
-            <h4 className="text-white font-bold">Certifications</h4>
+            <h4 className="text-foreground dark:text-white font-bold">Certifications</h4>
             <p className="text-xs text-brand-slate">Filter by HAAS, WreckMaster, or OEM-specific certifications.</p>
          </GlassPanel>
       </div>
@@ -41,7 +41,7 @@ export default function VendorSearchPage() {
       {/* GET /vendors/search */}
       <section className="space-y-8">
         <div className="space-y-2">
-           <h3 className="text-xl font-bold text-white">Find Available Vendors</h3>
+           <h3 className="text-xl font-bold text-foreground dark:text-white">Find Available Vendors</h3>
            <p className="text-brand-slate">Search for vendors near a specific coordinate that meet your service requirements.</p>
         </div>
 
@@ -60,7 +60,7 @@ export default function VendorSearchPage() {
               
               <div className="mt-6">
                  <h4 className="text-[10px] font-black text-brand-slate uppercase tracking-widest mb-4">Response Sample</h4>
-                 <GlassPanel className="p-4 bg-black/40 border-white/5 font-mono text-xs overflow-auto max-h-[400px]">
+                 <GlassPanel className="p-4 bg-black/40 border-brand-border font-mono text-xs overflow-auto max-h-[400px]">
                     <pre className="text-brand-slate">
 {`{
   "count": 2,
@@ -93,9 +93,9 @@ export default function VendorSearchPage() {
            </div>
            
            <div className="lg:col-span-5 space-y-6">
-              <GlassPanel className="p-8 border-white/5 bg-brand-bg/40 flex flex-col items-center text-center">
+              <GlassPanel className="p-8 border-brand-border bg-brand-bg/40 flex flex-col items-center text-center">
                  <Users className="h-12 w-12 text-brand-blue/30 mb-4" />
-                 <h4 className="text-lg font-bold text-white mb-2">Preferred Network</h4>
+                 <h4 className="text-lg font-bold text-foreground dark:text-white mb-2">Preferred Network</h4>
                  <p className="text-sm text-brand-slate leading-relaxed mb-6">
                     Enterprise clients can define a "Preferred Vendor List" in their account settings. Use the <code className="text-brand-blue">preferred_only=true</code> flag to restrict searches to your vetted partners.
                  </p>
@@ -105,16 +105,16 @@ export default function VendorSearchPage() {
               </GlassPanel>
 
               <div className="space-y-4">
-                 <h4 className="text-xs font-black text-white uppercase tracking-widest">Query Parameters</h4>
+                 <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Query Parameters</h4>
                  <ul className="space-y-3">
                     <li className="text-xs text-brand-slate border-l-2 border-brand-blue pl-4">
-                       <strong className="text-white font-mono">radius</strong>: Search radius in miles. Default: 15, Max: 100.
+                       <strong className="text-foreground dark:text-white font-mono">radius</strong>: Search radius in miles. Default: 15, Max: 100.
                     </li>
                     <li className="text-xs text-brand-slate border-l-2 border-brand-blue pl-4">
-                       <strong className="text-white font-mono">capabilities</strong>: Comma-separated list of required service types.
+                       <strong className="text-foreground dark:text-white font-mono">capabilities</strong>: Comma-separated list of required service types.
                     </li>
                     <li className="text-xs text-brand-slate border-l-2 border-brand-blue pl-4">
-                       <strong className="text-white font-mono">min_rating</strong>: Filter by vendor rating (1.0 - 5.0).
+                       <strong className="text-foreground dark:text-white font-mono">min_rating</strong>: Filter by vendor rating (1.0 - 5.0).
                     </li>
                  </ul>
               </div>

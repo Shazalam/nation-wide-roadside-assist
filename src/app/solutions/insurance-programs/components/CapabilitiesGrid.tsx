@@ -10,7 +10,7 @@ import {
 
 export default function CapabilitiesGrid() {
   return (
-    <section className="py-32 bg-[#081120] relative overflow-hidden">
+    <section className="py-32 bg-brand-bg relative overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#2F80FF]/10 blur-[150px] rounded-full pointer-events-none" />
       
@@ -32,7 +32,7 @@ export default function CapabilitiesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl lg:text-5xl font-black tracking-tight text-white mb-6"
+            className="text-4xl lg:text-5xl font-black tracking-tight text-foreground dark:text-white mb-6"
           >
             Engineered for Modern Insurance Operations
           </motion.h2>
@@ -41,7 +41,7 @@ export default function CapabilitiesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[#94A3B8] text-lg leading-relaxed max-w-2xl mx-auto"
+            className="text-brand-slate text-lg leading-relaxed max-w-2xl mx-auto"
           >
             Our platform provides the infrastructure needed to modernize roadside claims, improve loss ratios, and elevate member satisfaction at scale.
           </motion.p>
@@ -56,7 +56,7 @@ export default function CapabilitiesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="group relative bg-[#0A192F] border border-white/10 rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
+            className="group relative bg-card border border-brand-border rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             
@@ -66,11 +66,11 @@ export default function CapabilitiesGrid() {
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2F80FF]/20 to-transparent border border-[#2F80FF]/30 flex items-center justify-center shrink-0">
                   <Tag className="w-5 h-5 text-[#2F80FF]" />
                 </div>
-                <h3 className="text-lg font-bold text-white leading-snug">
+                <h3 className="text-lg font-bold text-foreground dark:text-white leading-snug">
                   White-Label<br/>Operations
                 </h3>
               </div>
-              <p className="text-[13px] text-[#94A3B8] leading-relaxed mb-6">
+              <p className="text-[13px] text-brand-slate leading-relaxed mb-6">
                 Deliver seamless branded roadside experiences integrated directly into your insurance ecosystem.
               </p>
               <button className="mt-auto self-start px-4 py-2 rounded-xl border border-[#2F80FF]/30 text-[#2F80FF] text-[10px] font-bold uppercase tracking-widest hover:bg-[#2F80FF]/10 transition-colors flex items-center gap-2 group/btn">
@@ -86,7 +86,7 @@ export default function CapabilitiesGrid() {
               <motion.div 
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute right-0 top-6 w-36 h-24 bg-[#081120]/80 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl p-2.5 transform perspective-1000 rotate-y-[-15deg] rotate-x-[5deg]"
+                className="absolute right-0 top-6 w-36 h-24 bg-brand-bg/80 backdrop-blur-md border border-brand-border rounded-xl shadow-2xl p-2.5 transform perspective-1000 rotate-y-[-15deg] rotate-x-[5deg]"
               >
                 <div className="flex gap-1.5 mb-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-500/50" />
@@ -107,7 +107,7 @@ export default function CapabilitiesGrid() {
               <motion.div 
                 animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute left-2 bottom-4 w-20 h-36 bg-[#0A192F] border-4 border-[#081120] rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col"
+                className="absolute left-2 bottom-4 w-20 h-36 bg-card border-4 border-[#081120] rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col"
               >
                 <div className="bg-[#2F80FF] h-8 w-full flex items-center justify-center">
                   <div className="w-6 h-1 bg-white/30 rounded-full" />
@@ -132,7 +132,7 @@ export default function CapabilitiesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="group relative bg-[#0A192F] border border-white/10 rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
+            className="group relative bg-card border border-brand-border rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             
@@ -142,11 +142,11 @@ export default function CapabilitiesGrid() {
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2F80FF]/20 to-transparent border border-[#2F80FF]/30 flex items-center justify-center shrink-0">
                   <BrainCircuit className="w-5 h-5 text-[#2F80FF]" />
                 </div>
-                <h3 className="text-lg font-bold text-white leading-snug">
+                <h3 className="text-lg font-bold text-foreground dark:text-white leading-snug">
                   Dispatch<br/>Intelligence
                 </h3>
               </div>
-              <p className="text-[13px] text-[#94A3B8] leading-relaxed mb-6">
+              <p className="text-[13px] text-brand-slate leading-relaxed mb-6">
                 Automated dispatch orchestration and intelligent escalation systems designed for enterprise roadside efficiency.
               </p>
               <button className="mt-auto self-start px-4 py-2 rounded-xl border border-[#2F80FF]/30 text-[#2F80FF] text-[10px] font-bold uppercase tracking-widest hover:bg-[#2F80FF]/10 transition-colors flex items-center gap-2 group/btn">
@@ -163,35 +163,35 @@ export default function CapabilitiesGrid() {
                 <circle cx="100" cy="150" r="2" fill="#2F80FF" />
               </svg>
 
-              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[180px] h-[60px] border border-white/5 rounded-[100%] rotate-x-60" />
+              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[180px] h-[60px] border border-brand-border rounded-[100%] rotate-x-60" />
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-[30px] border border-[#2F80FF]/30 rounded-[100%] rotate-x-60 shadow-[0_0_20px_rgba(47,128,255,0.3)]" />
 
               <div className="absolute right-0 top-4 w-[140px] space-y-2 z-20">
                 <motion.div 
                   animate={{ x: [0, -3, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="flex items-center gap-2 px-2.5 py-1.5 bg-[#081120]/90 border border-emerald-500/30 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] backdrop-blur-md"
+                  className="flex items-center gap-2 px-2.5 py-1.5 bg-brand-bg/90 border border-emerald-500/30 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] backdrop-blur-md"
                 >
                   <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" />
-                  <span className="text-[8px] text-white font-medium leading-tight">AI Routing<br/>Optimal</span>
+                  <span className="text-[8px] text-foreground dark:text-white font-medium leading-tight">AI Routing<br/>Optimal</span>
                 </motion.div>
                 
                 <motion.div 
                   animate={{ x: [0, -5, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                  className="flex items-center gap-2 px-2.5 py-1.5 bg-[#081120]/90 border border-[#2F80FF]/30 rounded-xl shadow-[0_0_15px_rgba(47,128,255,0.15)] backdrop-blur-md ml-3"
+                  className="flex items-center gap-2 px-2.5 py-1.5 bg-brand-bg/90 border border-[#2F80FF]/30 rounded-xl shadow-[0_0_15px_rgba(47,128,255,0.15)] backdrop-blur-md ml-3"
                 >
                   <Shield className="w-3 h-3 text-[#2F80FF] shrink-0" />
-                  <span className="text-[8px] text-white font-medium leading-tight">SLA Sync<br/>97.8%</span>
+                  <span className="text-[8px] text-foreground dark:text-white font-medium leading-tight">SLA Sync<br/>97.8%</span>
                 </motion.div>
 
                 <motion.div 
                   animate={{ x: [0, -3, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                  className="flex items-center gap-2 px-2.5 py-1.5 bg-[#081120]/90 border border-[#FF7A1A]/30 rounded-xl shadow-[0_0_15px_rgba(255,122,26,0.15)] backdrop-blur-md ml-6"
+                  className="flex items-center gap-2 px-2.5 py-1.5 bg-brand-bg/90 border border-[#FF7A1A]/30 rounded-xl shadow-[0_0_15px_rgba(255,122,26,0.15)] backdrop-blur-md ml-6"
                 >
                   <AlertTriangle className="w-3 h-3 text-[#FF7A1A] shrink-0" />
-                  <span className="text-[8px] text-white font-medium leading-tight">Risk Level<br/>Low</span>
+                  <span className="text-[8px] text-foreground dark:text-white font-medium leading-tight">Risk Level<br/>Low</span>
                 </motion.div>
               </div>
 
@@ -199,7 +199,7 @@ export default function CapabilitiesGrid() {
                  <div className="relative">
                     <div className="w-8 h-8 rounded-full bg-[#2F80FF]/20 animate-ping absolute inset-0" />
                     <div className="w-8 h-8 rounded-full bg-[#2F80FF] shadow-[0_0_30px_#2F80FF] flex items-center justify-center relative z-10 border-2 border-white/20">
-                       <Zap className="w-3.5 h-3.5 text-white" />
+                       <Zap className="w-3.5 h-3.5 text-foreground dark:text-white" />
                     </div>
                  </div>
               </div>
@@ -212,7 +212,7 @@ export default function CapabilitiesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="group relative bg-[#0A192F] border border-white/10 rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
+            className="group relative bg-card border border-brand-border rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             
@@ -222,11 +222,11 @@ export default function CapabilitiesGrid() {
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2F80FF]/20 to-transparent border border-[#2F80FF]/30 flex items-center justify-center shrink-0">
                   <Code2 className="w-5 h-5 text-[#2F80FF]" />
                 </div>
-                <h3 className="text-lg font-bold text-white leading-snug">
+                <h3 className="text-lg font-bold text-foreground dark:text-white leading-snug">
                   API-Driven<br/>Integrations
                 </h3>
               </div>
-              <p className="text-[13px] text-[#94A3B8] leading-relaxed mb-6">
+              <p className="text-[13px] text-brand-slate leading-relaxed mb-6">
                 Integrate workflows directly into policy systems, claims infrastructure, and mobility platforms.
               </p>
               <button className="mt-auto self-start px-4 py-2 rounded-xl border border-[#2F80FF]/30 text-[#2F80FF] text-[10px] font-bold uppercase tracking-widest hover:bg-[#2F80FF]/10 transition-colors flex items-center gap-2 group/btn">
@@ -270,10 +270,10 @@ export default function CapabilitiesGrid() {
                       key={i}
                       animate={{ x: [0, -2, 0] }}
                       transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
-                      className="flex items-center gap-2 px-2.5 py-1.5 bg-[#081120] border border-white/10 rounded-lg shadow-xl"
+                      className="flex items-center gap-2 px-2.5 py-1.5 bg-brand-bg border border-brand-border rounded-lg shadow-xl"
                     >
-                      <Icon className="w-3 h-3 text-[#94A3B8]" />
-                      <span className="text-[8px] text-[#94A3B8] font-mono uppercase">{item.label}</span>
+                      <Icon className="w-3 h-3 text-brand-slate" />
+                      <span className="text-[8px] text-brand-slate font-mono uppercase">{item.label}</span>
                     </motion.div>
                   )
                 })}

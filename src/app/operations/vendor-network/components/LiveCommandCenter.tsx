@@ -22,15 +22,15 @@ export const LiveCommandCenter = () => {
       <div className="container mx-auto px-4">
         
         <div className="flex items-center justify-between mb-8">
-           <h2 className="text-2xl font-black text-white">Live Network Command Center</h2>
+           <h2 className="text-2xl font-black text-foreground dark:text-white">Live Network Command Center</h2>
            <div className="flex gap-8">
               <div>
-                 <div className="text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider mb-1">Active Dispatches</div>
-                 <div className="text-lg font-mono text-white">1,243 <span className="text-emerald-400 text-xs">+12.5%</span></div>
+                 <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Active Dispatches</div>
+                 <div className="text-lg font-mono text-foreground dark:text-white">1,243 <span className="text-emerald-400 text-xs">+12.5%</span></div>
               </div>
               <div>
-                 <div className="text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider mb-1">Vendors Online</div>
-                 <div className="text-lg font-mono text-white">18,742 <span className="text-emerald-400 text-xs">+8.2%</span></div>
+                 <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Vendors Online</div>
+                 <div className="text-lg font-mono text-foreground dark:text-white">18,742 <span className="text-emerald-400 text-xs">+8.2%</span></div>
               </div>
            </div>
         </div>
@@ -46,7 +46,7 @@ export const LiveCommandCenter = () => {
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left w-full text-sm font-bold ${
                   activeTab === tab.id 
                     ? 'bg-[#2F80FF]/10 text-[#2F80FF] border border-[#2F80FF]/20' 
-                    : 'bg-[#0A192F]/40 text-[#94A3B8] border border-transparent hover:bg-white/5 hover:text-white'
+                    : 'bg-card/40 text-brand-slate border border-transparent hover:bg-white/5 hover:text-foreground dark:text-white'
                 }`}
               >
                 <tab.icon className="h-4 w-4" />
@@ -56,8 +56,8 @@ export const LiveCommandCenter = () => {
           </div>
 
           {/* Center Map Area */}
-          <GlassPanel className="flex-1 p-0 overflow-hidden border-white/10 bg-[#0A192F]/20 relative min-h-[500px]">
-            <div className="absolute inset-0 bg-[#081120]" />
+          <GlassPanel className="flex-1 p-0 overflow-hidden border-brand-border bg-card/20 relative min-h-[500px]">
+            <div className="absolute inset-0 bg-brand-bg" />
             <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#2F80FF 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
             
             {/* Mock Map Routing */}
@@ -81,33 +81,33 @@ export const LiveCommandCenter = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute bottom-6 left-6 w-72 bg-[#0A192F]/90 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-2xl"
+                  className="absolute bottom-6 left-6 w-72 bg-card/90 backdrop-blur-xl border border-brand-border rounded-xl p-4 shadow-2xl"
                >
-                  <div className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-wider mb-3">Nearest Vendor Match</div>
-                  <div className="text-white font-bold mb-1">Prime Towing BHM</div>
+                  <div className="text-[10px] font-bold text-brand-slate uppercase tracking-wider mb-3">Nearest Vendor Match</div>
+                  <div className="text-foreground dark:text-white font-bold mb-1">Prime Towing BHM</div>
                   <div className="flex items-center gap-1 text-[#FF7A1A] mb-4">
                      {[...Array(5)].map((_,i)=><svg key={i} className="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
                      <span className="text-xs ml-1">4.9</span>
                   </div>
-                  <div className="flex justify-between mb-4 pb-4 border-b border-white/10">
+                  <div className="flex justify-between mb-4 pb-4 border-b border-brand-border">
                      <div>
-                        <div className="text-[10px] text-[#94A3B8] uppercase">ETA</div>
-                        <div className="text-white font-mono">28 min</div>
+                        <div className="text-[10px] text-brand-slate uppercase">ETA</div>
+                        <div className="text-foreground dark:text-white font-mono">28 min</div>
                      </div>
                      <div>
-                        <div className="text-[10px] text-[#94A3B8] uppercase">Distance</div>
-                        <div className="text-white font-mono">12.4 mi</div>
+                        <div className="text-[10px] text-brand-slate uppercase">Distance</div>
+                        <div className="text-foreground dark:text-white font-mono">12.4 mi</div>
                      </div>
                   </div>
-                  <Button className="w-full bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white text-xs h-8">Assign Vendor</Button>
+                  <Button className="w-full bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white text-xs h-8">Assign Vendor</Button>
                </motion.div>
             </AnimatePresence>
           </GlassPanel>
 
           {/* Right Queue */}
           <div className="lg:w-80 shrink-0">
-             <GlassPanel className="p-4 h-full border-white/5 bg-[#0A192F]/30 flex flex-col">
-                <div className="text-[11px] font-bold text-white uppercase tracking-widest mb-4 flex items-center justify-between">
+             <GlassPanel className="p-4 h-full border-brand-border bg-card/30 flex flex-col">
+                <div className="text-[11px] font-bold text-foreground dark:text-white uppercase tracking-widest mb-4 flex items-center justify-between">
                    Dispatch Queue
                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
                 </div>
@@ -118,18 +118,18 @@ export const LiveCommandCenter = () => {
                       { id: "#DP-78292", type: "Battery Service", loc: "Atlanta, GA", eta: "32 min" },
                       { id: "#DP-78193", type: "Tire Change", loc: "Nashville, TN", eta: "18 min" }
                    ].map((item, i) => (
-                      <div key={i} className="p-3 rounded-lg bg-white/[0.02] border border-white/5 hover:border-[#2F80FF]/30 transition-colors cursor-pointer">
+                      <div key={i} className="p-3 rounded-lg bg-white/[0.02] border border-brand-border hover:border-[#2F80FF]/30 transition-colors cursor-pointer">
                          <div className="flex justify-between items-start mb-2">
                             <div className="text-[10px] font-mono text-[#2F80FF]">{item.id}</div>
                             <div className="text-[10px] text-emerald-400 font-mono">ETA {item.eta}</div>
                          </div>
-                         <div className="text-sm font-bold text-white truncate">{item.type}</div>
-                         <div className="text-xs text-[#94A3B8] truncate">{item.loc}</div>
+                         <div className="text-sm font-bold text-foreground dark:text-white truncate">{item.type}</div>
+                         <div className="text-xs text-brand-slate truncate">{item.loc}</div>
                       </div>
                    ))}
                 </div>
                 
-                <button className="text-[11px] font-bold text-[#2F80FF] hover:text-white transition-colors mt-4 w-full text-center py-2 border border-[#2F80FF]/20 rounded-lg">
+                <button className="text-[11px] font-bold text-[#2F80FF] hover:text-foreground dark:text-white transition-colors mt-4 w-full text-center py-2 border border-[#2F80FF]/20 rounded-lg">
                    View All Dispatches
                 </button>
              </GlassPanel>

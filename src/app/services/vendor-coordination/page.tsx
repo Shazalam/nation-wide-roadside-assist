@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Navbar } from '@/components/layout/navbar';
-import { EnterpriseFooter } from '@/app/services/heavy-duty-towing/components/EnterpriseFooter';
+import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
 import { VendorHero } from './components/VendorHero';
 import { TrustSection } from './components/TrustSection';
 import { VendorOperationsGrid } from './components/VendorOperationsGrid';
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function VendorCoordinationPage() {
   return (
-    <main className="bg-[#081120] min-h-screen text-brand-slate selection:bg-brand-blue/30 selection:text-white font-sans overflow-x-hidden">
+    <main className="bg-brand-bg min-h-screen text-brand-slate selection:bg-brand-blue/30 selection:text-foreground dark:text-white font-sans overflow-x-hidden">
       <Navbar />
       
       <div className="relative z-10">

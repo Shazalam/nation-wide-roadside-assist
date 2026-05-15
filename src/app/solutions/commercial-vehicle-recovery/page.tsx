@@ -9,7 +9,7 @@ import ServicesGrid from './ServicesGrid';
 import APIInfrastructure from './APIInfrastructure';
 import EnterpriseAnalytics from './EnterpriseAnalytics';
 import CTASection from './CTASection';
-import EnterpriseFooter from './EnterpriseFooter';
+import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
 import { Navbar } from '@/components/layout/navbar';
 
 export const metadata = {
@@ -19,7 +19,7 @@ export const metadata = {
 
 export default function CommercialVehicleRecoveryPage() {
   return (
-    <main className="min-h-screen bg-[#081120] text-white selection:bg-[#2F80FF]/30 selection:text-[#2F80FF]">
+    <main className="min-h-screen bg-brand-bg text-foreground dark:text-white selection:bg-[#2F80FF]/30 selection:text-[#2F80FF]">
       <Navbar />
       
       <HeroSection />

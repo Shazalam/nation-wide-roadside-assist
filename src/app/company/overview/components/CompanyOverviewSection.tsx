@@ -7,16 +7,16 @@ import { GlassPanel } from '@/components/ui/glass-panel';
 
 export const CompanyOverviewSection = () => {
   return (
-    <section className="py-32 bg-[#0A192F]/20 relative z-10 border-t border-white/5">
+    <section className="py-32 bg-card/20 relative z-10 border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
            
            <div className="lg:col-span-5">
-              <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-8">
+              <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-8">
                  The Infrastructure <br />
-                 <span className="text-[#94A3B8]">Behind Mobility</span>
+                 <span className="text-brand-slate">Behind Mobility</span>
               </h2>
-              <div className="space-y-6 text-[#94A3B8] font-medium leading-relaxed text-sm md:text-base">
+              <div className="space-y-6 text-brand-slate font-medium leading-relaxed text-sm md:text-base">
                  <p>
                     Nationwide Trans Inc. operates the underlying operational architecture that powers the modern mobility and recovery economy. We are not a traditional roadside provider; we are the enterprise dispatch intelligence engine that makes nationwide coordination possible.
                  </p>
@@ -33,8 +33,8 @@ export const CompanyOverviewSection = () => {
                    { label: 'Data Security', val: 'Enterprise-Grade' }
                  ].map((stat, i) => (
                    <div key={i} className="border-l border-[#2F80FF] pl-4 py-1">
-                      <p className="text-xl font-black text-white">{stat.val}</p>
-                      <p className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-widest mt-1">{stat.label}</p>
+                      <p className="text-xl font-black text-foreground dark:text-white">{stat.val}</p>
+                      <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest mt-1">{stat.label}</p>
                    </div>
                  ))}
               </div>
@@ -56,12 +56,12 @@ export const CompanyOverviewSection = () => {
                      viewport={{ once: true }}
                      className={i % 2 === 1 ? 'md:mt-12' : ''}
                    >
-                      <GlassPanel className="p-8 border-white/5 bg-[#081120]/80 hover:bg-white/[0.02] transition-colors group">
-                         <div className="h-12 w-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#2F80FF]/50 transition-colors">
+                      <GlassPanel className="p-8 border-brand-border bg-brand-bg/80 hover:bg-white/[0.02] transition-colors group">
+                         <div className="h-12 w-12 rounded-xl bg-white/5 border border-brand-border flex items-center justify-center mb-6 group-hover:border-[#2F80FF]/50 transition-colors">
                             <card.icon className="h-5 w-5 text-[#2F80FF]" />
                          </div>
-                         <h3 className="text-sm font-black text-white uppercase tracking-widest mb-3">{card.title}</h3>
-                         <p className="text-[11px] text-[#94A3B8] font-medium leading-relaxed">
+                         <h3 className="text-sm font-black text-foreground dark:text-white uppercase tracking-widest mb-3">{card.title}</h3>
+                         <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
                             {card.desc}
                          </p>
                       </GlassPanel>

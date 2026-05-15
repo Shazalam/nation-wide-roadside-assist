@@ -20,7 +20,7 @@ export const DispatchWorkflow = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Operational Lifecycle</p>
-          <h2 className="text-4xl lg:text-5xl font-black text-white mb-6">Mission-Critical Workflow</h2>
+          <h2 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white mb-6">Mission-Critical Workflow</h2>
           <p className="text-brand-slate text-lg leading-relaxed">
             Standardized operational sequences engineered for high-availability enterprise recovery and dispatch.
           </p>
@@ -40,19 +40,19 @@ export const DispatchWorkflow = () => {
                 transition={{ delay: i * 0.1 }}
                 className="relative group"
               >
-                <GlassPanel className="p-6 pt-10 border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all flex flex-col items-center text-center group h-full">
+                <GlassPanel className="p-6 pt-10 border-brand-border bg-white/[0.01] hover:bg-white/[0.03] transition-all flex flex-col items-center text-center group h-full">
                   {/* Step Number Badge */}
                   <div className="absolute top-4 right-4 text-[10px] font-black text-brand-blue/40 font-mono">
                     0{step.id}
                   </div>
 
                   {/* Icon Circle */}
-                  <div className="h-16 w-16 rounded-full bg-brand-navy border border-white/10 flex items-center justify-center mb-6 relative group-hover:border-brand-blue/50 transition-colors shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                  <div className="h-16 w-16 rounded-full bg-brand-navy border border-brand-border flex items-center justify-center mb-6 relative group-hover:border-brand-blue/50 transition-colors shadow-[0_0_20px_rgba(0,0,0,0.5)]">
                     <div className="absolute inset-0 rounded-full bg-brand-blue/5 blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
                     <step.icon className="h-7 w-7 text-brand-blue relative z-10 group-hover:scale-110 transition-transform" />
                   </div>
 
-                  <h4 className="text-sm font-bold text-white mb-3 tracking-tight">{step.title}</h4>
+                  <h4 className="text-sm font-bold text-foreground dark:text-white mb-3 tracking-tight">{step.title}</h4>
                   <p className="text-[11px] text-brand-slate leading-relaxed">{step.desc}</p>
                 </GlassPanel>
               </motion.div>

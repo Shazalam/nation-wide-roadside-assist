@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function VendorNetworkPage() {
   return (
-    <main className="bg-[#081120] min-h-screen text-brand-slate selection:bg-brand-blue/30 selection:text-white">
+    <main className="bg-brand-bg min-h-screen text-brand-slate selection:bg-brand-blue/30 selection:text-foreground dark:text-white">
       <Navbar />
       
       <div className="relative z-10 pt-24">

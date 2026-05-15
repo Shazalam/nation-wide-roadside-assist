@@ -19,7 +19,7 @@ export const LiveMap = () => {
   return (
     <div className="relative w-full h-full min-h-[600px] rounded-2xl overflow-hidden border border-brand-border bg-brand-navy/20">
       {/* Mock Map Background */}
-      <div className="absolute inset-0 bg-[#0A192F] overflow-hidden">
+      <div className="absolute inset-0 bg-card overflow-hidden">
         {/* Grid lines for "Technical" look */}
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #2F80FF 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         
@@ -36,22 +36,22 @@ export const LiveMap = () => {
 
       {/* Map Overlay Controls */}
       <div className="absolute top-6 left-6 z-10 space-y-4">
-        <GlassPanel className="p-2 flex flex-col gap-2 bg-brand-navy/80 border-white/10">
-          <button className="p-2 text-brand-slate hover:text-white transition-colors"><ZoomIn className="h-5 w-5" /></button>
+        <GlassPanel className="p-2 flex flex-col gap-2 bg-brand-navy/80 border-brand-border">
+          <button className="p-2 text-brand-slate hover:text-foreground dark:text-white transition-colors"><ZoomIn className="h-5 w-5" /></button>
           <div className="h-px w-full bg-brand-border" />
-          <button className="p-2 text-brand-slate hover:text-white transition-colors"><ZoomOut className="h-5 w-5" /></button>
+          <button className="p-2 text-brand-slate hover:text-foreground dark:text-white transition-colors"><ZoomOut className="h-5 w-5" /></button>
         </GlassPanel>
         
-        <GlassPanel className="p-2 bg-brand-navy/80 border-white/10">
+        <GlassPanel className="p-2 bg-brand-navy/80 border-brand-border">
           <button className="p-2 text-brand-blue"><Crosshair className="h-5 w-5" /></button>
         </GlassPanel>
       </div>
 
       <div className="absolute top-6 right-6 z-10">
-        <GlassPanel className="px-4 py-3 bg-brand-navy/80 border-white/10 flex items-center gap-4">
+        <GlassPanel className="px-4 py-3 bg-brand-navy/80 border-brand-border flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10B981]" />
-            <span className="text-[10px] font-bold text-white uppercase tracking-widest">Global Link Active</span>
+            <span className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest">Global Link Active</span>
           </div>
           <div className="h-4 w-[1px] bg-brand-border" />
           <div className="text-[10px] text-brand-slate font-mono">LAT: 40.7128 | LON: -74.0060</div>
@@ -80,8 +80,8 @@ const MapPoint = ({ x, y, status, label }: any) => (
     <div className="relative">
       <StatusIndicator status={status} pulse />
       <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-        <GlassPanel className="px-2 py-1 whitespace-nowrap bg-brand-navy/90 border-white/10">
-          <span className="text-[8px] font-bold text-white uppercase tracking-tighter">{label}</span>
+        <GlassPanel className="px-2 py-1 whitespace-nowrap bg-brand-navy/90 border-brand-border">
+          <span className="text-[8px] font-bold text-foreground dark:text-white uppercase tracking-tighter">{label}</span>
         </GlassPanel>
       </div>
     </div>

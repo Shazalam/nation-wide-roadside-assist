@@ -61,7 +61,7 @@ export const AssistanceAPI = () => {
   };
 
   return (
-    <section className="py-32 relative z-10 bg-[#0A192F]/50 border-y border-white/5">
+    <section className="py-32 relative z-10 bg-card/50 border-y border-brand-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
@@ -69,8 +69,8 @@ export const AssistanceAPI = () => {
           <div className="lg:col-span-5 space-y-10">
             <div>
               <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Developer Platform</p>
-              <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight mb-8">API-First Assistance Infrastructure</h2>
-              <p className="text-lg text-[#94A3B8] leading-relaxed">
+              <h2 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight mb-8">API-First Assistance Infrastructure</h2>
+              <p className="text-lg text-brand-slate leading-relaxed">
                 Seamlessly integrate roadside operations into your existing platforms with our robust developer tools, real-time webhooks, and enterprise SDKs.
               </p>
             </div>
@@ -87,18 +87,18 @@ export const AssistanceAPI = () => {
                        <item.icon className="h-4 w-4 text-brand-blue" />
                     </div>
                     <div>
-                       <p className="text-[11px] font-black text-white uppercase tracking-widest mb-1">{item.title}</p>
-                       <p className="text-[10px] text-[#94A3B8] leading-normal">{item.desc}</p>
+                       <p className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-widest mb-1">{item.title}</p>
+                       <p className="text-[10px] text-brand-slate leading-normal">{item.desc}</p>
                     </div>
                  </div>
                ))}
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
-               <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold h-12 px-8 rounded-xl shadow-[0_0_20px_rgba(47,128,255,0.3)]">
+               <Button className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold h-12 px-8 rounded-xl shadow-[0_0_20px_rgba(47,128,255,0.3)]">
                   Explore API Docs
                </Button>
-               <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 h-12 px-8 rounded-xl">
+               <Button variant="outline" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-12 px-8 rounded-xl">
                   Request Sandbox Key
                </Button>
             </div>
@@ -108,9 +108,9 @@ export const AssistanceAPI = () => {
           <div className="lg:col-span-7 relative">
              <div className="absolute -inset-10 bg-brand-blue/10 blur-[100px] rounded-full pointer-events-none" />
              
-             <GlassPanel className="p-0 border-white/10 bg-[#081120] shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
+             <GlassPanel className="p-0 border-brand-border bg-brand-bg shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
                 {/* Header */}
-                <div className="px-8 py-5 border-b border-white/5 bg-white/[0.02] flex items-center justify-between">
+                <div className="px-8 py-5 border-b border-brand-border bg-white/[0.02] flex items-center justify-between">
                    <div className="flex items-center gap-8">
                       {(['dispatch', 'incident', 'webhooks'] as const).map(t => (
                         <button 
@@ -118,7 +118,7 @@ export const AssistanceAPI = () => {
                           onClick={() => setActiveTab(t)}
                           suppressHydrationWarning
                           className={`text-[11px] font-mono font-bold uppercase tracking-widest transition-colors relative ${
-                            activeTab === t ? 'text-brand-blue' : 'text-[#94A3B8] hover:text-white'
+                            activeTab === t ? 'text-brand-blue' : 'text-brand-slate hover:text-foreground dark:text-white'
                           }`}
                         >
                           {t === 'dispatch' ? 'dispatch.sh' : t + '.json'}
@@ -128,27 +128,27 @@ export const AssistanceAPI = () => {
                         </button>
                       ))}
                    </div>
-                   <button onClick={handleCopy} suppressHydrationWarning className="text-[#94A3B8] hover:text-white transition-colors">
+                   <button onClick={handleCopy} suppressHydrationWarning className="text-brand-slate hover:text-foreground dark:text-white transition-colors">
                       {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
                    </button>
                 </div>
 
                 {/* Code View */}
                 <div className="p-10 h-[450px] overflow-auto font-mono text-[13px] leading-relaxed no-scrollbar">
-                   <pre className="text-white/80 whitespace-pre-wrap">
+                   <pre className="text-foreground dark:text-white/80 whitespace-pre-wrap">
                       <code>{codeExamples[activeTab]}</code>
                    </pre>
                 </div>
 
                 {/* Footer */}
-                <div className="px-8 py-4 border-t border-white/5 bg-white/[0.01] flex items-center justify-between">
+                <div className="px-8 py-4 border-t border-brand-border bg-white/[0.01] flex items-center justify-between">
                    <div className="flex items-center gap-4">
                       <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-[10px] font-mono text-[#94A3B8] uppercase">System Status: All Nodes Operational</span>
+                      <span className="text-[10px] font-mono text-brand-slate uppercase">System Status: All Nodes Operational</span>
                    </div>
                    <div className="flex gap-6">
                       <span className="text-[10px] font-mono text-brand-blue font-bold cursor-pointer hover:underline">API v2.4</span>
-                      <span className="text-[10px] font-mono text-white/20 font-bold">SHA: 8f2l9k4</span>
+                      <span className="text-[10px] font-mono text-foreground dark:text-white/20 font-bold">SHA: 8f2l9k4</span>
                    </div>
                 </div>
              </GlassPanel>
@@ -157,9 +157,9 @@ export const AssistanceAPI = () => {
              <motion.div
                initial={{ x: 20, opacity: 0 }}
                whileInView={{ x: 0, opacity: 1 }}
-               className="absolute top-20 -right-24 w-64 bg-[#0A192F]/90 border border-white/10 p-6 rounded-3xl shadow-2xl backdrop-blur-3xl hidden xl:block"
+               className="absolute top-20 -right-24 w-64 bg-card/90 border border-brand-border p-6 rounded-3xl shadow-2xl backdrop-blur-3xl hidden xl:block"
              >
-                <div className="text-[11px] font-black text-white uppercase tracking-widest mb-6 flex items-center gap-2">
+                <div className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-widest mb-6 flex items-center gap-2">
                    <Zap className="h-3 w-3 text-brand-blue" /> Recent Webhook Events
                 </div>
                 <div className="space-y-4">
@@ -171,8 +171,8 @@ export const AssistanceAPI = () => {
                      { e: 'incident.completed', t: '35 sec ago' }
                    ].map((evt, i) => (
                      <div key={i} className="flex items-center justify-between group cursor-pointer">
-                        <span className="text-[10px] font-mono text-[#94A3B8] group-hover:text-white transition-colors">{evt.e}</span>
-                        <span className="text-[9px] font-mono text-white/20">{evt.t}</span>
+                        <span className="text-[10px] font-mono text-brand-slate group-hover:text-foreground dark:text-white transition-colors">{evt.e}</span>
+                        <span className="text-[9px] font-mono text-foreground dark:text-white/20">{evt.t}</span>
                      </div>
                    ))}
                 </div>

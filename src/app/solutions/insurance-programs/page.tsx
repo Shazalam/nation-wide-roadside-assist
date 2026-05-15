@@ -8,7 +8,7 @@ import WorkflowTimeline from './components/WorkflowTimeline';
 import IndustryEcosystem from './components/IndustryEcosystem';
 import APIInfrastructure from './components/APIInfrastructure';
 import CTASection from './components/CTASection';
-import EnterpriseFooter from '../commercial-vehicle-recovery/EnterpriseFooter';
+import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
 import { Navbar } from '@/components/layout/navbar';
 
 export const metadata = {
@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function InsuranceProgramsPage() {
   return (
-    <main className="min-h-screen bg-[#081120] text-white selection:bg-[#2F80FF]/30 selection:text-[#2F80FF]">
+    <main className="min-h-screen bg-brand-bg text-foreground selection:bg-brand-blue/30 transition-colors duration-500">
       <Navbar />
       
       <HeroSection />

@@ -3,81 +3,139 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Truck, HelpCircle, Fuel, Battery, 
-  Lock, Wrench, Navigation, CheckCircle, 
-  ArrowUpRight, Bus, Anchor
+  Truck, 
+  Navigation, 
+  Anchor, 
+  Shield, 
+  Container, 
+  CircleDot, 
+  Fuel, 
+  Wrench, 
+  Zap, 
+  Lock,
+  Globe,
+  Settings
 } from 'lucide-react';
 import { GlassPanel } from '@/components/ui/glass-panel';
 
-const Shield = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
-);
-
 const services = [
-  { label: 'Heavy-Duty Towing', icon: Truck, eta: '28m', availability: '99%' },
-  { label: 'Semi Truck Recovery', icon: Navigation, eta: '35m', availability: '97%' },
-  { label: 'Winch-Out Operations', icon: Anchor, eta: '42m', availability: '94%' },
-  { label: 'Accident Recovery', icon: Shield, iconAlt: true, eta: '24m', availability: '98%' },
-  { label: 'Trailer Recovery', icon: Truck, iconAlt: true, eta: '32m', availability: '96%' },
-  { label: 'Tire Change Assistance', icon: HelpCircle, eta: '24m', availability: '94%' },
-  { label: 'Fuel Delivery', icon: Fuel, eta: '18m', availability: '99%' },
-  { label: 'Mobile Mechanic', icon: Wrench, eta: '55m', availability: '88%' },
-  { label: 'Battery Jump Start', icon: Battery, eta: '15m', availability: '96%' },
-  { label: 'Lockout Services', icon: Lock, eta: '22m', availability: '92%' }
+  { 
+    title: 'Heavy-Duty Recovery', 
+    icon: Truck, 
+    details: 'Rotator and heavy wrecker services for Class 8 commercial vehicles and complex incident scenes.',
+    response: '32m',
+    availability: '98%'
+  },
+  { 
+    title: 'Winch-Out Operations', 
+    icon: Zap, 
+    details: 'Precision extraction from ditches, mud, snow, or difficult terrain using advanced winch technology.',
+    response: '24m',
+    availability: '95%'
+  },
+  { 
+    title: 'Accident Recovery', 
+    icon: Activity, 
+    details: 'Safe and efficient clearance of multi-vehicle accident sites, rollovers, and complex wreckage.',
+    response: '22m',
+    availability: '99%'
+  },
+  { 
+    title: 'Tractor-Trailer Recovery', 
+    icon: Container, 
+    details: 'Specialized support for heavy tractors, trailers, and cargo in mission-critical scenarios.',
+    response: '35m',
+    availability: '97%'
+  },
+  { 
+    title: 'RV & Camper Recovery', 
+    icon: Globe, 
+    details: 'Expert recovery and towing for Class A motorhomes, buses, and large recreational vehicles.',
+    response: '28m',
+    availability: '96%'
+  },
+  { 
+    title: 'Cargo Recovery', 
+    icon: CircleDot, 
+    details: 'Load shifts, spills, and cargo transfer recovery for high-value logistics and supply chain protection.',
+    response: '42m',
+    availability: '94%'
+  },
+  { 
+    title: 'Rotator Services', 
+    icon: Shield, 
+    details: '360° heavy lift and recovery capability for the most challenging and high-stakes incidents.',
+    response: '45m',
+    availability: '99%'
+  },
+  { 
+    title: 'Off-Road Recovery', 
+    icon: Navigation, 
+    details: 'Specialized 4x4 recovery for vehicles in off-road, deep mud, or remote wilderness recovery sites.',
+    response: '55m',
+    availability: '92%'
+  }
 ];
+
+import { Activity } from 'lucide-react';
 
 export const ServicesGrid = () => {
   return (
-    <section className="py-32 relative z-10 bg-brand-bg/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-24">
-          <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Service Ecosystem</p>
-          <h2 className="text-4xl lg:text-5xl font-black text-white mb-8 tracking-tight">Our Heavy-Duty Towing & Recovery Services</h2>
-          <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full" />
-        </div>
+    <section className="relative py-32 bg-brand-bg overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }} />
+      
+      <div className="max-w-[1600px] mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+           {services.map((service, i) => {
+             const Icon = service.icon;
+             return (
+               <motion.div
+                 key={i}
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ delay: i * 0.1 }}
+                 className="relative group"
+               >
+                  {/* Floating Icon Box */}
+                  <div className="absolute -top-6 left-8 h-14 w-14 bg-card border border-brand-blue/30 rounded-2xl flex items-center justify-center text-brand-blue shadow-[0_10px_30px_rgba(47,128,255,0.2)] z-20 group-hover:scale-110 group-hover:border-brand-blue transition-all duration-500">
+                     <Icon className="h-6 w-6" strokeWidth={2} />
+                  </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {services.map((service, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-            >
-              <GlassPanel className="p-8 border-white/5 bg-white/[0.01] hover:bg-brand-blue/5 transition-all group cursor-pointer h-full relative overflow-hidden flex flex-col items-center text-center">
-                {/* Background Glow */}
-                <div className="absolute -right-10 -top-10 w-24 h-24 bg-brand-blue/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                
-                <div className="h-16 w-16 rounded-2xl bg-brand-navy border border-white/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-2xl">
-                   <service.icon className="h-7 w-7 text-brand-blue" />
-                </div>
-                
-                <h4 className="text-[11px] font-black text-white mb-8 group-hover:text-brand-blue transition-colors uppercase tracking-widest leading-tight">{service.label}</h4>
-                
-                <div className="mt-auto w-full pt-8 border-t border-white/5 grid grid-cols-2 gap-4">
-                   <div>
-                      <p className="text-[8px] font-bold text-brand-slate uppercase mb-1.5 tracking-tighter">Avg ETA</p>
-                      <p className="text-xs font-black text-white">{service.eta}</p>
-                   </div>
-                   <div>
-                      <p className="text-[8px] font-bold text-brand-slate uppercase mb-1.5 tracking-tighter">Availability</p>
-                      <p className="text-xs font-black text-emerald-400">{service.availability}</p>
-                   </div>
-                </div>
+                  <GlassPanel className="p-10 pt-16 border-brand-border bg-card/40 backdrop-blur-2xl rounded-[3rem] hover:bg-card/60 hover:border-brand-blue/40 transition-all duration-500 group-hover:translate-y-[-8px] relative overflow-hidden">
+                     {/* Background Glow */}
+                     <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/5 blur-3xl -mr-16 -mt-16 group-hover:bg-brand-blue/10 transition-colors" />
 
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity translate-x-2 group-hover:translate-x-0">
-                   <ArrowUpRight className="h-4 w-4 text-brand-blue" />
-                </div>
-              </GlassPanel>
-            </motion.div>
-          ))}
-        </div>
+                     <h3 className="text-3xl font-black text-foreground dark:text-white uppercase tracking-tighter mb-6 group-hover:text-brand-blue transition-colors">
+                        {service.title}
+                     </h3>
+                     
+                     <p className="text-brand-slate text-base leading-relaxed font-medium mb-12 h-20 line-clamp-3 group-hover:text-foreground/80 transition-colors">
+                        {service.details}
+                     </p>
+                     
+                     {/* Divider */}
+                     <div className="h-[1px] bg-brand-border w-full mb-8 relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-blue/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+                     </div>
 
-        <div className="mt-16 text-center">
-           <button className="text-[11px] font-black text-brand-blue uppercase tracking-[0.4em] hover:opacity-70 transition-opacity border-b border-brand-blue/20 pb-2">
-             View All Specialist Recovery Services
-           </button>
+                     {/* Operational Stats */}
+                     <div className="grid grid-cols-2 gap-8">
+                        <div className="space-y-1">
+                           <p className="text-[10px] font-black uppercase text-brand-blue tracking-widest opacity-80">Avg Response</p>
+                           <p className="text-4xl font-black text-foreground dark:text-white tracking-tighter">{service.response}</p>
+                        </div>
+                        <div className="space-y-1 text-right">
+                           <p className="text-[10px] font-black uppercase text-brand-blue tracking-widest opacity-80">Availability</p>
+                           <p className="text-4xl font-black text-emerald-500 tracking-tighter">{service.availability}</p>
+                        </div>
+                     </div>
+                  </GlassPanel>
+               </motion.div>
+             );
+           })}
         </div>
       </div>
     </section>

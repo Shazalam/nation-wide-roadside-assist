@@ -59,7 +59,7 @@ export default function FleetSolutionsPage() {
               <Truck className="h-4 w-4 text-brand-blue" />
               <span className="text-xs font-bold text-brand-blue uppercase tracking-widest">Fleet Operations Mesh v1.8</span>
             </motion.div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8">
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground dark:text-white tracking-tight mb-8">
               Intelligence for the <br />
               <span className="bg-gradient-to-r from-brand-blue to-brand-orange bg-clip-text text-transparent">
                 World's Largest Fleets
@@ -75,14 +75,14 @@ export default function FleetSolutionsPage() {
             
             {/* Left: Interactive Asset Dashboard */}
             <div className="lg:col-span-8 space-y-8">
-              <GlassPanel className="p-8 bg-brand-navy/60 border-white/10 shadow-2xl relative overflow-hidden">
+              <GlassPanel className="p-8 bg-brand-navy/60 border-brand-border shadow-2xl relative overflow-hidden">
                 <div className="flex items-center justify-between mb-10">
                   <div className="flex items-center gap-4">
                     <div className="h-10 w-10 rounded-xl bg-brand-blue/20 flex items-center justify-center">
                       <Cpu className="h-6 w-6 text-brand-blue" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-white">Live Asset Telemetry</h3>
+                      <h3 className="text-lg font-bold text-foreground dark:text-white">Live Asset Telemetry</h3>
                       <p className="text-[10px] text-brand-slate uppercase tracking-widest">Connected Mesh Node: FLT-NY-182</p>
                     </div>
                   </div>
@@ -97,11 +97,11 @@ export default function FleetSolutionsPage() {
                     <TelemetryIndicator label="Coolant Temp" value={184} status="warning" />
                   </div>
                   
-                  <div className="h-full min-h-[200px] rounded-2xl bg-white/5 border border-white/5 relative overflow-hidden flex items-center justify-center group">
+                  <div className="h-full min-h-[200px] rounded-2xl bg-white/5 border border-brand-border relative overflow-hidden flex items-center justify-center group">
                     {/* Mock Map View */}
                     <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle, #2F80FF 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                     <MapPin className="h-8 w-8 text-brand-blue animate-bounce" />
-                    <div className="absolute bottom-4 left-4 right-4 p-2 rounded-lg bg-brand-navy/90 border border-white/10 text-[10px] text-brand-slate font-mono text-center">
+                    <div className="absolute bottom-4 left-4 right-4 p-2 rounded-lg bg-brand-navy/90 border border-brand-border text-[10px] text-brand-slate font-mono text-center">
                       LAT: 40.7128 | LON: -74.0060
                     </div>
                   </div>
@@ -117,9 +117,9 @@ export default function FleetSolutionsPage() {
 
             {/* Right: Cost Analytics Overlay */}
             <div className="lg:col-span-4 space-y-8">
-              <GlassPanel className="p-8 h-full flex flex-col bg-brand-navy/80 border-white/5">
+              <GlassPanel className="p-8 h-full flex flex-col bg-brand-navy/80 border-brand-border">
                 <div className="flex items-center justify-between mb-8">
-                  <h4 className="text-xs font-bold text-white uppercase tracking-widest">Cost vs. Savings Mesh</h4>
+                  <h4 className="text-xs font-bold text-foreground dark:text-white uppercase tracking-widest">Cost vs. Savings Mesh</h4>
                   <BarChart2 className="h-5 w-5 text-brand-orange" />
                 </div>
 
@@ -144,9 +144,9 @@ export default function FleetSolutionsPage() {
                 <div className="space-y-6">
                   <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
                     <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest mb-1">Total Optimization</p>
-                    <p className="text-2xl font-bold text-white">$1.2M Saved</p>
+                    <p className="text-2xl font-bold text-foreground dark:text-white">$1.2M Saved</p>
                   </div>
-                  <Button variant="ghost" className="w-full text-brand-slate hover:text-white border border-white/5 text-[10px] font-bold uppercase tracking-widest">
+                  <Button variant="ghost" className="w-full text-brand-slate hover:text-foreground dark:text-white border border-brand-border text-[10px] font-bold uppercase tracking-widest">
                     Export Audit Log
                   </Button>
                 </div>
@@ -162,9 +162,9 @@ export default function FleetSolutionsPage() {
               { icon: Settings, title: "Predictive Maintenance", desc: "Asset health modeling predicts failures before they result in costly downtime." },
               { icon: Cpu, title: "M2M Connectivity", desc: "Direct vehicle-to-infrastructure communication for hands-off operational management." },
             ].map((pillar) => (
-              <div key={pillar.title} className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-brand-blue/30 transition-all group">
+              <div key={pillar.title} className="p-8 rounded-3xl bg-white/[0.02] border border-brand-border hover:border-brand-blue/30 transition-all group">
                 <pillar.icon className="h-8 w-8 text-brand-blue mb-6 group-hover:scale-110 transition-transform" />
-                <h4 className="text-lg font-bold text-white mb-4">{pillar.title}</h4>
+                <h4 className="text-lg font-bold text-foreground dark:text-white mb-4">{pillar.title}</h4>
                 <p className="text-brand-slate text-sm leading-relaxed">{pillar.desc}</p>
               </div>
             ))}
@@ -173,16 +173,16 @@ export default function FleetSolutionsPage() {
           {/* Final CTA */}
           <div className="relative rounded-[3rem] overflow-hidden">
             <div className="absolute inset-0 bg-brand-blue/10 blur-3xl" />
-            <GlassPanel className="p-12 md:p-20 bg-brand-navy/60 border-white/10 text-center relative z-10">
-              <h2 className="text-4xl font-bold text-white mb-6">Unify Your Fleet Infrastructure</h2>
+            <GlassPanel className="p-12 md:p-20 bg-brand-navy/60 border-brand-border text-center relative z-10">
+              <h2 className="text-4xl font-bold text-foreground dark:text-white mb-6">Unify Your Fleet Infrastructure</h2>
               <p className="text-brand-slate max-w-2xl mx-auto mb-10 text-lg">
                 Join over 400 global fleet operators using Nationwide Trans to reduce downtime and optimize operational spend.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <Button size="lg" className="bg-brand-blue text-white font-bold h-14 px-10 rounded-2xl shadow-[0_0_30px_rgba(47,128,255,0.4)]">
+                <Button size="lg" className="bg-brand-blue text-foreground dark:text-white font-bold h-14 px-10 rounded-2xl shadow-[0_0_30px_rgba(47,128,255,0.4)]">
                    Connect Your Fleet
                 </Button>
-                <Button size="lg" variant="ghost" className="text-brand-slate hover:text-white flex items-center gap-2">
+                <Button size="lg" variant="ghost" className="text-brand-slate hover:text-foreground dark:text-white flex items-center gap-2">
                    View Hardware Specs <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>

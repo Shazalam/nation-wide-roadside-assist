@@ -19,14 +19,14 @@ export default function APIAnalyticsPage() {
     <div className="space-y-8">
       <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-bold text-white tracking-tight">API Analytics</h1>
+          <h1 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">API Analytics</h1>
           <p className="text-brand-slate text-lg">Monitor your integration performance and usage metrics.</p>
         </div>
         <div className="flex gap-3">
-          <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white hover:bg-white/10 transition-all">
+          <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-brand-border rounded-lg text-sm text-foreground dark:text-white hover:bg-white/10 transition-all">
             <Filter className="h-4 w-4 text-brand-blue" /> Last 30 Days
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-brand-blue text-white rounded-lg text-sm font-bold hover:bg-brand-blue/90 transition-all">
+          <button className="flex items-center gap-2 px-4 py-2 bg-brand-blue text-foreground dark:text-white rounded-lg text-sm font-bold hover:bg-brand-blue/90 transition-all">
             <Download className="h-4 w-4" /> Export
           </button>
         </div>
@@ -65,9 +65,9 @@ export default function APIAnalyticsPage() {
       </div>
 
       {/* Main Chart Area */}
-      <GlassPanel className="p-8 border-white/5 bg-brand-bg/40 min-h-[400px] flex flex-col">
+      <GlassPanel className="p-8 border-brand-border bg-brand-bg/40 min-h-[400px] flex flex-col">
         <div className="flex items-center justify-between mb-8">
-          <h3 className="text-lg font-bold text-white">Traffic Overview</h3>
+          <h3 className="text-lg font-bold text-foreground dark:text-white">Traffic Overview</h3>
           <div className="flex gap-4">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-brand-blue" />
@@ -100,8 +100,8 @@ export default function APIAnalyticsPage() {
       </GlassPanel>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <GlassPanel className="p-6 border-white/5 bg-brand-bg/40">
-          <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-6">Top Endpoints</h3>
+        <GlassPanel className="p-6 border-brand-border bg-brand-bg/40">
+          <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-widest mb-6">Top Endpoints</h3>
           <div className="space-y-4">
             {[
               { path: '/v1/dispatch', count: '842,001', perc: 65 },
@@ -125,8 +125,8 @@ export default function APIAnalyticsPage() {
           </div>
         </GlassPanel>
 
-        <GlassPanel className="p-6 border-white/5 bg-brand-bg/40">
-          <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-6">Error Distribution</h3>
+        <GlassPanel className="p-6 border-brand-border bg-brand-bg/40">
+          <h3 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-widest mb-6">Error Distribution</h3>
           <div className="space-y-4">
             {[
               { code: '401 Unauthorized', count: '412', color: 'bg-amber-500' },
@@ -134,10 +134,10 @@ export default function APIAnalyticsPage() {
               { code: '404 Not Found', count: '112', color: 'bg-brand-slate' },
               { code: '500 Server Error', count: '45', color: 'bg-rose-500' },
             ].map((error) => (
-              <div key={error.code} className="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/5">
+              <div key={error.code} className="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-brand-border">
                 <div className="flex items-center gap-3">
                   <div className={`w-2 h-2 rounded-full ${error.color}`} />
-                  <span className="text-xs font-mono text-white">{error.code}</span>
+                  <span className="text-xs font-mono text-foreground dark:text-white">{error.code}</span>
                 </div>
                 <span className="text-xs text-brand-slate font-bold">{error.count}</span>
               </div>
@@ -151,7 +151,7 @@ export default function APIAnalyticsPage() {
 
 function MetricCard({ title, value, change, isPositive, icon: Icon }: any) {
   return (
-    <GlassPanel className="p-6 border-white/5 bg-brand-bg/40">
+    <GlassPanel className="p-6 border-brand-border bg-brand-bg/40">
       <div className="flex justify-between items-start mb-4">
         <div className="p-2 rounded-lg bg-brand-blue/10 border border-brand-blue/20">
           <Icon className="h-5 w-5 text-brand-blue" />
@@ -165,7 +165,7 @@ function MetricCard({ title, value, change, isPositive, icon: Icon }: any) {
         </div>
       </div>
       <p className="text-xs font-bold text-brand-slate uppercase tracking-widest mb-1">{title}</p>
-      <p className="text-3xl font-black text-white tracking-tight">{value}</p>
+      <p className="text-3xl font-black text-foreground dark:text-white tracking-tight">{value}</p>
     </GlassPanel>
   );
 }

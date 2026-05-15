@@ -39,17 +39,17 @@ export const AssistanceCapabilities = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <GlassPanel className="p-10 border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all group h-full flex flex-col">
+              <GlassPanel className="p-10 border-brand-border bg-white/[0.01] hover:bg-white/[0.03] transition-all group h-full flex flex-col">
                 <div className="flex-1">
                   <div className="h-14 w-14 rounded-2xl bg-[#2F80FF]/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
                     <cap.icon className="h-7 w-7 text-[#2F80FF]" />
                   </div>
-                  <h4 className="text-2xl font-black text-white mb-4 tracking-tight leading-tight">{cap.title}</h4>
-                  <p className="text-[#94A3B8] text-sm leading-relaxed mb-10">{cap.desc}</p>
+                  <h4 className="text-2xl font-black text-foreground dark:text-white mb-4 tracking-tight leading-tight">{cap.title}</h4>
+                  <p className="text-brand-slate text-sm leading-relaxed mb-10">{cap.desc}</p>
                 </div>
 
                 {/* Simulated Graphic Placeholder */}
-                <div className="relative h-40 bg-[#081120] rounded-2xl border border-white/5 overflow-hidden mb-8">
+                <div className="relative h-40 bg-brand-bg rounded-2xl border border-brand-border overflow-hidden mb-8">
                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#2F80FF 1px, transparent 0)', backgroundSize: '20px 20px' }} />
                    {cap.graphic === 'map' && (
                       <div className="absolute inset-0 flex items-center justify-center">

@@ -58,7 +58,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   if (!isAuthenticated || !user) return null;
 
   return (
-    <div className="min-h-screen bg-[#060D18] flex text-white overflow-hidden">
+    <div className="min-h-screen bg-[#060D18] flex text-foreground dark:text-white overflow-hidden">
       {/* Sidebar */}
       <motion.aside
         initial={false}
@@ -92,10 +92,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${
                   isActive 
                     ? "bg-brand-blue/10 text-brand-blue border border-brand-blue/20 shadow-[0_0_20px_rgba(47,128,255,0.1)]" 
-                    : "text-brand-slate hover:bg-white/5 hover:text-white"
+                    : "text-brand-slate hover:bg-white/5 hover:text-foreground dark:text-white"
                 }`}
               >
-                <item.icon className={`w-5 h-5 flex-shrink-0 ${isActive ? "text-brand-blue" : "group-hover:text-white"}`} />
+                <item.icon className={`w-5 h-5 flex-shrink-0 ${isActive ? "text-brand-blue" : "group-hover:text-foreground dark:text-white"}`} />
                 {isSidebarOpen && (
                   <motion.span
                     initial={{ opacity: 0 }}
@@ -119,7 +119,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="p-4 border-t border-brand-border space-y-2">
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="w-full flex items-center gap-4 px-4 py-3 text-brand-slate hover:text-white hover:bg-white/5 rounded-xl transition-all"
+            className="w-full flex items-center gap-4 px-4 py-3 text-brand-slate hover:text-foreground dark:text-white hover:bg-white/5 rounded-xl transition-all"
           >
             {isSidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             {isSidebarOpen && <span className="text-sm font-medium">Collapse Menu</span>}
@@ -156,7 +156,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                </Badge>
             </div>
             
-            <button className="relative p-2 text-brand-slate hover:text-white transition-colors">
+            <button className="relative p-2 text-brand-slate hover:text-foreground dark:text-white transition-colors">
               <Bell className="w-5 h-5" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-brand-orange rounded-full border-2 border-[#060D18]" />
             </button>
@@ -165,7 +165,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
             <div className="flex items-center gap-3">
               <div className="text-right hidden sm:block">
-                <p className="text-sm font-bold text-white leading-none">{user.name}</p>
+                <p className="text-sm font-bold text-foreground dark:text-white leading-none">{user.name}</p>
                 <p className="text-[10px] text-brand-slate uppercase tracking-wider mt-1">{user.role}</p>
               </div>
               <div className="w-10 h-10 rounded-full bg-brand-blue/20 border border-brand-blue/40 flex items-center justify-center overflow-hidden">

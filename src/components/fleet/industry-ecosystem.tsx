@@ -2,149 +2,160 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layout, Box, Globe, Cpu, Activity, ArrowRight, TrendingDown, Clock, Wifi } from 'lucide-react';
-import { GlassPanel } from '@/components/ui/glass-panel';
-import { Button } from '@/components/ui/button';
+import { 
+  Building2, Ship, Truck, Radio, Database, 
+  ArrowUpRight, Activity 
+} from 'lucide-react';
 
 const ecosystemCards = [
   {
     title: "Rental Providers",
-    kpi: "15m",
-    label: "Avg Dispatch ETA",
-    icon: Layout,
-    desc: "End-to-end vehicle recovery and roadside dispatch for rental fleets nationwide.",
-    sla: "99.4%",
-    downtime: "-32%",
-    color: "brand-blue"
+    desc: "Minimize vehicle downtime and maximize rental availability with real-time operations and automated maintenance triggers.",
+    kpi: "98.6%",
+    label: "Availability",
+    icon: Building2,
+    trend: "+2.4%",
+    image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80'
   },
   {
     title: "Logistics Fleets",
-    kpi: "99.8%",
-    label: "Delivery Uptime",
-    icon: Box,
-    desc: "Real-time fleet monitoring and predictive maintenance for logistics operations.",
-    sla: "99.8%",
-    downtime: "-28%",
-    color: "emerald-500"
+    desc: "Reduce delays and keep your supply chain moving with intelligent dispatch and real-time heavy-duty recovery coordination.",
+    kpi: "23%",
+    label: "Downtime Reduction",
+    icon: Ship,
+    trend: "+5.1%",
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80'
   },
   {
-    title: "Commercial Transportation",
-    kpi: "40k+",
-    label: "Service Nodes",
-    icon: Globe,
-    desc: "Heavy-duty recovery coordination across commercial transport corridors.",
-    sla: "98.9%",
-    downtime: "-41%",
-    color: "brand-orange"
+    title: "Commercial Fleets",
+    desc: "Improve fleet productivity and driver safety with real-time visibility and immediate roadside technical support.",
+    kpi: "18.2 min",
+    label: "Avg. Response Time",
+    icon: Truck,
+    trend: "-12%",
+    image: 'https://images.unsplash.com/photo-1591768793355-74d7ca7385da?auto=format&fit=crop&q=80'
   },
   {
-    title: "Connected Mobility Platforms",
-    kpi: "< 2s",
-    label: "API Latency",
-    icon: Cpu,
-    desc: "Telematics-integrated dispatch for connected vehicle platforms and OEM systems.",
-    sla: "99.9%",
-    downtime: "-22%",
-    color: "purple-500"
+    title: "Connected Mobility",
+    desc: "Integrate roadside workflows into connected vehicle platforms seamlessly via enterprise-grade API infrastructure.",
+    kpi: "99.2%",
+    label: "API Uptime",
+    icon: Radio,
+    trend: "Stable",
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80'
   },
   {
-    title: "Enterprise Fleet Operations",
-    kpi: "84%",
-    label: "Ops Automation",
-    icon: Activity,
-    desc: "Fully automated dispatch workflows and SLA intelligence dashboards.",
-    sla: "99.2%",
-    downtime: "-36%",
-    color: "brand-blue"
+    title: "Enterprise Platforms",
+    desc: "Scalable infrastructure for enterprise mobility and fleet ecosystems powering the world's largest transport networks.",
+    kpi: "500M+",
+    label: "API Calls / Year",
+    icon: Database,
+    trend: "+18%",
+    image: 'https://images.unsplash.com/photo-1551288049-bbbda536ad0a?auto=format&fit=crop&q=80'
   },
 ];
 
 export const IndustryEcosystem = () => {
   return (
-    <section className="relative z-10 py-32 bg-white/[0.01]">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+    <section className="relative z-10 py-32 bg-brand-bg overflow-hidden border-t border-brand-border">
+      {/* Background Atmosphere */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }} />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#2F80FF]/5 blur-[150px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-6 max-w-[1536px]">
+        <div className="max-w-3xl mx-auto text-center mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl"
           >
-            <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Ecosystem Network</p>
-            <h2 className="text-3xl lg:text-5xl font-black text-white mb-6 tracking-tight">The Mobility Infrastructure Ecosystem</h2>
-            <p className="text-brand-slate text-lg">Specialized operational nodes for every segment of the enterprise transportation landscape.</p>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="h-1.5 w-1.5 rounded-full bg-[#2F80FF]" />
+              <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.4em]">Ecosystem Network</span>
+            </div>
+            <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
+               The Mobility <span className="text-[#2F80FF]">Infrastructure</span> Ecosystem
+            </h2>
+            <p className="text-brand-slate text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+               Specialized operational nodes for every segment of the enterprise transportation landscape.
+            </p>
           </motion.div>
-          <Button variant="ghost" className="text-brand-blue font-bold gap-2 hover:bg-brand-blue/5 shrink-0">
-            View Full Ecosystem Mesh <ArrowRight className="h-4 w-4" />
-          </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-          {ecosystemCards.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-            >
-              <GlassPanel className="p-6 border-white/5 bg-brand-navy/40 hover:border-brand-blue/30 transition-all group flex flex-col h-full relative overflow-hidden">
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="h-10 w-10 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-brand-blue/15 transition-all">
-                    <item.icon className="h-5 w-5 text-brand-blue" />
-                  </div>
-                  <h3 className="text-base font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-[11px] text-brand-slate leading-relaxed mb-5 flex-1">{item.desc}</p>
-                  
-                  {/* KPI */}
-                  <div className="space-y-1 mb-5">
-                    <p className="text-3xl font-black text-white">{item.kpi}</p>
-                    <p className="text-[9px] font-bold text-brand-slate uppercase tracking-[0.2em]">{item.label}</p>
-                  </div>
-
-                  {/* Metrics Row */}
-                  <div className="grid grid-cols-2 gap-3 mb-5">
-                    <div className="flex items-center gap-1.5">
-                      <Clock className="h-3 w-3 text-brand-blue/60" />
-                      <div>
-                        <p className="text-[8px] text-brand-slate uppercase">SLA</p>
-                        <p className="text-[10px] font-bold text-white">{item.sla}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <TrendingDown className="h-3 w-3 text-emerald-500/60" />
-                      <div>
-                        <p className="text-[8px] text-brand-slate uppercase">Downtime</p>
-                        <p className="text-[10px] font-bold text-emerald-400">{item.downtime}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* API Connectivity */}
-                  <div className="pt-4 border-t border-white/5">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1.5">
-                        <Wifi className="h-3 w-3 text-brand-blue/50" />
-                        <span className="text-[8px] text-brand-slate uppercase tracking-wider">API Connected</span>
-                      </div>
-                      <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_4px_rgba(16,185,129,0.6)]" />
-                    </div>
-                    <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden mt-2">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '100%' }}
-                        transition={{ duration: 1.5, delay: i * 0.1 }}
-                        className="h-full bg-brand-blue/50"
-                      />
-                    </div>
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-16">
+          {ecosystemCards.map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group h-full cursor-pointer relative"
+              >
+                {/* Floating Icon Bubble (50% Overlap) */}
+                <div className="absolute top-0 left-10 -translate-y-1/2 z-20">
+                   <motion.div
+                     whileHover={{ scale: 1.2 }}
+                     className="h-14 w-14 bg-card/90 backdrop-blur-2xl border border-brand-border rounded-xl flex items-center justify-center shadow-[0_10px_30px_rgba(47,128,255,0.2)] group-hover:border-[#2F80FF]/40 group-hover:shadow-[0_0_40px_rgba(47,128,255,0.4)] transition-all relative overflow-hidden"
+                   >
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/20 to-transparent" />
+                      <Icon className="h-6 w-6 text-[#2F80FF] relative z-10 transition-transform group-hover:scale-110" />
+                      <div className="absolute inset-0 rounded-xl border-2 border-[#2F80FF]/20 animate-pulse" />
+                   </motion.div>
                 </div>
-              </GlassPanel>
-            </motion.div>
-          ))}
+
+                {/* Glassmorphism Card */}
+                <div className="relative bg-card/55 backdrop-blur-[24px] border border-white/[0.08] rounded-[28px] pt-14 p-8 h-full flex flex-col transition-all duration-400 group-hover:border-[#2F80FF]/40 group-hover:bg-card/80 group-hover:-translate-y-6 group-hover:scale-[1.08] shadow-[0_15px_50px_rgba(0,0,0,0.5)] group-hover:shadow-[0_40px_80px_rgba(47,128,255,0.25)] overflow-hidden">
+                   {/* Background Image Ghost */}
+                   <div className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-5 mix-blend-luminosity transition-opacity duration-700 pointer-events-none scale-110 group-hover:scale-100" 
+                        style={{ backgroundImage: `url(${card.image})` }} />
+                   
+                   <div className="relative z-10 mb-8 pt-4">
+                      <h3 className="text-base font-black text-foreground dark:text-white uppercase tracking-tight leading-tight mb-4 group-hover:text-[#2F80FF] transition-colors">
+                        {card.title}
+                      </h3>
+                      <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
+                        {card.desc}
+                      </p>
+                   </div>
+
+                   {/* Operational Telemetry */}
+                   <div className="mt-auto relative z-10 pt-6 border-t border-brand-border">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-[0.2em]">{card.label}</span>
+                        <div className="flex items-center gap-1 text-emerald-400 text-[9px] font-black bg-emerald-400/10 px-2 py-0.5 rounded-full">
+                           <ArrowUpRight className="w-3 h-3" />
+                           {card.trend}
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-baseline gap-2">
+                         <span className="text-2xl font-black text-foreground dark:text-white font-mono tracking-tighter group-hover:text-[#2F80FF] transition-colors">
+                            {card.kpi}
+                         </span>
+                         <Activity className="w-3 h-3 text-[#2F80FF] animate-pulse opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+
+                      {/* Small Progress Line */}
+                      <div className="mt-4 h-0.5 w-full bg-white/5 rounded-full overflow-hidden relative">
+                         <motion.div 
+                           initial={{ width: 0 }}
+                           whileInView={{ width: '100%' }}
+                           transition={{ duration: 1.5, ease: 'easeOut' }}
+                           className="h-full bg-gradient-to-r from-[#2F80FF] to-[#2F80FF]/20"
+                         />
+                      </div>
+                   </div>
+
+                   {/* Edge Glow Pulse */}
+                   <div className="absolute inset-0 rounded-[28px] border-2 border-[#2F80FF]/0 group-hover:border-[#2F80FF]/10 transition-all duration-500 pointer-events-none" />
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

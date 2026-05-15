@@ -59,14 +59,14 @@ export default function DeveloperLayout({ children }: { children: React.ReactNod
       <div className="pt-24 min-h-screen bg-[#030812] flex flex-col font-sans">
         
         {/* Developer Header */}
-        <div className="border-b border-white/5 bg-brand-bg/40 backdrop-blur-md sticky top-16 z-30">
+        <div className="border-b border-brand-border bg-brand-bg/40 backdrop-blur-md sticky top-16 z-30">
           <div className="container mx-auto px-4 h-16 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Link href="/" className="text-brand-slate hover:text-white transition-colors">
+              <Link href="/" className="text-brand-slate hover:text-foreground dark:text-white transition-colors">
                 <ArrowLeft className="h-4 w-4" />
               </Link>
               <div className="h-4 w-[1px] bg-white/10" />
-              <h1 className="text-sm font-bold text-white uppercase tracking-widest flex items-center gap-2">
+              <h1 className="text-sm font-bold text-foreground dark:text-white uppercase tracking-widest flex items-center gap-2">
                 Developer Hub <span className="text-[10px] text-brand-blue bg-brand-blue/10 px-2 py-0.5 rounded">v4.2.0</span>
               </h1>
             </div>
@@ -75,14 +75,14 @@ export default function DeveloperLayout({ children }: { children: React.ReactNod
               <input 
                 type="text" 
                 placeholder="Search API docs, methods, SDKs..."
-                className="w-full bg-white/5 border border-white/10 rounded-lg py-2 pl-10 pr-4 text-sm text-white placeholder:text-brand-slate focus:outline-none focus:border-brand-blue/50 transition-all font-mono"
+                className="w-full bg-white/5 border border-brand-border rounded-lg py-2 pl-10 pr-4 text-sm text-foreground dark:text-white placeholder:text-brand-slate focus:outline-none focus:border-brand-blue/50 transition-all font-mono"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
             <div className="flex items-center gap-4">
-               <button className="text-[10px] font-bold text-brand-slate hover:text-white uppercase tracking-widest px-3 py-1.5 rounded bg-white/5 border border-white/10 transition-all">Support</button>
-               <button className="text-[10px] font-bold text-white bg-brand-blue hover:bg-brand-blue/90 uppercase tracking-widest px-4 py-1.5 rounded shadow-[0_0_15px_rgba(47,128,255,0.4)]">Login</button>
+               <button className="text-[10px] font-bold text-brand-slate hover:text-foreground dark:text-white uppercase tracking-widest px-3 py-1.5 rounded bg-white/5 border border-brand-border transition-all">Support</button>
+               <button className="text-[10px] font-bold text-foreground dark:text-white bg-brand-blue hover:bg-brand-blue/90 uppercase tracking-widest px-4 py-1.5 rounded shadow-[0_0_15px_rgba(47,128,255,0.4)]">Login</button>
             </div>
           </div>
         </div>
@@ -109,12 +109,12 @@ export default function DeveloperLayout({ children }: { children: React.ReactNod
                               "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all group",
                               isActive 
                                 ? "bg-brand-blue/10 text-brand-blue border border-brand-blue/20" 
-                                : "text-brand-slate hover:text-white hover:bg-white/5"
+                                : "text-brand-slate hover:text-foreground dark:text-white hover:bg-white/5"
                             )}
                           >
                             <item.icon className={cn(
                               "h-4 w-4 shrink-0 transition-colors",
-                              isActive ? "text-brand-blue" : "text-brand-slate group-hover:text-white"
+                              isActive ? "text-brand-blue" : "text-brand-slate group-hover:text-foreground dark:text-white"
                             )} />
                             {item.label}
                             {isActive && (
@@ -139,12 +139,12 @@ export default function DeveloperLayout({ children }: { children: React.ReactNod
             {/* Right Side: Page Outline (Visible on desktop) */}
             <aside className="w-48 shrink-0 hidden xl:block">
                <div className="sticky top-40 space-y-6">
-                  <h4 className="text-[10px] font-bold text-white uppercase tracking-widest border-b border-white/5 pb-2">On this page</h4>
+                  <h4 className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest border-b border-brand-border pb-2">On this page</h4>
                   <nav className="flex flex-col gap-3">
                      <button className="text-xs text-brand-blue text-left hover:text-brand-blue transition-colors">Introduction</button>
-                     <button className="text-xs text-brand-slate text-left hover:text-white transition-colors">Authentication</button>
-                     <button className="text-xs text-brand-slate text-left hover:text-white transition-colors">Endpoint Matrix</button>
-                     <button className="text-xs text-brand-slate text-left hover:text-white transition-colors">Error Codes</button>
+                     <button className="text-xs text-brand-slate text-left hover:text-foreground dark:text-white transition-colors">Authentication</button>
+                     <button className="text-xs text-brand-slate text-left hover:text-foreground dark:text-white transition-colors">Endpoint Matrix</button>
+                     <button className="text-xs text-brand-slate text-left hover:text-foreground dark:text-white transition-colors">Error Codes</button>
                   </nav>
                </div>
             </aside>

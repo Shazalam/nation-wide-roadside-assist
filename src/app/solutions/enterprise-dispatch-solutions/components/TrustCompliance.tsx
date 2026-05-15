@@ -18,7 +18,7 @@ const badges = [
 
 export const TrustCompliance = () => {
   return (
-    <section className="py-24 relative z-10 border-y border-white/5 bg-[#0A192F]/40">
+    <section className="py-24 relative z-10 border-y border-brand-border bg-card/40">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
@@ -35,7 +35,7 @@ export const TrustCompliance = () => {
                    transition={{ delay: i * 0.1 }}
                    className="flex items-center justify-start grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                  >
-                    <span className="text-xl font-black text-white/40 tracking-tighter italic">{logo}</span>
+                    <span className="text-xl font-black text-foreground dark:text-white/40 tracking-tighter italic">{logo}</span>
                  </motion.div>
                ))}
             </div>
@@ -43,7 +43,7 @@ export const TrustCompliance = () => {
 
           {/* Compliance */}
           <div className="lg:col-span-5">
-             <GlassPanel className="p-10 border-white/10 bg-white/[0.02]">
+             <GlassPanel className="p-10 border-brand-border bg-white/[0.02]">
                 <p className="text-[10px] font-bold text-brand-blue uppercase tracking-widest mb-8 text-center">Enterprise-Grade Compliance</p>
                 <div className="grid grid-cols-2 gap-8">
                    {badges.map((b, i) => (
@@ -51,7 +51,7 @@ export const TrustCompliance = () => {
                         <div className="h-12 w-12 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:bg-brand-blue/10 transition-colors">
                            <b.icon className="h-6 w-6 text-brand-blue group-hover:scale-110 transition-transform" />
                         </div>
-                        <p className="text-[11px] font-bold text-white mb-1">{b.label}</p>
+                        <p className="text-[11px] font-bold text-foreground dark:text-white mb-1">{b.label}</p>
                         <p className="text-[8px] text-brand-slate uppercase tracking-wider">{b.desc}</p>
                      </div>
                    ))}

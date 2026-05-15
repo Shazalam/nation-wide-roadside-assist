@@ -29,9 +29,9 @@ export const EnterpriseAnalytics = () => {
   return (
     <section className="py-24 bg-brand-bg relative z-10">
       <div className="container mx-auto px-4">
-        <GlassPanel className="p-8 border-white/5 bg-white/[0.01]">
+        <GlassPanel className="p-8 border-brand-border bg-white/[0.01]">
            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-xl font-black text-white">Vendor Analytics</h3>
+              <h3 className="text-xl font-black text-foreground dark:text-white">Vendor Analytics</h3>
               <button className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest hover:underline">View Full Dashboard</button>
            </div>
 
@@ -39,9 +39,9 @@ export const EnterpriseAnalytics = () => {
               
               {/* Dispatch Volume */}
               <div>
-                 <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest mb-2">Dispatch Volume <span className="opacity-60">(This Month)</span></p>
+                 <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest mb-2">Dispatch Volume <span className="opacity-60">(This Month)</span></p>
                  <div className="flex items-end gap-3 mb-4">
-                    <span className="text-4xl font-black text-white leading-none">2.7M</span>
+                    <span className="text-4xl font-black text-foreground dark:text-white leading-none">2.7M</span>
                     <span className="text-[10px] font-bold text-emerald-400 mb-1">+ 12.4%</span>
                  </div>
                  <div className="h-24 w-full">
@@ -55,9 +55,9 @@ export const EnterpriseAnalytics = () => {
 
               {/* SLA Compliance */}
               <div>
-                 <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest mb-2">SLA Compliance</p>
+                 <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest mb-2">SLA Compliance</p>
                  <div className="flex items-end gap-3 mb-4">
-                    <span className="text-4xl font-black text-white leading-none">98.9%</span>
+                    <span className="text-4xl font-black text-foreground dark:text-white leading-none">98.9%</span>
                     <span className="text-[10px] font-bold text-emerald-400 mb-1">+ 6.2%</span>
                  </div>
                  <div className="h-24 w-full">
@@ -77,9 +77,9 @@ export const EnterpriseAnalytics = () => {
 
               {/* Avg. Response Time */}
               <div>
-                 <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest mb-2">Avg. Response Time</p>
+                 <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest mb-2">Avg. Response Time</p>
                  <div className="flex items-end gap-3 mb-4">
-                    <span className="text-4xl font-black text-white leading-none">28 min</span>
+                    <span className="text-4xl font-black text-foreground dark:text-white leading-none">28 min</span>
                     <span className="text-[10px] font-bold text-emerald-400 mb-1">↓ 9.3%</span>
                  </div>
                  <div className="h-24 w-full">
@@ -99,9 +99,9 @@ export const EnterpriseAnalytics = () => {
 
               {/* Recovery Success Rate */}
               <div className="relative">
-                 <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest mb-2">Recovery Success Rate</p>
+                 <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest mb-2">Recovery Success Rate</p>
                  <div className="flex items-end gap-3 mb-4">
-                    <span className="text-4xl font-black text-white leading-none">97.2%</span>
+                    <span className="text-4xl font-black text-foreground dark:text-white leading-none">97.2%</span>
                     <span className="text-[10px] font-bold text-emerald-400 mb-1">↑ 5.6%</span>
                  </div>
                  <div className="h-24 w-full relative">

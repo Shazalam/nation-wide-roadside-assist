@@ -16,7 +16,7 @@ export default function DeveloperOverviewPage() {
           <Zap className="h-4 w-4 text-brand-blue" />
           <span className="text-[10px] font-bold text-brand-blue uppercase tracking-widest">Global Mesh API v4.2.0</span>
         </div>
-        <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">
+        <h2 className="text-4xl md:text-6xl font-bold text-foreground dark:text-white tracking-tight leading-tight">
           Integrate the world's most advanced <span className="text-brand-blue">Mobility Mesh</span>.
         </h2>
         <p className="text-brand-slate text-xl leading-relaxed max-w-3xl">
@@ -24,11 +24,11 @@ export default function DeveloperOverviewPage() {
         </p>
         <div className="flex gap-4 pt-4">
            <Link href="/developer/auth">
-             <Button className="bg-brand-blue text-white font-bold h-12 px-8 uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.4)]">
+             <Button className="bg-brand-blue text-foreground dark:text-white font-bold h-12 px-8 uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.4)]">
                Get Started
              </Button>
            </Link>
-           <Button variant="outline" className="border-white/10 text-white h-12 px-8 uppercase tracking-widest">
+           <Button variant="outline" className="border-brand-border text-foreground dark:text-white h-12 px-8 uppercase tracking-widest">
              Join Sandbox
            </Button>
         </div>
@@ -40,7 +40,7 @@ export default function DeveloperOverviewPage() {
       <section className="space-y-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
            <div className="space-y-1">
-              <h3 className="text-2xl font-bold text-white">Initialize a Dispatch Request</h3>
+              <h3 className="text-2xl font-bold text-foreground dark:text-white">Initialize a Dispatch Request</h3>
               <p className="text-sm text-brand-slate">Send a POST request to coordinate an immediate service node.</p>
            </div>
            <div className="flex gap-2">
@@ -68,27 +68,27 @@ export default function DeveloperOverviewPage() {
               />
            </div>
            <div className="lg:col-span-5 space-y-6">
-              <GlassPanel className="p-8 bg-brand-navy/60 border-white/5 h-full">
+              <GlassPanel className="p-8 bg-brand-navy/60 border-brand-border h-full">
                  <h4 className="text-[10px] font-black text-brand-blue uppercase tracking-widest mb-6">Key Capabilities</h4>
                  <ul className="space-y-6">
                     <li className="flex items-start gap-4">
                        <ShieldCheck className="h-5 w-5 text-brand-blue shrink-0" />
                        <div className="space-y-1">
-                          <p className="text-sm font-bold text-white">Auth Mesh Integrated</p>
+                          <p className="text-sm font-bold text-foreground dark:text-white">Auth Mesh Integrated</p>
                           <p className="text-xs text-brand-slate">OAuth 2.0 with scopes for Fleet, Claims, and Ops.</p>
                        </div>
                     </li>
                     <li className="flex items-start gap-4">
                        <Zap className="h-5 w-5 text-brand-blue shrink-0" />
                        <div className="space-y-1">
-                          <p className="text-sm font-bold text-white">Sub-100ms Latency</p>
+                          <p className="text-sm font-bold text-foreground dark:text-white">Sub-100ms Latency</p>
                           <p className="text-xs text-brand-slate">Global edge nodes for instantaneous coordination.</p>
                        </div>
                     </li>
                     <li className="flex items-start gap-4">
                        <BookOpen className="h-5 w-5 text-brand-blue shrink-0" />
                        <div className="space-y-1">
-                          <p className="text-sm font-bold text-white">Rich Error Diagnostics</p>
+                          <p className="text-sm font-bold text-foreground dark:text-white">Rich Error Diagnostics</p>
                           <p className="text-xs text-brand-slate">Detailed status codes for edge-case recovery.</p>
                        </div>
                     </li>
@@ -99,10 +99,10 @@ export default function DeveloperOverviewPage() {
       </section>
 
       {/* API Analytics Teaser */}
-      <section className="p-10 rounded-[2.5rem] bg-gradient-to-br from-brand-blue/10 to-brand-navy border border-white/5 relative overflow-hidden">
+      <section className="p-10 rounded-[2.5rem] bg-gradient-to-br from-brand-blue/10 to-brand-navy border border-brand-border relative overflow-hidden">
          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-4">
-               <h3 className="text-2xl font-bold text-white">Operational Analytics Built-In</h3>
+               <h3 className="text-2xl font-bold text-foreground dark:text-white">Operational Analytics Built-In</h3>
                <p className="text-brand-slate text-sm max-w-xl">
                  Track your integration health, latency, and throughput in real-time through the Developer Console.
                </p>
@@ -112,7 +112,7 @@ export default function DeveloperOverviewPage() {
             </div>
             <div className="flex gap-12 text-center">
                <div className="space-y-1">
-                  <p className="text-3xl font-black text-white">4.2M</p>
+                  <p className="text-3xl font-black text-foreground dark:text-white">4.2M</p>
                   <p className="text-[10px] font-bold text-brand-slate uppercase tracking-widest">Requests/Month</p>
                </div>
                <div className="space-y-1">

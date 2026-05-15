@@ -40,7 +40,7 @@ export default function VendorsPage() {
         <div>
           <div className="flex items-center gap-2 mb-2">
             <Truck className="h-5 w-5 text-brand-blue" />
-            <h1 className="text-3xl font-bold text-white tracking-tight">Vendor Intelligence</h1>
+            <h1 className="text-3xl font-bold text-foreground dark:text-white tracking-tight">Vendor Intelligence</h1>
           </div>
           <p className="text-brand-slate text-sm">Orchestration and performance management of the global partner mesh.</p>
         </div>
@@ -48,18 +48,18 @@ export default function VendorsPage() {
           <div className="flex bg-brand-navy/50 p-1 rounded-lg border border-brand-border">
              <button 
                onClick={() => setActiveView('list')}
-               className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${activeView === 'list' ? 'bg-brand-blue text-white shadow-lg' : 'text-brand-slate hover:text-white'}`}
+               className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${activeView === 'list' ? 'bg-brand-blue text-foreground dark:text-white shadow-lg' : 'text-brand-slate hover:text-foreground dark:text-white'}`}
              >
                List
              </button>
              <button 
                onClick={() => setActiveView('map')}
-               className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${activeView === 'map' ? 'bg-brand-blue text-white shadow-lg' : 'text-brand-slate hover:text-white'}`}
+               className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${activeView === 'map' ? 'bg-brand-blue text-foreground dark:text-white shadow-lg' : 'text-brand-slate hover:text-foreground dark:text-white'}`}
              >
                Map
              </button>
           </div>
-          <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white gap-2">
+          <Button className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white gap-2">
             <Plus className="h-4 w-4" /> Onboard Vendor
           </Button>
         </div>
@@ -76,20 +76,20 @@ export default function VendorsPage() {
       {activeView === 'list' ? (
         <div className="space-y-8">
           {/* Filters & Search */}
-          <GlassPanel className="p-4 border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+          <GlassPanel className="p-4 border-brand-border flex flex-col md:flex-row items-center justify-between gap-4">
              <div className="relative flex-1 max-w-md w-full">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-slate" />
                 <input 
                   type="text" 
                   placeholder="Search partner network..."
-                  className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-brand-blue/50 transition-all"
+                  className="w-full bg-white/5 border border-brand-border rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-brand-blue/50 transition-all"
                 />
              </div>
              <div className="flex gap-3">
-                <Button variant="ghost" size="sm" className="text-brand-slate hover:text-white border border-white/5 gap-2">
+                <Button variant="ghost" size="sm" className="text-brand-slate hover:text-foreground dark:text-white border border-brand-border gap-2">
                    <Filter className="h-3 w-3" /> Region: All
                 </Button>
-                <Button variant="ghost" size="sm" className="text-brand-slate hover:text-white border border-white/5 gap-2">
+                <Button variant="ghost" size="sm" className="text-brand-slate hover:text-foreground dark:text-white border border-brand-border gap-2">
                    <Award className="h-3 w-3" /> Tier: Platinum
                 </Button>
              </div>
@@ -105,7 +105,7 @@ export default function VendorsPage() {
                 <td className="px-6 py-4 font-mono text-[10px] text-brand-blue">{vendor.id}</td>
                 <td className="px-6 py-4">
                    <div className="flex flex-col">
-                      <span className="text-sm font-bold text-white">{vendor.name}</span>
+                      <span className="text-sm font-bold text-foreground dark:text-white">{vendor.name}</span>
                       <span className="text-[10px] text-brand-slate uppercase tracking-tighter">Enterprise Partner</span>
                    </div>
                 </td>
@@ -115,15 +115,15 @@ export default function VendorsPage() {
                    </div>
                 </td>
                 <td className="px-6 py-4">
-                   <Badge variant="outline" className="text-[10px] uppercase font-bold tracking-widest border-white/10">
+                   <Badge variant="outline" className="text-[10px] uppercase font-bold tracking-widest border-brand-border">
                      {vendor.coverage}
                    </Badge>
                 </td>
-                <td className="px-6 py-4 text-sm font-mono text-white">{vendor.nodes}</td>
+                <td className="px-6 py-4 text-sm font-mono text-foreground dark:text-white">{vendor.nodes}</td>
                 <td className="px-6 py-4">
                    <div className="flex items-center gap-1">
                       <Star className="h-3 w-3 text-amber-400 fill-amber-400" />
-                      <span className="text-xs font-bold text-white">{vendor.rating}</span>
+                      <span className="text-xs font-bold text-foreground dark:text-white">{vendor.rating}</span>
                    </div>
                 </td>
                 <td className="px-6 py-4">
@@ -144,12 +144,12 @@ export default function VendorsPage() {
            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #2F80FF 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
            <div className="relative z-10 flex flex-col items-center gap-4">
               <Globe className="h-16 w-16 text-brand-blue animate-pulse" />
-              <p className="text-sm font-bold text-white uppercase tracking-[0.3em]">Network Map Initializing...</p>
+              <p className="text-sm font-bold text-foreground dark:text-white uppercase tracking-[0.3em]">Network Map Initializing...</p>
            </div>
            
            {/* Map Overlays */}
            <div className="absolute top-8 left-8">
-              <GlassPanel className="px-4 py-2 border-white/10 bg-brand-navy/80">
+              <GlassPanel className="px-4 py-2 border-brand-border bg-brand-navy/80">
                  <div className="flex items-center gap-4">
                     <div className="flex items-center gap-2">
                        <div className="h-2 w-2 rounded-full bg-emerald-500" />

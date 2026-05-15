@@ -40,16 +40,16 @@ export const APIInfrastructure = () => {
   };
 
   return (
-    <section className="py-24 bg-brand-bg relative z-10 border-t border-white/5">
+    <section className="py-24 bg-brand-bg relative z-10 border-t border-brand-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left: Info */}
           <div>
-            <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+            <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-6">
               API-First <br />Infrastructure
             </h2>
-            <p className="text-[#94A3B8] font-medium text-lg max-w-lg mb-10 leading-relaxed">
+            <p className="text-brand-slate font-medium text-lg max-w-lg mb-10 leading-relaxed">
               Powerful APIs and real-time webhooks to integrate mobility continuation into your platforms, workflows, and claims systems.
             </p>
             
@@ -66,12 +66,12 @@ export const APIInfrastructure = () => {
                     <div className="h-6 w-6 rounded bg-[#2F80FF]/10 flex items-center justify-center border border-[#2F80FF]/20">
                        <Check className="h-3 w-3 text-[#2F80FF]" />
                     </div>
-                    <span className="text-[11px] font-bold text-white uppercase tracking-wider">{item.label}</span>
+                    <span className="text-[11px] font-bold text-foreground dark:text-white uppercase tracking-wider">{item.label}</span>
                  </div>
                ))}
             </div>
 
-            <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-bold px-8 h-12 rounded-xl">
+            <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold px-8 h-12 rounded-xl">
                View API Documentation <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -80,9 +80,9 @@ export const APIInfrastructure = () => {
           <div className="relative">
              <div className="absolute inset-0 bg-gradient-to-r from-[#2F80FF]/20 to-purple-500/20 blur-3xl -z-10 rounded-[3rem]" />
              
-             <div className="rounded-2xl border border-white/10 bg-[#0A192F]/90 backdrop-blur-xl overflow-hidden shadow-2xl">
+             <div className="rounded-2xl border border-brand-border bg-card/90 backdrop-blur-xl overflow-hidden shadow-2xl">
                 {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/[0.02]">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-brand-border bg-white/[0.02]">
                    <div className="flex gap-4">
                       {(['mobility', 'telemetry'] as const).map(tab => (
                         <button 
@@ -90,7 +90,7 @@ export const APIInfrastructure = () => {
                           onClick={() => setActiveTab(tab)}
                           suppressHydrationWarning
                           className={`text-[11px] font-mono font-bold uppercase tracking-widest transition-colors relative pb-4 -mb-4 ${
-                            activeTab === tab ? 'text-[#2F80FF]' : 'text-[#94A3B8] hover:text-white'
+                            activeTab === tab ? 'text-[#2F80FF]' : 'text-brand-slate hover:text-foreground dark:text-white'
                           }`}
                         >
                            {tab === 'mobility' ? 'POST /mobility' : 'WSS /telemetry'}
@@ -101,12 +101,12 @@ export const APIInfrastructure = () => {
                       ))}
                    </div>
                    <div className="flex items-center gap-4">
-                      <select className="bg-white/5 border border-white/10 rounded-md text-[10px] text-white font-mono px-2 py-1 outline-none">
+                      <select className="bg-white/5 border border-brand-border rounded-md text-[10px] text-foreground dark:text-white font-mono px-2 py-1 outline-none">
                          <option>cURL</option>
                          <option>Node.js</option>
                          <option>Python</option>
                       </select>
-                      <button onClick={handleCopy} suppressHydrationWarning className="text-[#94A3B8] hover:text-white transition-colors">
+                      <button onClick={handleCopy} suppressHydrationWarning className="text-brand-slate hover:text-foreground dark:text-white transition-colors">
                          {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
                       </button>
                    </div>
@@ -133,7 +133,7 @@ export const APIInfrastructure = () => {
 </span>
 ) : (
 <span>
-<span className="text-[#94A3B8] italic">// WebSocket connection for real-time telemetry</span>
+<span className="text-brand-slate italic">// WebSocket connection for real-time telemetry</span>
 <br/><span className="text-purple-400">const</span> socket = <span className="text-purple-400">new</span> <span className="text-[#2F80FF]">WebSocket</span>(<span className="text-emerald-300">'wss://stream.nationwidetrans.com/telemetry'</span>);
 <br/><br/>socket.<span className="text-blue-300">onmessage</span> = (event) =&gt; {'{'}
 <br/>  <span className="text-purple-400">const</span> data = JSON.<span className="text-blue-300">parse</span>(event.data);

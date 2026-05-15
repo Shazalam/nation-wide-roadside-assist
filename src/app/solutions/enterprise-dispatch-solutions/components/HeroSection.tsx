@@ -32,7 +32,7 @@ export const HeroSection = () => {
             >
               <span>Solutions</span>
               <ArrowRight className="h-3 w-3 opacity-30" />
-              <span className="text-white/60">Enterprise Dispatch Solutions</span>
+              <span className="text-foreground dark:text-white/60">Enterprise Dispatch Solutions</span>
             </motion.div>
 
             <motion.h1
@@ -46,7 +46,7 @@ export const HeroSection = () => {
                 Dispatch Intelligence
               </span>
               <br />
-              <span className="text-white/40 italic font-medium">Infrastructure</span>
+              <span className="text-foreground dark:text-white/40 italic font-medium">Infrastructure</span>
             </motion.h1>
 
             <motion.p
@@ -64,10 +64,10 @@ export const HeroSection = () => {
               transition={{ delay: 0.3 }}
               className="flex flex-wrap gap-4"
             >
-              <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold h-14 px-10 rounded-xl shadow-[0_0_30px_rgba(47,128,255,0.4)]">
+              <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold h-14 px-10 rounded-xl shadow-[0_0_30px_rgba(47,128,255,0.4)]">
                 Schedule Enterprise Demo
               </Button>
-              <Button variant="outline" size="lg" className="border-white/10 text-white hover:bg-white/5 h-14 px-10 rounded-xl">
+              <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-10 rounded-xl">
                 Explore Dispatch APIs
               </Button>
             </motion.div>
@@ -80,9 +80,9 @@ export const HeroSection = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8"
             >
               {metrics.map((m, i) => (
-                <GlassPanel key={i} className="p-4 border-white/5 bg-white/[0.02]">
+                <GlassPanel key={i} className="p-4 border-brand-border bg-white/[0.02]">
                   <m.icon className={`h-4 w-4 ${m.color} mb-3`} />
-                  <p className="text-xl font-black text-white">{m.val}</p>
+                  <p className="text-xl font-black text-foreground dark:text-white">{m.val}</p>
                   <p className="text-[8px] font-bold text-brand-slate uppercase tracking-widest mt-1">{m.label}</p>
                 </GlassPanel>
               ))}
@@ -98,9 +98,9 @@ export const HeroSection = () => {
               className="relative"
             >
               {/* Dashboard Outer Frame */}
-              <GlassPanel className="p-0 border-white/10 bg-[#0A192F]/80 shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
+              <GlassPanel className="p-0 border-brand-border bg-card/80 shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
                 {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/[0.02]">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-brand-border bg-white/[0.02]">
                   <div className="flex items-center gap-3">
                     <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                     <span className="text-[10px] font-mono text-brand-blue uppercase tracking-widest">Global Dispatch Node Active</span>
@@ -121,7 +121,7 @@ export const HeroSection = () => {
                      <div className="flex justify-between items-start">
                         <GlassPanel className="p-3 bg-brand-navy/90 border-brand-blue/30 w-48">
                            <p className="text-[8px] font-bold text-brand-slate uppercase mb-2">Active Incident #8291</p>
-                           <div className="flex justify-between text-[11px] font-bold text-white mb-1">
+                           <div className="flex justify-between text-[11px] font-bold text-foreground dark:text-white mb-1">
                               <span>Towing Required</span>
                               <span className="text-brand-orange">High Priority</span>
                            </div>
@@ -143,10 +143,10 @@ export const HeroSection = () => {
                      </div>
 
                      <div className="flex gap-4">
-                        <GlassPanel className="p-4 bg-brand-navy/90 border-white/10 flex-1">
+                        <GlassPanel className="p-4 bg-brand-navy/90 border-brand-border flex-1">
                            <div className="flex items-center gap-2 mb-3">
                               <Activity className="h-3 w-3 text-brand-blue" />
-                              <span className="text-[9px] font-bold text-white uppercase tracking-widest">Network Load</span>
+                              <span className="text-[9px] font-bold text-foreground dark:text-white uppercase tracking-widest">Network Load</span>
                            </div>
                            <div className="h-16 flex items-end gap-1">
                               {[30, 45, 60, 40, 80, 50, 70, 90, 60].map((h, i) => (
@@ -160,9 +160,9 @@ export const HeroSection = () => {
                               ))}
                            </div>
                         </GlassPanel>
-                        <GlassPanel className="p-4 bg-brand-navy/90 border-white/10 w-40">
+                        <GlassPanel className="p-4 bg-brand-navy/90 border-brand-border w-40">
                            <p className="text-[8px] font-bold text-brand-slate uppercase mb-1">AI Dispatch ETA</p>
-                           <p className="text-2xl font-black text-white">18.2<span className="text-xs font-medium text-brand-blue ml-1">min</span></p>
+                           <p className="text-2xl font-black text-foreground dark:text-white">18.2<span className="text-xs font-medium text-brand-blue ml-1">min</span></p>
                            <p className="text-[7px] text-emerald-400 mt-1 font-bold">↓ 4.2% Optimization</p>
                         </GlassPanel>
                      </div>
@@ -170,7 +170,7 @@ export const HeroSection = () => {
                 </div>
 
                 {/* Bottom Stats */}
-                <div className="grid grid-cols-4 divide-x divide-white/5 border-t border-white/5 bg-white/[0.01]">
+                <div className="grid grid-cols-4 divide-x divide-white/5 border-t border-brand-border bg-white/[0.01]">
                    {[
                      { l: 'Incidents', v: '1,424' },
                      { l: 'Vendors', v: '8,921' },
@@ -178,7 +178,7 @@ export const HeroSection = () => {
                      { l: 'SLA Status', v: 'Normal' }
                    ].map((s, i) => (
                      <div key={i} className="px-4 py-3 text-center">
-                        <p className="text-[10px] font-bold text-white tracking-tight">{s.v}</p>
+                        <p className="text-[10px] font-bold text-foreground dark:text-white tracking-tight">{s.v}</p>
                         <p className="text-[7px] font-bold text-brand-slate uppercase tracking-widest mt-0.5">{s.l}</p>
                      </div>
                    ))}
@@ -194,7 +194,7 @@ export const HeroSection = () => {
                  <GlassPanel className="p-3 border-emerald-500/30 bg-brand-navy/95 shadow-2xl">
                     <div className="flex items-center gap-2 mb-1">
                        <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                       <span className="text-[8px] font-bold text-white uppercase tracking-widest">SLA Verified</span>
+                       <span className="text-[8px] font-bold text-foreground dark:text-white uppercase tracking-widest">SLA Verified</span>
                     </div>
                     <p className="text-[10px] text-brand-slate">Response: 14.2m</p>
                  </GlassPanel>
@@ -208,7 +208,7 @@ export const HeroSection = () => {
                  <GlassPanel className="p-3 border-brand-orange/30 bg-brand-navy/95 shadow-2xl">
                     <div className="flex items-center gap-2 mb-1">
                        <Zap className="h-3 w-3 text-brand-orange" />
-                       <span className="text-[8px] font-bold text-white uppercase tracking-widest">AI Matching</span>
+                       <span className="text-[8px] font-bold text-foreground dark:text-white uppercase tracking-widest">AI Matching</span>
                     </div>
                     <p className="text-[10px] text-brand-slate">Vendor assigned: NY-442</p>
                  </GlassPanel>

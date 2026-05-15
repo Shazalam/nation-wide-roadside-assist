@@ -32,7 +32,7 @@ export const RepairHero = () => {
               </div>
               <span>Services</span>
               <ArrowRight className="h-3 w-3 opacity-30" />
-              <span className="text-white/60">Mobile Repairs</span>
+              <span className="text-foreground dark:text-white/60">Mobile Repairs</span>
             </motion.div>
 
             <motion.h1
@@ -46,14 +46,14 @@ export const RepairHero = () => {
                 Mobile Repair
               </span>
               <br />
-              <span className="text-white italic font-medium opacity-90">Operations</span>
+              <span className="text-foreground dark:text-white italic font-medium opacity-90">Operations</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg lg:text-xl text-[#94A3B8] leading-relaxed max-w-xl"
+              className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-xl"
             >
               Real-time mobile repair coordination, nationwide mechanic dispatch infrastructure, and API-first roadside support systems engineered for fleets, insurers, and OEMs.
             </motion.p>
@@ -64,10 +64,10 @@ export const RepairHero = () => {
               transition={{ delay: 0.3 }}
               className="flex flex-wrap gap-4"
             >
-              <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-bold h-16 px-10 rounded-2xl shadow-[0_0_30px_rgba(47,128,255,0.4)] group">
+              <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-16 px-10 rounded-2xl shadow-[0_0_30px_rgba(47,128,255,0.4)] group">
                 Schedule Enterprise Demo <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="border-white/10 text-white hover:bg-white/5 h-16 px-10 rounded-2xl group">
+              <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-16 px-10 rounded-2xl group">
                 Explore Repair APIs <span className="ml-2 opacity-30 group-hover:opacity-100 font-mono">/&gt;</span>
               </Button>
             </motion.div>
@@ -85,10 +85,10 @@ export const RepairHero = () => {
                 { label: 'Technician Network', val: 'Nationwide', icon: Users, color: 'text-purple-400' },
                 { label: 'Mobile Ops', val: '24/7', icon: Clock, color: 'text-emerald-400' }
               ].map((m, i) => (
-                <GlassPanel key={i} className="p-5 border-white/5 bg-white/[0.02] group hover:bg-white/[0.04] transition-all">
+                <GlassPanel key={i} className="p-5 border-brand-border bg-white/[0.02] group hover:bg-white/[0.04] transition-all">
                   <m.icon className={`h-5 w-5 ${m.color} mb-4 group-hover:scale-110 transition-transform`} />
-                  <p className="text-2xl font-black text-white">{m.val}</p>
-                  <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest mt-1.5 leading-tight">{m.label}</p>
+                  <p className="text-2xl font-black text-foreground dark:text-white">{m.val}</p>
+                  <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest mt-1.5 leading-tight">{m.label}</p>
                 </GlassPanel>
               ))}
             </motion.div>
@@ -101,12 +101,12 @@ export const RepairHero = () => {
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <GlassPanel className="p-0 border-white/10 bg-[#0A192F]/90 shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
+              <GlassPanel className="p-0 border-brand-border bg-card/90 shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
                 {/* Header */}
-                <div className="px-10 py-6 border-b border-white/5 bg-white/[0.02] flex items-center justify-between">
+                <div className="px-10 py-6 border-b border-brand-border bg-white/[0.02] flex items-center justify-between">
                    <div className="flex items-center gap-5">
                       <div className="flex flex-col">
-                         <span className="text-[11px] font-black text-white uppercase tracking-widest">Live Operations Overview</span>
+                         <span className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-widest">Live Operations Overview</span>
                          <div className="flex items-center gap-2 mt-1">
                             <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                             <span className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest">Live Monitoring Active</span>
@@ -126,7 +126,7 @@ export const RepairHero = () => {
 
                 <div className="grid grid-cols-1 xl:grid-cols-12 h-[650px]">
                    {/* Sidebar Stats */}
-                   <div className="xl:col-span-4 border-r border-white/5 p-8 space-y-8 bg-[#081120]/40">
+                   <div className="xl:col-span-4 border-r border-brand-border p-8 space-y-8 bg-brand-bg/40">
                       {[
                         { label: 'Active Repairs', val: stats?.activeIncidents || '1,248', trend: '+ 8.2%', color: 'bg-brand-blue/20 text-brand-blue' },
                         { label: 'En Route', val: stats?.enRoute || '642', trend: '+ 6.1%', color: 'bg-brand-orange/10 text-brand-orange' },
@@ -135,21 +135,21 @@ export const RepairHero = () => {
                       ].map((item, i) => (
                         <div key={i} className="space-y-3">
                            <div className="flex justify-between items-center">
-                              <span className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-widest">{item.label}</span>
+                              <span className="text-[10px] font-bold text-brand-slate uppercase tracking-widest">{item.label}</span>
                               <span className="text-[9px] font-bold text-emerald-400">{item.trend}</span>
                            </div>
                            <div className="flex items-center gap-4">
                               <div className={`h-10 w-10 rounded-xl ${item.color} flex items-center justify-center`}>
                                  <Truck className="h-5 w-5" />
                               </div>
-                              <span className="text-3xl font-black text-white">{item.val.toLocaleString()}</span>
+                              <span className="text-3xl font-black text-foreground dark:text-white">{item.val.toLocaleString()}</span>
                            </div>
                         </div>
                       ))}
                    </div>
 
                    {/* Main Visualization Area */}
-                   <div className="xl:col-span-8 relative bg-[#081120]/50 overflow-hidden">
+                   <div className="xl:col-span-8 relative bg-brand-bg/50 overflow-hidden">
                       {/* Map Simulation Overlay */}
                       <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#2F80FF1A 1px, transparent 1px), linear-gradient(90deg, #2F80FF1A 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                       
@@ -182,7 +182,7 @@ export const RepairHero = () => {
                              className="h-4 w-4 bg-brand-blue rounded-full shadow-[0_0_20px_#2F80FF]"
                            />
                            <div className="absolute left-6 -top-2 w-32">
-                              <p className="text-[10px] font-black text-white leading-none">{p.id}</p>
+                              <p className="text-[10px] font-black text-foreground dark:text-white leading-none">{p.id}</p>
                               <p className="text-[8px] font-bold text-brand-blue uppercase tracking-widest mt-1">{p.label}</p>
                            </div>
                         </div>
@@ -198,10 +198,10 @@ export const RepairHero = () => {
                          ].map((m, i) => (
                            <div key={i} className="space-y-2">
                               <div className="flex items-center justify-between">
-                                 <p className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-widest">{m.label}</p>
+                                 <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest">{m.label}</p>
                                  <m.icon className="h-3 w-3 text-brand-blue opacity-50" />
                               </div>
-                              <p className="text-xl font-black text-white">{m.val}</p>
+                              <p className="text-xl font-black text-foreground dark:text-white">{m.val}</p>
                               <p className="text-[9px] font-bold text-emerald-400">{m.trend}</p>
                               <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden mt-2">
                                  <motion.div 
