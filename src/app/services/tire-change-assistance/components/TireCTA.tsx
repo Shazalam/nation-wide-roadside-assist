@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -53,7 +53,7 @@ export const TireCTA = () => {
               transition={{ delay: 0.2 }}
               className="text-lg lg:text-xl text-brand-slate leading-relaxed mb-12 max-w-2xl font-medium"
             >
-              Connect Nationwide Trans Inc. into your mobility ecosystem to streamline roadside tire response, reduce downtime, and improve operational efficiency.
+              Connect Nationwide Roadside Assist into your mobility ecosystem to streamline roadside tire response, reduce downtime, and improve operational efficiency.
             </motion.p>
 
             <motion.div

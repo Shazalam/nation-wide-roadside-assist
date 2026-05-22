@@ -87,6 +87,29 @@ export const ServicesGrid = () => {
            style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }} />
       
       <div className="max-w-[1600px] mx-auto px-6 relative z-10">
+        {/* Section Heading */}
+        <div className="text-center max-w-4xl mx-auto mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-blue/5 border border-brand-blue/20 w-fit mx-auto backdrop-blur-xl">
+              <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse shadow-[0_0_10px_var(--brand-blue)]" />
+              <span className="text-[11px] font-black text-brand-blue uppercase tracking-[0.3em]">Service Portfolio</span>
+            </div>
+            
+            <h2 className="text-5xl lg:text-[5rem] font-black text-white tracking-tighter leading-[0.9] drop-shadow-2xl uppercase italic">
+              Recovery <span className="text-brand-blue tracking-normal">Solutions</span>
+            </h2>
+            
+            <p className="text-xl text-brand-slate leading-relaxed max-w-3xl mx-auto font-medium">
+              Specialized heavy-duty towing and incident management services for every commercial operational scenario.
+            </p>
+          </motion.div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
            {services.map((service, i) => {
              const Icon = service.icon;

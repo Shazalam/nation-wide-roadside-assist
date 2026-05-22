@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -77,7 +77,7 @@ export const ContactSection = () => {
                       </div>
                       <div className="p-4 bg-brand-navy border border-brand-border rounded-xl">
                          <p className="text-xs font-medium text-brand-slate leading-relaxed">
-                            Nationwide Trans Inc.<br />
+                            Nationwide Roadside Assist<br />
                             Attn: Legal Department / DPO<br />
                             1200 Enterprise Way<br />
                             San Francisco, CA 94105

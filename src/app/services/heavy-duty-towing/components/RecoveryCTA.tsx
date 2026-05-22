@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -25,7 +25,7 @@ export const RecoveryCTA = () => {
             <span className="bg-gradient-to-r from-brand-blue via-brand-orange to-brand-blue bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-flow">Recovery Infrastructure</span>
           </h2>
           <p className="text-xl text-brand-slate leading-relaxed max-w-2xl mx-auto font-medium">
-            Connect with Nationwide Trans Inc. to streamline heavy recovery operations, automate fleet dispatch coordination, and optimize enterprise roadside intelligence.
+            Connect with Nationwide Roadside Assist to streamline heavy recovery operations, automate fleet dispatch coordination, and optimize enterprise roadside intelligence.
           </p>
           
           <div className="flex flex-wrap justify-center gap-6 pt-10">

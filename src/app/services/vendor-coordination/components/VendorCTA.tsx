@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -23,7 +23,7 @@ export const VendorCTA = () => {
                    Modernize Your Vendor <br />Coordination Infrastructure
                 </h2>
                 <p className="text-sm text-brand-slate font-medium leading-relaxed mb-10 max-w-xl">
-                   Connect with Nationwide Trans Inc. to streamline dispatch operations, automate vendor routing, and optimize enterprise roadside coordination systems.
+                   Connect with Nationwide Roadside Assist to streamline dispatch operations, automate vendor routing, and optimize enterprise roadside coordination systems.
                 </p>
 
                 <div className="flex flex-wrap gap-4">

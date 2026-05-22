@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -28,20 +28,20 @@ export const TermsContent = () => {
     <div className="flex-grow max-w-4xl pb-32">
       <DocSection id="overview" title="Agreement Overview">
         <p className="text-brand-slate text-base leading-relaxed font-medium">
-          These Enterprise Terms of Service ("Agreement") constitute a legally binding agreement between Nationwide Trans Inc. ("NTI") and the entity ("Partner", "Enterprise", or "You") accessing or using our nationwide roadside infrastructure, dispatch intelligence platform, and API-first mobility systems.
+          These Enterprise Terms of Service ("Agreement") constitute a legally binding agreement between Nationwide Roadside Assist ("Nationwide Roadside Assist") and the entity ("Partner", "Enterprise", or "You") accessing or using our nationwide roadside infrastructure, dispatch intelligence platform, and API-first mobility systems.
         </p>
         <div className="p-5 bg-[#FF7A1A]/5 border border-[#FF7A1A]/20 rounded-2xl flex items-start gap-4">
            <AlertCircle className="h-5 w-5 text-[#FF7A1A] mt-0.5 shrink-0" />
            <p className="text-xs font-medium text-brand-slate leading-relaxed">
              <span className="text-foreground dark:text-white font-bold block mb-1 uppercase tracking-wider">Operational Notice:</span>
-             By integrating with NTI infrastructure or utilizing our automated dispatch mesh, you acknowledge that you are an enterprise entity governed by these mission-critical operational standards.
+             By integrating with Nationwide Roadside Assist infrastructure or utilizing our automated dispatch mesh, you acknowledge that you are an enterprise entity governed by these mission-critical operational standards.
            </p>
         </div>
       </DocSection>
 
       <DocSection id="services" title="Platform Services">
         <p className="text-brand-slate text-base leading-relaxed font-medium">
-          NTI provides a multi-tenant infrastructure platform designed for nationwide mobility operations. Our services include:
+          Nationwide Roadside Assist provides a multi-tenant infrastructure platform designed for nationwide mobility operations. Our services include:
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
            {[
@@ -61,13 +61,13 @@ export const TermsContent = () => {
       <DocSection id="dispatch" title="Enterprise Dispatch Operations">
         <div className="space-y-6">
            <p className="text-brand-slate text-base leading-relaxed font-medium">
-              Dispatch operations are governed by NTI's automated routing logic and service-level prioritization algorithms.
+              Dispatch operations are governed by Nationwide Roadside Assist's automated routing logic and service-level prioritization algorithms.
            </p>
            <ul className="space-y-4">
               {[
                 "Dispatch requests must include verified vehicle telemetry and incident metadata.",
-                "Service prioritization is determined by NTI's mission-critical response engine.",
-                "Real-time event updates are pushed via NTI's webhook architecture.",
+                "Service prioritization is determined by Nationwide Roadside Assist's mission-critical response engine.",
+                "Real-time event updates are pushed via Nationwide Roadside Assist's webhook architecture.",
                 "Partners must maintain active communication nodes for dispatch coordination."
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -84,7 +84,7 @@ export const TermsContent = () => {
       <DocSection id="api-usage" title="API Usage Policies">
         <div className="space-y-6">
            <p className="text-brand-slate text-base leading-relaxed font-medium">
-              Access to NTI's infrastructure via API is governed by our developer trust framework and rate-limiting protocols.
+              Access to Nationwide Roadside Assist's infrastructure via API is governed by our developer trust framework and rate-limiting protocols.
            </p>
            <div className="bg-brand-navy border border-brand-border rounded-2xl overflow-hidden font-mono text-[11px]">
               <div className="px-6 py-4 bg-white/[0.03] border-b border-brand-border flex justify-between items-center">
@@ -111,7 +111,7 @@ export const TermsContent = () => {
 
       <DocSection id="sla" title="SLA Commitments">
         <p className="text-brand-slate text-base leading-relaxed font-medium">
-          Our Service Level Agreement (SLA) defines the operational performance standards for NTI's infrastructure.
+          Our Service Level Agreement (SLA) defines the operational performance standards for Nationwide Roadside Assist's infrastructure.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
            {[
@@ -130,7 +130,7 @@ export const TermsContent = () => {
       <DocSection id="liability" title="Limitation of Liability">
         <div className="space-y-6">
            <p className="text-brand-slate text-base leading-relaxed font-medium italic border-l-2 border-brand-blue/30 pl-6 py-2 bg-brand-blue/5 rounded-r-2xl">
-              TO THE MAXIMUM EXTENT PERMITTED BY LAW, NATIONWIDE TRANS INC. SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING FROM INFRASTRUCTURE OUTAGES OR DISPATCH LATENCY.
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, Nationwide Roadside Assist SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING FROM INFRASTRUCTURE OUTAGES OR DISPATCH LATENCY.
            </p>
            <p className="text-brand-slate text-sm leading-relaxed font-medium">
               Liability is capped at the total fees paid by the partner in the twelve (12) months preceding the claim, specifically as it relates to mission-critical infrastructure delivery.
@@ -146,7 +146,7 @@ export const TermsContent = () => {
                  Legal & Governance
               </h4>
               <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
-                 Nationwide Trans Inc.<br />
+                 Nationwide Roadside Assist<br />
                  Legal Infrastructure Division<br />
                  1200 Enterprise Way<br />
                  San Francisco, CA 94105

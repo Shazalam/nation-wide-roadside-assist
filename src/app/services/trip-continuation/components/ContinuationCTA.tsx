@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -23,7 +23,7 @@ export const ContinuationCTA = () => {
                    Modernize Your Mobility <br />Continuation Operations
                 </h2>
                 <p className="text-lg text-brand-slate font-medium leading-relaxed mb-12 max-w-xl">
-                   Connect with Nationwide Trans Inc. to streamline customer mobility assistance, automate transportation coordination, and optimize enterprise roadside continuity systems.
+                   Connect with Nationwide Roadside Assist to streamline customer mobility assistance, automate transportation coordination, and optimize enterprise roadside continuity systems.
                 </p>
 
                 <div className="flex flex-wrap gap-4">

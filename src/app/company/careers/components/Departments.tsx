@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -52,7 +52,7 @@ const departments = [
   { 
     name: 'Customer Success', 
     icon: ShieldCheck,
-    desc: 'Ensure enterprise fleets, insurers, and OEMs maximize the value of the Nationwide Trans platform.',
+    desc: 'Ensure enterprise fleets, insurers, and OEMs maximize the value of the Nationwide Roadside Assist platform.',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80',
     count: '7 Openings'
   }

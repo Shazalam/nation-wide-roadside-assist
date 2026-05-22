@@ -9,7 +9,7 @@ const towUnitSchema = new mongoose.Schema({
     lat: { type: Number },
     lng: { type: Number }
   },
-  assignedIncident: { type: mongoose.Schema.Types.ObjectId, ref: 'DispatchIncident' }
+  assignedIncident: { type: mongoose.Schema.Types.ObjectId, ref: 'DispatchCenterIncident' }
 }, { timestamps: true });
 
 export const TowUnit = mongoose.model('TowUnit', towUnitSchema);

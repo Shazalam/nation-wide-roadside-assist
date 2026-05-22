@@ -2,9 +2,7 @@
 
 import { LandingLayout } from "@/components/layout/landing-layout";
 import { Hero } from "@/components/landing/hero";
-import { TrustBar } from "@/components/landing/trust-bar";
 import { Features } from "@/components/landing/features";
-import { AdvancedTechShowcase } from "@/components/landing/advanced-tech-showcase";
 import { IndustryTabs } from "@/components/landing/industry-tabs";
 import { APIInfrastructure } from "@/components/landing/api-infrastructure";
 import { FinalCTA } from "@/components/landing/final-cta";
@@ -16,14 +14,10 @@ export default function HomePage() {
       {/* Cinematic Entry Section */}
       <div className="relative">
         <Hero />
-        <TrustBar />
       </div>
 
       {/* Capabilities Section */}
       <Features />
-
-      {/* Futuristic Deep Tech Section */}
-      <AdvancedTechShowcase />
 
       {/* Vertical Solutions */}
       <IndustryTabs />

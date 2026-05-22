@@ -1,183 +1,201 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Activity, Zap, Cpu, MapPin } from 'lucide-react';
+import {
+  Shield, Activity, Globe, Clock, ArrowRight, ChevronRight
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { GlassPanel } from '@/components/ui/glass-panel';
+
+const MOCK_STATS = {
+  activeDispatches: 1424,
+  completedToday: 3182,
+};
 
 export const DispatchHero = () => {
-  return (
-    <section className="relative pt-32 lg:pt-44 pb-20 overflow-hidden min-h-[95vh] flex items-center bg-brand-bg">
-      {/* Background Ambient Layers */}
-      <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-[#2F80FF]/10 blur-[200px] rounded-full -mr-[300px] -mt-[300px] pointer-events-none z-0" />
-      <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#FF7A1A]/5 blur-[150px] rounded-full -ml-[200px] -mb-[200px] pointer-events-none z-0" />
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')] opacity-5 mix-blend-luminosity bg-cover bg-center" />
+  const [stats, setStats] = useState(MOCK_STATS);
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
-          {/* Left Content */}
-          <div className="lg:col-span-5 space-y-8">
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStats(prev => ({
+        ...prev,
+        activeDispatches: prev.activeDispatches + (Math.random() > 0.5 ? 1 : -1),
+        completedToday: prev.completedToday + (Math.random() > 0.8 ? 1 : 0),
+      }));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="relative min-h-[90vh] lg:min-h-screen pt-24 pb-12 lg:pt-32 lg:pb-20 flex items-center overflow-hidden bg-[#020617]">
+
+      {/* ─── FULL BLEED BACKGROUND IMAGE ─────────────────────────────────── */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/assets/images/solutions/dispatch-center-hero.jpg"
+          alt="Nationwide 24/7 Enterprise Dispatch Command Center"
+          className="w-full h-full object-cover object-center lg:object-right opacity-90"
+        />
+
+        {/* Cinematic Gradient Overlays */}
+        {/* Cinematic Dimming: Start from 45% */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617] to-transparent lg:via-[45%] lg:to-[100%]"
+        />
+
+        {/* Subtle Bottom-to-Top Fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-80" />
+
+        {/* Accent Glow */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#2F80FF]/10 blur-[150px] rounded-full -mr-96 -mt-96 pointer-events-none" />
+      </div>
+
+      {/* ─── GRID DOT OVERLAY ────────────────────────────────────────────── */}
+      <div
+        className="absolute inset-0 z-[1] opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 0)',
+          backgroundSize: '48px 48px',
+        }}
+      />
+
+      {/* ─── CONTENT ─────────────────────────────────────────────────────── */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="max-w-4xl space-y-10">
+
+          {/* Breadcrumb & Badge */}
+          <div className="space-y-5">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2 text-[10px] font-bold text-[#2F80FF] uppercase tracking-[0.3em]"
+              className="flex items-center gap-2 text-[10px] font-black text-brand-slate uppercase tracking-[0.3em]"
             >
-              <div className="h-4 w-4 rounded-full border border-[#2F80FF]/30 flex items-center justify-center">
-                 <div className="h-1.5 w-1.5 rounded-full bg-[#2F80FF] animate-pulse" />
-              </div>
-              <span>Operations &gt; 24/7 Dispatch Center</span>
+              <span className="hover:text-white transition-colors cursor-pointer">Operations</span>
+              <ChevronRight className="h-3 w-3 text-brand-blue" />
+              <span className="text-white">24/7 Dispatch Center</span>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 }}
             >
-              <h1 className="text-5xl lg:text-[4.5rem] font-black leading-[0.95] tracking-tight mb-6 text-foreground dark:text-white">
-                24/7 Enterprise <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2F80FF] to-[#0A192F]">Dispatch Command</span> <br />
-                Center
-              </h1>
-              <p className="text-lg text-brand-slate leading-relaxed max-w-xl font-medium">
-                Real-time nationwide dispatch coordination infrastructure engineered for fleets, insurers, logistics operators, and OEM mobility networks.
-              </p>
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-brand-blue/5 border border-brand-blue/20 backdrop-blur-md">
+                <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse shadow-[0_0_10px_var(--brand-blue)]" />
+                <span className="text-[9px] font-black text-white uppercase tracking-[0.25em]">
+                  Mission-Critical Nationwide Dispatch Network
+                </span>
+              </div>
             </motion.div>
+          </div>
 
-            <motion.div
+          {/* Heading */}
+          <div className="space-y-4">
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap gap-4 pt-4"
+              className="text-5xl lg:text-[5.5rem] font-black tracking-tighter text-white leading-[0.9] drop-shadow-2xl"
             >
-              <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-14 px-8 rounded-xl shadow-[0_0_30px_rgba(47,128,255,0.4)] group">
-                Schedule Operations Demo <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" suppressHydrationWarning className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-8 rounded-xl group font-mono text-[11px] uppercase tracking-widest">
-                Explore Dispatch APIs
-              </Button>
-            </motion.div>
+              24/7 Enterprise <span className="text-brand-blue">Dispatch</span> <br />
+              Command Center
+            </motion.h1>
 
-            {/* Metrics */}
-            <motion.div
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8"
+              className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-2xl font-medium"
             >
-              {[
-                { label: 'Dispatch Uptime', val: '99.98%', icon: Activity, color: 'text-emerald-400' },
-                { label: 'Recovery Events', val: '3.2M+', icon: Zap, color: 'text-[#2F80FF]' },
-                { label: 'Nationwide Ops', val: '24/7', icon: MapPin, color: 'text-[#FF7A1A]' },
-                { label: 'SLA Monitoring', val: 'Active', icon: Cpu, color: 'text-purple-400' }
-              ].map((m, i) => (
-                <div key={i} className="space-y-2 border-l border-brand-border pl-4">
-                  <div className={`h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center ${m.color}`}>
-                    <m.icon className="h-4 w-4" />
-                  </div>
-                  <p className="text-xl font-black text-foreground dark:text-white tracking-tight">{m.val}</p>
-                  <p className="text-[9px] font-bold text-brand-slate uppercase tracking-widest leading-tight pr-4">{m.label}</p>
-                </div>
-              ))}
-            </motion.div>
+              Real-time nationwide dispatch coordination infrastructure engineered for fleets,
+              insurers, logistics operators, and OEM mobility networks — mission-critical operations
+              active around the clock, every day of the year.
+            </motion.p>
           </div>
 
-          {/* Right Content: Massive Operational Dashboard */}
-          <div className="lg:col-span-7 relative h-[700px] flex items-center justify-center">
-             <motion.div
-               initial={{ opacity: 0, scale: 0.95, x: 20 }}
-               animate={{ opacity: 1, scale: 1, x: 0 }}
-               transition={{ duration: 0.8, ease: "easeOut" }}
-               className="w-full h-full relative"
-             >
-                <GlassPanel className="absolute inset-0 p-0 border-[#2F80FF]/20 bg-card/80 shadow-[0_0_100px_rgba(0,0,0,0.8)] backdrop-blur-2xl overflow-hidden flex flex-col rounded-3xl">
-                   {/* Header */}
-                   <div className="h-14 border-b border-brand-border bg-white/[0.02] flex items-center justify-between px-6 shrink-0 relative z-10">
-                      <div className="flex gap-4 items-center">
-                         <div className="flex gap-1.5">
-                            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                            <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                         </div>
-                         <div className="h-4 w-px bg-white/20 mx-2" />
-                         <span className="text-[10px] font-mono font-bold text-brand-slate uppercase tracking-widest flex items-center gap-2">
-                           NTI-OS <span className="h-1.5 w-1.5 bg-[#2F80FF] rounded-full animate-pulse" /> Live Command
-                         </span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                         <span className="text-[10px] font-mono text-emerald-400">SLA NOMINAL</span>
-                      </div>
-                   </div>
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-wrap gap-5"
+          >
+            <Button
+              size="lg"
+              className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_50px_var(--brand-glow)] transition-all hover:-translate-y-1.5 active:scale-95 group"
+            >
+              Schedule Operations Demo
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1.5 transition-transform" />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white/10 bg-white/5 text-white hover:bg-white/10 h-16 px-10 rounded-2xl font-black backdrop-blur-xl transition-all hover:border-brand-blue/40 group flex items-center gap-3"
+            >
+              <span className="opacity-40 group-hover:opacity-100 font-mono transition-opacity">{'</>'}</span>
+              Explore Dispatch APIs
+            </Button>
+          </motion.div>
 
-                   {/* Dashboard Body */}
-                   <div className="flex-1 flex relative overflow-hidden">
-                      {/* Abstract Radar Background */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-brand-border rounded-full" />
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-brand-border rounded-full" />
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-[#2F80FF]/10 rounded-full" />
+          {/* KPI Analytics Strip */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-12">
+            {[
+              { label: 'Dispatch Uptime',   val: '99.98%',     icon: Activity, color: 'text-brand-blue'   },
+              { label: 'Recovery Events',   val: '3.2M+',      icon: Shield,   color: 'text-brand-orange' },
+              { label: 'Nationwide Ops',    val: 'Nationwide', icon: Globe,    color: 'text-purple-400'   },
+              { label: 'Operations',        val: '24/7',       icon: Clock,    color: 'text-emerald-400'  },
+            ].map((m, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + i * 0.1 }}
+                className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-xl hover:bg-white/[0.05] transition-all group overflow-hidden relative"
+              >
+                {/* Icon ghost top-right */}
+                <div className={`absolute top-4 right-4 opacity-20 ${m.color}`}>
+                  <m.icon className="h-4 w-4" />
+                </div>
 
-                      {/* Side Panel */}
-                      <div className="w-64 border-r border-brand-border bg-brand-bg/90 p-4 flex flex-col gap-4 relative z-10">
-                         <div className="space-y-3">
-                            <h3 className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest border-b border-brand-border pb-2">Live Dispatch Queues</h3>
-                            {[
-                              { region: 'NA-EAST', count: 142, status: 'Active' },
-                              { region: 'NA-WEST', count: 89, status: 'Optimizing' },
-                              { region: 'NA-CENTRAL', count: 204, status: 'High Load' }
-                            ].map((q, i) => (
-                              <div key={i} className="p-3 bg-white/5 border border-brand-border rounded-lg flex items-center justify-between">
-                                 <div>
-                                    <p className="text-[10px] font-mono text-brand-slate mb-1">{q.region}</p>
-                                    <p className="text-sm font-black text-foreground dark:text-white">{q.count} <span className="text-[9px] font-normal text-brand-slate ml-1 uppercase">units</span></p>
-                                 </div>
-                                 <span className={`text-[9px] font-bold uppercase ${q.status === 'High Load' ? 'text-[#FF7A1A]' : 'text-[#2F80FF]'}`}>{q.status}</span>
-                              </div>
-                            ))}
-                         </div>
-                      </div>
+                <div>
+                  <p className="text-3xl font-black text-white tracking-tighter">{m.val}</p>
+                  <p className="text-[10px] font-black text-brand-slate uppercase tracking-widest mt-2 leading-tight">
+                    {m.label}
+                  </p>
+                </div>
 
-                      {/* Main Map / Telemetry Area */}
-                      <div className="flex-1 p-6 relative">
-                         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80')] opacity-20 mix-blend-screen bg-cover bg-center grayscale" />
-                         
-                         {/* Nodes */}
-                         <div className="absolute top-[40%] left-[30%]">
-                            <div className="relative">
-                               <div className="h-4 w-4 bg-[#FF7A1A] rounded-full z-10 relative" />
-                               <div className="absolute inset-0 bg-[#FF7A1A] rounded-full animate-ping opacity-75" />
-                               <div className="absolute top-6 left-0 bg-brand-bg/80 backdrop-blur-sm border border-brand-border p-2 rounded w-32">
-                                  <p className="text-[9px] font-bold text-[#FF7A1A] uppercase tracking-widest mb-1">Heavy-Duty</p>
-                                  <p className="text-[10px] font-mono text-foreground dark:text-white">ETA: 14m</p>
-                               </div>
-                            </div>
-                         </div>
-                         
-                         <div className="absolute top-[60%] left-[60%]">
-                            <div className="relative">
-                               <div className="h-3 w-3 bg-emerald-400 rounded-full z-10 relative" />
-                               <div className="absolute inset-0 bg-emerald-400 rounded-full animate-ping opacity-75" />
-                            </div>
-                         </div>
-
-                         {/* Floating Action Bar */}
-                         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-brand-bg/90 backdrop-blur-md border border-brand-border rounded-full px-6 py-3 flex gap-6">
-                            <div className="flex items-center gap-2">
-                               <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                               <span className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest">Routing Systems Active</span>
-                            </div>
-                            <div className="w-px h-4 bg-white/20" />
-                            <div className="flex items-center gap-2">
-                               <span className="text-[10px] font-mono text-[#2F80FF]">48.1M Nodes Checked</span>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </GlassPanel>
-             </motion.div>
+                {/* Animated accent bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/5">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: '65%' }}
+                    className={`h-full ${m.color.replace('text-', 'bg-')}/40`}
+                  />
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* ─── FLOATING OPERATIONAL HUD (bottom-right) ─────────────────────── */}
+      <div className="absolute bottom-12 right-12 z-20 hidden xl:block">
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md">
+            <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest leading-none">
+              Dispatch Network Active
+            </span>
+          </div>
+          <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/20 backdrop-blur-md">
+            <div className="h-1.5 w-1.5 rounded-full bg-brand-blue animate-pulse" />
+            <span className="text-[9px] font-black text-brand-blue uppercase tracking-widest leading-none">
+              {stats.activeDispatches.toLocaleString()} Active Dispatches
+            </span>
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 };

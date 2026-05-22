@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -28,13 +28,13 @@ export const LegalContent = () => {
     <div className="flex-grow max-w-4xl pb-32">
       <DocumentationSection id="overview" title="Overview">
         <p className="text-brand-slate text-base leading-relaxed font-medium">
-          At Nationwide Trans Inc. (NTI), privacy is not just a legal requirement; it is a fundamental component of our infrastructure. This Privacy Policy describes how we collect, use, and protect data within our nationwide roadside infrastructure and dispatch ecosystem.
+          At Nationwide Roadside Assist (Nationwide Roadside Assist), privacy is not just a legal requirement; it is a fundamental component of our infrastructure. This Privacy Policy describes how we collect, use, and protect data within our nationwide roadside infrastructure and dispatch ecosystem.
         </p>
         <div className="p-5 bg-brand-blue/5 border border-brand-blue/20 rounded-2xl flex items-start gap-4">
            <AlertCircle className="h-5 w-5 text-brand-blue mt-0.5 shrink-0" />
            <p className="text-xs font-medium text-brand-slate leading-relaxed">
              <span className="text-foreground dark:text-white font-bold block mb-1">Infrastructure Notice:</span>
-             This policy applies specifically to enterprise partners, fleet operators, insurance providers, and developers using the NTI platform. Consumer interactions are governed by the respective service provider's privacy terms.
+             This policy applies specifically to enterprise partners, fleet operators, insurance providers, and developers using the Nationwide Roadside Assist platform. Consumer interactions are governed by the respective service provider's privacy terms.
            </p>
         </div>
       </DocumentationSection>
@@ -127,7 +127,7 @@ export const LegalContent = () => {
 
       <DocumentationSection id="gdpr" title="GDPR & International Data Rights">
         <p className="text-brand-slate text-base leading-relaxed font-medium">
-          While NTI primarily operates in the United States, our data governance framework adheres to GDPR principles for all enterprise users. This includes the right to data portability, the right to erasure, and the right to object to automated processing.
+          While Nationwide Roadside Assist primarily operates in the United States, our data governance framework adheres to GDPR principles for all enterprise users. This includes the right to data portability, the right to erasure, and the right to object to automated processing.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
            <button className="bg-white/[0.03] border border-brand-border px-5 py-2.5 rounded-xl text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest hover:border-brand-blue transition-all">Download DPA →</button>
@@ -140,7 +140,7 @@ export const LegalContent = () => {
            <div className="space-y-4">
               <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Legal & Compliance</h4>
               <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
-                 Nationwide Trans Inc.<br />
+                 Nationwide Roadside Assist<br />
                  Attn: Legal Department / DPO<br />
                  1200 Enterprise Way<br />
                  San Francisco, CA 94105

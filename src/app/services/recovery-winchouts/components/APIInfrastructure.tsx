@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -20,7 +20,7 @@ const codeExamples = {
     "equipment_needed": ["rotator", "air_cushion"]
   }'`,
   dispatch: `// Real-time dispatch subscription
-nti.recovery.subscribe('INC-7821', (event) => {
+Nationwide Roadside Assist.recovery.subscribe('INC-7821', (event) => {
   if (event.type === 'unit.dispatched') {
     console.log('Unit ID:', event.data.unit_id);
     console.log('Rotator ETA:', event.data.eta_min);

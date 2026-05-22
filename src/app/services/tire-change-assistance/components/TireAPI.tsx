@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -58,7 +58,7 @@ export const TireAPI = () => {
     "location": { "lat": 40.7128, "lng": -74.0060 }
   }
 }`,
-    sdks: `import { NTIClient } from '@nti/sdk';
+    sdks: `import { NTIClient } from '@Nationwide Roadside Assist/sdk';
 
 const client = new NTIClient('YOUR_API_KEY');
 
@@ -103,7 +103,7 @@ const dispatch = await client.dispatch.requestTireService({
                 Developer <span className="text-[#2F80FF]">API Infrastructure</span>
               </h2>
               <p className="text-base lg:text-lg text-brand-slate leading-relaxed font-medium">
-                The Nationwide Trans API-first core allows you to programmatically request and track tire assistance services directly within your own ERP, fleet management, or claim portal.
+                The Nationwide Roadside Assist API-first core allows you to programmatically request and track tire assistance services directly within your own ERP, fleet management, or claim portal.
               </p>
             </div>
 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -66,7 +66,7 @@ export const TermsHero = () => {
               transition={{ delay: 0.3 }}
               className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-[760px] font-medium"
             >
-              Nationwide Trans Inc. provides enterprise-grade mobility infrastructure, dispatch intelligence, API services, and operational support systems governed through transparent service agreements and compliance standards.
+              Nationwide Roadside Assist provides enterprise-grade mobility infrastructure, dispatch intelligence, API services, and operational support systems governed through transparent service agreements and compliance standards.
             </motion.p>
           </div>
 

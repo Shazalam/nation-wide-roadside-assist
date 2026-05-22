@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { APIBlock } from '@/components/ui/api-block';
@@ -20,7 +20,7 @@ export default function DeveloperOverviewPage() {
           Integrate the world's most advanced <span className="text-brand-blue">Mobility Mesh</span>.
         </h2>
         <p className="text-brand-slate text-xl leading-relaxed max-w-3xl">
-          Build high-performance roadside and fleet operations with our API-first infrastructure. From automated dispatch to real-time telemetry, Nationwide Trans provides the tools you need to scale.
+          Build high-performance roadside and fleet operations with our API-first infrastructure. From automated dispatch to real-time telemetry, Nationwide Roadside Assist provides the tools you need to scale.
         </p>
         <div className="flex gap-4 pt-4">
            <Link href="/developer/auth">

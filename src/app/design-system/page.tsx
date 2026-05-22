@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { LandingLayout } from '@/components/layout/landing-layout';
@@ -40,7 +40,7 @@ const DesignSystemPage = () => {
         <div className="max-w-4xl mb-16">
           <h1 className="text-4xl font-bold text-foreground dark:text-white mb-4">Enterprise Design System</h1>
           <p className="text-brand-slate text-lg">
-            Standardized UI components for Nationwide Trans Inc. built with cinematic dark mode, glassmorphism, and high-performance animations.
+            Standardized UI components for Nationwide Roadside Assist built with cinematic dark mode, glassmorphism, and high-performance animations.
           </p>
         </div>
 

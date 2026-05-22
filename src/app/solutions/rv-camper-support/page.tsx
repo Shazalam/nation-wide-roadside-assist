@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import HeroSection from './HeroSection';
 import TrustBar from './TrustBar';
 import CoreCapabilities from './CoreCapabilities';
@@ -10,7 +10,7 @@ import OperationalIntelligence from './OperationalIntelligence';
 import CTASection from './CTASection';
 
 export const metadata = {
-  title: "RV & Camper Roadside Support | Nationwide Trans Inc.",
+  title: "RV & Camper Roadside Support | Nationwide Roadside Assist",
   description: "Enterprise roadside intelligence, specialized RV dispatch operations, and API-driven mobility support engineered for motorhomes, travel trailers, campground networks, and insurers.",
 };
 

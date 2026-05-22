@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -59,7 +59,7 @@ export const LegalHero = () => {
             transition={{ delay: 0.3 }}
             className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-3xl font-medium"
           >
-            Nationwide Trans Inc. maintains enterprise-grade privacy, compliance, and data governance standards engineered for insurers, fleets, OEMs, mobility providers, and operational dispatch ecosystems.
+            Nationwide Roadside Assist maintains enterprise-grade privacy, compliance, and data governance standards engineered for insurers, fleets, OEMs, mobility providers, and operational dispatch ecosystems.
           </motion.p>
 
           {/* Trust Metric Cards */}

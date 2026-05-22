@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -69,7 +69,7 @@ export const CookieHero = () => {
               transition={{ delay: 0.3 }}
               className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-[760px] font-medium"
             >
-              Nationwide Trans Inc. uses enterprise-grade consent and tracking technologies to optimize platform reliability, operational analytics, API performance, and user experience while maintaining transparent governance standards.
+              Nationwide Roadside Assist uses enterprise-grade consent and tracking technologies to optimize platform reliability, operational analytics, API performance, and user experience while maintaining transparent governance standards.
             </motion.p>
           </div>
 

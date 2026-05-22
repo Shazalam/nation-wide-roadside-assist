@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -30,7 +30,7 @@ export const AssistanceCTA = () => {
               </h2>
 
               <p className="text-brand-slate text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
-                 Connect with Nationwide Trans Inc. to streamline roadside operations, automate dispatch coordination, and optimize enterprise mobility support.
+                 Connect with Nationwide Roadside Assist to streamline roadside operations, automate dispatch coordination, and optimize enterprise mobility support.
               </p>
 
               <div className="flex flex-wrap justify-center gap-6 pt-6">

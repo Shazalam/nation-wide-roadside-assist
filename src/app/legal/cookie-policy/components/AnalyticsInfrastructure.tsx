@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -52,7 +52,7 @@ export const AnalyticsInfrastructure = () => {
                              API Monitoring Nodes
                           </h4>
                           <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
-                             Tracking API latency and endpoint throughput via session-anchored observability cookies. This allows NTI to optimize nationwide dispatch engine performance in real-time.
+                             Tracking API latency and endpoint throughput via session-anchored observability cookies. This allows Nationwide Roadside Assist to optimize nationwide dispatch engine performance in real-time.
                           </p>
                           <div className="flex gap-2">
                              {[1, 2, 3, 4, 5, 6].map(i => (
@@ -86,7 +86,7 @@ export const AnalyticsInfrastructure = () => {
                  </div>
                  
                  <div className="px-8 py-4 bg-white/[0.01] border-t border-brand-border flex items-center justify-between">
-                    <p className="text-[9px] font-mono text-brand-slate uppercase tracking-widest">Audited by NTI Security Mesh / v4.2</p>
+                    <p className="text-[9px] font-mono text-brand-slate uppercase tracking-widest">Audited by Nationwide Roadside Assist Security Mesh / v4.2</p>
                     <div className="flex items-center gap-4">
                        <span className="text-[9px] font-black text-brand-slate uppercase tracking-widest">ISO 27001</span>
                        <span className="text-[9px] font-black text-brand-slate uppercase tracking-widest">SOC 2 TYPE II</span>
@@ -122,7 +122,7 @@ export const AnalyticsInfrastructure = () => {
                  <Shield className="h-6 w-6 text-[#2F80FF] mb-2" />
                  <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Enterprise Privacy Protection</h4>
                  <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
-                    All tracking infrastructure is isolated and governed by NTI's unified privacy and consent frameworks.
+                    All tracking infrastructure is isolated and governed by Nationwide Roadside Assist's unified privacy and consent frameworks.
                  </p>
               </GlassPanel>
            </div>

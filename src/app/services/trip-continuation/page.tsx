@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Metadata } from 'next';
 import { Navbar } from '@/components/layout/navbar';
 import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
@@ -10,7 +10,7 @@ import { APIInfrastructure } from './components/APIInfrastructure';
 import { ContinuationCTA } from './components/ContinuationCTA';
 
 export const metadata: Metadata = {
-  title: 'Trip Continuation & Mobility Intelligence | Nationwide Trans Inc.',
+  title: 'Trip Continuation & Mobility Intelligence | Nationwide Roadside Assist',
   description: 'Enterprise trip continuation systems, real-time mobility coordination, and API-first customer assistance infrastructure.',
 };
 

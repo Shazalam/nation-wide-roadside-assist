@@ -25,7 +25,7 @@ export const EnterpriseTabs = ({
 }: EnterpriseTabsProps) => {
   return (
     <div className={cn(
-      "flex p-1 transition-colors duration-500",
+      "flex flex-wrap gap-1 p-1 transition-colors duration-500",
       variant === 'pills' ? "bg-foreground/[0.03] border border-brand-border rounded-xl w-fit" : "border-b border-brand-border w-full gap-8 px-2",
       className
     )}>

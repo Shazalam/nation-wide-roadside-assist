@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -47,7 +47,7 @@ export const ConsentManager = () => {
                 <span className="text-[#2F80FF]">Consent Manager</span>
               </h2>
               <p className="text-base text-brand-slate leading-relaxed font-medium">
-                Manage your enterprise-wide consent preferences for NTI infrastructure nodes and operational analytics.
+                Manage your enterprise-wide consent preferences for Nationwide Roadside Assist infrastructure nodes and operational analytics.
               </p>
               
               <div className="pt-8 space-y-4">

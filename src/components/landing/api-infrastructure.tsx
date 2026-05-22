@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -87,7 +87,7 @@ export const APIInfrastructure = () => {
               Built for <span className="text-brand-blue">Engineers</span>, Engineered for Scale.
             </h2>
             <p className="text-brand-slate text-lg leading-relaxed">
-              Nationwide Trans is a purely programmatic infrastructure. No complex portals required. Integrate directly into your existing claim or fleet systems using our high-performance REST and GraphQL APIs.
+              Nationwide Roadside Assist is a purely programmatic infrastructure. No complex portals required. Integrate directly into your existing claim or fleet systems using our high-performance REST and GraphQL APIs.
             </p>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">

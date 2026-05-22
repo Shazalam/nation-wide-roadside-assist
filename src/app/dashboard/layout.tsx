@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -76,7 +76,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 animate={{ opacity: 1 }}
                 className="font-bold text-lg tracking-tight whitespace-nowrap"
               >
-                Nationwide Trans
+                Nationwide Roadside Assist
               </motion.span>
             )}
           </div>

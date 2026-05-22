@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -28,7 +28,7 @@ export default function CTASection() {
           </h2>
           
           <p className="text-xl text-brand-slate mb-14 leading-relaxed max-w-2xl mx-auto">
-            Connect with Nationwide Trans Inc. to streamline heavy-duty recovery operations, automate dispatch coordination, and optimize enterprise fleet intelligence.
+            Connect with Nationwide Roadside Assist to streamline heavy-duty recovery operations, automate dispatch coordination, and optimize enterprise fleet intelligence.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

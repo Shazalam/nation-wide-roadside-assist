@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -23,7 +23,7 @@ export const RepairCTA = () => {
               Modernize Your Mobile <br />Repair Infrastructure
            </h2>
            <p className="text-xl text-brand-slate font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
-              Connect with Nationwide Trans Inc. to streamline mobile roadside repairs, automate dispatch operations, and optimize enterprise mobility support.
+              Connect with Nationwide Roadside Assist to streamline mobile roadside repairs, automate dispatch operations, and optimize enterprise mobility support.
            </p>
 
            <div className="flex flex-wrap justify-center gap-6">

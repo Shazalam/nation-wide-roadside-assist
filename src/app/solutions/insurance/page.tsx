@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { LandingLayout } from '@/components/layout/landing-layout';
@@ -201,7 +201,7 @@ export default function InsuranceSolutionsPage() {
              <div className="relative z-10 space-y-8">
                <h2 className="text-4xl font-bold text-foreground dark:text-white">Elevate Your Membership Core</h2>
                <p className="text-brand-slate max-w-xl mx-auto">
-                 Partner with Nationwide Trans to deliver 15-minute roadside response times and real-time operational transparency.
+                 Partner with Nationwide Roadside Assist to deliver 15-minute roadside response times and real-time operational transparency.
                </p>
                <div className="flex justify-center gap-4">
                  <Button size="lg" className="bg-brand-blue text-foreground dark:text-white font-bold h-12 px-8 uppercase tracking-widest">

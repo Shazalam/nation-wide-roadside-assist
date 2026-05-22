@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -39,7 +39,7 @@ export const TrustCTA = () => {
             transition={{ delay: 0.2 }}
             className="text-lg lg:text-xl text-brand-slate leading-relaxed font-medium max-w-3xl mx-auto"
           >
-            Nationwide Trans Inc. is committed to transparent tracking governance, secure analytics systems, and enterprise-grade consent infrastructure engineered for mobility platforms.
+            Nationwide Roadside Assist is committed to transparent tracking governance, secure analytics systems, and enterprise-grade consent infrastructure engineered for mobility platforms.
           </motion.p>
 
           <motion.div

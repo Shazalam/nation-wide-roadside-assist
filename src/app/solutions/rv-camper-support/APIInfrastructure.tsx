@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -46,7 +46,7 @@ const response = await fetch(
   'Telemetry API': {
     lang: 'typescript',
     code: `// Stream live RV telemetry events
-const stream = nti.telemetry.subscribe({
+const stream = Nationwide Roadside Assist.telemetry.subscribe({
   vehicle_ids: ['RV-7821', 'RV-4162'],
   events: ['location', 'speed', 'diagnostics'],
   interval_ms: 5000,
@@ -60,14 +60,14 @@ stream.on('data', (event) => {
 stream.on('alert', (alert) => {
   // Trigger automated dispatch on breakdown
   if (alert.type === 'engine_derate') {
-    nti.dispatch.create({ vehicle_id: alert.vehicle_id });
+    Nationwide Roadside Assist.dispatch.create({ vehicle_id: alert.vehicle_id });
   }
 });`,
   },
   'Vendor API': {
     lang: 'typescript',
     code: `// Find nearest certified RV vendors
-const vendors = await nti.vendors.search({
+const vendors = await Nationwide Roadside Assist.vendors.search({
   location: { lat: 44.4279, lng: -110.5884 },
   radius_miles: 50,
   capabilities: ['heavy_duty_tow', 'rv_recovery'],
@@ -146,7 +146,7 @@ export default function APIInfrastructure() {
       // Now apply styling to the escaped text
       styled = styled
         .replace(/\b(const|let|var|await|async|return|new|if|else|forEach|on)\b/g, '<span class="text-[#FF7A1A]">$1</span>')
-        .replace(/\b(fetch|subscribe|search|create|nti\.\w+)\b/g, '<span class="text-[#2F80FF]">$1</span>')
+        .replace(/\b(fetch|subscribe|search|create|Nationwide Roadside Assist\.\w+)\b/g, '<span class="text-[#2F80FF]">$1</span>')
         .replace(/&quot;([^&]*)&quot;/g, '<span class="text-amber-300">&quot;$1&quot;</span>')
         .replace(/&#039;([^&]*)&#039;/g, '<span class="text-amber-300">&#039;$1&#039;</span>')
         .replace(/\b(\d+)\b/g, '<span class="text-pink-400">$1</span>')

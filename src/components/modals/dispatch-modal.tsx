@@ -1,10 +1,12 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { toast } from 'sonner';
+import { useDispatchRequest } from '@/hooks/use-enterprise-forms';
 import { 
   X, 
   Truck, 
@@ -16,7 +18,11 @@ import {
   Activity,
   ShieldAlert,
   Radio,
-  Navigation
+  Navigation,
+  Phone,
+  Mail,
+  Terminal,
+  Lock
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -41,19 +47,27 @@ interface DispatchModalProps {
 }
 
 export const DispatchModal = ({ isOpen, onClose }: DispatchModalProps) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [activeTab, setActiveTab] = useState<'form' | 'contact'>('form');
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const { register, handleSubmit, formState: { errors } } = useForm<DispatchFormData>({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<DispatchFormData>({
     resolver: zodResolver(dispatchSchema),
   });
 
+  const mutation = useDispatchRequest();
+
   const onSubmit = async (data: DispatchFormData) => {
-    setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log('Dispatch Request:', data);
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    toast.promise(mutation.mutateAsync(data), {
+      loading: 'Broadcasting dispatch request to network...',
+      success: () => {
+        setIsSuccess(true);
+        reset();
+        return 'Dispatch request initialized successfully.';
+      },
+      error: (err: any) => {
+        return err.response?.data?.message || 'Network broadcast failed. Please try again.';
+      }
+    });
   };
 
   useEffect(() => {
@@ -133,8 +147,36 @@ export const DispatchModal = ({ isOpen, onClose }: DispatchModalProps) => {
               </div>
            </div>
 
-           {/* RIGHT PANEL — DISPATCH FORM */}
-           <div className="lg:w-[60%] bg-[#081120]/40 p-8 lg:p-12 overflow-y-auto no-scrollbar">
+           {/* RIGHT PANEL — DISPATCH FORM & CONTACT */}
+           <div className="lg:w-[60%] bg-[#081120]/40 p-8 lg:p-12 overflow-y-auto no-scrollbar relative">
+              {/* Tab Switcher */}
+              <div className="flex justify-center mb-10">
+                <div className="inline-flex items-center gap-1.5 p-1.5 rounded-full bg-[#0F172A]/80 border border-white/10 backdrop-blur-md shadow-inner">
+                  <button 
+                    onClick={() => setActiveTab('form')}
+                    className={cn(
+                      "px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all duration-300",
+                      activeTab === 'form' 
+                        ? "bg-[#2F80FF] text-white shadow-[0_4px_12px_rgba(47,128,255,0.4)]" 
+                        : "text-brand-slate hover:text-white/60"
+                    )}
+                  >
+                    Broadcast Request
+                  </button>
+                  <button 
+                    onClick={() => setActiveTab('contact')}
+                    className={cn(
+                      "px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all duration-300",
+                      activeTab === 'contact' 
+                        ? "bg-[#2F80FF] text-white shadow-[0_4px_12px_rgba(47,128,255,0.4)]" 
+                        : "text-brand-slate hover:text-white/60"
+                    )}
+                  >
+                    Direct Contact
+                  </button>
+                </div>
+              </div>
+
               <AnimatePresence mode="wait">
                  {isSuccess ? (
                    <motion.div
@@ -153,8 +195,14 @@ export const DispatchModal = ({ isOpen, onClose }: DispatchModalProps) => {
                       </div>
                       <Button onClick={onClose} className="bg-[#2F80FF] text-white px-8">Close Connection</Button>
                    </motion.div>
-                 ) : (
-                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                 ) : activeTab === 'form' ? (
+                   <motion.div
+                     key="form"
+                     initial={{ opacity: 0, x: -20 }}
+                     animate={{ opacity: 1, x: 0 }}
+                     exit={{ opacity: 0, x: 20 }}
+                   >
+                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                          <div className="space-y-2">
                             <label className="text-[10px] font-black text-brand-slate uppercase tracking-widest ml-1">First Name</label>
@@ -210,17 +258,58 @@ export const DispatchModal = ({ isOpen, onClose }: DispatchModalProps) => {
 
                       <Button 
                         type="submit" 
-                        disabled={isSubmitting}
+                        disabled={mutation.isPending}
                         className="w-full h-14 bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-black uppercase tracking-widest rounded-xl transition-all group"
                       >
-                         {isSubmitting ? 'Initializing Node...' : 'Submit Dispatch Request'}
-                         {!isSubmitting && <Send className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />}
+                         {mutation.isPending ? 'Broadcasting...' : 'Submit Dispatch Request'}
+                         {!mutation.isPending && <Send className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />}
                       </Button>
 
                       <p className="text-[9px] text-center text-brand-slate font-medium">
                          By submitting this form, you agree to our Terms of Service and Privacy Policy. A specialist will call you immediately.
                       </p>
-                   </form>
+                    </form>
+                   </motion.div>
+                 ) : (
+                   <motion.div
+                     key="contact"
+                     initial={{ opacity: 0, x: 20 }}
+                     animate={{ opacity: 1, x: 0 }}
+                     exit={{ opacity: 0, x: -20 }}
+                     className="h-full flex flex-col justify-center"
+                   >
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                         {[
+                           { title: 'Emergency Dispatch', value: '+1 (888) Nationwide Roadside Assist-DISP', icon: Phone, label: 'Dispatch Hot-Line' },
+                           { title: 'Operations Center', value: 'dispatch@nationwidetrans.com', icon: Mail, label: 'Control Email' },
+                           { title: 'Response HQ', value: 'Live Telemetry Center', icon: MapPin, label: 'Location' },
+                           { title: 'SLA Guarantee', value: '< 15 min Arrival', icon: Clock, label: 'Target ETA' }
+                         ].map((card, i) => (
+                           <GlassPanel key={i} className="p-6 border-white/10 bg-white/[0.02] space-y-4 hover:border-[#2F80FF]/30 transition-all">
+                              <div className="h-10 w-10 rounded-xl bg-[#2F80FF]/10 border border-[#2F80FF]/20 flex items-center justify-center text-[#2F80FF]">
+                                 <card.icon className="h-5 w-5" />
+                              </div>
+                              <div className="space-y-1">
+                                 <p className="text-[9px] font-black text-brand-slate uppercase tracking-widest">{card.label}</p>
+                                 <h4 className="text-sm font-bold text-white">{card.value}</h4>
+                                 <p className="text-[10px] text-brand-slate font-medium">{card.title}</p>
+                              </div>
+                           </GlassPanel>
+                         ))}
+                         
+                         <div className="col-span-1 md:col-span-2 pt-8 flex items-center justify-between border-t border-white/5">
+                            <div className="flex items-center gap-4">
+                               <div className="h-2 w-2 rounded-full bg-rose-500 animate-pulse" />
+                               <span className="text-[10px] font-black text-white uppercase tracking-widest">Emergency Priority Routing Active</span>
+                            </div>
+                            <div className="flex gap-4">
+                                {[Terminal, Lock, Activity].map((Icon, i) => (
+                                  <Icon key={i} className="h-4 w-4 text-brand-slate hover:text-white transition-colors cursor-pointer" />
+                                ))}
+                            </div>
+                         </div>
+                      </div>
+                   </motion.div>
                  )}
               </AnimatePresence>
            </div>

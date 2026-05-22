@@ -3,7 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { Shield, ExternalLink, Globe, Zap, Activity, Share2 } from 'lucide-react';
-import { usePlatformModals } from '@/providers/partnership-provider';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen } from '@/store';
+import { Logo } from '@/components/ui/logo';
 
 const footerLinks = [
   {
@@ -52,7 +54,7 @@ const footerLinks = [
 ];
 
 export const EnterpriseFooter = () => {
-  const { openPartnershipModal } = usePlatformModals();
+  const dispatch = useDispatch();
 
   return (
     <footer className="bg-brand-bg border-t border-brand-border py-12 relative z-10 overflow-hidden">
@@ -65,13 +67,13 @@ export const EnterpriseFooter = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-6 relative z-10">
             <Link href="/" className="flex items-center gap-3 group inline-flex">
-               <div className="flex items-center italic font-black text-2xl tracking-tighter mr-1">
-                  <span className="text-foreground">N</span>
-                  <span className="text-brand-blue">T</span>
-               </div>
+               <Logo className="transition-transform duration-300 group-hover:scale-105" size={36} />
                <div className="flex flex-col">
-                  <span className="text-foreground font-bold text-[13px] leading-tight tracking-wide group-hover:text-foreground/80 transition-colors">
-                     NATIONWIDE<br/>TRANS INC.
+                  <span className="text-foreground font-extrabold text-[12.5px] leading-none tracking-wider uppercase group-hover:text-foreground/80 transition-colors">
+                     NATIONWIDE
+                  </span>
+                  <span className="text-[10px] font-black text-brand-blue tracking-[0.22em] mt-0.5 uppercase">
+                     ROADSIDE ASSIST
                   </span>
                </div>
             </Link>
@@ -98,7 +100,7 @@ export const EnterpriseFooter = () => {
                   <li key={link.name}>
                     {link.name === 'Partner With Us' ? (
                       <button 
-                        onClick={openPartnershipModal}
+                        onClick={() => dispatch(setPartnershipOpen(true))}
                         className="text-brand-slate text-sm font-medium hover:text-brand-blue transition-colors flex items-center gap-2 group"
                       >
                         {link.name}
@@ -120,7 +122,7 @@ export const EnterpriseFooter = () => {
         <div className="py-5 border-t border-brand-border flex flex-col lg:flex-row items-center justify-between gap-4 relative z-10">
           
           <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-xs font-mono text-brand-slate">
-            <span className="text-foreground/40">© {new Date().getFullYear()} NTI</span>
+            <span className="text-foreground/40">© {new Date().getFullYear()} NATIONWIDE ROADSIDE ASSIST</span>
             <Link href="/legal/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link href="/legal/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</Link>
             <Link href="/legal/cookie-policy" className="hover:text-foreground transition-colors">Cookie Policy</Link>

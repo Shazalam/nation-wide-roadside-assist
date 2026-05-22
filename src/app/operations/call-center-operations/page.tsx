@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { Navbar } from "@/components/layout/navbar";
 import { EnterpriseFooter } from "@/components/landing/enterprise-footer";
 import { CallCenterHero } from "./components/CallCenterHero";
@@ -13,7 +13,7 @@ import { OperationalMetrics } from "./components/OperationalMetrics";
 import { CallCenterCTA } from "./components/CallCenterCTA";
 
 export const metadata: Metadata = {
-  title: "Call Center Operations | Nationwide Trans Inc.",
+  title: "Call Center Operations | Nationwide Roadside Assist",
   description: "Enterprise Call Center & Dispatch Operations Platform.",
 };
 

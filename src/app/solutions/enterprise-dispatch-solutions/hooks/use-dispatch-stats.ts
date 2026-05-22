@@ -3,38 +3,46 @@
 import { useState, useEffect } from 'react';
 
 export interface DispatchStats {
-  totalEvents: number;
+  activeDispatches: number;
+  enRoute: number;
+  onScene: number;
+  completedToday: number;
+  totalAnnual: number;
   slaCompliance: number;
-  activeIncidents: number;
+  vendorAvailability: number;
   avgResponseTime: number;
-  resolutionRate: number;
 }
 
+const MOCK_STATS: DispatchStats = {
+  activeDispatches: 1424,
+  enRoute: 718,
+  onScene: 391,
+  completedToday: 3182,
+  totalAnnual: 2400000,
+  slaCompliance: 97.8,
+  vendorAvailability: 88,
+  avgResponseTime: 18.2,
+};
+
 export const useDispatchStats = () => {
-  const [stats, setStats] = useState<DispatchStats | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState<DispatchStats | null>(MOCK_STATS);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        // Mock data to prevent API errors
-        const mockData: DispatchStats = {
-          totalEvents: 145000,
-          slaCompliance: 98.6,
-          activeIncidents: 124,
-          avgResponseTime: 12.5,
-          resolutionRate: 99.2
+    // Simulate real-time dispatch telemetry updates
+    const interval = setInterval(() => {
+      setStats(prev => {
+        if (!prev) return MOCK_STATS;
+        return {
+          ...prev,
+          activeDispatches: prev.activeDispatches + (Math.random() > 0.5 ? 1 : -1),
+          enRoute: prev.enRoute + (Math.random() > 0.5 ? 1 : -1),
+          onScene: prev.onScene + (Math.random() > 0.5 ? 1 : -1),
+          completedToday: prev.completedToday + (Math.random() > 0.8 ? 1 : 0),
         };
-        setStats(mockData);
-      } catch (error) {
-        console.error('Failed to fetch dispatch stats:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+      });
+    }, 5000);
 
-    fetchStats();
-    const interval = setInterval(fetchStats, 30000); // Poll every 30s
     return () => clearInterval(interval);
   }, []);
 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -40,7 +40,7 @@ export default function MarketIntelligence() {
             </h2>
             
             <p className="text-[15px] text-brand-slate leading-relaxed mb-10 max-w-2xl">
-              With the rise of connected, electric, and autonomous vehicles, enterprise roadside operations and insurance ecosystems are undergoing massive digital transformation. Nationwide Trans Inc. provides the infrastructure backbone powering next-generation mobility operations.
+              With the rise of connected, electric, and autonomous vehicles, enterprise roadside operations and insurance ecosystems are undergoing massive digital transformation. Nationwide Roadside Assist provides the infrastructure backbone powering next-generation mobility operations.
             </p>
             
             <Button className="group bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-12 px-8 rounded-xl shadow-[0_0_20px_rgba(47,128,255,0.3)] hover:shadow-[0_0_30px_rgba(47,128,255,0.5)] transition-all overflow-hidden relative">

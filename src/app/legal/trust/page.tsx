@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ShieldCheck, Lock, Globe, FileText, CheckCircle2, ArrowRight } from 'lucide-react';
@@ -11,7 +11,7 @@ export default function TrustCenterPage() {
       <header className="space-y-6">
         <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white tracking-tight">Trust Center</h2>
         <p className="text-brand-slate text-lg leading-relaxed">
-          Our commitment to security, compliance, and transparency. Nationwide Trans Inc. is engineered to protect the world's most sensitive mobility data.
+          Our commitment to security, compliance, and transparency. Nationwide Roadside Assist is engineered to protect the world's most sensitive mobility data.
         </p>
       </header>
 

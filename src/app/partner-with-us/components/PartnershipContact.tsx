@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -262,7 +262,7 @@ export const PartnershipContact = () => {
                          </div>
                          <div>
                             <p className="text-[10px] font-black text-brand-slate uppercase tracking-widest">24/7 Operations Line</p>
-                            <h4 className="text-xl font-bold text-white">+1 (888) NTI-MESH</h4>
+                            <h4 className="text-xl font-bold text-white">+1 (888) Nationwide Roadside Assist-MESH</h4>
                          </div>
                       </div>
                       <p className="text-sm text-brand-slate font-medium leading-relaxed">

@@ -4,7 +4,8 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { AuthProvider } from './auth-provider';
-import { PlatformModalProvider } from './partnership-provider';
+import { ReduxProvider } from './redux-provider';
+import { GlobalModals } from '@/components/modals/global-modals';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,9 +26,10 @@ export function RootProvider({ children }: { children: React.ReactNode }) {
     >
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <PlatformModalProvider>
+          <ReduxProvider>
             {children}
-          </PlatformModalProvider>
+            <GlobalModals />
+          </ReduxProvider>
         </AuthProvider>
       </QueryClientProvider>
     </NextThemesProvider>

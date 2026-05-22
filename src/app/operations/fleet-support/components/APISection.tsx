@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -42,7 +42,7 @@ export const APISection = () => {
     "location": { "lat": 40.7128, "lng": -74.0060 }
   }
 }`,
-    sdks: `import { NTIFleet } from '@nti/fleet-sdk';
+    sdks: `import { NTIFleet } from '@Nationwide Roadside Assist/fleet-sdk';
 
 const client = new NTIFleet('YOUR_API_KEY');
 
@@ -88,7 +88,7 @@ const support = await client.support.request({
                 Developer <span className="text-[#2F80FF]">Fleet Infrastructure</span>
               </h2>
               <p className="text-base lg:text-lg text-brand-slate leading-relaxed font-medium">
-                The Nationwide Trans fleet-first API core allows you to programmatically request and track fleet support services directly within your own logistics portal or ERP.
+                The Nationwide Roadside Assist fleet-first API core allows you to programmatically request and track fleet support services directly within your own logistics portal or ERP.
               </p>
             </div>
 

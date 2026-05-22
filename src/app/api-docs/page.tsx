@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { LandingLayout } from '@/components/layout/landing-layout';
@@ -65,7 +65,7 @@ export default function APIDocsPage() {
               </Badge>
               <h1 className="text-4xl font-bold text-foreground dark:text-white mb-4">Developer API & Webhooks</h1>
               <p className="text-brand-slate text-lg leading-relaxed">
-                Build high-performance mobility applications with the Nationwide Trans infrastructure. 
+                Build high-performance mobility applications with the Nationwide Roadside Assist infrastructure. 
                 Our API-first approach allows for seamless integration into existing ERP, Insurance, or Fleet management systems.
               </p>
             </header>

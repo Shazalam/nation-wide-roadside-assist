@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -103,7 +103,7 @@ export const CompanyHero = () => {
                           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                           <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
                        </div>
-                       <span className="text-[10px] font-mono font-bold text-foreground dark:text-white uppercase tracking-widest ml-4">Command Center <span className="text-[#2F80FF] ml-2 font-black">NTI-OS</span></span>
+                       <span className="text-[10px] font-mono font-bold text-foreground dark:text-white uppercase tracking-widest ml-4">Command Center <span className="text-[#2F80FF] ml-2 font-black">Nationwide Roadside Assist-OS</span></span>
                     </div>
                  </div>
 

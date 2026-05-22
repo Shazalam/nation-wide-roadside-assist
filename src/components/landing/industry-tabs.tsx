@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EnterpriseTabs } from '@/components/ui/enterprise-tabs';
 import { GlassPanel } from '@/components/ui/glass-panel';
-import { Shield, Truck, Building2, Zap, ArrowRight } from 'lucide-react';
+import { Shield, Truck, Building2, ArrowRight, Users, Package, Network } from 'lucide-react';
 import Link from 'next/link';
 
 const solutions = [
@@ -25,12 +25,36 @@ const solutions = [
     features: ['Multi-tenant Visibility', 'Maintenance Prediction', 'Driver App Integration', 'Cost-per-Mile Analytics']
   },
   {
-    id: 'oem',
-    label: 'OEM & Dealer',
-    icon: Zap,
-    title: 'Connected Vehicle Mesh',
-    desc: 'White-labeled roadside infrastructure for vehicle manufacturers. Integrate directly with onboard telematics for proactive assistance and concierge-level owner experiences.',
-    features: ['Direct Telematics Link', 'Brand-Loyalty Workflows', 'Dealer Network Priority', 'Remote OTA Diagnostics']
+    id: 'motor-clubs',
+    label: 'Motor Clubs',
+    icon: Users,
+    title: 'White-Label Operations',
+    desc: 'White-label roadside assistance operations for motor clubs and membership organizations.',
+    features: ['White-Label Branding', 'Member Portal Link', 'Priority Queue Access', 'Tiered Benefit Mapping']
+  },
+  {
+    id: 'commercial-fleets',
+    label: 'Commercial Fleets',
+    icon: Network,
+    title: 'Enterprise Fleet Mobility',
+    desc: 'Enterprise mobility operations designed for logistics, trucking, and commercial fleet support.',
+    features: ['Fleet Recovery Coordination', 'Heavy-Duty Dispatch', 'Real-Time Fleet Visibility', 'Nationwide RSA Coverage']
+  },
+  {
+    id: 'logistics-transport',
+    label: 'Logistics & Transport',
+    icon: Package,
+    title: 'Freight Mobility Operations',
+    desc: 'Roadside infrastructure for transportation networks and freight mobility operations.',
+    features: ['Cargo Recovery Coordination', 'Dispatch Escalation Systems', 'Cross-State Support', 'Fleet Uptime Optimization']
+  },
+  {
+    id: 'enterprise-mobility',
+    label: 'Enterprise Mobility',
+    icon: Building2,
+    title: 'Large-Scale Mobility Networks',
+    desc: 'Scalable roadside infrastructure for large-scale enterprise mobility ecosystems.',
+    features: ['White-Label RSA Programs', 'API-Based Dispatch', 'AI Claims Integration', 'Multi-Region Operations']
   }
 ];
 

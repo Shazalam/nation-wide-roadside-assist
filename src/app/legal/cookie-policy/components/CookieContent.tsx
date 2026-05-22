@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -29,7 +29,7 @@ export const CookieContent = () => {
       
       <PolicySection id="overview" title="Overview">
         <p className="text-brand-slate text-base leading-relaxed font-medium">
-          Nationwide Trans Inc. ("NTI", "we", "us", or "our") uses cookies and similar tracking technologies to ensure the reliability of our nationwide roadside infrastructure, optimize dispatch intelligence, and provide a secure, high-performance experience for our enterprise partners. This policy explains how we utilize these technologies in alignment with our enterprise governance and data accountability standards.
+          Nationwide Roadside Assist ("Nationwide Roadside Assist", "we", "us", or "our") uses cookies and similar tracking technologies to ensure the reliability of our nationwide roadside infrastructure, optimize dispatch intelligence, and provide a secure, high-performance experience for our enterprise partners. This policy explains how we utilize these technologies in alignment with our enterprise governance and data accountability standards.
         </p>
         <div className="p-5 bg-brand-blue/5 border border-brand-blue/20 rounded-2xl flex items-start gap-4">
            <Info className="h-5 w-5 text-[#2F80FF] mt-0.5 shrink-0" />
@@ -65,7 +65,7 @@ export const CookieContent = () => {
       <PolicySection id="essential" title="Essential Infrastructure">
         <div className="space-y-6">
            <p className="text-brand-slate text-base leading-relaxed font-medium">
-              These cookies are mission-critical for the operation of the NTI platform. They cannot be disabled through our consent management system as they are required for core infrastructure stability.
+              These cookies are mission-critical for the operation of the Nationwide Roadside Assist platform. They cannot be disabled through our consent management system as they are required for core infrastructure stability.
            </p>
            <table className="w-full text-left border-collapse">
               <thead>
@@ -142,7 +142,7 @@ export const CookieContent = () => {
                  Governance Division
               </h4>
               <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
-                 Nationwide Trans Inc.<br />
+                 Nationwide Roadside Assist<br />
                  Data Sovereignty & Consent Team<br />
                  1200 Enterprise Way<br />
                  San Francisco, CA 94105

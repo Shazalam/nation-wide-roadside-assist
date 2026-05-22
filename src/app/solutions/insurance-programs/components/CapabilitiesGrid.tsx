@@ -3,9 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Tag, BrainCircuit, Code2, Shield, 
-  ArrowRight, CheckCircle, AlertTriangle, 
-  Cloud, Database, CreditCard, Users, Zap
+  Tag, BrainCircuit, Code2, Shield, Cloud, Database, CreditCard, Users, Zap
 } from 'lucide-react';
 
 export default function CapabilitiesGrid() {
@@ -47,10 +45,10 @@ export default function CapabilitiesGrid() {
           </motion.p>
         </div>
 
-        {/* Cards Grid */}
+        {/* Cards Grid - 3 Core Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           
-          {/* Card 1: White-Label */}
+          {/* Card 1: White-Label Operations */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,12 +68,9 @@ export default function CapabilitiesGrid() {
                   White-Label<br/>Operations
                 </h3>
               </div>
-              <p className="text-[13px] text-brand-slate leading-relaxed mb-6">
+              <p className="text-[13px] text-brand-slate leading-relaxed">
                 Deliver seamless branded roadside experiences integrated directly into your insurance ecosystem.
               </p>
-              <button className="mt-auto self-start px-4 py-2 rounded-xl border border-[#2F80FF]/30 text-[#2F80FF] text-[10px] font-bold uppercase tracking-widest hover:bg-[#2F80FF]/10 transition-colors flex items-center gap-2 group/btn">
-                Learn More <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
             </div>
 
             {/* Visual Area */}
@@ -120,13 +115,10 @@ export default function CapabilitiesGrid() {
                   <div className="w-1/2 h-1 bg-white/10 rounded" />
                 </div>
               </motion.div>
-              
-              <div className="absolute bottom-[10%] left-[20%] w-1.5 h-1.5 rounded-full bg-[#2F80FF] shadow-[0_0_15px_#2F80FF]" />
-              <div className="absolute bottom-[30%] right-[20%] w-1 h-1 rounded-full bg-[#FF7A1A] shadow-[0_0_15px_#FF7A1A]" />
             </div>
           </motion.div>
 
-          {/* Card 2: Claims & Dispatch */}
+          {/* Card 2: Dispatch Intelligence */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -146,12 +138,9 @@ export default function CapabilitiesGrid() {
                   Dispatch<br/>Intelligence
                 </h3>
               </div>
-              <p className="text-[13px] text-brand-slate leading-relaxed mb-6">
+              <p className="text-[13px] text-brand-slate leading-relaxed">
                 Automated dispatch orchestration and intelligent escalation systems designed for enterprise roadside efficiency.
               </p>
-              <button className="mt-auto self-start px-4 py-2 rounded-xl border border-[#2F80FF]/30 text-[#2F80FF] text-[10px] font-bold uppercase tracking-widest hover:bg-[#2F80FF]/10 transition-colors flex items-center gap-2 group/btn">
-                Learn More <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
             </div>
 
             <div className="flex-1 relative h-[250px] w-full flex items-center justify-center mt-6 lg:mt-0 pointer-events-none overflow-visible">
@@ -166,47 +155,18 @@ export default function CapabilitiesGrid() {
               <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[180px] h-[60px] border border-brand-border rounded-[100%] rotate-x-60" />
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-[30px] border border-[#2F80FF]/30 rounded-[100%] rotate-x-60 shadow-[0_0_20px_rgba(47,128,255,0.3)]" />
 
-              <div className="absolute right-0 top-4 w-[140px] space-y-2 z-20">
-                <motion.div 
-                  animate={{ x: [0, -3, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="flex items-center gap-2 px-2.5 py-1.5 bg-brand-bg/90 border border-emerald-500/30 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.15)] backdrop-blur-md"
-                >
-                  <CheckCircle className="w-3 h-3 text-emerald-400 shrink-0" />
-                  <span className="text-[8px] text-foreground dark:text-white font-medium leading-tight">AI Routing<br/>Optimal</span>
-                </motion.div>
-                
-                <motion.div 
-                  animate={{ x: [0, -5, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                  className="flex items-center gap-2 px-2.5 py-1.5 bg-brand-bg/90 border border-[#2F80FF]/30 rounded-xl shadow-[0_0_15px_rgba(47,128,255,0.15)] backdrop-blur-md ml-3"
-                >
-                  <Shield className="w-3 h-3 text-[#2F80FF] shrink-0" />
-                  <span className="text-[8px] text-foreground dark:text-white font-medium leading-tight">SLA Sync<br/>97.8%</span>
-                </motion.div>
-
-                <motion.div 
-                  animate={{ x: [0, -3, 0] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                  className="flex items-center gap-2 px-2.5 py-1.5 bg-brand-bg/90 border border-[#FF7A1A]/30 rounded-xl shadow-[0_0_15px_rgba(255,122,26,0.15)] backdrop-blur-md ml-6"
-                >
-                  <AlertTriangle className="w-3 h-3 text-[#FF7A1A] shrink-0" />
-                  <span className="text-[8px] text-foreground dark:text-white font-medium leading-tight">Risk Level<br/>Low</span>
-                </motion.div>
-              </div>
-
-              <div className="absolute bottom-[20%] left-[30%]">
+              <div className="absolute bottom-[20%] left-[45%]">
                  <div className="relative">
-                    <div className="w-8 h-8 rounded-full bg-[#2F80FF]/20 animate-ping absolute inset-0" />
-                    <div className="w-8 h-8 rounded-full bg-[#2F80FF] shadow-[0_0_30px_#2F80FF] flex items-center justify-center relative z-10 border-2 border-white/20">
-                       <Zap className="w-3.5 h-3.5 text-foreground dark:text-white" />
+                    <div className="w-10 h-10 rounded-full bg-[#2F80FF]/20 animate-ping absolute inset-0" />
+                    <div className="w-10 h-10 rounded-full bg-[#2F80FF] shadow-[0_0_30px_#2F80FF] flex items-center justify-center relative z-10 border-2 border-white/20">
+                       <Zap className="w-4 h-4 text-foreground dark:text-white" />
                     </div>
                  </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Card 3: API-Driven */}
+          {/* Card 3: API-Driven Integrations */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -226,57 +186,25 @@ export default function CapabilitiesGrid() {
                   API-Driven<br/>Integrations
                 </h3>
               </div>
-              <p className="text-[13px] text-brand-slate leading-relaxed mb-6">
+              <p className="text-[13px] text-brand-slate leading-relaxed">
                 Integrate workflows directly into policy systems, claims infrastructure, and mobility platforms.
               </p>
-              <button className="mt-auto self-start px-4 py-2 rounded-xl border border-[#2F80FF]/30 text-[#2F80FF] text-[10px] font-bold uppercase tracking-widest hover:bg-[#2F80FF]/10 transition-colors flex items-center gap-2 group/btn">
-                Learn More <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
             </div>
 
-            <div className="flex-1 relative h-[250px] w-full flex items-center mt-6 lg:mt-0 pointer-events-none overflow-visible">
-              <div className="absolute bottom-[0%] left-[30%] -translate-x-1/2 w-[140px] h-[50px] border border-[#2F80FF]/20 rounded-[100%] rotate-x-60" />
-              <div className="absolute bottom-[5%] left-[30%] -translate-x-1/2 w-[90px] h-[30px] border border-[#2F80FF]/40 rounded-[100%] rotate-x-60 shadow-[0_0_20px_rgba(47,128,255,0.4)]" />
+            <div className="flex-1 relative h-[250px] w-full flex items-center justify-center mt-6 lg:mt-0 pointer-events-none overflow-visible">
+              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[160px] h-[50px] border border-[#2F80FF]/20 rounded-[100%] rotate-x-60 opacity-50" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-[30px] border border-[#2F80FF]/40 rounded-[100%] rotate-x-60 opacity-80 shadow-[0_0_20px_rgba(47,128,255,0.4)]" />
 
-              <div className="absolute bottom-[15%] left-[30%] -translate-x-1/2 flex items-center justify-center">
-                <div className="absolute w-14 h-14 rounded-full bg-[#2F80FF]/10 animate-ping" />
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0A192F] to-[#081120] border border-[#2F80FF] shadow-[0_0_30px_rgba(47,128,255,0.5)] flex items-center justify-center relative z-20">
-                  <span className="text-[#2F80FF] font-black text-xs tracking-wider">API</span>
+              <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex items-center justify-center">
+                <div className="absolute w-16 h-16 rounded-full bg-[#2F80FF]/15 animate-ping" />
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#0A192F] to-[#081120] border border-[#2F80FF] shadow-[0_0_30px_rgba(47,128,255,0.5)] flex items-center justify-center relative z-20">
+                  <span className="text-[#2F80FF] font-black text-sm tracking-wider">API</span>
                 </div>
               </div>
 
-              <div className="absolute top-[10%] left-[30%] -translate-x-1/2">
-                 <Cloud className="w-8 h-8 text-[#2F80FF]/40 drop-shadow-[0_0_10px_rgba(47,128,255,0.5)]" />
-                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-8 bg-gradient-to-b from-[#2F80FF]/50 to-transparent" />
-              </div>
-
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 250" preserveAspectRatio="none" style={{ zIndex: 10 }}>
-                <path d="M80,200 Q140,200 180,60" fill="none" stroke="rgba(47,128,255,0.3)" strokeWidth="1" />
-                <path d="M80,200 Q140,200 180,110" fill="none" stroke="rgba(47,128,255,0.3)" strokeWidth="1" />
-                <path d="M80,200 Q140,200 180,160" fill="none" stroke="rgba(47,128,255,0.3)" strokeWidth="1" />
-                <path d="M80,200 Q140,200 180,210" fill="none" stroke="rgba(47,128,255,0.3)" strokeWidth="1" />
-              </svg>
-
-              <div className="absolute right-0 top-4 w-[110px] space-y-3 z-20">
-                {[
-                  { label: 'Policy Sys', icon: Shield },
-                  { label: 'Claims API', icon: Database },
-                  { label: 'CRM Sync', icon: Users },
-                  { label: 'Payments', icon: CreditCard }
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div 
-                      key={i}
-                      animate={{ x: [0, -2, 0] }}
-                      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
-                      className="flex items-center gap-2 px-2.5 py-1.5 bg-brand-bg border border-brand-border rounded-lg shadow-xl"
-                    >
-                      <Icon className="w-3 h-3 text-brand-slate" />
-                      <span className="text-[8px] text-brand-slate font-mono uppercase">{item.label}</span>
-                    </motion.div>
-                  )
-                })}
+              <div className="absolute top-[10%] left-1/2 -translate-x-1/2">
+                 <Cloud className="w-10 h-10 text-[#2F80FF]/40 drop-shadow-[0_0_12px_rgba(47,128,255,0.6)]" />
+                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-12 bg-gradient-to-b from-[#2F80FF]/50 to-transparent" />
               </div>
             </div>
           </motion.div>

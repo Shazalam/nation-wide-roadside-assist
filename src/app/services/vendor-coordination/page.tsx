@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Metadata } from 'next';
 import { Navbar } from '@/components/layout/navbar';
 import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
@@ -15,7 +15,7 @@ import { EnterpriseMetricsDashboard } from './components/EnterpriseMetricsDashbo
 import { VendorCTA } from './components/VendorCTA';
 
 export const metadata: Metadata = {
-  title: 'Vendor Coordination & Dispatch Intelligence | Nationwide Trans Inc.',
+  title: 'Vendor Coordination & Dispatch Intelligence | Nationwide Roadside Assist',
   description: 'Enterprise roadside vendor orchestration, SLA-driven dispatch systems, and API-first coordination infrastructure.',
 };
 

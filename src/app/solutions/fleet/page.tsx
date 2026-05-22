@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { LandingLayout } from '@/components/layout/landing-layout';
@@ -176,7 +176,7 @@ export default function FleetSolutionsPage() {
             <GlassPanel className="p-12 md:p-20 bg-brand-navy/60 border-brand-border text-center relative z-10">
               <h2 className="text-4xl font-bold text-foreground dark:text-white mb-6">Unify Your Fleet Infrastructure</h2>
               <p className="text-brand-slate max-w-2xl mx-auto mb-10 text-lg">
-                Join over 400 global fleet operators using Nationwide Trans to reduce downtime and optimize operational spend.
+                Join over 400 global fleet operators using Nationwide Roadside Assist to reduce downtime and optimize operational spend.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <Button size="lg" className="bg-brand-blue text-foreground dark:text-white font-bold h-14 px-10 rounded-2xl shadow-[0_0_30px_rgba(47,128,255,0.4)]">

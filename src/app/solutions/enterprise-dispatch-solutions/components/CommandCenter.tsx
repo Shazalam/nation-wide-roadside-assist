@@ -91,7 +91,7 @@ export const CommandCenter = () => {
                             ))}
                          </div>
                          <div className="h-8 w-[1px] bg-white/10" />
-                         <p className="text-sm font-bold text-foreground dark:text-white tracking-tight">Active Dispatches: {stats?.activeIncidents?.toLocaleString() || '1,424'}</p>
+                         <p className="text-sm font-bold text-foreground dark:text-white tracking-tight">Active Dispatches: {stats?.activeDispatches?.toLocaleString() || '1,424'}</p>
                       </div>
                       <div className="flex items-center gap-3">
                          <div className="relative">

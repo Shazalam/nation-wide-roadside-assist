@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,7 +19,7 @@ const codeExamples = {
     }
   }'`,
   dispatch: `// Real-time dispatch subscription
-nti.repairs.subscribe('INC-7821', (event) => {
+Nationwide Roadside Assist.repairs.subscribe('INC-7821', (event) => {
   if (event.type === 'technician.assigned') {
     console.log('Assigned Tech:', event.data.tech_name);
     console.log('ETA:', event.data.eta_min);
