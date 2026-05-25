@@ -6,6 +6,9 @@ import {
   Shield, Zap, Globe, Clock, ArrowRight, Activity, ChevronRight, Phone
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen } from '@/store';
 
 const MOCK_STATS = {
   activeCalls:    156,
@@ -13,6 +16,8 @@ const MOCK_STATS = {
 };
 
 export const CallCenterHero = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [stats, setStats] = useState(MOCK_STATS);
 
   useEffect(() => {
@@ -121,6 +126,7 @@ export const CallCenterHero = () => {
           >
             <Button
               size="lg"
+              onClick={() => dispatch(setPartnershipOpen(true))}
               className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_50px_var(--brand-glow)] transition-all hover:-translate-y-1.5 active:scale-95 group"
             >
               Schedule Operations Demo
@@ -129,6 +135,7 @@ export const CallCenterHero = () => {
             <Button
               variant="outline"
               size="lg"
+              onClick={() => router.push('/developer')}
               className="border-white/10 bg-white/5 text-white hover:bg-white/10 h-16 px-10 rounded-2xl font-black backdrop-blur-xl transition-all hover:border-brand-blue/40 group flex items-center gap-3"
             >
               <span className="opacity-40 group-hover:opacity-100 font-mono transition-opacity">{'</>'}</span>

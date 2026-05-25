@@ -1,11 +1,13 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export const RecoveryCTA = () => {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="py-44 relative z-10 overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -32,9 +34,15 @@ export const RecoveryCTA = () => {
             <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-black h-20 px-12 rounded-[2rem] text-lg shadow-[0_20px_50px_rgba(47,128,255,0.3)] group">
               Contact Enterprise Team <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-20 px-12 rounded-[2rem] text-lg group">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={downloadPdf}
+              disabled={isGeneratingPdf}
+              className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-20 px-12 rounded-[2rem] text-lg group"
+            >
               <FileText className="mr-3 h-6 w-6 opacity-40 group-hover:opacity-100 transition-opacity" />
-              Request Recovery Capability Report
+              {isGeneratingPdf ? 'Generating PDF...' : 'Request Recovery Capability Report'}
             </Button>
           </div>
 

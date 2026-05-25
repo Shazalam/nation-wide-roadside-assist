@@ -4,84 +4,83 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Globe, Shield, Clock, Users, Building,
-  Truck, ShieldCheck, Network, AlertTriangle
+  Truck, ShieldCheck, Network, AlertTriangle,
+  Navigation, Zap, Map
 } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 
 const FEATURE_CARDS = [
-  // Original 5
   {
     id: 1,
-    title: 'GLOBAL',
-    subtitle: 'PRESENCE',
-    desc: 'USA • CANADA • EUROPE',
+    title: 'AREAS SERVED',
+    subtitle: 'SERVING USA, FULL CANADA & CROSS-BORDER OPERATIONS',
+    desc: 'Connected roadside assistance, towing, and recovery operations throughout the United States, Canada, and cross-border mobility routes.',
     icon: Globe,
-    glowColor: 'rgba(47,128,255,0.3)',
+    glows: ['rgba(6,182,212,0.18)', 'rgba(59,130,246,0.12)'],
   },
   {
     id: 2,
-    title: '5000+',
-    subtitle: 'SERVICE PROVIDERS',
-    desc: 'STRONG NETWORK',
+    title: '3000+ VERIFIED VENDORS',
+    subtitle: 'TRUSTED SERVICE NETWORK',
+    desc: 'Extensive network of towing, roadside assistance, and recovery providers across North America.',
     icon: Users,
-    glowColor: 'rgba(47,128,255,0.3)',
+    glows: ['rgba(147,51,234,0.18)', 'rgba(59,130,246,0.12)'],
   },
   {
     id: 3,
-    title: '24/7',
-    subtitle: 'DISPATCH',
-    desc: 'ALWAYS ON CALL',
+    title: '24/7 DISPATCH OPERATIONS',
+    subtitle: 'ALWAYS-ON RESPONSE CENTER',
+    desc: 'Continuous dispatch coordination engineered for enterprise roadside operations.',
     icon: Clock,
-    glowColor: 'rgba(47,128,255,0.3)',
+    glows: ['rgba(236,72,153,0.18)', 'rgba(147,51,234,0.12)'],
   },
   {
     id: 4,
-    title: 'EXPERT',
-    subtitle: 'TEAMS',
-    desc: 'TRUSTED, DEDICATED.',
+    title: 'ENTERPRISE RESPONSE TEAMS',
+    subtitle: 'TRAINED OPERATIONAL SPECIALISTS',
+    desc: 'Dedicated mobility support professionals handling high-priority roadside events.',
     icon: Shield,
-    glowColor: 'rgba(47,128,255,0.3)',
+    glows: ['rgba(59,130,246,0.18)', 'rgba(147,51,234,0.12)'],
   },
   {
     id: 5,
-    title: 'ENTERPRISE',
-    subtitle: 'SOLUTIONS',
-    desc: 'BUILT FOR SCALE',
-    icon: Building,
-    glowColor: 'rgba(47,128,255,0.3)',
+    title: 'HEAVY-DUTY RECOVERY SUPPORT',
+    subtitle: 'CLASS 1–8 VEHICLE COVERAGE',
+    desc: 'Commercial recovery coordination for medium-duty and heavy-duty transport operations.',
+    icon: Truck,
+    glows: ['rgba(236,72,153,0.18)', 'rgba(6,182,212,0.12)'],
   },
-  // Remaining Premium Cards
   {
     id: 6,
-    title: 'HEAVY DUTY',
-    subtitle: 'RECOVERY',
-    desc: 'CLASS 1–8 SUPPORT',
-    icon: Truck,
-    glowColor: 'rgba(47,128,255,0.3)',
+    title: 'INSURANCE OPERATIONS INFRASTRUCTURE',
+    subtitle: 'CLAIMS & RSA COORDINATION',
+    desc: 'Integrated roadside workflows designed for modern insurance ecosystems.',
+    icon: ShieldCheck,
+    glows: ['rgba(6,182,212,0.18)', 'rgba(59,130,246,0.12)'],
   },
   {
     id: 7,
-    title: 'INSURANCE',
-    subtitle: 'ECOSYSTEM',
-    desc: 'CLAIM SUPPORT',
-    icon: ShieldCheck,
-    glowColor: 'rgba(47,128,255,0.3)',
+    title: 'FLEET MOBILITY NETWORK',
+    subtitle: 'CONNECTED ENTERPRISE SUPPORT',
+    desc: 'Operational roadside coverage for fleets, rental providers, and logistics platforms.',
+    icon: Network,
+    glows: ['rgba(147,51,234,0.18)', 'rgba(236,72,153,0.12)'],
   },
   {
     id: 8,
-    title: 'FLEET',
-    subtitle: 'OPERATIONS',
-    desc: 'MOBILITY NETWORK',
-    icon: Network,
-    glowColor: 'rgba(47,128,255,0.3)',
+    title: 'EMERGENCY RESPONSE GRID',
+    subtitle: '24/7 RAPID ASSISTANCE',
+    desc: 'High-availability roadside escalation and emergency dispatch infrastructure.',
+    icon: AlertTriangle,
+    glows: ['rgba(249,115,22,0.18)', 'rgba(236,72,153,0.12)'],
   },
   {
     id: 9,
-    title: 'EMERGENCY',
-    subtitle: 'RESPONSE',
-    desc: '24/7 RAPID ASSISTANCE',
-    icon: AlertTriangle,
-    glowColor: 'rgba(47,128,255,0.3)',
+    title: 'OEM & DEALER CONNECTIVITY',
+    subtitle: 'CONNECTED VEHICLE SUPPORT',
+    desc: 'Roadside coordination systems for OEM programs and dealership ecosystems.',
+    icon: Building,
+    glows: ['rgba(59,130,246,0.18)', 'rgba(6,182,212,0.12)'],
   },
 ];
 
@@ -123,7 +122,7 @@ export const Hero = () => {
       />
 
       {/* ─── MAIN HERO VIEWPORT ──────────────────────────────────────────── */}
-      <div className="w-full max-w-[1650px] mx-auto px-6 lg:px-16 relative z-10 w-full flex-grow flex flex-col justify-center">
+      <div className="w-full max-w-[1650px] mx-auto px-6 lg:px-16 relative z-10 flex-grow flex flex-col justify-center">
 
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-center pt-8 lg:pt-12 pb-8">
 
@@ -140,7 +139,7 @@ export const Hero = () => {
                 <div className="absolute inset-0 bg-brand-blue/30 rounded-2xl blur-md group-hover:bg-brand-blue/40 transition-colors" />
                 <Logo className="relative drop-shadow-[0_0_20px_rgba(47,128,255,0.7)]" size={80} />
               </div>
-              
+
               <span className="text-[3.8rem] sm:text-[4.8rem] lg:text-[5.5rem] font-black tracking-tighter text-white font-sans select-none leading-none">
                 Nationwide
               </span>
@@ -160,84 +159,77 @@ export const Hero = () => {
               </motion.h1>
             </div>
 
-            {/* Subtitle */}
+            {/* Split Tagline exactly like reference image */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="space-y-1.5"
-            >
-              <h2 className="text-[11px] lg:text-xs font-black tracking-[0.25em] text-[#94A3B8]/95 uppercase leading-relaxed max-w-xl">
-                GLOBAL ROADSIDE INFRASTRUCTURE &amp;
-              </h2>
-              <h2 className="text-[11px] lg:text-xs font-black tracking-[0.25em] text-[#94A3B8]/95 uppercase leading-relaxed max-w-xl">
-                ENTERPRISE MOBILITY OPERATIONS PLATFORM
-              </h2>
-            </motion.div>
-
-            {/* ─── FEATURE METRIC CARDS NESTED STRICTLY IN LEFT HALF ─────────── */}
-            {/* Extended to 13 cards rendered in a high-density, wrapping responsive dashboard layout */}
-            <div className="grid grid-cols-3 gap-x-3.5 gap-y-6 max-w-[880px] w-full pt-6">
-              {FEATURE_CARDS.map((card) => {
-                const Icon = card.icon;
-                const isHovered = hoveredCard === card.id;
-
-                return (
-                  <motion.div
-                    key={card.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.03 * card.id }}
-                    onMouseEnter={() => setHoveredCard(card.id)}
-                    onMouseLeave={() => setHoveredCard(null)}
-                    whileHover={{
-                      y: -4,
-                      scale: 1.02,
-                    }}
-                    style={{
-                      boxShadow: isHovered ? `0 0 20px ${card.glowColor}` : 'none',
-                      borderColor: isHovered ? 'rgba(47,128,255,0.7)' : 'rgba(59,130,246,0.25)',
-                    }}
-                    className="relative pt-8 pb-3.5 px-3.5 rounded-xl border bg-[#050c18]/85 backdrop-blur-xl shadow-lg cursor-pointer transition-all duration-300 group select-none min-h-[104px] flex flex-col justify-end"
-                  >
-                    {/* Top line reflection card glow effect */}
-                    <div className="absolute top-0 left-0 right-0 h-[1.2px] bg-gradient-to-r from-transparent via-brand-blue/20 to-transparent group-hover:via-brand-blue/75 transition-all duration-500" />
-
-                    {/* Premium Icon - Half Inside, Half Outside the Top Border */}
-                    <div className="absolute -top-4.5 left-3 w-9.5 h-9.5 flex items-center justify-center rounded-lg bg-[#050c18] border border-brand-blue/30 group-hover:border-brand-blue/60 group-hover:bg-brand-blue/10 transition-all shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-                      <Icon className="w-4.5 h-4.5 text-brand-blue group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
-                    </div>
-
-                    {/* Title / Subtitle split */}
-                    <h3 className="text-[11px] font-black text-[#64748B] group-hover:text-white uppercase tracking-[0.12em] transition-colors leading-none mb-0.5">
-                      {card.title}
-                    </h3>
-                    <h3 className="text-[11px] font-black text-[#64748B] group-hover:text-white uppercase tracking-[0.12em] transition-colors leading-none mb-2">
-                      {card.subtitle}
-                    </h3>
-
-                    {/* Desc */}
-                    <p className="text-[9.5px] font-bold text-brand-blue/80 tracking-wide uppercase truncate leading-none">
-                      {card.desc}
-                    </p>
-
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Split Tagline exactly like reference image */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="text-2xl lg:text-3xl font-black tracking-[0.25em] text-white uppercase select-none font-sans leading-snug pt-4"
+              className="text-2xl lg:text-3xl font-black tracking-[0.25em] text-white uppercase select-none font-sans leading-snug pt-2"
             >
               <div>POWERING MOBILITY.</div>
               <div className="text-brand-blue drop-shadow-[0_0_12px_rgba(47,128,255,0.4)]">
                 DELIVERING RELIABILITY.
               </div>
             </motion.div>
+
+            {/* ─── FEATURE METRIC CARDS NESTED STRICTLY IN LEFT HALF ─────────── */}
+            {/* 9 cards rendered in a high-density, wrapping responsive glassmorphic dashboard layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1000px] w-full pt-8">
+              {FEATURE_CARDS.map((card) => {
+                const Icon = card.icon;
+
+                return (
+                  <div key={card.id} className="relative group h-full pt-4">
+                    {/* Background Ambient Glow circles (outside card or behind it) */}
+                    <div
+                      className="absolute -top-8 -left-8 w-32 h-32 rounded-full blur-[40px] opacity-25 group-hover:opacity-45 group-hover:scale-110 transition-all duration-500 pointer-events-none z-0"
+                      style={{ backgroundColor: card.glows[0] }}
+                    />
+                    <div
+                      className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full blur-[40px] opacity-20 group-hover:opacity-35 group-hover:scale-110 transition-all duration-500 pointer-events-none z-0"
+                      style={{ backgroundColor: card.glows[1] }}
+                    />
+
+                    {/* Frosted Glassmorphism Panel */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.03 * card.id }}
+                      onMouseEnter={() => setHoveredCard(card.id)}
+                      onMouseLeave={() => setHoveredCard(null)}
+                      whileHover={{
+                        y: -5,
+                      }}
+                      className="relative z-10 p-5 pt-8 rounded-2xl border border-white/[0.08] hover:border-brand-blue/30 bg-[#071124]/45 backdrop-blur-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col justify-between h-full select-none"
+                    >
+                      {/* Floating Icon Box overlapping the top border, aligned left */}
+                      <div className="absolute -top-[18px] left-5 w-9 h-9 rounded-xl bg-[#020712] border border-brand-blue/30 group-hover:border-brand-blue/60 group-hover:bg-brand-blue/10 flex items-center justify-center transition-all duration-300 z-20 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                        <Icon className="w-4.5 h-4.5 text-brand-blue group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+
+                      {/* Subtle Inner Highlight Border */}
+                      <div className="absolute inset-px rounded-2xl bg-gradient-to-br from-white/[0.05] to-transparent pointer-events-none" />
+
+                      <div className="flex flex-col h-full justify-between gap-4 relative z-10">
+                        <div>
+                          <span className="text-[9.5px] font-bold text-slate-400 uppercase tracking-[0.15em] leading-none block mb-1">
+                            {card.title}
+                          </span>
+                          <h3 className="text-[12px] font-extrabold text-white group-hover:text-brand-blue transition-colors duration-300 tracking-tight leading-snug">
+                            {card.subtitle}
+                          </h3>
+                        </div>
+
+                        <p className="text-[11px] text-slate-400 group-hover:text-slate-300 transition-colors duration-300 leading-relaxed font-medium">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                );
+              })}
+            </div>
+
 
           </div>
 

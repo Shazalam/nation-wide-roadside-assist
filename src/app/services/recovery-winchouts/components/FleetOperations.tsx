@@ -6,8 +6,10 @@ import { Truck, ShieldCheck, BarChart3, Map, Settings, Clock, Activity, Target }
 import { GlassPanel } from '@/components/ui/glass-panel';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export const FleetOperations = () => {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="py-32 bg-brand-bg/50 relative z-10 border-y border-brand-border">
       <div className="container mx-auto px-4">
@@ -115,9 +117,14 @@ export const FleetOperations = () => {
               </div>
 
               <div className="pt-8 flex flex-wrap gap-4">
-                 <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-black h-14 px-10 rounded-2xl shadow-xl">
-                    Request Fleet Capability Report
-                 </Button>
+                  <Button
+                     size="lg"
+                     onClick={downloadPdf}
+                     disabled={isGeneratingPdf}
+                     className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-black h-14 px-10 rounded-2xl shadow-xl"
+                  >
+                     {isGeneratingPdf ? 'Generating PDF...' : 'Request Fleet Capability Report'}
+                  </Button>
                  <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-10 rounded-2xl text-[11px] font-black uppercase tracking-widest">
                     Enterprise Use Cases
                  </Button>

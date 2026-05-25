@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -36,7 +36,7 @@ const ContactHero = () => (
   <section className="relative pt-32 pb-20 px-6 lg:px-12 overflow-hidden bg-brand-bg min-h-[55vh] flex items-center border-b border-brand-border">
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[#2F80FF]/10 blur-[150px] rounded-full -mt-48 pointer-events-none" />
     <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
-         style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+      style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
     <div className="max-w-7xl mx-auto w-full relative z-10">
       <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
@@ -97,9 +97,6 @@ const SupportStrip = () => (
           {[
             { label: 'PHONE', icon: Phone },
             { label: 'EMAIL', icon: Mail },
-            { label: 'LIVE CHAT', icon: MessageSquare },
-            { label: 'API DOCS', icon: FileText },
-            { label: 'STATUS PAGE', icon: Activity },
             { label: 'OFFICES', icon: MapPin }
           ].map((c, i) => (
             <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.1 }}
@@ -126,8 +123,8 @@ const ContactContent = () => (
         <AlertCircle className="h-5 w-5 text-brand-blue mt-0.5 shrink-0" />
         <div className="text-xs font-medium text-brand-slate leading-relaxed">
           <span className="text-foreground dark:text-white font-bold block mb-2">24/7 Emergency Dispatch Line:</span>
-          <p className="text-lg font-mono text-brand-blue font-black mb-2">1-800-Nationwide Roadside Assist-HELP (1-800-684-4357)</p>
-          <p>This line is monitored 24/7/365 by our dispatch operations team. Average response time: under 60 seconds.</p>
+          <p className="text-lg font-mono text-brand-blue font-black mb-2">+1-855-613-3131</p>
+          <p>This line is monitored 24/7 by our dispatch operations team. Average response time: under 60 seconds.</p>
         </div>
       </div>
     </DocumentationSection>
@@ -139,7 +136,7 @@ const ContactContent = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {[
           { label: 'Enterprise Sales', desc: 'Custom program design, pricing, and integration planning for insurers, fleets, and OEMs.', icon: Building2, contact: 'enterprise@nationwidetrans.com' },
-          { label: 'Partner Success', desc: 'Dedicated account management, SLA monitoring, and operational support for active partners.', icon: Users, contact: 'partners@nationwidetrans.com' },
+          { label: 'Partner Success', desc: 'Dedicated account management, SLA monitoring, and operational support for active partners.', icon: Users, contact: 'kongl@nationwidetransinc.com' },
           { label: 'Developer Relations', desc: 'API access, sandbox environments, technical documentation, and integration support.', icon: Zap, contact: 'developers@nationwidetrans.com' },
           { label: 'Vendor Onboarding', desc: 'Join our nationwide vendor network — qualification, certification, and dispatch enrollment.', icon: MapPin, contact: 'vendors@nationwidetrans.com' }
         ].map((item, i) => (
@@ -176,88 +173,15 @@ const ContactContent = () => (
     </DocumentationSection>
 
     <DocumentationSection id="offices" title="Office Locations">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-4">
-          <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Headquarters</h4>
-          <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
-            Nationwide Roadside Assist<br />
-            1200 Enterprise Way<br />
-            San Francisco, CA 94105<br />
-            United States
-          </p>
-          <p className="text-[11px] font-mono text-brand-blue">+1 (415) 555-0100</p>
-        </div>
-        <div className="space-y-4">
-          <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Regional Operations</h4>
-          <div className="space-y-3">
-            <div>
-              <p className="text-[11px] text-foreground dark:text-white font-bold">East Coast Hub</p>
-              <p className="text-[11px] text-brand-slate font-medium">Atlanta, GA</p>
-            </div>
-            <div>
-              <p className="text-[11px] text-foreground dark:text-white font-bold">Central Hub</p>
-              <p className="text-[11px] text-brand-slate font-medium">Dallas, TX</p>
-            </div>
-            <div>
-              <p className="text-[11px] text-foreground dark:text-white font-bold">West Coast Hub</p>
-              <p className="text-[11px] text-brand-slate font-medium">San Francisco, CA</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </DocumentationSection>
-
-    <DocumentationSection id="hours" title="Support Hours">
-      <div className="bg-brand-navy border border-brand-border rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 bg-white/[0.03] border-b border-brand-border">
-          <span className="text-[10px] font-black text-brand-blue uppercase tracking-widest">Operational Availability</span>
-        </div>
-        <div className="p-6">
-          <pre className="font-mono text-[11px] text-[#2F80FF]/80 leading-relaxed">
-{`{
-  "emergency_dispatch":  "24/7/365",
-  "enterprise_support":  "24/7/365 (SLA clients)",
-  "general_support":     "Mon-Fri 6AM-10PM ET",
-  "sales_inquiries":     "Mon-Fri 8AM-6PM ET",
-  "developer_support":   "Mon-Fri 9AM-6PM ET",
-  "vendor_onboarding":   "Mon-Fri 8AM-5PM ET",
-  "holiday_coverage":    "Emergency dispatch only"
-}`}
-          </pre>
-        </div>
-      </div>
-    </DocumentationSection>
-
-    <DocumentationSection id="departments" title="Department Directory">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-4">
-          <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">General</h4>
-          <div className="space-y-2">
-            <p className="text-[11px] font-mono text-brand-blue">info@nationwidetrans.com</p>
-            <p className="text-[11px] font-mono text-brand-blue">press@nationwidetrans.com</p>
-          </div>
-        </div>
-        <div className="space-y-4">
-          <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Legal & Compliance</h4>
-          <div className="space-y-2">
-            <p className="text-[11px] font-mono text-brand-blue">legal@nationwidetrans.com</p>
-            <p className="text-[11px] font-mono text-brand-blue">privacy@nationwidetrans.com</p>
-          </div>
-        </div>
-        <div className="space-y-4">
-          <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Careers</h4>
-          <div className="space-y-2">
-            <p className="text-[11px] font-mono text-brand-blue">careers@nationwidetrans.com</p>
-            <p className="text-[11px] font-mono text-brand-blue">talent@nationwidetrans.com</p>
-          </div>
-        </div>
-        <div className="space-y-4">
-          <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Billing & Accounts</h4>
-          <div className="space-y-2">
-            <p className="text-[11px] font-mono text-brand-blue">billing@nationwidetrans.com</p>
-            <p className="text-[11px] font-mono text-brand-blue">accounts@nationwidetrans.com</p>
-          </div>
-        </div>
+      <div className="space-y-4">
+        <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Headquarters</h4>
+        <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
+          Nationwide Roadside Assist<br />
+          11727 East End Avenue<br />
+          Chino, CA 91710<br />
+          United States
+        </p>
+        <p className="text-[11px] font-mono text-brand-blue">+1 (855) 613-3131</p>
       </div>
     </DocumentationSection>
   </div>
@@ -316,7 +240,7 @@ export default function ContactPage() {
   return (
     <>
       <div className="fixed inset-0 z-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none"
-           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, var(--brand-slate) 1px, transparent 0)`, backgroundSize: '48px 48px' }} />
+        style={{ backgroundImage: `radial-gradient(circle at 2px 2px, var(--brand-slate) 1px, transparent 0)`, backgroundSize: '48px 48px' }} />
 
       <ContactHero />
 

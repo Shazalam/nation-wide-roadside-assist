@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Truck, HelpCircle, Fuel, Battery, 
-  Lock, Wrench, Navigation, CheckCircle, 
-  ArrowUpRight 
+import {
+  Truck, HelpCircle, Fuel, Battery,
+  Lock, Wrench, Navigation, CheckCircle,
+  ArrowUpRight
 } from 'lucide-react';
 import { GlassPanel } from '@/components/ui/glass-panel';
 
@@ -42,13 +42,13 @@ export const ServicesGrid = () => {
               <GlassPanel className="p-8 border-brand-border bg-white/[0.01] hover:bg-brand-blue/5 transition-all group cursor-pointer h-full relative overflow-hidden">
                 {/* Background Ambient Glow */}
                 <div className="absolute -right-8 -top-8 w-24 h-24 bg-brand-blue/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                
+
                 <div className="flex flex-col items-center text-center">
                   <div className="h-16 w-16 rounded-2xl bg-brand-navy border border-brand-border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-2xl">
                     <service.icon className="h-7 w-7 text-brand-blue" />
                   </div>
                   <h4 className="text-sm font-bold text-foreground dark:text-white mb-6 group-hover:text-brand-blue transition-colors uppercase tracking-widest">{service.label}</h4>
-                  
+
                   <div className="w-full pt-6 border-t border-brand-border grid grid-cols-2 gap-4">
                     <div>
                       <p className="text-[8px] font-bold text-brand-slate uppercase mb-1">Avg ETA</p>
@@ -62,17 +62,11 @@ export const ServicesGrid = () => {
                 </div>
 
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                   <ArrowUpRight className="h-4 w-4 text-brand-blue" />
+                  <ArrowUpRight className="h-4 w-4 text-brand-blue" />
                 </div>
               </GlassPanel>
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-16 text-center">
-           <button className="text-[10px] font-black text-brand-blue uppercase tracking-[0.3em] hover:opacity-70 transition-opacity border-b border-brand-blue/20 pb-1">
-             View All Specialist Services
-           </button>
         </div>
       </div>
     </section>

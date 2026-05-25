@@ -1,12 +1,14 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, FileText, Headphones } from 'lucide-react';
 import { GlassPanel } from '@/components/ui/glass-panel';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export const CTASection = () => {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Background Mesh/Glow */}
@@ -38,8 +40,14 @@ export const CTASection = () => {
                  <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-black h-16 px-12 rounded-2xl shadow-[0_0_40px_rgba(47,128,255,0.4)] group text-base">
                     Contact Enterprise Team <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                  </Button>
-                 <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-16 px-12 rounded-2xl group text-base font-bold">
-                    Request Dispatch Capability Report <FileText className="ml-3 h-5 w-5 opacity-50" />
+                 <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={downloadPdf}
+                    disabled={isGeneratingPdf}
+                    className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-16 px-12 rounded-2xl group text-base font-bold"
+                 >
+                    {isGeneratingPdf ? 'Generating PDF...' : 'Request Dispatch Capability Report'} <FileText className="ml-3 h-5 w-5 opacity-50" />
                  </Button>
               </div>
            </div>

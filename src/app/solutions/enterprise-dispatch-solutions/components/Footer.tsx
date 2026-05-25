@@ -30,7 +30,6 @@ const footerLinks = [
     title: 'Operations',
     links: [
       { name: '24/7 Dispatch Center', href: '/operations/24-7-dispatch-center' },
-      { name: 'Fleet Support', href: '/operations/fleet-support' },
       { name: 'Vendor Network', href: '/operations/vendor-network' },
       { name: 'Call Center Operations', href: '/operations/call-center-operations' },
     ]

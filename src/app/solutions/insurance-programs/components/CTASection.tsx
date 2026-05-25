@@ -1,10 +1,12 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText } from 'lucide-react';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export default function CTASection() {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="py-24 bg-brand-bg relative flex items-center justify-center px-4 sm:px-6 lg:px-12">
       <div className="max-w-[1440px] w-full mx-auto relative z-10">
@@ -68,9 +70,11 @@ export default function CTASection() {
             <motion.button
               whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto px-6 py-3.5 bg-brand-bg/80 backdrop-blur-md border border-brand-border text-foreground dark:text-white rounded-lg font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group transition-colors"
+              onClick={downloadPdf}
+              disabled={isGeneratingPdf}
+              className="w-full sm:w-auto px-6 py-3.5 bg-brand-bg/80 backdrop-blur-md border border-brand-border text-foreground dark:text-white rounded-lg font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group transition-colors disabled:opacity-50"
             >
-              Request Capability Report 
+              {isGeneratingPdf ? 'Generating PDF...' : 'Request Capability Report'}
               <FileText className="w-4 h-4 text-foreground dark:text-white/70" />
             </motion.button>
           </div>

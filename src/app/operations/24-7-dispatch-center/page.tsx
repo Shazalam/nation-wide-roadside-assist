@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Metadata } from 'next';
 import { Navbar } from '@/components/layout/navbar';
 import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
@@ -9,7 +9,6 @@ import { DispatchWorkflow } from './components/DispatchWorkflow';
 import { FleetOperations } from './components/FleetOperations';
 import { DispatchAPIs } from './components/DispatchAPIs';
 import { TrustCompliance } from './components/TrustCompliance';
-import { OperationalMetrics } from './components/OperationalMetrics';
 import { DispatchCTA } from './components/DispatchCTA';
 
 export const metadata: Metadata = {
@@ -30,7 +29,6 @@ export default function DispatchCenterPage() {
         <FleetOperations />
         <DispatchAPIs />
         <TrustCompliance />
-        <OperationalMetrics />
         <DispatchCTA />
       </div>
 

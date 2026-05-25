@@ -1,12 +1,10 @@
-﻿import React from 'react';
+import React from 'react';
 import HeroSection from './HeroSection';
-import TrustBar from './TrustBar';
 import CoreCapabilities from './CoreCapabilities';
 import TechShowcase from './TechShowcase';
 import Workflow from './Workflow';
 import Ecosystem from './Ecosystem';
 import APIInfrastructure from './APIInfrastructure';
-import OperationalIntelligence from './OperationalIntelligence';
 import CTASection from './CTASection';
 
 export const metadata = {
@@ -26,13 +24,11 @@ export default function RVCamperSupportPage() {
 
       <div className="relative z-10">
         <HeroSection />
-        <TrustBar />
         <CoreCapabilities />
         <TechShowcase />
         <Workflow />
         <Ecosystem />
         <APIInfrastructure />
-        <OperationalIntelligence />
         <CTASection />
       </div>
     </div>

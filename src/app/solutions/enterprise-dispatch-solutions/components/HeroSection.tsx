@@ -10,8 +10,13 @@ import { Button } from '@/components/ui/button';
 import { GlassPanel } from '@/components/ui/glass-panel';
 import { useDispatchStats } from '../hooks/use-dispatch-stats';
 import { Badge } from '@/components/ui/badge';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen } from '@/store';
 
 export const HeroSection = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const { stats } = useDispatchStats();
 
   return (
@@ -110,6 +115,7 @@ export const HeroSection = () => {
           >
             <Button
               size="lg"
+              onClick={() => dispatch(setPartnershipOpen(true))}
               className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_50px_var(--brand-glow)] transition-all hover:-translate-y-1.5 active:scale-95 group"
             >
               Schedule Enterprise Demo{' '}
@@ -118,6 +124,7 @@ export const HeroSection = () => {
             <Button
               variant="outline"
               size="lg"
+              onClick={() => router.push('/developer')}
               className="border-white/10 bg-white/5 text-white hover:bg-white/10 h-16 px-10 rounded-2xl font-black backdrop-blur-xl transition-all hover:border-brand-blue/40 group flex items-center gap-3"
             >
               <span className="opacity-40 group-hover:opacity-100 font-mono transition-opacity">{'</>'}</span>

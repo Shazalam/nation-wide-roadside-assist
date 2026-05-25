@@ -34,7 +34,6 @@ import {
   Loader2
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Logo } from '@/components/ui/logo';
 
 const navItems = [
@@ -91,7 +90,6 @@ const navItems = [
         title: "Command Center",
         items: [
           { label: "24/7 Dispatch Center", href: "/operations/24-7-dispatch-center", icon: Zap, desc: "Global coordination" },
-          { label: "Fleet Support", href: "/operations/fleet-support", icon: Truck, desc: "Real-time fleet intelligence" },
           { label: "Vendor Network", href: "/operations/vendor-network", icon: Globe, desc: "Certified partners" },
         ]
       },
@@ -290,8 +288,6 @@ export const Navbar = () => {
 
             {/* Right Actions */}
             <div className="hidden lg:flex items-center gap-6 shrink-0 relative z-10">
-              <ThemeToggle />
-
               {/* Download PDF — only on capability report page */}
               {isCapabilityReportPage && (
                 <Button

@@ -6,8 +6,13 @@ import {
   ChevronRight, Activity, Database, Globe, Clock, Terminal, Shield,
   Zap, Truck, MapPin, Radio, BarChart3, CheckCircle, TrendingUp
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen } from '@/store';
 
 export const FleetHero = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [activeNav, setActiveNav] = useState('Overview');
   const [liveCount, setLiveCount] = useState(12842);
 
@@ -60,6 +65,7 @@ export const FleetHero = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => dispatch(setPartnershipOpen(true))}
                 className="px-6 py-3.5 bg-brand-blue text-foreground dark:text-white rounded-lg font-bold text-sm flex items-center justify-center gap-3 group shadow-[0_0_20px_var(--brand-glow)] hover:shadow-[0_0_30px_var(--brand-glow)] transition-all"
               >
                 Schedule Enterprise Demo
@@ -68,6 +74,7 @@ export const FleetHero = () => {
               <motion.button
                 whileHover={{ scale: 1.02, backgroundColor: 'var(--accent)' }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => router.push('/developer')}
                 className="px-6 py-3.5 bg-brand-navy/50 backdrop-blur-md border border-brand-border text-foreground rounded-lg font-bold text-sm flex items-center justify-center gap-3 transition-colors hover:border-brand-blue/30 shadow-sm dark:shadow-none"
               >
                 Explore Fleet APIs <Terminal className="w-4 h-4 text-brand-slate" />

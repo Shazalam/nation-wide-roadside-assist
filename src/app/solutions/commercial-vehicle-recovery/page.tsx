@@ -1,13 +1,10 @@
-﻿import React from 'react';
+import React from 'react';
 import HeroSection from './HeroSection';
-import TrustBar from './TrustBar';
 import VehicleClassIntelligence from './VehicleClassIntelligence';
 import CoreCapabilities from './CoreCapabilities';
-import TechShowcase from './TechShowcase';
 import Workflow from './Workflow';
 import ServicesGrid from './ServicesGrid';
 import APIInfrastructure from './APIInfrastructure';
-import EnterpriseAnalytics from './EnterpriseAnalytics';
 import CTASection from './CTASection';
 import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
 import { Navbar } from '@/components/layout/navbar';
@@ -23,14 +20,11 @@ export default function CommercialVehicleRecoveryPage() {
       <Navbar />
       
       <HeroSection />
-      <TrustBar />
       <VehicleClassIntelligence />
       <CoreCapabilities />
-      <TechShowcase />
       <Workflow />
       <ServicesGrid />
       <APIInfrastructure />
-      <EnterpriseAnalytics />
       <CTASection />
       
       <EnterpriseFooter />

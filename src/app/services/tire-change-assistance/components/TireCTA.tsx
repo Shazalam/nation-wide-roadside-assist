@@ -1,12 +1,14 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, FileText, Globe, Activity } from 'lucide-react';
 import { GlassPanel } from '@/components/ui/glass-panel';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export const TireCTA = () => {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="py-24 relative overflow-hidden bg-brand-bg border-t border-brand-border">
       {/* Background Lighting & Globe Decoration */}
@@ -65,8 +67,14 @@ export const TireCTA = () => {
               <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_40px_rgba(47,128,255,0.2)] transition-all hover:-translate-y-1">
                 Contact Enterprise Team <ArrowRight className="ml-3 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-16 px-10 rounded-2xl font-bold backdrop-blur-sm group">
-                Request Capability Report <FileText className="ml-3 h-5 w-5 text-brand-slate group-hover:text-[#2F80FF] transition-colors" />
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={downloadPdf}
+                disabled={isGeneratingPdf}
+                className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-16 px-10 rounded-2xl font-bold backdrop-blur-sm group"
+              >
+                {isGeneratingPdf ? 'Generating PDF...' : 'Request Capability Report'} <FileText className="ml-3 h-5 w-5 text-brand-slate group-hover:text-[#2F80FF] transition-colors" />
               </Button>
             </motion.div>
           </div>

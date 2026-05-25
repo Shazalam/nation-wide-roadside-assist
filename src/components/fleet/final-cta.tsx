@@ -1,11 +1,13 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export const FinalCTA = () => {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="relative z-10 py-28 lg:py-36 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -76,8 +78,14 @@ export const FinalCTA = () => {
               <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold h-14 lg:h-16 px-10 lg:px-12 rounded-2xl shadow-[0_0_50px_rgba(47,128,255,0.35)] text-base lg:text-lg transition-all hover:scale-[1.03] hover:shadow-[0_0_70px_rgba(47,128,255,0.5)] w-full sm:w-auto">
                 Contact Enterprise Team
               </Button>
-              <Button variant="ghost" size="lg" className="text-foreground dark:text-white border border-brand-border hover:bg-white/5 hover:border-white/20 font-bold h-14 lg:h-16 px-10 lg:px-12 rounded-2xl text-base lg:text-lg group w-full sm:w-auto transition-all">
-                Request Fleet Capability Report <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Button
+                variant="ghost"
+                size="lg"
+                onClick={downloadPdf}
+                disabled={isGeneratingPdf}
+                className="text-foreground dark:text-white border border-brand-border hover:bg-white/5 hover:border-white/20 font-bold h-14 lg:h-16 px-10 lg:px-12 rounded-2xl text-base lg:text-lg group w-full sm:w-auto transition-all"
+              >
+                {isGeneratingPdf ? 'Generating PDF...' : 'Request Fleet Capability Report'} <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
           </div>

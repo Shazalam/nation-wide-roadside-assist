@@ -13,7 +13,7 @@ const features = [
   {
     icon: Globe,
     title: "Nationwide Mesh",
-    description: "Access over 5,000 certified heavy-duty and light-duty recovery nodes across North America.",
+    description: "Access over 3,000+ certified heavy-duty and light-duty recovery nodes across North America.",
   },
   {
     icon: Shield,
@@ -58,18 +58,8 @@ export const Features = () => {
     <section className="py-32 relative overflow-hidden bg-[#020712] z-10">
       <div className="container mx-auto px-4 lg:px-12 relative z-10">
 
-        {/* Section Heading - Prominent & Structured */}
-        <div className="text-center max-w-5xl mx-auto mb-32 space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-blue/10 border border-brand-blue/30 w-fit mx-auto backdrop-blur-xl"
-          >
-            <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse shadow-[0_0_10px_#2F80FF]" />
-            <span className="text-[11px] font-black text-brand-blue uppercase tracking-[0.4em]">Operational Excellence</span>
-          </motion.div>
-
+        {/* Section Heading - Centered & Structured */}
+        <div className="text-center max-w-5xl mx-auto mb-32">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -1,10 +1,12 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export default function CTASection() {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="py-32 px-6 lg:px-12 relative overflow-hidden flex items-center justify-center min-h-[60vh]">
       {/* Dynamic Background */}
@@ -35,8 +37,12 @@ export default function CTASection() {
           <button className="w-full sm:w-auto px-8 py-4 bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white rounded-lg font-medium transition-all shadow-[0_0_20px_rgba(47,128,255,0.3)] hover:shadow-[0_0_30px_rgba(47,128,255,0.5)] flex items-center justify-center gap-2 group">
             Contact Enterprise Team <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="w-full sm:w-auto px-8 py-4 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.1)] text-foreground dark:text-white rounded-lg font-medium transition-all">
-            Request RV Capability Report
+          <button
+            onClick={downloadPdf}
+            disabled={isGeneratingPdf}
+            className="w-full sm:w-auto px-8 py-4 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.1)] text-foreground dark:text-white rounded-lg font-medium transition-all disabled:opacity-50"
+          >
+            {isGeneratingPdf ? 'Generating PDF...' : 'Request RV Capability Report'}
           </button>
         </div>
       </motion.div>

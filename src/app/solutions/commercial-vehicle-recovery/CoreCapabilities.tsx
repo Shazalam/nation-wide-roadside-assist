@@ -9,7 +9,7 @@ const capabilities = [
     title: 'Nationwide Recovery Network',
     description: 'Real-time access to the largest certified heavy-duty recovery network in North America, with localized dispatch nodes in every major logistics corridor.',
     icon: Globe,
-    stats: '5,000+ Recovery Units',
+    stats: '3,000+ Recovery Units',
     features: ['Heavy Recovery Specialists', 'Super-Heavy Rotators', 'Mobile Mechanic Dispatch'],
     color: '#2F80FF',
   },
@@ -35,7 +35,7 @@ export default function CoreCapabilities() {
   return (
     <section className="py-24 bg-card/50 relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
-        
+
         <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
             <Radio className="w-3 h-3 text-[#2F80FF] animate-pulse" />
@@ -64,7 +64,7 @@ export default function CoreCapabilities() {
                 {/* Border Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent transition-opacity group-hover:opacity-100 opacity-50" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                
+
                 <div className="relative bg-brand-bg rounded-[22px] p-8 lg:p-10 h-full flex flex-col">
                   <div className="flex justify-between items-start mb-8">
                     <div className="p-4 rounded-2xl bg-white/5 border border-brand-border group-hover:border-blue-500/50 group-hover:bg-blue-500/10 transition-all duration-500">
@@ -79,7 +79,7 @@ export default function CoreCapabilities() {
                   <h3 className="text-2xl font-black text-foreground dark:text-white mb-4 leading-tight group-hover:text-[#2F80FF] transition-colors">
                     {cap.title}
                   </h3>
-                  
+
                   <p className="text-brand-slate text-sm leading-relaxed mb-8 flex-grow">
                     {cap.description}
                   </p>
@@ -108,17 +108,17 @@ export default function CoreCapabilities() {
 
         {/* Floating background stats */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 opacity-30">
-           {[
-             { label: 'Uptime', val: '99.99%' },
-             { label: 'Nodes', val: '12.4k' },
-             { label: 'Requests', val: '1.2B' },
-             { label: 'Latency', val: '<40ms' }
-           ].map((s, i) => (
-             <div key={i} className="text-center py-4 border-r border-brand-border last:border-0">
-                <div className="text-xl font-mono font-black text-foreground dark:text-white">{s.val}</div>
-                <div className="text-[9px] uppercase tracking-[0.2em] text-brand-slate">{s.label}</div>
-             </div>
-           ))}
+          {[
+            { label: 'Uptime', val: '99.99%' },
+            { label: 'Nodes', val: '12.4k' },
+            { label: 'Requests', val: '1.2B' },
+            { label: 'Latency', val: '<40ms' }
+          ].map((s, i) => (
+            <div key={i} className="text-center py-4 border-r border-brand-border last:border-0">
+              <div className="text-xl font-mono font-black text-foreground dark:text-white">{s.val}</div>
+              <div className="text-[9px] uppercase tracking-[0.2em] text-brand-slate">{s.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

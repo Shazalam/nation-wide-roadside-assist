@@ -169,22 +169,6 @@ export const OperationsWorkflow = () => {
            </div>
         </div>
 
-        {/* Global Node Status Footer */}
-        <div className="mt-32 border-t border-brand-border pt-16 flex flex-wrap justify-center gap-16">
-           {[
-             { label: 'Dispatch Latency', val: '< 1.8s', detail: 'Real-Time' },
-             { label: 'Asset Utilization', val: '98.4%', detail: 'Optimized' },
-             { label: 'Network Integrity', val: 'Active', detail: 'Live' }
-           ].map((m, i) => (
-             <div key={i} className="flex flex-col items-center">
-                <span className="text-[9px] font-black text-brand-slate uppercase tracking-[0.4em] mb-2">{m.label}</span>
-                <div className="flex items-baseline gap-2">
-                   <span className="text-2xl font-black text-foreground dark:text-white">{m.val}</span>
-                   <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-widest">{m.detail}</span>
-                </div>
-             </div>
-           ))}
-        </div>
       </div>
     </section>
   );

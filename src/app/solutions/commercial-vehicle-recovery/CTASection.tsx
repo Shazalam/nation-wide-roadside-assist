@@ -1,10 +1,12 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, ArrowRight, Zap, Globe, Shield } from 'lucide-react';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export default function CTASection() {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="py-32 bg-brand-bg relative overflow-hidden">
       {/* Dynamic Background Elements */}
@@ -43,9 +45,11 @@ export default function CTASection() {
             <motion.button
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.08)' }}
               whileTap={{ scale: 0.98 }}
-              className="px-10 py-5 bg-transparent border border-brand-border text-foreground dark:text-white rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center gap-3"
+              onClick={downloadPdf}
+              disabled={isGeneratingPdf}
+              className="px-10 py-5 bg-transparent border border-brand-border text-foreground dark:text-white rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center gap-3 disabled:opacity-50"
             >
-              Request Recovery Capability Report <Shield className="w-4 h-4 text-[#2F80FF]" />
+              {isGeneratingPdf ? 'Generating PDF...' : 'Request Recovery Capability Report'} <Shield className="w-4 h-4 text-[#2F80FF]" />
             </motion.button>
           </div>
 

@@ -1,11 +1,13 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export const ContinuationCTA = () => {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="py-44 relative z-10 bg-brand-bg overflow-hidden border-t border-brand-border">
       {/* Background Ambience */}
@@ -30,8 +32,15 @@ export const ContinuationCTA = () => {
                    <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-14 px-8 rounded-xl shadow-[0_20px_40px_rgba(47,128,255,0.3)] group">
                       Contact Enterprise Team <ArrowRight className="ml-3 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                    </Button>
-                   <Button variant="outline" size="lg" suppressHydrationWarning className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-8 rounded-xl font-bold uppercase tracking-widest text-[11px] group">
-                      Request Capability Report <FileText className="ml-3 h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                   <Button
+                      variant="outline"
+                      size="lg"
+                      suppressHydrationWarning
+                      onClick={downloadPdf}
+                      disabled={isGeneratingPdf}
+                      className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-8 rounded-xl font-bold uppercase tracking-widest text-[11px] group"
+                   >
+                      {isGeneratingPdf ? 'Generating PDF...' : 'Request Capability Report'} <FileText className="ml-3 h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
                    </Button>
                 </div>
              </motion.div>

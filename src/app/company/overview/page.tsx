@@ -11,6 +11,8 @@ import {
   Users, MapPin, Zap, BarChart3, ArrowRight, ExternalLink,
   Target, Cpu, Award, Lock, Network, Clock
 } from 'lucide-react';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen } from '@/store';
 
 /* ─── Reusable Section Shell ─────────────────────────────────────────────── */
 const DocumentationSection = ({ id, title, children }: { id: string; title: string; children: React.ReactNode }) => (
@@ -36,7 +38,7 @@ const OverviewHero = () => (
   <section className="relative pt-32 pb-20 px-6 lg:px-12 overflow-hidden bg-brand-bg min-h-[55vh] flex items-center border-b border-brand-border">
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[#2F80FF]/10 blur-[150px] rounded-full -mt-48 pointer-events-none" />
     <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
-         style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+      style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
     <div className="max-w-7xl mx-auto w-full relative z-10">
       <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
@@ -201,7 +203,7 @@ const OverviewContent = () => (
         </div>
         <div className="p-6">
           <pre className="font-mono text-[11px] text-[#2F80FF]/80 leading-relaxed">
-{`{
+            {`{
   "dispatch_engine": "Real-time AI-assisted routing",
   "telematics": "OBD-II / CAN bus / OEM APIs",
   "infrastructure": "Multi-region, Active-Active",
@@ -222,8 +224,8 @@ const OverviewContent = () => (
           <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Headquarters</h4>
           <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
             Nationwide Roadside Assist<br />
-            1200 Enterprise Way<br />
-            San Francisco, CA 94105
+            11727 East End Avenue<br />
+            Chino, CA 91710
           </p>
         </div>
         <div className="space-y-4">
@@ -259,59 +261,62 @@ const OverviewContent = () => (
 );
 
 /* ─── CTA ────────────────────────────────────────────────────────────────── */
-const CompanyCTA = () => (
-  <section className="py-24 relative overflow-hidden bg-brand-bg border-t border-brand-border">
-    <div className="absolute -left-[10%] bottom-0 w-[600px] h-[600px] pointer-events-none opacity-20">
-      <motion.div animate={{ rotate: -360 }} transition={{ duration: 120, repeat: Infinity, ease: "linear" }} className="w-full h-full text-[#2F80FF]">
-        <Globe className="w-full h-full" strokeWidth={0.5} />
-      </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-bg" />
-      <div className="absolute inset-0 bg-brand-blue/10 blur-[100px] rounded-full" />
-    </div>
+const CompanyCTA = () => {
+  const dispatch = useDispatch();
+  return (
+    <section className="py-24 relative overflow-hidden bg-brand-bg border-t border-brand-border">
+      <div className="absolute -left-[10%] bottom-0 w-[600px] h-[600px] pointer-events-none opacity-20">
+        <motion.div animate={{ rotate: -360 }} transition={{ duration: 120, repeat: Infinity, ease: "linear" }} className="w-full h-full text-[#2F80FF]">
+          <Globe className="w-full h-full" strokeWidth={0.5} />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-bg" />
+        <div className="absolute inset-0 bg-brand-blue/10 blur-[100px] rounded-full" />
+      </div>
 
-    <div className="container mx-auto px-6 lg:px-12 relative z-10">
-      <GlassPanel className="p-12 lg:p-20 border-brand-border bg-card/40 relative overflow-hidden group">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#2F80FF]/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[2000ms] ease-in-out" />
-        <div className="max-w-4xl mx-auto text-center space-y-10 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-[1px] w-8 bg-[#2F80FF]" />
-            <span className="text-[11px] font-black text-[#2F80FF] uppercase tracking-[0.4em]">Partner With Us</span>
-            <div className="h-[1px] w-8 bg-[#2F80FF]" />
-          </motion.div>
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <GlassPanel className="p-12 lg:p-20 border-brand-border bg-card/40 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#2F80FF]/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[2000ms] ease-in-out" />
+          <div className="max-w-4xl mx-auto text-center space-y-10 relative z-10">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-[1px] w-8 bg-[#2F80FF]" />
+              <span className="text-[11px] font-black text-[#2F80FF] uppercase tracking-[0.4em]">Partner With Us</span>
+              <div className="h-[1px] w-8 bg-[#2F80FF]" />
+            </motion.div>
 
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-[1.05]">
-            Enterprise-Grade Infrastructure for <br />
-            <span className="text-[#2F80FF]">Mission-Critical Mobility Operations</span>
-          </motion.h2>
+            <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+              className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-[1.05]">
+              Enterprise-Grade Infrastructure for <br />
+              <span className="text-[#2F80FF]">Mission-Critical Mobility Operations</span>
+            </motion.h2>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-3xl mx-auto font-medium">
-            Connect with our enterprise team to explore partnership opportunities, custom integrations, and dedicated operational support.
-          </motion.p>
+            <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+              className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-3xl mx-auto font-medium">
+              Connect with our enterprise team to explore partnership opportunities, custom integrations, and dedicated operational support.
+            </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-6 pt-4">
-            <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_40px_rgba(47,128,255,0.2)] transition-all hover:-translate-y-1">
-              Schedule Enterprise Demo <ArrowRight className="ml-3 h-5 w-5" />
-            </Button>
-            <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-16 px-10 rounded-2xl font-bold backdrop-blur-sm group">
-              View Careers <ExternalLink className="ml-3 h-5 w-5 text-brand-slate group-hover:text-brand-blue transition-colors" />
-            </Button>
-          </motion.div>
-        </div>
-      </GlassPanel>
-    </div>
-    <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-brand-blue/5 blur-[150px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2" />
-  </section>
-);
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+              className="flex flex-wrap justify-center gap-6 pt-4">
+              <Button size="lg" onClick={() => dispatch(setPartnershipOpen(true))} className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_40px_rgba(47,128,255,0.2)] transition-all hover:-translate-y-1">
+                Schedule Enterprise Demo <ArrowRight className="ml-3 h-5 w-5" />
+              </Button>
+              <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-16 px-10 rounded-2xl font-bold backdrop-blur-sm group">
+                View Careers <ExternalLink className="ml-3 h-5 w-5 text-brand-slate group-hover:text-brand-blue transition-colors" />
+              </Button>
+            </motion.div>
+          </div>
+        </GlassPanel>
+      </div>
+      <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-brand-blue/5 blur-[150px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2" />
+    </section>
+  );
+};
 
 /* ─── Page ────────────────────────────────────────────────────────────────── */
 export default function CompanyOverviewPage() {
   return (
     <>
       <div className="fixed inset-0 z-0 opacity-[0.015] dark:opacity-[0.03] pointer-events-none"
-           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, var(--brand-slate) 1px, transparent 0)`, backgroundSize: '48px 48px' }} />
+        style={{ backgroundImage: `radial-gradient(circle at 2px 2px, var(--brand-slate) 1px, transparent 0)`, backgroundSize: '48px 48px' }} />
 
       <OverviewHero />
 

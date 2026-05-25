@@ -57,50 +57,6 @@
 }
 
 :root {
-  /* Brand Variables */
-  --brand-bg: #F8FAFC;
-  --brand-navy: #FFFFFF;
-  --brand-blue: #2F80FF;
-  --brand-orange: #FF7A1A;
-  --brand-slate: #64748B;
-  --brand-glow: rgba(47, 128, 255, 0.12);
-
-  /* shadcn/ui Variables - Light Mode */
-  --background: #F8FAFC;
-  --foreground: #0A192F;
-  --card: rgba(255, 255, 255, 0.75);
-  --card-foreground: #0A192F;
-  --popover: #FFFFFF;
-  --popover-foreground: #0A192F;
-  --primary: #2F80FF;
-  --primary-foreground: #ffffff;
-  --secondary: #FFFFFF;
-  --secondary-foreground: #0A192F;
-  --muted: rgba(15, 23, 42, 0.04);
-  --muted-foreground: #64748B;
-  --accent: rgba(47, 128, 255, 0.05);
-  --accent-foreground: #0A192F;
-  --destructive: #ef4444;
-  --border: rgba(15, 23, 42, 0.08);
-  --input: rgba(15, 23, 42, 0.08);
-  --ring: rgba(47, 128, 255, 0.4);
-  --chart-1: #2F80FF;
-  --chart-2: #FF7A1A;
-  --chart-3: #64748B;
-  --chart-4: #0A192F;
-  --chart-5: #cbd5e1;
-  --radius: 0.6rem;
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #0A192F;
-  --sidebar-primary: #2F80FF;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: rgba(15, 23, 42, 0.03);
-  --sidebar-accent-foreground: #0A192F;
-  --sidebar-border: rgba(15, 23, 42, 0.08);
-  --sidebar-ring: rgba(47, 128, 255, 0.4);
-}
-
-.dark {
   /* Brand Variables - Preserving Dark Experience */
   --brand-bg: #081120;
   --brand-navy: #0A192F;
@@ -133,6 +89,7 @@
   --chart-3: #94A3B8;
   --chart-4: #ffffff;
   --chart-5: #0A192F;
+  --radius: 0.6rem;
   --sidebar: #0A192F;
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #2F80FF;
