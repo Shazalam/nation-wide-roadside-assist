@@ -29,6 +29,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`dark ${inter.variable} ${ibmPlexMono.variable} antialiased selection:bg-brand-blue/30 selection:text-foreground text-white`}
+      suppressHydrationWarning
     >
       <body
         className="min-h-screen bg-background text-foreground flex flex-col"
