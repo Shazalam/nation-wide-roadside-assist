@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { Navbar } from "@/components/layout/navbar";
 import { EnterpriseFooter } from "@/components/landing/enterprise-footer";
 import { VendorHero } from "./components/VendorHero";
-import { TrustScale } from "./components/TrustScale";
 import { VendorGrid } from "./components/VendorGrid";
 import { ServiceEcosystem } from "./components/ServiceEcosystem";
 import { VehicleCoverage } from "./components/VehicleCoverage";
@@ -23,7 +22,6 @@ export default function VendorNetworkPage() {
       
       <div className="relative z-10 pt-24">
         <VendorHero />
-        <TrustScale />
         <VendorGrid />
         <ServiceEcosystem />
         
