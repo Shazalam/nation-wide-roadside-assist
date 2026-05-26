@@ -73,7 +73,7 @@ const OverviewHero = () => (
           {[
             { label: 'USA & Canada Coverage', icon: Globe },
             { label: '24/7 Operations', icon: Activity },
-            { label: '18,000+ Vendors', icon: Users },
+            { label: '3,000+ Vendors', icon: Users },
             { label: 'Enterprise SLA', icon: Shield }
           ].map((m, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.1 }}
@@ -97,7 +97,6 @@ const InfoStrip = () => (
         <div className="flex items-center gap-10">
           {[
             { label: '99.1% UPTIME', icon: Activity },
-            { label: '3.2M+ EVENTS', icon: Zap },
             { label: '2 REGIONS', icon: MapPin },
             { label: '24/7 OPS', icon: Clock },
             { label: 'SOC 2 CERTIFIED', icon: Shield },
@@ -134,7 +133,9 @@ const OverviewContent = () => (
 
     <DocumentationSection id="infrastructure" title="Enterprise Infrastructure">
       <p className="text-brand-slate text-base leading-relaxed font-medium mb-6">
-        Our infrastructure supports 3.2M+ annual recovery events across a nationwide vendor ecosystem:
+        Our infrastructure powers seamless recovery operations through a vast nationwide vendor ecosystem —
+        connecting highways, fleets, and emergency response networks with speed, precision, and unwavering reliability.
+
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {[
@@ -190,31 +191,6 @@ const OverviewContent = () => (
             <p className="text-[11px] text-brand-slate font-medium leading-relaxed">{item.desc}</p>
           </div>
         ))}
-      </div>
-    </DocumentationSection>
-
-    <DocumentationSection id="technology" title="Technology Platform">
-      <p className="text-brand-slate text-base leading-relaxed font-medium">
-        Our technology stack is purpose-built for enterprise-scale operations with real-time performance requirements:
-      </p>
-      <div className="bg-brand-navy border border-brand-border rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 bg-white/[0.03] border-b border-brand-border">
-          <span className="text-[10px] font-black text-brand-blue uppercase tracking-widest">Platform Architecture</span>
-        </div>
-        <div className="p-6">
-          <pre className="font-mono text-[11px] text-[#2F80FF]/80 leading-relaxed">
-            {`{
-  "dispatch_engine": "Real-time AI-assisted routing",
-  "telematics": "OBD-II / CAN bus / OEM APIs",
-  "infrastructure": "Multi-region, Active-Active",
-  "uptime_sla": "99.95% guaranteed",
-  "api_protocol": "REST + GraphQL + WebSocket",
-  "security": "SOC 2 Type II + Zero Trust",
-  "data_processing": "3.2M+ events/year",
-  "vendor_network": "18,000+ nationwide"
-}`}
-          </pre>
-        </div>
       </div>
     </DocumentationSection>
 
