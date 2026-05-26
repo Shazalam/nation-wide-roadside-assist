@@ -136,9 +136,7 @@ const ContactContent = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {[
           { label: 'Enterprise Sales', desc: 'Custom program design, pricing, and integration planning for insurers, fleets, and OEMs.', icon: Building2, contact: 'enterprise@nationwidetrans.com' },
-          { label: 'Partner Success', desc: 'Dedicated account management, SLA monitoring, and operational support for active partners.', icon: Users, contact: 'kongl@nationwidetransinc.com' },
-          { label: 'Developer Relations', desc: 'API access, sandbox environments, technical documentation, and integration support.', icon: Zap, contact: 'developers@nationwidetrans.com' },
-          { label: 'Vendor Onboarding', desc: 'Join our nationwide vendor network — qualification, certification, and dispatch enrollment.', icon: MapPin, contact: 'vendors@nationwidetrans.com' }
+          { label: 'Partner Success', desc: 'Dedicated account management, SLA monitoring, and operational support for active partners.', icon: Users, contact: 'kongl@nationwidetransinc.com' }
         ].map((item, i) => (
           <div key={i} className="p-5 bg-white/[0.02] border border-brand-border rounded-xl space-y-3 group hover:border-[#2F80FF]/30 transition-all">
             <item.icon className="h-5 w-5 text-[#2F80FF]" />
