@@ -163,49 +163,32 @@ const metrics = [
 
 export const OperationalMetrics = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#020712] border-t border-brand-border">
-      {/* Cinematic grid lines overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
-        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #2F80FF 1px, transparent 0)', backgroundSize: '32px 32px' }} />
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#2F80FF]/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#2F80FF]/10 to-transparent" />
+    <section className="py-24 relative bg-brand-bg border-t border-brand-border overflow-hidden">
+      {/* Background Ambience matching original theme */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }} />
+      <div className="absolute top-1/2 right-0 w-[800px] h-[800px] bg-[#2F80FF]/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         
-        {/* Cinematic Header Block */}
-        <div className="max-w-5xl mx-auto text-center mb-20 space-y-4">
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2F80FF]/10 border border-[#2F80FF]/30 text-[#2F80FF]"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10B981]" />
-            <span className="text-[9px] font-black uppercase tracking-[0.25em] font-mono">Infrastructure Status: Active</span>
-          </motion.div>
-
-          <motion.h2 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl lg:text-5xl font-black text-foreground dark:text-white uppercase tracking-tight"
-          >
-            Nationwide Operational Metrics
-          </motion.h2>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-base text-brand-slate max-w-3xl mx-auto font-medium"
-          >
-            An always-active nationwide roadside infrastructure engineered for precision, response speed, and uninterrupted mobility across the United States and Canada.
-          </motion.p>
+        {/* Left-aligned Title Block matching original layout */}
+        <div className="mb-16">
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <div className="h-px w-8 bg-[#2F80FF]/30" />
+            <h2 className="text-2xl font-black text-foreground dark:text-white tracking-tight uppercase">
+              Nationwide Operational Metrics
+            </h2>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[8px] font-black uppercase tracking-wider font-mono">Live Status: Active</span>
+            </div>
+          </div>
+          <p className="text-brand-slate text-sm font-medium max-w-3xl leading-relaxed pl-11">
+            An always-active nationwide roadside infrastructure engineered for precision, response speed, and uninterrupted mobility.
+          </p>
         </div>
 
-        {/* 5-Column Cinematic Dashboard Grid */}
+        {/* 5-Column Grid using Original Glass Card style */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {metrics.map((metric, i) => {
             const Icon = metric.icon;
@@ -217,7 +200,7 @@ export const OperationalMetrics = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.03 }}
               >
-                <GlassPanel className="p-5 border-brand-border bg-[#071124]/40 hover:bg-[#071124]/60 backdrop-blur-xl h-full flex flex-col justify-between group transition-all duration-300 relative overflow-hidden">
+                <GlassPanel className="p-5 border-brand-border bg-card/55 backdrop-blur-[24px] hover:border-[#2F80FF]/40 hover:bg-card/80 h-full flex flex-col justify-between group transition-all duration-300 relative overflow-hidden rounded-[24px]">
                   
                   {/* Subtle hover gradient glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
