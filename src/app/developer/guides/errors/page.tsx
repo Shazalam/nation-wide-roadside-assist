@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { GlassPanel } from '@/components/ui/glass-panel';
@@ -13,7 +13,7 @@ export default function ErrorCodesPage() {
            <h1 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">Error Codes</h1>
         </div>
         <p className="text-brand-slate text-lg max-w-3xl">
-          The Nationwide Trans API uses standard HTTP response codes to indicate the success or failure of an API request.
+          The Nationwide Roadside Assist API uses standard HTTP response codes to indicate the success or failure of an API request.
         </p>
       </section>
 
@@ -25,7 +25,7 @@ export default function ErrorCodesPage() {
           { code: '403', title: 'Forbidden', desc: 'The API key does not have permissions to perform the request.' },
           { code: '404', title: 'Not Found', desc: 'The requested resource doesn\'t exist.' },
           { code: '429', title: 'Too Many Requests', desc: 'Too many requests hit the API too quickly.' },
-          { code: '500', title: 'Server Errors', desc: 'Something went wrong on Nationwide Trans\'s end.' },
+          { code: '500', title: 'Server Errors', desc: 'Something went wrong on Nationwide Roadside Assist\'s end.' },
         ].map((err) => (
           <div key={err.code} className="flex items-start gap-6 p-6 rounded-xl border border-brand-border bg-white/5 hover:bg-white/[0.08] transition-all">
              <div className="text-2xl font-black text-brand-blue font-mono min-w-[60px]">{err.code}</div>

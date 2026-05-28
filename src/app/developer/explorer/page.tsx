@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { GlassPanel } from '@/components/ui/glass-panel';
@@ -51,7 +51,7 @@ export default function APIExplorerPage() {
     <div className="space-y-8">
       <header>
         <h1 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">API Explorer</h1>
-        <p className="text-brand-slate text-lg">Interactive OpenAPI reference for the Nationwide Trans Mesh.</p>
+        <p className="text-brand-slate text-lg">Interactive OpenAPI reference for the Nationwide Roadside Assist Mesh.</p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 min-h-[700px]">

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -23,7 +23,7 @@ export const CareersCTA = () => {
                    Help Build The Future Of <br />Recovery Operations Infrastructure
                 </h2>
                 <p className="text-sm text-brand-slate font-medium leading-relaxed mb-10 max-w-xl">
-                   Join engineers, operators, analysts, dispatch specialists, and infrastructure experts on the Nationwide Trans Inc. platform.
+                   Join engineers, operators, analysts, dispatch specialists, and infrastructure experts on the Nationwide Roadside Assist platform.
                 </p>
 
                 <div className="flex flex-wrap gap-4">

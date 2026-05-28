@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Shield, Globe, Share2, Activity, ExternalLink } from 'lucide-react';
+import { Logo } from '@/components/ui/logo';
 
 const footerLinks = [
   {
@@ -29,7 +30,6 @@ const footerLinks = [
     title: 'Operations',
     links: [
       { name: '24/7 Dispatch Center', href: '/operations/24-7-dispatch-center' },
-      { name: 'Fleet Support', href: '/operations/fleet-support' },
       { name: 'Vendor Network', href: '/operations/vendor-network' },
       { name: 'Call Center Operations', href: '/operations/call-center-operations' },
     ]
@@ -55,13 +55,14 @@ export const Footer = () => {
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-8">
             <Link href="/" className="flex items-center gap-3 group">
-               <div className="flex items-center italic font-black text-2xl tracking-tighter mr-1">
-                  <span className="text-foreground dark:text-white">N</span>
-                  <span className="text-brand-blue">T</span>
-               </div>
+               <Logo className="transition-transform duration-300 group-hover:scale-105" size={36} />
                <div className="flex flex-col">
-                  <span className="text-lg font-bold text-foreground dark:text-white tracking-tight leading-none uppercase">NATIONWIDE</span>
-                  <span className="text-[10px] font-black text-brand-blue tracking-[0.3em] mt-1">TRANS INC.</span>
+                  <span className="text-foreground font-extrabold text-[12.5px] leading-none tracking-wider uppercase group-hover:text-foreground/80 transition-colors">
+                     NATIONWIDE
+                  </span>
+                  <span className="text-[10px] font-black text-brand-blue tracking-[0.22em] mt-0.5 uppercase">
+                     ROADSIDE ASSIST
+                  </span>
                </div>
             </Link>
             <p className="text-brand-slate text-sm leading-relaxed max-w-sm font-medium">
@@ -113,7 +114,7 @@ export const Footer = () => {
            </div>
 
            <p className="text-[10px] font-bold text-brand-slate/40 uppercase tracking-widest">
-              © {new Date().getFullYear()} Nationwide Trans Inc. All rights reserved.
+              © {new Date().getFullYear()} Nationwide Roadside Assist. All rights reserved.
            </p>
         </div>
       </div>

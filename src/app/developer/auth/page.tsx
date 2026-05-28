@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { APIBlock } from '@/components/ui/api-block';
@@ -11,7 +11,7 @@ export default function AuthenticationPage() {
       <section className="space-y-4">
         <h1 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">Authentication</h1>
         <p className="text-brand-slate text-lg max-w-3xl">
-          The Nationwide Trans API uses OAuth 2.0 and API Keys to authorize requests. Learn how to secure your integration and manage access tokens.
+          The Nationwide Roadside Assist API uses OAuth 2.0 and API Keys to authorize requests. Learn how to secure your integration and manage access tokens.
         </p>
       </section>
 

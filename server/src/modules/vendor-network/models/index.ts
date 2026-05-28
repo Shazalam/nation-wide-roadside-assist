@@ -9,7 +9,7 @@ const DispatchIncidentSchema = new Schema({
   eta: { type: String },
   vendorAssigned: { type: Schema.Types.ObjectId, ref: 'Vendor' }
 }, { timestamps: true });
-export const DispatchIncident = mongoose.models.DispatchIncident || mongoose.model('DispatchIncident', DispatchIncidentSchema);
+export const DispatchIncident = mongoose.models.VendorNetworkDispatchIncident || mongoose.model('VendorNetworkDispatchIncident', DispatchIncidentSchema);
 
 // FleetCoverage
 const FleetCoverageSchema = new Schema({
@@ -38,7 +38,7 @@ export const VendorAvailability = mongoose.models.VendorAvailability || mongoose
 
 // RecoveryOperation
 const RecoveryOperationSchema = new Schema({
-  incidentId: { type: Schema.Types.ObjectId, ref: 'DispatchIncident', required: true },
+  incidentId: { type: Schema.Types.ObjectId, ref: 'VendorNetworkDispatchIncident', required: true },
   vehicleClass: { type: String, required: true },
   equipmentUsed: [{ type: String }],
   success: { type: Boolean, default: true }

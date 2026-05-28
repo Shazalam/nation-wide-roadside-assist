@@ -2,174 +2,124 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Code, BarChart3, Activity, Zap } from 'lucide-react';
-import { GlassPanel } from '@/components/ui/glass-panel';
 
 export const VendorHero = () => {
   return (
-    <section className="relative pt-8 pb-16 overflow-hidden">
-      {/* Background Lighting */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#2F80FF]/10 blur-[120px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/4" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#FF7A1A]/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/2 translate-y-1/4" />
+    <section className="relative min-h-[90vh] lg:min-h-screen pt-24 pb-12 lg:pt-32 lg:pb-20 flex items-center overflow-hidden bg-[#020617]">
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          
-          {/* Left Content */}
-          <div className="lg:w-1/2 space-y-8">
+      {/* ─── FULL BLEED BACKGROUND IMAGE ─────────────────────────────────── */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/assets/images/solutions/vendor-network-hero.png"
+          alt="Nationwide Vendor Network Live Coverage Map"
+          className="w-full h-full object-cover object-center lg:object-right opacity-90"
+        />
+
+        {/* Cinematic Gradient Overlays */}
+        {/* Cinematic Dimming: Start from 45% */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617] to-transparent lg:via-[45%] lg:to-[100%]"
+        />
+
+        {/* Subtle Bottom-to-Top Fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-80" />
+
+        {/* Accent Glow */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#2F80FF]/10 blur-[150px] rounded-full -mr-96 -mt-96 pointer-events-none" />
+      </div>
+
+      {/* ─── GRID DOT OVERLAY ────────────────────────────────────────────── */}
+      <div
+        className="absolute inset-0 z-[1] opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 0)',
+          backgroundSize: '48px 48px',
+        }}
+      />
+
+      {/* ─── CONTENT ─────────────────────────────────────────────────────── */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="max-w-4xl space-y-10">
+
+          {/* Breadcrumb & Badge */}
+          <div className="space-y-5">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              className="flex items-center gap-2 text-[10px] font-black text-brand-slate uppercase tracking-[0.3em]"
             >
-              <div className="flex items-center gap-2 text-[11px] font-bold text-[#2F80FF] uppercase tracking-widest mb-6">
-                <span>Operations</span>
-                <span className="text-foreground dark:text-white/30">{'>'}</span>
-                <span>Vendor Network</span>
+              <span className="hover:text-white transition-colors cursor-pointer">Operations</span>
+              <ChevronRight className="h-3 w-3 text-brand-blue" />
+              <span className="text-white">Vendor Network</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-brand-blue/5 border border-brand-blue/20 backdrop-blur-md">
+                <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse shadow-[0_0_10px_var(--brand-blue)]" />
+                <span className="text-[9px] font-black text-white uppercase tracking-[0.25em]">
+                  50-State Live Vendor Coverage Network
+                </span>
               </div>
-              
-              <h1 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white leading-[1.1] tracking-tight mb-6">
-                Enterprise Vendor Network & <br className="hidden lg:block"/>Dispatch Operations Platform
-              </h1>
-              
-              <p className="text-[15px] text-brand-slate leading-7 max-w-xl">
-                Nationwide roadside vendor coordination, SLA-driven dispatch intelligence, and real-time operational visibility engineered for insurers, fleets, OEMs, and enterprise mobility ecosystems.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-wrap items-center gap-4"
-            >
-              <Button className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-11 px-6 rounded-xl shadow-[0_0_20px_rgba(47,128,255,0.3)] hover:shadow-[0_0_30px_rgba(47,128,255,0.5)] transition-all">
-                Explore Vendor Network <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button variant="outline" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-11 px-6 rounded-xl font-bold bg-card/50 backdrop-blur-md">
-                View Dispatch APIs <Code className="ml-2 h-4 w-4 text-brand-slate" />
-              </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8"
-            >
-              {[
-                { value: "98.7%", label: "SLA Compliance", trend: "+1.2%" },
-                { value: "50-State", label: "Vendor Coverage", trend: "National" },
-                { value: "2.8M+", label: "Dispatch Events", trend: "Annual" },
-                { value: "24/7", label: "Enterprise Ops", icon: Activity }
-              ].map((metric, i) => (
-                <div key={i} className="border-l border-brand-border pl-4 relative group">
-                  <div className="text-2xl font-black text-foreground dark:text-white mb-1 group-hover:text-[#2F80FF] transition-colors">{metric.value}</div>
-                  <div className="text-[11px] text-brand-slate font-bold uppercase tracking-wider">{metric.label}</div>
-                  {metric.trend && (
-                     <div className="text-[10px] text-emerald-400 mt-1 font-mono">{metric.trend}</div>
-                  )}
-                  {metric.icon && (
-                     <metric.icon className="h-4 w-4 text-[#2F80FF] mt-1" />
-                  )}
-                </div>
-              ))}
             </motion.div>
           </div>
 
-          {/* Right Content - Operational Dashboard */}
+          {/* Heading */}
+          <div className="space-y-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-5xl lg:text-[5.5rem] font-black tracking-tighter text-white leading-[0.9] drop-shadow-2xl"
+            >
+              Enterprise <span className="text-brand-blue">Vendor Network</span> <br />
+              &amp; Dispatch Operations
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-2xl font-medium"
+            >
+              Nationwide roadside vendor coordination, SLA-driven dispatch intelligence, and
+              real-time operational visibility engineered for insurers, fleets, OEMs, and enterprise
+              mobility ecosystems — coast to coast.
+            </motion.p>
+          </div>
+
+          {/* Action Buttons */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:w-1/2 w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-wrap gap-5"
           >
-            <GlassPanel className="p-1 rounded-2xl border-brand-border bg-card/40 overflow-hidden relative">
-               {/* Header */}
-               <div className="flex items-center justify-between p-4 border-b border-brand-border bg-brand-bg/60">
-                  <div className="flex items-center gap-2">
-                     <Activity className="h-4 w-4 text-[#2F80FF]" />
-                     <span className="text-[11px] font-bold text-foreground dark:text-white uppercase tracking-widest">Live Network Overview</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                     <div className="flex items-center gap-1.5">
-                        <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        <span className="text-[10px] font-mono text-emerald-400">Live</span>
-                     </div>
-                  </div>
-               </div>
-
-               {/* Mock Map Area */}
-               <div className="h-[300px] relative bg-brand-bg overflow-hidden flex items-center justify-center border-b border-brand-border">
-                  <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(#2F80FF 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-                  
-                  {/* Simulated US Map Shape (Abstract) */}
-                  <div className="relative w-[80%] h-[80%] border border-[#2F80FF]/20 rounded-3xl bg-card/50 shadow-[inset_0_0_50px_rgba(47,128,255,0.1)] flex items-center justify-center">
-                     <span className="text-[#2F80FF]/30 font-mono text-xs tracking-widest">MAPBOX TELEMETRY FEED</span>
-                     
-                     {/* Pulse nodes */}
-                     {[...Array(15)].map((_, i) => (
-                        <motion.div
-                           key={i}
-                           className="absolute h-2 w-2 rounded-full bg-[#2F80FF]"
-                           style={{
-                              top: `${Math.random() * 80 + 10}%`,
-                              left: `${Math.random() * 80 + 10}%`,
-                           }}
-                           animate={{
-                              scale: [1, 2, 1],
-                              opacity: [0.5, 1, 0.5],
-                              boxShadow: ['0 0 0 rgba(47,128,255,0)', '0 0 20px rgba(47,128,255,0.8)', '0 0 0 rgba(47,128,255,0)']
-                           }}
-                           transition={{
-                              duration: 2 + Math.random() * 2,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                           }}
-                        />
-                     ))}
-                     {[...Array(5)].map((_, i) => (
-                        <motion.div
-                           key={`orange-${i}`}
-                           className="absolute h-2 w-2 rounded-full bg-[#FF7A1A]"
-                           style={{
-                              top: `${Math.random() * 80 + 10}%`,
-                              left: `${Math.random() * 80 + 10}%`,
-                           }}
-                           animate={{
-                              scale: [1, 1.5, 1],
-                              opacity: [0.8, 1, 0.8],
-                           }}
-                           transition={{
-                              duration: 1.5 + Math.random(),
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                           }}
-                        />
-                     ))}
-                  </div>
-               </div>
-
-               {/* Bottom Stats Grid */}
-               <div className="grid grid-cols-3 gap-px bg-white/5">
-                  <div className="p-4 bg-card/80">
-                     <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Active Vendors</div>
-                     <div className="text-xl font-mono text-foreground dark:text-white">18,742 <span className="text-[10px] text-emerald-400">↑ 8.2%</span></div>
-                  </div>
-                  <div className="p-4 bg-card/80">
-                     <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Active Dispatches</div>
-                     <div className="text-xl font-mono text-foreground dark:text-white">1,243 <span className="text-[10px] text-emerald-400">↑ 12.5%</span></div>
-                  </div>
-                  <div className="p-4 bg-card/80">
-                     <div className="text-[10px] text-brand-slate font-bold uppercase tracking-wider mb-1">Avg. ETA</div>
-                     <div className="text-xl font-mono text-foreground dark:text-white">28 <span className="text-[10px] text-brand-slate">min</span></div>
-                  </div>
-               </div>
-            </GlassPanel>
+            <Button
+              size="lg"
+              className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_50px_var(--brand-glow)] transition-all hover:-translate-y-1.5 active:scale-95 group"
+            >
+              Explore Vendor Network
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1.5 transition-transform" />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white/10 bg-white/5 text-white hover:bg-white/10 h-16 px-10 rounded-2xl font-black backdrop-blur-xl transition-all hover:border-brand-blue/40 group flex items-center gap-3"
+            >
+              <span className="opacity-40 group-hover:opacity-100 font-mono transition-opacity">{'</>'}</span>
+              View Dispatch APIs
+            </Button>
           </motion.div>
+
         </div>
       </div>
+
     </section>
   );
 };

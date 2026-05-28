@@ -3,10 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ChevronRight, Activity, MapPin, Truck, AlertTriangle,
-  Clock, Users, Globe, ArrowUp, ArrowDown, Shield,
-  Zap, BarChart3, Radio, Terminal, TrendingUp
+  ChevronRight, MapPin, Truck, AlertTriangle,
+  ArrowUp, ArrowDown, Radio, Terminal, TrendingUp
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen } from '@/store';
 
 const liveRecoveryIncidents = [
   { id: 'CV-9021', type: 'Super Heavy Recovery', location: 'I-95, New Jersey', eta: '18 min', status: 'en-route', priority: 'critical' },
@@ -57,6 +59,8 @@ function ProgressCircle({ value, label }: { value: number; label: string }) {
 }
 
 export default function HeroSection() {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -99,53 +103,9 @@ export default function HeroSection() {
               Nationwide heavy-duty dispatch intelligence, commercial vehicle recovery operations, and API-first roadside infrastructure engineered for fleets, logistics providers, insurers, and enterprise mobility ecosystems.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-5 mb-16">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(47,128,255,0.4)' }}
-                whileTap={{ scale: 0.98 }}
-                className="px-10 py-5 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest shadow-lg flex items-center justify-center gap-3 group"
-              >
-                Schedule Enterprise Demo
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.08)' }}
-                whileTap={{ scale: 0.98 }}
-                className="px-10 py-5 bg-transparent border border-brand-border text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-3"
-              >
-                Explore Recovery APIs <Terminal className="w-4 h-4 text-[#2F80FF]" />
-              </motion.button>
-            </div>
 
-            {/* KPI Metric Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-brand-border">
-              {[
-                { value: '99.1%', label: 'Dispatch Coverage', icon: Activity, color: '#2F80FF' },
-                { value: '3.2M+', label: 'Annual Recovery Events', icon: Globe, color: '#FF7A1A' },
-                { value: 'Nationwide', label: 'Vendor Network', icon: MapPin, color: '#2F80FF' },
-                { value: '24/7', label: 'Fleet Operations', icon: Clock, color: '#FF7A1A' },
-              ].map((kpi, i) => {
-                const Icon = kpi.icon;
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 + i * 0.1 }}
-                    className="space-y-2"
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="p-1.5 rounded bg-white/5">
-                        <Icon className="w-3.5 h-3.5" style={{ color: kpi.color }} />
-                      </div>
-                      <span className="text-[10px] font-mono text-brand-slate uppercase tracking-widest">{kpi.label}</span>
-                    </div>
-                    <div className="text-2xl font-black text-foreground dark:text-white">{kpi.value}</div>
-                  </motion.div>
-                );
-              })}
-            </div>
+
+
           </motion.div>
 
           {/* ── RIGHT DASHBOARD ─────────────────────────── */}

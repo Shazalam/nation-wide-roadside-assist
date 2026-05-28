@@ -6,7 +6,7 @@ import { Network, Cpu, Share2, Activity, ShieldCheck, Zap } from 'lucide-react';
 import { GlassPanel } from '@/components/ui/glass-panel';
 
 const highlights = [
-  { title: 'Nationwide Dispatch Orchestration', desc: 'Centralized coordination mesh across all 50 states.', icon: Network },
+  { title: 'North American Dispatch Orchestration', desc: 'Centralized coordination mesh across USA and Canada.', icon: Network },
   { title: 'Multi-Region Incident Coordination', desc: 'Simultaneous management of large-scale operational events.', icon: Share2 },
   { title: 'Intelligent Vendor Matching', desc: 'AI-driven assignment based on proximity and capabilities.', icon: Cpu },
   { title: 'Real-Time Response Optimization', desc: 'Live ETA calibration and dispatch flow adjustment.', icon: Activity },

@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/providers/auth-provider';
-import { usePlatformModals } from '@/providers/partnership-provider';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen, setDispatchOpen } from '@/store';
 import { Button } from '@/components/ui/button';
 import { GlassPanel } from '@/components/ui/glass-panel';
 import {
@@ -28,10 +29,12 @@ import {
   User,
   Lock,
   FileText,
-  Eye
+  Eye,
+  Download,
+  Loader2
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { ThemeToggle } from '@/components/theme-toggle';
+import { Logo } from '@/components/ui/logo';
 
 const navItems = [
   {
@@ -87,7 +90,6 @@ const navItems = [
         title: "Command Center",
         items: [
           { label: "24/7 Dispatch Center", href: "/operations/24-7-dispatch-center", icon: Zap, desc: "Global coordination" },
-          { label: "Fleet Support", href: "/operations/fleet-support", icon: Truck, desc: "Real-time fleet intelligence" },
           { label: "Vendor Network", href: "/operations/vendor-network", icon: Globe, desc: "Certified partners" },
         ]
       },
@@ -107,6 +109,7 @@ const navItems = [
         title: "Company",
         items: [
           { label: "Overview", href: "/company/overview", icon: Globe, desc: "Our history & mission" },
+          { label: "Capability Report", href: "/company/capability-report", icon: FileText, desc: "Strategic operational briefing" },
           { label: "Careers", href: "/company/careers", icon: Zap, desc: "Shape mobility future" },
           { label: "Contact", href: "/company/contact", icon: Headphones, desc: "24/7 support channels" }
         ]
@@ -117,7 +120,7 @@ const navItems = [
           { label: "Privacy Policy", href: "/legal/privacy-policy", icon: Shield, desc: "Data protection infra" },
           { label: "Terms of Service", href: "/legal/terms-of-service", icon: FileText, desc: "Operational governance" },
           { label: "Cookie Policy", href: "/legal/cookie-policy", icon: Eye, desc: "Tracking transparency" },
-          { label: "Security Hub", href: "/legal/security", icon: Lock, desc: "Infrastructure trust" },
+          // { label: "Security Hub", href: "/legal/security", icon: Lock, desc: "Infrastructure trust" },
         ]
       }
     ]
@@ -129,9 +132,34 @@ export const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const { isAuthenticated, logout, user } = useAuth();
-  const { openPartnershipModal, openDispatchModal } = usePlatformModals();
+  const dispatch = useDispatch();
   const pathname = usePathname();
+
+  const isCapabilityReportPage = pathname === '/company/capability-report';
+
+  const handleDownloadPdf = async () => {
+    if (isGeneratingPdf) return;
+    setIsGeneratingPdf(true);
+    try {
+      const response = await fetch('/api/generate-pdf');
+      if (!response.ok) throw new Error('PDF generation failed');
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'NationwideRoadsideAssist-Capability-Report.pdf';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error('PDF download error:', error);
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+  };
 
   useEffect(() => {
     setIsMounted(true);
@@ -143,54 +171,60 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 pb-2 pointer-events-none">
-      <div className="container mx-auto max-w-7xl">
+    <header className="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 pt-6 pointer-events-none">
+      <div className="mx-auto w-full max-w-[1600px]">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          initial={false}
+          animate={{
+            width: scrolled ? "94%" : "100%",
+            y: scrolled ? 6 : 0,
+            backgroundColor: scrolled ? "rgba(10, 17, 33, 0.85)" : "rgba(10, 17, 33, 0.35)",
+            backdropFilter: scrolled ? "blur(24px)" : "blur(12px)",
+            borderColor: scrolled ? "rgba(47, 128, 255, 0.25)" : "rgba(255, 255, 255, 0.08)",
+          }}
+          transition={{
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1], // Smooth quintic ease-out
+          }}
           className={cn(
-            "relative mx-auto pointer-events-auto rounded-2xl transition-all duration-300",
-            scrolled ? "w-full lg:w-[95%] shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.6)]" : "w-full lg:w-full"
+            "relative mx-auto pointer-events-auto rounded-[2rem] border",
+            scrolled ? "shadow-[0_20px_50px_rgba(0,0,0,0.4)]" : "shadow-none"
           )}
         >
           {/* Top-Left Shine Effect */}
-          <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ zIndex: 0 }}>
-             {/* Large ambient blue shine emanating from top-left */}
-             <div className="absolute -top-12 -left-12 w-[250px] h-[250px] bg-brand-blue/20 blur-[50px] rounded-full" />
-             {/* Intense core shine right at the corner */}
-             <div className="absolute -top-6 -left-6 w-[120px] h-[120px] bg-brand-blue/40 blur-[30px] rounded-full" />
+          <div className="absolute inset-0 rounded-[2rem] pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+            <AnimatePresence>
+              {!scrolled && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute -top-12 -left-12 w-[300px] h-[300px] bg-brand-blue/20 blur-[60px] rounded-full"
+                />
+              )}
+            </AnimatePresence>
           </div>
 
-          {/* Sharp Edge Gradient (Matches Image Inner Border) */}
-          <div className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
-             <div className="absolute top-0 left-0 w-1/3 h-[1px] bg-gradient-to-r from-brand-blue to-transparent" />
-             <div className="absolute top-0 left-0 w-[1px] h-1/2 bg-gradient-to-b from-brand-blue to-transparent" />
-          </div>
+          {/* Glass Navbar Container Content */}
+          <div className="relative flex items-center justify-between h-16 transition-all duration-500">
 
-          {/* Glass Navbar Container */}
-          <div className={cn(
-            "relative bg-card/70 backdrop-blur-[18px] border border-brand-border rounded-2xl flex items-center justify-between h-16 px-6 transition-all duration-500",
-            scrolled ? "shadow-sm" : "shadow-none"
-          )}>
-            
             {/* Logo Section */}
             <div className="flex items-center gap-3 shrink-0">
-               <Link href="/" className="flex items-center gap-3 group relative z-10">
-                  <div className="flex items-center italic font-black text-2xl tracking-tighter mr-1">
-                     <span className="text-foreground">N</span>
-                     <span className="text-brand-blue">T</span>
-                  </div>
-                  <div className="hidden sm:flex flex-col">
-                     <span className="text-foreground font-bold text-[13px] leading-tight tracking-wide group-hover:text-foreground/80 transition-colors">
-                        NATIONWIDE<br/>TRANS INC.
-                     </span>
-                  </div>
-               </Link>
+              <Link href="/" className="flex items-center gap-3 group relative z-10">
+                <Logo className="transition-transform duration-300 group-hover:scale-105" size={36} />
+                <div className="hidden sm:flex flex-col">
+                  <span className="text-foreground font-extrabold text-[12.5px] leading-none tracking-wider uppercase group-hover:text-foreground/80 transition-colors">
+                    NATIONWIDE
+                  </span>
+                  <span className="text-[10px] font-black text-brand-blue tracking-[0.22em] mt-0.5 uppercase">
+                    ROADSIDE ASSIST
+                  </span>
+                </div>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2 h-full">
+            <nav className="hidden lg:flex items-center gap-4 absolute left-1/2 -translate-x-1/2 h-full">
               {navItems.map((item) => (
                 <div
                   key={item.label}
@@ -198,9 +232,9 @@ export const Navbar = () => {
                   onMouseEnter={() => setActiveMenu(item.label)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <button className="flex items-center gap-1.5 text-[13px] font-bold text-brand-slate hover:text-foreground transition-colors py-2 relative z-10">
+                  <button className="flex items-center gap-2 text-[15px] font-black text-brand-slate hover:text-foreground transition-colors py-2 relative z-10 uppercase tracking-tight">
                     {item.label}
-                    <ChevronDown className="h-3 w-3 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
+                    <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
                   </button>
 
                   {/* Dropdown Panel */}
@@ -218,9 +252,9 @@ export const Navbar = () => {
                             {item.columns.map((col, idx) => (
                               <div key={idx}>
                                 <h4 className="text-[10px] font-bold text-brand-blue uppercase tracking-widest mb-4 flex items-center gap-2">
-                                   <div className="h-px flex-1 bg-gradient-to-r from-brand-blue/50 to-transparent" />
-                                   {col.title}
-                                   <div className="h-px flex-1 bg-gradient-to-l from-brand-blue/50 to-transparent" />
+                                  <div className="h-px flex-1 bg-gradient-to-r from-brand-blue/50 to-transparent" />
+                                  {col.title}
+                                  <div className="h-px flex-1 bg-gradient-to-l from-brand-blue/50 to-transparent" />
                                 </h4>
                                 <ul className="space-y-2">
                                   {col.items.map((link, i) => (
@@ -254,8 +288,27 @@ export const Navbar = () => {
 
             {/* Right Actions */}
             <div className="hidden lg:flex items-center gap-6 shrink-0 relative z-10">
-              <ThemeToggle />
-              
+              {/* Download PDF — only on capability report page */}
+              {isCapabilityReportPage && (
+                <Button
+                  onClick={handleDownloadPdf}
+                  disabled={isGeneratingPdf}
+                  className="bg-white/[0.06] hover:bg-white/[0.12] text-white/80 hover:text-white font-black h-10 px-4 rounded-xl border border-white/10 hover:border-cyan-400/30 shadow-[0_2px_10px_rgba(0,0,0,0.2)] transition-all hover:-translate-y-0.5 text-[11px] uppercase tracking-wider group flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                >
+                  {isGeneratingPdf ? (
+                    <>
+                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                      Generating...
+                    </>
+                  ) : (
+                    <>
+                      <Download className="h-3.5 w-3.5 group-hover:text-cyan-400 transition-colors" />
+                      Download PDF
+                    </>
+                  )}
+                </Button>
+              )}
+
               {isMounted && isAuthenticated ? (
                 <div className="flex items-center gap-4">
                   <Link href="/dashboard" className="text-[13px] font-bold text-brand-slate hover:text-foreground transition-colors">
@@ -267,18 +320,18 @@ export const Navbar = () => {
                 </div>
               ) : (
                 <>
-                  <button 
-                    onClick={openDispatchModal}
-                    className="text-[13px] font-bold text-brand-slate hover:text-foreground transition-colors"
+                  <Button
+                    onClick={() => dispatch(setDispatchOpen(true))}
+                    className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-10 px-5 rounded-xl shadow-[0_4px_14px_rgba(47,128,255,0.3)] transition-all hover:-translate-y-0.5 text-[12px] uppercase tracking-wider group"
                   >
                     Request Dispatch
-                  </button>
-                  <Button 
-                    onClick={openPartnershipModal}
-                    className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold h-9 px-5 rounded-xl shadow-[0_4px_14px_rgba(47,128,255,0.3)] hover:shadow-[0_6px_20px_rgba(47,128,255,0.4)] transition-all hover:-translate-y-0.5 text-[12px] relative overflow-hidden group"
+                  </Button>
+                  <Button
+                    onClick={() => dispatch(setPartnershipOpen(true))}
+                    className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-10 px-5 rounded-xl shadow-[0_4px_14px_rgba(47,128,255,0.3)] transition-all hover:-translate-y-0.5 text-[12px] uppercase tracking-wider group overflow-hidden relative"
                   >
-                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-out" />
-                     Partner With Us
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-out" />
+                    Partner With Us
                   </Button>
                 </>
               )}
@@ -323,33 +376,50 @@ export const Navbar = () => {
                   </div>
                 </div>
               ))}
-              
+
+              {/* Mobile PDF Download */}
+              {isCapabilityReportPage && (
+                <div className="pt-4 border-t border-brand-border">
+                  <Button
+                    onClick={() => { handleDownloadPdf(); setIsMobileMenuOpen(false); }}
+                    disabled={isGeneratingPdf}
+                    className="w-full bg-white/[0.06] hover:bg-white/[0.12] text-white/80 hover:text-white font-bold border border-white/10 hover:border-cyan-400/30 flex items-center justify-center gap-2"
+                  >
+                    {isGeneratingPdf ? (
+                      <><Loader2 className="h-4 w-4 animate-spin" /> Generating PDF...</>
+                    ) : (
+                      <><Download className="h-4 w-4" /> Download Capability Report PDF</>
+                    )}
+                  </Button>
+                </div>
+              )}
+
               <div className="pt-4 border-t border-brand-border flex flex-col gap-3">
-                 {isMounted && isAuthenticated ? (
-                    <>
-                       <Link href="/dashboard" className="w-full">
-                          <Button className="w-full bg-foreground/5 text-foreground hover:bg-foreground/10">Dashboard</Button>
-                       </Link>
-                       <Button onClick={() => { logout(); setIsMobileMenuOpen(false); }} className="w-full border border-red-500/20 text-red-500 bg-red-500/10 hover:bg-red-500/20">
-                          Logout
-                       </Button>
-                    </>
-                 ) : (
-                    <>
-                       <Button 
-                         onClick={() => { openDispatchModal(); setIsMobileMenuOpen(false); }}
-                         className="w-full bg-foreground/5 text-foreground hover:bg-foreground/10 font-bold"
-                       >
-                          Request Dispatch
-                       </Button>
-                       <Button 
-                        onClick={() => { openPartnershipModal(); setIsMobileMenuOpen(false); }}
-                        className="w-full bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold shadow-[0_4px_14px_rgba(47,128,255,0.3)]"
-                       >
-                          Partner With Us
-                       </Button>
-                    </>
-                 )}
+                {isMounted && isAuthenticated ? (
+                  <>
+                    <Link href="/dashboard" className="w-full">
+                      <Button className="w-full bg-foreground/5 text-foreground hover:bg-foreground/10">Dashboard</Button>
+                    </Link>
+                    <Button onClick={() => { logout(); setIsMobileMenuOpen(false); }} className="w-full border border-red-500/20 text-red-500 bg-red-500/10 hover:bg-red-500/20">
+                      Logout
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button
+                      onClick={() => { dispatch(setDispatchOpen(true)); setIsMobileMenuOpen(false); }}
+                      className="w-full bg-foreground/5 text-foreground hover:bg-foreground/10 font-bold"
+                    >
+                      Request Dispatch
+                    </Button>
+                    <Button
+                      onClick={() => { dispatch(setPartnershipOpen(true)); setIsMobileMenuOpen(false); }}
+                      className="w-full bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold shadow-[0_4px_14px_rgba(47,128,255,0.3)]"
+                    >
+                      Partner With Us
+                    </Button>
+                  </>
+                )}
               </div>
             </div>
           </motion.div>

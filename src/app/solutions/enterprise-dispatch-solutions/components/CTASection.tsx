@@ -2,56 +2,130 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, FileText, Headphones } from 'lucide-react';
-import { GlassPanel } from '@/components/ui/glass-panel';
+import { ArrowRight, FileText } from 'lucide-react';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export const CTASection = () => {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
-    <section className="py-32 relative overflow-hidden">
-      {/* Background Mesh/Glow */}
-      <div className="absolute inset-0 bg-brand-blue/5 blur-[120px] rounded-full translate-y-1/2 pointer-events-none" />
-      
-      <div className="container mx-auto px-4">
-        <GlassPanel className="p-12 lg:p-24 border-brand-border bg-card/60 relative overflow-hidden text-center max-w-6xl mx-auto shadow-2xl">
-           <div className="relative z-10 space-y-8">
+    <section className="py-7 bg-brand-bg relative flex items-center justify-center px-4 sm:px-6 lg:px-12 border-t border-brand-border">
+      <div className="max-w-[1584px] w-full mx-auto relative z-10">
+
+        {/* Boxed card — consistent with all CTA sections */}
+        <div className="relative bg-card border border-brand-border rounded-[20px] shadow-2xl overflow-hidden w-full py-7 lg:py-8 px-8 lg:px-16">
+
+          {/* 1. Ambient lighting */}
+          <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[600px] h-[400px] bg-[#2F80FF]/5 blur-[120px] rounded-full pointer-events-none z-0" />
+
+          {/* 2. Cinematic image container */}
+          <div className="absolute inset-0 pointer-events-none z-0 hidden lg:block overflow-hidden">
+
+            {/* Nationwide tow truck with red emergency lights on wet highway at night */}
+            <div className="absolute right-0 top-0 bottom-0 w-[55%] h-full">
+              <img
+                src="/dispatch_tow_night.jpg"
+                alt="Dispatch Operations Infrastructure"
+                className="w-full h-full object-cover object-[40%_center] opacity-85"
+                style={{
+                  maskImage: 'linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.05) 8%, rgba(0, 0, 0, 0.25) 20%, rgba(0, 0, 0, 0.65) 45%, black 75%)',
+                  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.05) 8%, rgba(0, 0, 0, 0.25) 20%, rgba(0, 0, 0, 0.65) 45%, black 75%)'
+                }}
+              />
+            </div>
+
+            {/* Ambient glow — warm red/orange tint to complement truck emergency lights */}
+            <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-[#2F80FF]/10 via-transparent to-[#FF4444]/5 blur-[100px] rounded-full pointer-events-none" />
+
+            {/* Backdrop blur transition layers */}
+            <div
+              className="absolute inset-y-0 left-[32%] w-[32%] backdrop-blur-[12px] z-10 pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.3) 70%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.3) 70%, transparent 100%)'
+              }}
+            />
+            <div
+              className="absolute inset-y-0 left-[30%] w-[45%] backdrop-blur-[6px] z-10 pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0.15) 75%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0.15) 75%, transparent 100%)'
+              }}
+            />
+
+            {/* Gradient color melts */}
+            <div className="absolute inset-y-0 left-[32%] w-[25%] bg-gradient-to-r from-card via-card/60 to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-y-0 left-[30%] w-[35%] bg-gradient-to-r from-card via-card/40 to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-y-0 left-[30%] w-[45%] bg-gradient-to-r from-transparent via-[#030712]/50 via-card/15 to-transparent mix-blend-multiply z-20 pointer-events-none" />
+
+            {/* Edge vignettes */}
+            <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-card via-card/60 to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-card via-card/60 to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-[12%] bg-gradient-to-l from-card to-transparent z-20 pointer-events-none" />
+
+            {/* Soft bloom overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/4 via-transparent to-transparent opacity-20 mix-blend-screen z-20 pointer-events-none" />
+          </div>
+
+          {/* 3. Cinematic grid-dot layer */}
+          <div
+            className="absolute inset-0 opacity-[0.02] pointer-events-none z-10"
+            style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }}
+          />
+
+          {/* 4. Text content */}
+          <div className="relative z-20 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/20 mb-4"
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-7 space-y-4 text-left"
               >
-                 <Headphones className="h-4 w-4 text-brand-blue" />
-                 <span className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.2em]">Contact Solutions Team</span>
+                <div className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#2F80FF] animate-pulse" />
+                  <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-[0.3em] font-mono">Contact Solutions Team</span>
+                </div>
+
+                <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white uppercase tracking-tight leading-[1.1]">
+                  Modernize Your <span className="text-[#2F80FF]">Dispatch Operations</span> Infrastructure
+                </h2>
+
+                <p className="text-[14px] text-brand-slate leading-relaxed font-medium max-w-xl">
+                  Deploy enterprise-grade dispatch intelligence, automate roadside coordination, and optimize nationwide mobility operations with Nationwide Roadside Assist.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full sm:w-auto px-6 py-3 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group shadow-[0_10px_20px_rgba(47,128,255,0.15)] hover:shadow-[0_15px_30px_rgba(47,128,255,0.3)] transition-all hover:-translate-y-0.5 h-12"
+                  >
+                    Contact Enterprise Team
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={downloadPdf}
+                    disabled={isGeneratingPdf}
+                    className="w-full sm:w-auto px-6 py-3 bg-card/40 backdrop-blur-xl border border-brand-border text-foreground dark:text-white rounded-xl font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] hover:border-[#2F80FF]/30 transition-all hover:-translate-y-0.5 h-12 disabled:opacity-50"
+                  >
+                    {isGeneratingPdf ? 'Generating PDF...' : 'Request Dispatch Capability Report'}
+                    <FileText className="w-4 h-4 text-foreground dark:text-white/70" />
+                  </motion.button>
+                </div>
               </motion.div>
 
-              <h2 className="text-4xl lg:text-7xl font-black text-foreground dark:text-white leading-[1.1] tracking-tight max-w-4xl mx-auto">
-                 Modernize Your Dispatch <br />
-                 <span className="text-foreground dark:text-white/40 italic">Operations Infrastructure</span>
-              </h2>
+              {/* Right spacer column */}
+              <div className="lg:col-span-5 hidden lg:block" />
 
-              <p className="text-brand-slate text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-                 Deploy enterprise-grade dispatch intelligence, automate roadside coordination, and optimize nationwide mobility operations with Nationwide Trans Inc.
-              </p>
+            </div>
+          </div>
 
-              <div className="flex flex-wrap justify-center gap-6 pt-6">
-                 <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-black h-16 px-12 rounded-2xl shadow-[0_0_40px_rgba(47,128,255,0.4)] group text-base">
-                    Contact Enterprise Team <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                 </Button>
-                 <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-16 px-12 rounded-2xl group text-base font-bold">
-                    Request Dispatch Capability Report <FileText className="ml-3 h-5 w-5 opacity-50" />
-                 </Button>
-              </div>
-           </div>
+        </div>
 
-           {/* Floating Decorative Elements */}
-           <div className="absolute top-0 right-0 p-10 opacity-10 pointer-events-none">
-              <div className="h-64 w-64 border border-brand-blue rounded-full" />
-           </div>
-           <div className="absolute bottom-0 left-0 p-10 opacity-10 pointer-events-none">
-              <div className="h-48 w-48 border border-white rounded-full" />
-           </div>
-        </GlassPanel>
       </div>
     </section>
   );

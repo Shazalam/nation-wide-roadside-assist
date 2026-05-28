@@ -2,221 +2,168 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Zap, Globe, Clock, ArrowRight, Activity } from 'lucide-react';
+import {
+  Shield, Zap, Globe, Clock, ArrowRight, Activity,
+  MapPin, Search, Star, Truck, Users, ChevronRight
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { GlassPanel } from '@/components/ui/glass-panel';
-
-const metrics = [
-  { label: 'Annual Dispatch Events', val: '2.4M+', icon: Zap, color: 'text-brand-blue' },
-  { label: 'SLA Compliance', val: '97.8%', icon: Shield, color: 'text-emerald-400' },
-  { label: 'Vendor Coverage', val: 'Nationwide', icon: Globe, color: 'text-brand-orange' },
-  { label: 'Dispatch Operations', val: '24/7', icon: Clock, color: 'text-purple-400' }
-];
+import { useDispatchStats } from '../hooks/use-dispatch-stats';
+import { Badge } from '@/components/ui/badge';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen } from '@/store';
 
 export const HeroSection = () => {
-  return (
-    <section className="relative pt-32 lg:pt-48 pb-20 overflow-hidden">
-      {/* Ambient Glows */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-blue/10 blur-[150px] rounded-full -mr-96 -mt-96 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-orange/5 blur-[120px] rounded-full -ml-48 -mb-48 pointer-events-none" />
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const { stats } = useDispatchStats();
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
-          {/* Left Side: Content */}
-          <div className="lg:col-span-6 space-y-8">
+  return (
+    <section className="relative min-h-[90vh] lg:min-h-screen pt-24 pb-12 lg:pt-32 lg:pb-20 flex items-center overflow-hidden bg-[#020617]">
+
+      {/* ─── FULL BLEED BACKGROUND IMAGE ─────────────────────────────────── */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/assets/images/solutions/enterprise-dispatch-hero.jpg"
+          alt="Nationwide 24/7 Enterprise Dispatch Command Center"
+          className="w-full h-full object-cover object-center lg:object-right opacity-90"
+        />
+
+        {/* Cinematic Gradient Overlays */}
+        {/* Cinematic Dimming: Start from 45% */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617] to-transparent lg:via-[45%] lg:to-[100%]"
+        />
+
+        {/* Subtle Bottom-to-Top Fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-80" />
+
+        {/* Accent Glows */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#2F80FF]/10 blur-[150px] rounded-full -mr-96 -mt-96 pointer-events-none" />
+      </div>
+
+      {/* ─── GRID OVERLAY ────────────────────────────────────────────────── */}
+      <div
+        className="absolute inset-0 z-[1] opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 0)',
+          backgroundSize: '48px 48px',
+        }}
+      />
+
+      {/* ─── CONTENT ─────────────────────────────────────────────────────── */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="max-w-4xl space-y-10">
+
+          {/* Breadcrumb & Badge Area */}
+          <div className="space-y-5">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2 text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em]"
+              className="flex items-center gap-2 text-[10px] font-black text-brand-slate uppercase tracking-[0.3em]"
             >
-              <span>Solutions</span>
-              <ArrowRight className="h-3 w-3 opacity-30" />
-              <span className="text-foreground dark:text-white/60">Enterprise Dispatch Solutions</span>
+              <span className="hover:text-white transition-colors cursor-pointer">Solutions</span>
+              <ChevronRight className="h-3 w-3 text-brand-blue" />
+              <span className="text-white">Enterprise Dispatch Solutions</span>
             </motion.div>
 
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-brand-blue/5 border border-brand-blue/20 backdrop-blur-md">
+                <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse shadow-[0_0_10px_var(--brand-blue)]" />
+                <span className="text-[9px] font-black text-white uppercase tracking-[0.25em]">
+                  24/7 National Dispatch Command Network
+                </span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Heading Section */}
+          <div className="space-y-4">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-5xl lg:text-[5.5rem] font-black leading-[1.05] tracking-tight"
+              transition={{ delay: 0.2 }}
+              className="text-5xl lg:text-[5.5rem] font-black tracking-tighter text-white leading-[0.9] drop-shadow-2xl"
             >
-              Enterprise <br />
-              <span className="bg-gradient-to-r from-brand-blue via-emerald-400 to-brand-blue bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-flow">
-                Dispatch Intelligence
-              </span>
-              <br />
-              <span className="text-foreground dark:text-white/40 italic font-medium">Infrastructure</span>
+              Enterprise <span className="text-brand-blue">24/7 Dispatch</span> <br />
+              Intelligence Platform
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-xl"
-            >
-              AI-assisted dispatch orchestration, nationwide vendor coordination, and real-time roadside operations infrastructure engineered for insurers, fleets, OEMs, and enterprise mobility providers.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-wrap gap-4"
+              className="text-lg lg:text-xl text-brand-slate leading-relaxed max-w-2xl font-medium"
             >
-              <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-bold h-14 px-10 rounded-xl shadow-[0_0_30px_rgba(47,128,255,0.4)]">
-                Schedule Enterprise Demo
-              </Button>
-              <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-10 rounded-xl">
-                Explore Dispatch APIs
-              </Button>
-            </motion.div>
-
-            {/* Metric Cards */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8"
-            >
-              {metrics.map((m, i) => (
-                <GlassPanel key={i} className="p-4 border-brand-border bg-white/[0.02]">
-                  <m.icon className={`h-4 w-4 ${m.color} mb-3`} />
-                  <p className="text-xl font-black text-foreground dark:text-white">{m.val}</p>
-                  <p className="text-[8px] font-bold text-brand-slate uppercase tracking-widest mt-1">{m.label}</p>
-                </GlassPanel>
-              ))}
-            </motion.div>
+              AI-assisted dispatch orchestration, nationwide vendor coordination, and real-time roadside
+              operations infrastructure engineered for insurers, fleets, OEMs, and enterprise mobility
+              providers — active around the clock, coast to coast.
+            </motion.p>
           </div>
 
-          {/* Right Side: Dashboard Visual */}
-          <div className="lg:col-span-6 relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, x: 50 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-wrap gap-5"
+          >
+            <Button
+              size="lg"
+              onClick={() => dispatch(setPartnershipOpen(true))}
+              className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_50px_var(--brand-glow)] transition-all hover:-translate-y-1.5 active:scale-95 group"
             >
-              {/* Dashboard Outer Frame */}
-              <GlassPanel className="p-0 border-brand-border bg-card/80 shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
-                {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-brand-border bg-white/[0.02]">
-                  <div className="flex items-center gap-3">
-                    <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[10px] font-mono text-brand-blue uppercase tracking-widest">Global Dispatch Node Active</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <div className="h-2 w-8 bg-white/10 rounded-full" />
-                    <div className="h-2 w-4 bg-white/10 rounded-full" />
-                  </div>
-                </div>
+              Schedule Enterprise Demo{' '}
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1.5 transition-transform" />
+            </Button>
+          </motion.div>
 
-                {/* Map/Telemetry Area */}
-                <div className="relative h-[450px] bg-brand-bg/40">
-                  {/* Grid overlay */}
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#2F80FF1A 1px, transparent 1px), linear-gradient(90deg, #2F80FF1A 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-                  
-                  {/* Simulated Map Content */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                     <div className="flex justify-between items-start">
-                        <GlassPanel className="p-3 bg-brand-navy/90 border-brand-blue/30 w-48">
-                           <p className="text-[8px] font-bold text-brand-slate uppercase mb-2">Active Incident #8291</p>
-                           <div className="flex justify-between text-[11px] font-bold text-foreground dark:text-white mb-1">
-                              <span>Towing Required</span>
-                              <span className="text-brand-orange">High Priority</span>
-                           </div>
-                           <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                              <motion.div initial={{ width: 0 }} animate={{ width: '75%' }} transition={{ duration: 2 }} className="h-full bg-brand-blue" />
-                           </div>
-                        </GlassPanel>
-
-                        <div className="flex flex-col gap-2">
-                           {[1, 2, 3].map(i => (
-                             <motion.div 
-                               key={i}
-                               animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.7, 0.3] }}
-                               transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
-                               className="h-2 w-2 rounded-full bg-brand-blue shadow-[0_0_10px_#2F80FF]"
-                             />
-                           ))}
-                        </div>
-                     </div>
-
-                     <div className="flex gap-4">
-                        <GlassPanel className="p-4 bg-brand-navy/90 border-brand-border flex-1">
-                           <div className="flex items-center gap-2 mb-3">
-                              <Activity className="h-3 w-3 text-brand-blue" />
-                              <span className="text-[9px] font-bold text-foreground dark:text-white uppercase tracking-widest">Network Load</span>
-                           </div>
-                           <div className="h-16 flex items-end gap-1">
-                              {[30, 45, 60, 40, 80, 50, 70, 90, 60].map((h, i) => (
-                                <motion.div 
-                                  key={i}
-                                  initial={{ height: 0 }}
-                                  animate={{ height: `${h}%` }}
-                                  transition={{ duration: 1, delay: i * 0.1 }}
-                                  className="flex-1 bg-brand-blue/20 rounded-t-sm"
-                                />
-                              ))}
-                           </div>
-                        </GlassPanel>
-                        <GlassPanel className="p-4 bg-brand-navy/90 border-brand-border w-40">
-                           <p className="text-[8px] font-bold text-brand-slate uppercase mb-1">AI Dispatch ETA</p>
-                           <p className="text-2xl font-black text-foreground dark:text-white">18.2<span className="text-xs font-medium text-brand-blue ml-1">min</span></p>
-                           <p className="text-[7px] text-emerald-400 mt-1 font-bold">↓ 4.2% Optimization</p>
-                        </GlassPanel>
-                     </div>
-                  </div>
-                </div>
-
-                {/* Bottom Stats */}
-                <div className="grid grid-cols-4 divide-x divide-white/5 border-t border-brand-border bg-white/[0.01]">
-                   {[
-                     { l: 'Incidents', v: '1,424' },
-                     { l: 'Vendors', v: '8,921' },
-                     { l: 'Mesh Health', v: '99.9%' },
-                     { l: 'SLA Status', v: 'Normal' }
-                   ].map((s, i) => (
-                     <div key={i} className="px-4 py-3 text-center">
-                        <p className="text-[10px] font-bold text-foreground dark:text-white tracking-tight">{s.v}</p>
-                        <p className="text-[7px] font-bold text-brand-slate uppercase tracking-widest mt-0.5">{s.l}</p>
-                     </div>
-                   ))}
-                </div>
-              </GlassPanel>
-
-              {/* Floating Dashboard Layers */}
+          {/* KPI Analytics Strip */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-12">
+            {[
+              { label: 'Dispatch Coverage',    val: '99.1%',       icon: Shield,   color: 'text-brand-blue'   },
+              { label: 'Annual Events',        val: '2.4M+',       icon: Activity, color: 'text-brand-orange' },
+              { label: 'Vendor Network',       val: 'Nationwide',  icon: Globe,    color: 'text-purple-400'   },
+              { label: 'Operations',           val: '24/7',        icon: Clock,    color: 'text-emerald-400'  },
+            ].map((m, i) => (
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-6 -left-6 z-20"
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + i * 0.1 }}
+                className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-xl hover:bg-white/[0.05] transition-all group overflow-hidden relative"
               >
-                 <GlassPanel className="p-3 border-emerald-500/30 bg-brand-navy/95 shadow-2xl">
-                    <div className="flex items-center gap-2 mb-1">
-                       <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                       <span className="text-[8px] font-bold text-foreground dark:text-white uppercase tracking-widest">SLA Verified</span>
-                    </div>
-                    <p className="text-[10px] text-brand-slate">Response: 14.2m</p>
-                 </GlassPanel>
-              </motion.div>
+                {/* Icon ghost top-right */}
+                <div className={`absolute top-4 right-4 opacity-20 ${m.color}`}>
+                  <m.icon className="h-4 w-4" />
+                </div>
 
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute -bottom-4 -right-4 z-20"
-              >
-                 <GlassPanel className="p-3 border-brand-orange/30 bg-brand-navy/95 shadow-2xl">
-                    <div className="flex items-center gap-2 mb-1">
-                       <Zap className="h-3 w-3 text-brand-orange" />
-                       <span className="text-[8px] font-bold text-foreground dark:text-white uppercase tracking-widest">AI Matching</span>
-                    </div>
-                    <p className="text-[10px] text-brand-slate">Vendor assigned: NY-442</p>
-                 </GlassPanel>
+                <div>
+                  <p className="text-3xl font-black text-white tracking-tighter">{m.val}</p>
+                  <p className="text-[10px] font-black text-brand-slate uppercase tracking-widest mt-2 leading-tight">
+                    {m.label}
+                  </p>
+                </div>
+
+                {/* Animated accent bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/5">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: '65%' }}
+                    className={`h-full ${m.color.replace('text-', 'bg-')}/40`}
+                  />
+                </div>
               </motion.div>
-            </motion.div>
+            ))}
           </div>
         </div>
       </div>
+
     </section>
   );
 };

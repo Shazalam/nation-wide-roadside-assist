@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -9,7 +9,7 @@ const timeline = [
   { year: 'Phase 3', title: 'Fleet Infrastructure Development', desc: 'Specialized enterprise fleet mobility programs.' },
   { year: 'Phase 4', title: 'Recovery Intelligence Platform', desc: 'AI-driven dispatch and SLA automation.' },
   { year: 'Phase 5', title: 'Enterprise API Ecosystem', desc: 'Launch of REST APIs and telemetry webhooks.' },
-  { year: 'Phase 6', title: 'Real-Time Command Systems', desc: 'Full NTI-OS deployment for live operational control.' }
+  { year: 'Phase 6', title: 'Real-Time Command Systems', desc: 'Full Nationwide Roadside Assist-OS deployment for live operational control.' }
 ];
 
 export const CompanyEvolution = () => {

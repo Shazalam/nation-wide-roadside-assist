@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { APIBlock } from '@/components/ui/api-block';
@@ -20,7 +20,7 @@ export default function JavascriptSDKPage() {
            </div>
         </div>
         <p className="text-brand-slate text-lg max-w-3xl pt-4">
-          The Nationwide Trans JS SDK is the fastest way to integrate roadside intelligence into your application. It provides type-safe methods for all API endpoints, automatic retries, and real-time event listeners.
+          The Nationwide Roadside Assist JS SDK is the fastest way to integrate roadside intelligence into your application. It provides type-safe methods for all API endpoints, automatic retries, and real-time event listeners.
         </p>
       </section>
 

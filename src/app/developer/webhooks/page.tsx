@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { APIBlock } from '@/components/ui/api-block';
@@ -11,7 +11,7 @@ export default function WebhooksPage() {
       <section className="space-y-4">
         <h1 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">Webhooks</h1>
         <p className="text-brand-slate text-lg max-w-3xl">
-          Receive real-time notifications when events happen in your Nationwide Trans account. Automated dispatch updates, vehicle arrivals, and payment confirmations delivered directly to your server.
+          Receive real-time notifications when events happen in your Nationwide Roadside Assist account. Automated dispatch updates, vehicle arrivals, and payment confirmations delivered directly to your server.
         </p>
       </section>
 
@@ -76,7 +76,7 @@ export default function WebhooksPage() {
         </div>
         
         <p className="text-brand-slate max-w-3xl">
-          Nationwide Trans signs all webhook events by including a signature in the `X-NT-Signature` header. This allows you to verify that the events were sent by us and not a third party.
+          Nationwide Roadside Assist signs all webhook events by including a signature in the `X-NT-Signature` header. This allows you to verify that the events were sent by us and not a third party.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

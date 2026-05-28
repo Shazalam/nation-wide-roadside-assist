@@ -3,13 +3,11 @@
 import React from 'react';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { FleetHero } from '@/components/fleet/fleet-hero';
-import { TrustBar } from '@/components/fleet/trust-bar';
 import { CoreCapabilities } from '@/components/fleet/core-capabilities';
 import { TechShowcase } from '@/components/fleet/tech-showcase';
 import { OperationsWorkflow } from '@/components/fleet/operations-workflow';
 import { IndustryEcosystem } from '@/components/fleet/industry-ecosystem';
 import { FleetAPISection } from '@/components/fleet/fleet-api-section';
-import { AnalyticsSection } from '@/components/fleet/analytics-section';
 import { FinalCTA } from '@/components/fleet/final-cta';
 
 export default function FleetRentalOperationsPage() {
@@ -33,9 +31,6 @@ export default function FleetRentalOperationsPage() {
         {/* 1. Enterprise Hero */}
         <FleetHero />
 
-        {/* 2. Trust & Enterprise Integrations */}
-        <TrustBar />
-
         {/* 3. Core Capabilities Grid */}
         <CoreCapabilities />
 
@@ -50,9 +45,6 @@ export default function FleetRentalOperationsPage() {
 
         {/* 7. Fleet API Infrastructure */}
         <FleetAPISection />
-
-        {/* 8. Enterprise Analytics */}
-        <AnalyticsSection />
 
         {/* 9. Final CTA */}
         <FinalCTA />

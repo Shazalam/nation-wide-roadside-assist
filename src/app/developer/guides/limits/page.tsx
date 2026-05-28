@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { GlassPanel } from '@/components/ui/glass-panel';
@@ -13,7 +13,7 @@ export default function RateLimitingPage() {
            <h1 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">Rate Limiting</h1>
         </div>
         <p className="text-brand-slate text-lg max-w-3xl">
-          To ensure system stability and fair usage, Nationwide Trans applies rate limits to all API requests. These limits vary based on your account tier and the specific endpoint.
+          To ensure system stability and fair usage, Nationwide Roadside Assist applies rate limits to all API requests. These limits vary based on your account tier and the specific endpoint.
         </p>
       </section>
 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -25,7 +25,7 @@ export const DispatchInfrastructure = () => {
               </h2>
               <div className="space-y-6 text-brand-slate font-medium leading-relaxed text-sm md:text-base mb-10">
                  <p>
-                    Nationwide Trans Inc. operates a multi-region dispatch topology designed for extreme availability and low-latency vendor coordination.
+                    Nationwide Roadside Assist operates a multi-region dispatch topology designed for extreme availability and low-latency vendor coordination.
                  </p>
                  <p>
                     Our infrastructure ingests telemetry from commercial fleets and automatically routes recovery events to specialized regional operational centers.

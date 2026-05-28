@@ -4,8 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useDownloadPdf } from '@/hooks/use-download-pdf';
 
 export const VendorCTA = () => {
+  const { isGeneratingPdf, downloadPdf } = useDownloadPdf();
   return (
     <section className="py-24 relative z-10 bg-brand-bg overflow-hidden border-t border-brand-border">
       {/* Background Ambience */}
@@ -23,15 +25,22 @@ export const VendorCTA = () => {
                    Modernize Your Vendor <br />Coordination Infrastructure
                 </h2>
                 <p className="text-sm text-brand-slate font-medium leading-relaxed mb-10 max-w-xl">
-                   Connect with Nationwide Trans Inc. to streamline dispatch operations, automate vendor routing, and optimize enterprise roadside coordination systems.
+                   Connect with Nationwide Roadside Assist to streamline dispatch operations, automate vendor routing, and optimize enterprise roadside coordination systems.
                 </p>
 
                 <div className="flex flex-wrap gap-4">
                    <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-12 px-8 rounded-lg shadow-[0_10px_30px_rgba(47,128,255,0.3)] group text-xs">
                       Contact Enterprise Team <ArrowRight className="ml-3 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                    </Button>
-                   <Button variant="outline" size="lg" suppressHydrationWarning className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-12 px-8 rounded-lg font-bold uppercase tracking-widest text-[10px] group">
-                      Request Capability Report <FileText className="ml-3 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                   <Button
+                      variant="outline"
+                      size="lg"
+                      suppressHydrationWarning
+                      onClick={downloadPdf}
+                      disabled={isGeneratingPdf}
+                      className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-12 px-8 rounded-lg font-bold uppercase tracking-widest text-[10px] group"
+                   >
+                      {isGeneratingPdf ? 'Generating PDF...' : 'Request Capability Report'} <FileText className="ml-3 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                    </Button>
                 </div>
              </motion.div>

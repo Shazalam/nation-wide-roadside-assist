@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -33,7 +33,7 @@ const controls = [
   },
   {
     title: "Analytics Opt-Out",
-    desc: "Immediately disable all non-essential operational tracking across the NTI mesh.",
+    desc: "Immediately disable all non-essential operational tracking across the Nationwide Roadside Assist mesh.",
     icon: BarChart2,
     action: "Global Opt-Out"
   },

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -25,7 +25,7 @@ const categories = [
   },
   {
     title: "API Session Management",
-    desc: "Maintaining secure programmatic states between enterprise client nodes and the NTI mesh.",
+    desc: "Maintaining secure programmatic states between enterprise client nodes and the Nationwide Roadside Assist mesh.",
     icon: Terminal,
     status: "ENCRYPTED",
     retention: "1 Hour",

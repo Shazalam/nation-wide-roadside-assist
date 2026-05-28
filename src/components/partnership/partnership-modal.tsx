@@ -1,10 +1,12 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { toast } from 'sonner';
+import { usePartnerRequest } from '@/hooks/use-enterprise-forms';
 import { 
   X, 
   ShieldCheck, 
@@ -36,7 +38,7 @@ const partnershipSchema = z.object({
   companyType: z.string().min(1, 'Please select company type'),
   fleetSize: z.string().optional(),
   region: z.string().min(1, 'Region is required'),
-  services: z.string().min(1, 'Select at least one service'),
+  services: z.array(z.string()).min(1, 'Select at least one service'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
@@ -50,19 +52,25 @@ interface PartnershipModalProps {
 
 export const PartnershipModal = ({ isOpen, onClose }: PartnershipModalProps) => {
   const [activeTab, setActiveTab] = useState<'form' | 'details'>('form');
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  const { register, handleSubmit, formState: { errors } } = useForm<PartnershipFormData>({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<PartnershipFormData>({
     resolver: zodResolver(partnershipSchema),
   });
 
+  const mutation = usePartnerRequest();
+
   const onSubmit = async (data: PartnershipFormData) => {
-    setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log('Partnership submission:', data);
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    toast.promise(mutation.mutateAsync(data), {
+      loading: 'Initializing enterprise onboarding...',
+      success: () => {
+        setIsSuccess(true);
+        reset();
+        return 'Partnership request indexed successfully.';
+      },
+      error: (err: any) => {
+        return err.response?.data?.message || 'Operational failure. Please contact infrastructure support.';
+      }
+    });
   };
 
   // Prevent scroll when open
@@ -196,12 +204,14 @@ export const PartnershipModal = ({ isOpen, onClose }: PartnershipModalProps) => 
            <div className="lg:w-[55%] h-2/3 lg:h-full flex flex-col bg-[#081120]/20 p-8 lg:p-12 overflow-y-auto no-scrollbar">
               {/* Tab Switcher */}
               <div className="flex justify-center mb-12">
-                 <div className="inline-flex p-1 bg-white/5 border border-white/5 rounded-2xl relative overflow-hidden">
+                 <div className="inline-flex p-1.5 rounded-full bg-[#0F172A]/80 border border-white/10 backdrop-blur-md shadow-inner relative z-10">
                     <button
                       onClick={() => setActiveTab('form')}
                       className={cn(
-                        "relative px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all z-10",
-                        activeTab === 'form' ? "text-white" : "text-brand-slate"
+                        "px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all duration-300",
+                        activeTab === 'form' 
+                          ? "bg-[#2F80FF] text-white shadow-[0_4px_12px_rgba(47,128,255,0.4)]" 
+                          : "text-brand-slate hover:text-white/60"
                       )}
                     >
                       Request a Callback
@@ -209,22 +219,14 @@ export const PartnershipModal = ({ isOpen, onClose }: PartnershipModalProps) => 
                     <button
                       onClick={() => setActiveTab('details')}
                       className={cn(
-                        "relative px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all z-10",
-                        activeTab === 'details' ? "text-white" : "text-brand-slate"
+                        "px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all duration-300",
+                        activeTab === 'details' 
+                          ? "bg-[#2F80FF] text-white shadow-[0_4px_12px_rgba(47,128,255,0.4)]" 
+                          : "text-brand-slate hover:text-white/60"
                       )}
                     >
                       Contact Details
                     </button>
-                    
-                    {/* Animated Tab Indicator */}
-                    <motion.div
-                      className="absolute bg-gradient-to-r from-[#2F80FF] to-[#2F80FF]/80 rounded-xl shadow-[0_0_20px_rgba(47,128,255,0.4)] h-[calc(100%-8px)] top-1"
-                      animate={{
-                        left: activeTab === 'form' ? 4 : '50%',
-                        width: 'calc(50% - 4px)'
-                      }}
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
                  </div>
               </div>
 
@@ -344,10 +346,10 @@ export const PartnershipModal = ({ isOpen, onClose }: PartnershipModalProps) => 
 
                            <Button 
                              type="submit"
-                             disabled={isSubmitting}
+                             disabled={mutation.isPending}
                              className="w-full h-16 bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-white font-black uppercase tracking-widest rounded-2xl shadow-[0_10px_40px_rgba(47,128,255,0.3)] transition-all group relative overflow-hidden"
                            >
-                              {isSubmitting ? (
+                              {mutation.isPending ? (
                                 <div className="flex items-center gap-3">
                                    <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                    Syncing Node...
@@ -372,7 +374,7 @@ export const PartnershipModal = ({ isOpen, onClose }: PartnershipModalProps) => 
                    >
                       {[
                         { title: 'Partnership Ops', value: 'enterprise@nationwidetrans.com', icon: Mail, label: 'Enterprise Email' },
-                        { title: '24/7 Operations', value: '+1 (888) NTI-MESH', icon: Phone, label: 'Partnership Line' },
+                        { title: '24/7 Operations', value: '+1 (888) Nationwide Roadside Assist-MESH', icon: Phone, label: 'Partnership Line' },
                         { title: 'Integration Hub', value: 'SF Headquarters / Global', icon: MapPin, label: 'Operations Base' },
                         { title: 'Support SLA', value: '< 2 Hour Response', icon: Clock, label: 'Response Target' }
                       ].map((card, i) => (

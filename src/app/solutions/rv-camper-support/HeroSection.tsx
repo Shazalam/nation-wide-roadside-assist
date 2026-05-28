@@ -7,6 +7,9 @@ import {
   Clock, Users, Globe, ArrowUp, ArrowDown, Shield,
   Zap, RefreshCw, Radio, TrendingUp, CheckCircle
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen } from '@/store';
 
 const liveIncidents = [
   { id: 'RV4162', type: 'Class A Recovery', location: 'I-70, Colorado', eta: '22 min', status: 'active', priority: 'high' },
@@ -57,6 +60,8 @@ function DonutChart({ value, label }: { value: number; label: string }) {
 }
 
 export default function HeroSection() {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [activeIncident, setActiveIncident] = useState(0);
   const [counter, setCounter] = useState({ active: 12842, onRoad: 8675, incidents: 156 });
 
@@ -74,16 +79,6 @@ export default function HeroSection() {
       <div className="absolute bottom-0 left-0 w-[600px] h-[400px] bg-[#FF7A1A]/5 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto">
-        {/* Enterprise badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#2F80FF]/10 border border-[#2F80FF]/20 rounded-full mb-8"
-        >
-          <Zap className="w-3 h-3 text-[#2F80FF]" />
-          <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.3em]">Enterprise RV Mobility Solutions</span>
-        </motion.div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-16 items-start">
           {/* ── LEFT COLUMN ─────────────────────────── */}
@@ -110,54 +105,8 @@ export default function HeroSection() {
               Nationwide roadside intelligence, specialized RV dispatch operations, and API-driven mobility support engineered for motorhomes, travel trailers, campground networks, insurers, and enterprise mobility ecosystems.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-14">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(47,128,255,0.5)' }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.3)] flex items-center justify-center gap-2 group"
-              >
-                Schedule Enterprise Demo
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.08)' }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-transparent border border-[rgba(255,255,255,0.15)] text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2"
-              >
-                Explore RV APIs <span className="font-mono text-[#2F80FF]">{`</>`}</span>
-              </motion.button>
-            </div>
 
-            {/* KPI Grid */}
-            <div className="grid grid-cols-2 gap-5 pt-8 border-t border-[rgba(255,255,255,0.06)]">
-              {[
-                { value: '98.9%', label: 'RV Response Efficiency', icon: Activity, color: '#2F80FF', delta: '+2.1%' },
-                { value: '1.8M+', label: 'Annual Support Events', icon: Globe, color: '#FF7A1A', delta: '+18%' },
-                { value: 'Nationwide', label: 'RV Vendor Coverage', icon: MapPin, color: '#2F80FF', delta: '50k+ Nodes' },
-                { value: '24/7', label: 'Mobility Operations', icon: Clock, color: '#FF7A1A', delta: 'Always On' },
-              ].map((kpi, i) => {
-                const Icon = kpi.icon;
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
-                    className="flex items-start gap-3 group"
-                  >
-                    <div className="p-2 rounded-lg mt-0.5" style={{ backgroundColor: `${kpi.color}15` }}>
-                      <Icon className="w-4 h-4" style={{ color: kpi.color }} />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-black text-foreground dark:text-white leading-none mb-0.5">{kpi.value}</div>
-                      <div className="text-[11px] text-brand-slate">{kpi.label}</div>
-                      <div className="text-[10px] font-mono mt-1" style={{ color: kpi.color }}>{kpi.delta}</div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+
           </motion.div>
 
           {/* ── RIGHT COLUMN — Dashboard ─────────────── */}

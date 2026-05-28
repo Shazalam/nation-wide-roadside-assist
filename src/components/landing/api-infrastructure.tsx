@@ -1,122 +1,350 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { GlassPanel } from '@/components/ui/glass-panel';
-import { APIBlock } from '@/components/ui/api-block';
-import { Terminal, ShieldCheck, Zap, Copy, BookOpen } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import React, { useState } from 'react';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { EnterpriseTabs } from '@/components/ui/enterprise-tabs';
+import {
+  Cpu, Eye, Activity, Box, ShieldCheck, Sparkles, Check, HelpCircle, Terminal
+} from 'lucide-react';
+
+const solutions = [
+  {
+    id: 'dispatch',
+    label: 'Dispatch Node',
+    icon: Cpu,
+    title: 'Automated Dispatch & Verification',
+    desc: 'Request roadside assistance programmatically. Verify policy benefit coverage in real time and automatically select from a nationwide vendor network.',
+    prompt: 'Dispatch Features',
+    features: [
+      'Instant service dispatch triggers',
+      'Automated benefit checks',
+      'Intelligent provider sorting',
+      'Class 1-8 service profiles',
+      'JSON REST/GraphQL endpoints',
+      'Enterprise auditing systems'
+    ],
+    cards: [
+      {
+        title: 'Smart Sorting',
+        desc: 'Matches requests automatically to the nearest qualified provider.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Instant Benefits',
+        desc: 'Validates customer tier and policy limits programmatically.',
+        glow: 'rgba(6,182,212,0.15)'
+      },
+      {
+        title: 'Developer Friendly',
+        desc: 'Clean JSON payload interfaces for effortless client integration.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Scalable Ingest',
+        desc: 'Handles spikes in dispatch volume without operational delays.',
+        glow: 'rgba(236,72,153,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'tracking',
+    label: 'Tracking Stream',
+    icon: Eye,
+    title: 'Active GPS Tracking & Telemetry',
+    desc: 'Broker real-time GPS coordinate feeds, watch en-route provider movement, and update member-facing maps with accurate and dynamic ETAs.',
+    prompt: 'Telemetry Streams',
+    features: [
+      'Live GPS tracking telemetry',
+      'Calculated dynamic ETAs',
+      'Technician status alerts',
+      'Route verification algorithms',
+      'Multi-cloud data broker',
+      'Customer maps sync'
+    ],
+    cards: [
+      {
+        title: 'Live Tracking',
+        desc: 'Streams active coordinate updates from en-route technician vehicles.',
+        glow: 'rgba(245,158,11,0.15)'
+      },
+      {
+        title: 'Dynamic ETA',
+        desc: 'Recalculates ETA continuously based on active GPS and traffic updates.',
+        glow: 'rgba(6,182,212,0.15)'
+      },
+      {
+        title: 'Status Updates',
+        desc: 'Reports status progression from dispatched to arrival and completion.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Secure Ingestion',
+        desc: 'Secures mobile app telemetry updates from dispatch nodes.',
+        glow: 'rgba(139,92,246,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'webhooks',
+    label: 'Webhooks Ingest',
+    icon: Activity,
+    title: 'Event-Driven Webhooks Hub',
+    desc: 'Receive immediate push notifications for critical dispatch changes. Orchestrate automated claims creation, payment processing, and driver alerts.',
+    prompt: 'Webhook Inbound',
+    features: [
+      'dispatch.created webhooks',
+      'technician.arrived webhooks',
+      'service.completed webhooks',
+      'Secure HMAC authorization',
+      'Automatic callback retries',
+      'Custom metadata options'
+    ],
+    cards: [
+      {
+        title: 'Milestone Events',
+        desc: 'Triggers webhooks immediately when job stages are reached.',
+        glow: 'rgba(16,185,129,0.15)'
+      },
+      {
+        title: 'Signed Payloads',
+        desc: 'Verifies webhook authenticity using signature check headers.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Auto Claims',
+        desc: 'Triggers claims billing flows automatically upon service finalization.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Arbitrary Refs',
+        desc: 'Carries custom fleet identifiers and policy references throughout.',
+        glow: 'rgba(236,72,153,0.15)'
+      }
+    ]
+  }
+];
+
+const gridVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1
+    }
+  }
+};
+
+const cardVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    x: 25, 
+    y: 10, 
+    scale: 0.96, 
+    filter: 'blur(4px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
+  },
+  show: { 
+    opacity: 1, 
+    x: 0, 
+    y: 0, 
+    scale: 1, 
+    filter: 'blur(0px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+    transition: {
+      type: 'spring',
+      stiffness: 140,
+      damping: 18,
+      mass: 0.8
+    }
+  },
+  exit: {
+    opacity: 0,
+    x: -25,
+    y: -5,
+    filter: 'blur(4px)',
+    transition: {
+      duration: 0.3,
+      ease: 'easeInOut'
+    }
+  }
+};
 
 export const APIInfrastructure = () => {
-  return (
-    <section className="py-24 relative transition-colors duration-500">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <GlassPanel className="p-0 overflow-hidden bg-card/80 border-brand-border shadow-xl dark:bg-card/80 dark:shadow-2xl">
-                <div className="bg-foreground/[0.03] px-6 py-3 border-b border-brand-border flex items-center justify-between">
-                  <div className="flex gap-1.5">
-                    <div className="h-3 w-3 rounded-full bg-rose-500/20 border border-rose-500/40" />
-                    <div className="h-3 w-3 rounded-full bg-amber-500/20 border border-amber-500/40" />
-                    <div className="h-3 w-3 rounded-full bg-emerald-500/20 border border-emerald-500/40" />
-                  </div>
-                  <div className="text-[10px] font-mono text-brand-slate uppercase tracking-widest">dispatch.v1.post</div>
-                </div>
-                <div className="p-6">
-                  <APIBlock 
-                    method="POST"
-                    endpoint="/api/v1/dispatch"
-                    code={`{
-  "incident_type": "heavy_recovery",
-  "priority": "critical",
-  "telemetry": {
-    "lat": 40.7128,
-    "lng": -74.0060,
-    "vin": "1A2B3C..."
-  },
-  "constraints": {
-    "eta_limit": 15,
-    "vendor_role": "tier_1"
-  }
-}`}
-                  />
-                </div>
-              </GlassPanel>
-              
-              {/* Floating Response Card */}
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="absolute -bottom-12 -right-8 w-64"
-              >
-                <GlassPanel className="p-4 bg-card border-brand-blue/30 shadow-xl dark:bg-brand-navy dark:shadow-2xl">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Zap className="h-3 w-3 text-brand-blue" />
-                    <span className="text-[10px] font-bold text-foreground dark:text-foreground dark:text-white uppercase tracking-widest">Mesh Response</span>
-                  </div>
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-[10px]">
-                      <span className="text-brand-slate">Dispatch ID</span>
-                      <span className="text-foreground dark:text-foreground dark:text-white font-mono">INC-9214</span>
-                    </div>
-                    <div className="flex justify-between text-[10px]">
-                      <span className="text-brand-slate">ETA</span>
-                      <span className="text-emerald-500 font-mono">11m 42s</span>
-                    </div>
-                  </div>
-                </GlassPanel>
-              </motion.div>
-            </motion.div>
-          </div>
+  const [activeTab, setActiveTab] = useState('dispatch');
+  const activeSolution = solutions.find(s => s.id === activeTab) || solutions[0];
 
-          <div className="order-1 lg:order-2 space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20">
-              <Terminal className="h-4 w-4 text-brand-blue" />
-              <span className="text-[10px] font-bold text-brand-blue uppercase tracking-widest">API-First Core</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-              Built for <span className="text-brand-blue">Engineers</span>, Engineered for Scale.
-            </h2>
-            <p className="text-brand-slate text-lg leading-relaxed">
-              Nationwide Trans is a purely programmatic infrastructure. No complex portals required. Integrate directly into your existing claim or fleet systems using our high-performance REST and GraphQL APIs.
-            </p>
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-lg bg-foreground/[0.03] flex items-center justify-center border border-brand-border">
-                  <ShieldCheck className="h-5 w-5 text-brand-blue" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-foreground">OAuth 2.0 Security</h4>
-                  <p className="text-[10px] text-brand-slate uppercase tracking-widest">Enterprise Auth Mesh</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-lg bg-foreground/[0.03] flex items-center justify-center border border-brand-border">
-                  <Zap className="h-5 w-5 text-brand-blue" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-foreground">Real-time Webhooks</h4>
-                  <p className="text-[10px] text-brand-slate uppercase tracking-widest">HTTP Push Architecture</p>
-                </div>
-              </div>
-            </div>
-            <div className="pt-4 flex gap-4">
-              <Link href="/api-docs">
-                <Button className="bg-brand-blue text-foreground dark:text-white font-bold h-12 px-8 uppercase tracking-widest">Documentation</Button>
-              </Link>
-              <Button variant="outline" className="border-brand-border text-foreground h-12 px-8 uppercase tracking-widest hover:bg-foreground/[0.03]">Get API Key</Button>
-            </div>
+  return (
+    <section className="py-32 bg-brand-bg/30 relative overflow-hidden border-t border-brand-border">
+      
+      {/* Decorative background grid overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      {/* Floating ambient background glows */}
+      <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] right-[20%] w-[450px] h-[450px] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none z-0" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        
+        {/* Section Header */}
+        <div className="max-w-4xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
+            <Terminal className="w-3.5 h-3.5 text-[#2F80FF]" />
+            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Developer Ecosystem</span>
           </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            API-First <span className="text-brand-blue">Core.</span>
+          </h2>
+          <p className="text-brand-slate text-lg max-w-3xl">
+            Nationwide Roadside Assist is built as programmatic infrastructure. No complex portal setups required. Integrate directly using secure and reliable APIs.
+          </p>
         </div>
+
+        {/* Interactive Tabs */}
+        <EnterpriseTabs 
+          activeTab={activeTab} 
+          onChange={setActiveTab}
+          tabs={solutions.map(s => ({ id: s.id, label: s.label }))}
+          className="mb-12"
+        />
+
+        {/* Full-width container with synchronized transitions */}
+        <div className="w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 40, y: 10, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, x: 0, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, x: -40, y: -10, filter: 'blur(8px)' }}
+              transition={{ 
+                duration: 0.5, 
+                ease: [0.25, 1, 0.5, 1] 
+              }}
+              className="space-y-12"
+            >
+              {/* TOP ROW: Title, Desc, and features */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                {/* Left side: Icon, title, and description (8 columns) */}
+                <div className="lg:col-span-8 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="h-16 w-16 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center relative overflow-hidden group/icon shadow-[0_0_20px_rgba(47,128,255,0.1)]">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/10 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500" />
+                      <activeSolution.icon className="h-8 w-8 text-brand-blue relative z-10" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">{activeSolution.title}</h3>
+                  </div>
+                  <p className="text-brand-slate text-base md:text-lg leading-relaxed max-w-4xl font-medium">{activeSolution.desc}</p>
+                </div>
+
+                {/* Right side: Key features checklist (4 columns) */}
+                <div className="lg:col-span-4 bg-white/[0.02] border border-white/[0.06] rounded-3xl p-6 backdrop-blur-xl relative overflow-hidden">
+                  <div className="absolute inset-px rounded-[22px] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-4">{activeSolution.prompt}</h4>
+                  <div className="space-y-3 relative z-10">
+                    {activeSolution.features.map(f => (
+                      <div key={f} className="flex items-center gap-3 group/item">
+                        <div className="h-5 w-5 rounded-md bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center flex-shrink-0 group-hover/item:border-brand-blue/40 transition-colors">
+                          <Check className="h-3 w-3 text-brand-blue" />
+                        </div>
+                        <span className="text-xs text-foreground font-semibold group-hover/item:text-white transition-colors duration-300">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              {/* BOTTOM ROW: Frog-glass cards */}
+              <div className="relative pt-6">
+                
+                {/* SVG connection line running horizontally */}
+                <svg className="hidden lg:block absolute top-[50%] left-0 w-full h-[10px] pointer-events-none opacity-40 z-0 overflow-visible" viewBox="0 0 100 10" preserveAspectRatio="none" fill="none">
+                  <defs>
+                    <linearGradient id="line-grad-horizontal-api" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#2F80FF" stopOpacity="0" />
+                      <stop offset="15%" stopColor="#2F80FF" stopOpacity="0.4" />
+                      <stop offset="50%" stopColor="#06B6D4" stopOpacity="1" />
+                      <stop offset="85%" stopColor="#8B5CF6" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M 5,5 L 95,5" stroke="url(#line-grad-horizontal-api)" strokeWidth="0.5" strokeDasharray="1 2" />
+                  <g>
+                    <circle r="0.6" fill="#06B6D4" opacity="0.3">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                    <circle r="0.25" fill="#fff">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </svg>
+
+                {/* Staggered card grid */}
+                <motion.div 
+                  variants={gridVariants}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+                >
+                  {activeSolution.cards.map((card, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={cardVariants}
+                      whileHover={{ 
+                        y: -8, 
+                        scale: 1.02,
+                        borderColor: 'rgba(47, 128, 255, 0.35)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                        boxShadow: '0 15px 35px rgba(47, 128, 255, 0.15)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                      className="relative p-6 rounded-[2rem] border border-white/[0.06] bg-white/[0.02] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col justify-between overflow-hidden select-none group/card cursor-default min-h-[140px]"
+                    >
+                      <div 
+                        className="absolute -right-8 -bottom-8 w-20 h-20 rounded-full blur-[25px] opacity-25 group-hover/card:opacity-45 transition-opacity duration-300 pointer-events-none"
+                        style={{ backgroundColor: card.glow }}
+                      />
+                      <div className="absolute inset-px rounded-[1.9rem] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                      
+                      <div className="relative z-10 space-y-3">
+                        <h4 className="text-xs font-black text-white uppercase tracking-wider group-hover/card:text-brand-blue transition-colors duration-300">
+                          {card.title}
+                        </h4>
+                        <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
       </div>
     </section>
   );

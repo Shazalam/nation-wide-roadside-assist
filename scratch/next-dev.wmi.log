@@ -1,0 +1,240 @@
+
+> nation-wide-roadside-assist@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.14:3000
+- Environments: .env
+✓ Ready in 1294ms
+
+ GET / 200 in 1591ms (next.js: 268ms, proxy.ts: 374ms, application-code: 949ms)
+ GET / 200 in 265ms (next.js: 12ms, proxy.ts: 34ms, application-code: 219ms)
+ GET / 200 in 557ms (next.js: 26ms, proxy.ts: 22ms, application-code: 509ms)
+ GET /company/capability-report 200 in 788ms (next.js: 87ms, proxy.ts: 22ms, application-code: 678ms)
+ GET /callcenter-dashboard.png 404 in 533ms (next.js: 220ms, proxy.ts: 23ms, application-code: 290ms)
+ GET /network-map.png 404 in 546ms (next.js: 114ms, proxy.ts: 27ms, application-code: 405ms)
+ GET /grid-pattern.svg 404 in 740ms (next.js: 315ms, proxy.ts: 60ms, application-code: 366ms)
+ GET /login?callbackUrl=%2Fdashboard-charts.png 200 in 425ms (next.js: 197ms, proxy.ts: 50ms, application-code: 178ms)
+ GET / 200 in 240ms (next.js: 10ms, proxy.ts: 11ms, application-code: 220ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/company/c..." notFound={{...}} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/company/c..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+            <SegmentViewNode type="layout" pagePath="company/la...">
+              <SegmentTrieNode>
+              <script>
+              <script>
+              <script>
+              <ClientSegmentRoot Component={function CompanyLayout} slots={{children:{...}}} ...>
+                <CompanyLayout params={Promise}>
+                  <div className="min-h-scre...">
+                    ...
+                      <motion.div initial={false} animate={{width:"100%",y:0, ...}} transition={{duration:0.8, ...}} ...>
+                        <div className="relative m..." style={{width:"100%", ...}} ...>
+                          <div>
+                          <div className="relative f...">
+                            <div>
+                            <nav className="hidden lg:...">
+                              <div className="h-full px-..." onMouseEnter={function onMouseEnter} ...>
+                                <button
+                                  className="flex items-center gap-2 text-[15px] font-black text-brand-slate hover:tex..."
+-                                 fdprocessedid="4lh2m"
+                                >
+                                ...
+                              <div className="h-full px-..." onMouseEnter={function onMouseEnter} ...>
+                                <button
+                                  className="flex items-center gap-2 text-[15px] font-black text-brand-slate hover:tex..."
+-                                 fdprocessedid="0e5q27"
+                                >
+                                ...
+                              <div className="h-full px-..." onMouseEnter={function onMouseEnter} ...>
+                                <button
+                                  className="flex items-center gap-2 text-[15px] font-black text-brand-slate hover:tex..."
+-                                 fdprocessedid="gzgc7a"
+                                >
+                                ...
+                              <div className="h-full px-..." onMouseEnter={function onMouseEnter} ...>
+                                <button
+                                  className="flex items-center gap-2 text-[15px] font-black text-brand-slate hover:tex..."
+-                                 fdprocessedid="5ck9ur"
+                                >
+                                ...
+                            ...
+                    <div className="flex-1 fle...">
+                      <aside className="w-full lg:...">
+                        <div className="p-8 space-y-8">
+                          <div className="relative g...">
+                            <Search>
+                            <input
+                              type="text"
+                              placeholder="Search company..."
+                              className="w-full bg-white/[0.03] border border-brand-border rounded-xl py-2.5 pl-10 pr-..."
+                              value=""
+                              onChange={function onChange}
+-                             fdprocessedid="hz8i3"
+                            >
+                          ...
+                      <main className="flex-1 min...">
+                        ...
+                          <ClientPageRoot Component={function CapabilityReportPage} serverProvidedParams={{...}}>
+                            <CapabilityReportPage params={Promise} searchParams={Promise}>
+                              <div className="bg-[#080d1...">
+                                <div>
+                                ...
+                                  <div className="relative f...">
+                                    <div>
+                                    <nav className="hidden lg:...">
+                                      <div className="h-full px-..." onMouseEnter={function onMouseEnter} ...>
+                                        <button
+                                          className="flex items-center gap-2 text-[15px] font-black text-brand-slate h..."
+-                                         fdprocessedid="sx0mqt"
+                                        >
+                                        ...
+                                      <div className="h-full px-..." onMouseEnter={function onMouseEnter} ...>
+                                        <button
+                                          className="flex items-center gap-2 text-[15px] font-black text-brand-slate h..."
+-                                         fdprocessedid="qd9eym"
+                                        >
+                                        ...
+                                      <div className="h-full px-..." onMouseEnter={function onMouseEnter} ...>
+                                        <button
+                                          className="flex items-center gap-2 text-[15px] font-black text-brand-slate h..."
+-                                         fdprocessedid="1a345"
+                                        >
+                                        ...
+                                      <div className="h-full px-..." onMouseEnter={function onMouseEnter} ...>
+                                        <button
+                                          className="flex items-center gap-2 text-[15px] font-black text-brand-slate h..."
+-                                         fdprocessedid="ol02x9"
+                                        >
+                                        ...
+                                    ...
+                                <div>
+                                <div className="fixed righ...">
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-cyan-400 scale-..."
+                                    title="Enterprise Cover"
+-                                   fdprocessedid="3ynowl"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title="Company Overview"
+-                                   fdprocessedid="2k44hi"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title="Industry Problems"
+-                                   fdprocessedid="7v67vh"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title="Centralized Solution"
+-                                   fdprocessedid="zdy4pr"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title="Provider Ecosystem"
+-                                   fdprocessedid="n8t7qa"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title="Core Services"
+-                                   fdprocessedid="im7bpe"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title="Vehicle Support Matrix"
+-                                   fdprocessedid="cj0pu3"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title="Dispatch Operations"
+-                                   fdprocessedid="6st28m"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title="Enterprise Verticals"
+-                                   fdprocessedid="0be6wi"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title={"Advanced Recovery & Contact"}
+-                                   fdprocessedid="3i7v9"
+                                  >
+                                  <button
+                                    onClick={function onClick}
+                                    className="w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:..."
+                                    title="Partnerships"
+-                                   fdprocessedid="g7r0wd"
+                                  >
+                                <div>
+                                <div className="fixed bott...">
+                                  <button>
+                                  <button
+                                    onClick={function onClick}
+                                    disabled={false}
+                                    className="p-2 rounded-xl border border-white/10 bg-slate-950/60 backdrop-blur-md ..."
+                                    aria-label="Next Slide"
+-                                   fdprocessedid="6pak3"
+                                  >
+                        ...
+                          <div className="space-y-5 ...">
+                            <h4>
+                            <ul className="space-y-3">
+                              <li>
+                              <li>
+                              <li>
+                              <li>
+                              <li>
+                              <li>
+                                <button
+                                  onClick={function onClick}
+                                  className="text-brand-slate text-sm font-medium hover:text-brand-blue transition-col..."
+-                                 fdprocessedid="ibhqpi"
+                                >
++                                 Partner With Us
+                          ...
+          ...
+ 
+    at <unknown> (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+    at runWithFiberInDEV (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at emitPendingHydrationWarnings (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3438:13)
+    at completeWork (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6885:102)
+    at runWithFiberInDEV (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:131)
+    at completeUnitOfWork (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64) (file://C:/Users/Shahnawaz Alam/Documents/nrsa-project/nation-wide-roadside-assist/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:3439:25)
+ GET /company/capability-report 200 in 107ms (next.js: 16ms, proxy.ts: 16ms, application-code: 75ms)
+ GET /callcenter-dashboard.png 404 in 519ms (next.js: 115ms, proxy.ts: 40ms, application-code: 364ms)
+ GET /network-map.png 404 in 526ms (next.js: 57ms, proxy.ts: 40ms, application-code: 429ms)
+ GET /login?callbackUrl=%2Fdashboard-charts.png 200 in 492ms (next.js: 88ms, proxy.ts: 262ms, application-code: 142ms)
+ GET /grid-pattern.svg 404 in 295ms (next.js: 59ms, proxy.ts: 146ms, application-code: 90ms)
+^C^C

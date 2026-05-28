@@ -1,7 +1,7 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Enterprise Fleet & Rental Mobility Operations | Nationwide Trans Inc.',
+  title: 'Enterprise Fleet & Rental Mobility Operations | Nationwide Roadside Assist',
   description: 'Real-time roadside intelligence, dispatch automation, and API-driven operational visibility for enterprise fleet and rental providers.',
 };
 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { APIBlock } from '@/components/ui/api-block';
@@ -14,7 +14,7 @@ export default function DispatchAPIPage() {
            <h1 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">Dispatch API</h1>
         </div>
         <p className="text-brand-slate text-lg max-w-3xl">
-          The Dispatch API is the heart of the Nationwide Trans platform. It allows you to programmatically request roadside assistance, track service nodes in real-time, and manage the lifecycle of an incident.
+          The Dispatch API is the heart of the Nationwide Roadside Assist platform. It allows you to programmatically request roadside assistance, track service nodes in real-time, and manage the lifecycle of an incident.
         </p>
       </section>
 

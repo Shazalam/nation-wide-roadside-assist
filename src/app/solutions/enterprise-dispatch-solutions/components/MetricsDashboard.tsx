@@ -11,16 +11,16 @@ export const MetricsDashboard = () => {
 
   const mainMetrics = [
     { label: 'Avg Dispatch Time', val: stats?.avgResponseTime ? `${stats.avgResponseTime}m` : '14.2m', trend: '↓ 4.2%', icon: Clock, color: 'text-brand-blue' },
-    { label: 'Vendor Response', val: stats?.resolutionRate ? `${stats.resolutionRate}%` : '98.8%', trend: '↑ 0.5%', icon: Headphones, color: 'text-emerald-400' },
-    { label: 'Active Incidents', val: stats?.activeIncidents?.toLocaleString() || '1,424', trend: 'Live', icon: Activity, color: 'text-brand-orange' },
-    { label: 'Resolution Rate', val: stats?.resolutionRate ? `${stats.resolutionRate}%` : '99.1%', trend: '↑ 0.2%', icon: Target, color: 'text-purple-400' }
+    { label: 'Vendor Response', val: stats?.vendorAvailability ? `${stats.vendorAvailability}%` : '98.8%', trend: '↑ 0.5%', icon: Headphones, color: 'text-emerald-400' },
+    { label: 'Active Incidents', val: stats?.activeDispatches?.toLocaleString() || '1,424', trend: 'Live', icon: Activity, color: 'text-brand-orange' },
+    { label: 'Resolution Rate', val: stats?.slaCompliance ? `${stats.slaCompliance}%` : '99.1%', trend: '↑ 0.2%', icon: Target, color: 'text-purple-400' }
   ];
 
   const secondaryMetrics = [
     { label: 'Dispatch Volume', val: '2.4M', desc: 'Annual normalized events', icon: BarChart3 },
     { label: 'SLA Compliance', val: '97.8%', desc: 'Real-time performance', icon: ShieldCheck },
     { label: 'Fleet Utilization', val: '94.2%', desc: 'Asset efficiency index', icon: Gauge },
-    { label: 'Coverage Index', val: 'All 50 States', desc: 'Nationwide network', icon: TrendingUp }
+    { label: 'Coverage Index', val: 'USA & Canada', desc: 'Bi-national network', icon: TrendingUp }
   ];
 
   return (

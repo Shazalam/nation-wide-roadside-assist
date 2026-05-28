@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { EnterpriseTable } from '@/components/ui/enterprise-table';
@@ -129,7 +129,7 @@ export default function FleetPage() {
            </div>
            <h3 className="text-xl font-bold text-foreground dark:text-white mb-2">Fleet Integrity Certified</h3>
            <p className="text-sm text-brand-slate max-w-sm">
-             All connected assets are currently compliant with Nationwide Trans enterprise safety protocols and emission standards.
+             All connected assets are currently compliant with Nationwide Roadside Assist enterprise safety protocols and emission standards.
            </p>
            <Button className="mt-8 bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 hover:bg-emerald-500 hover:text-foreground dark:text-white transition-all font-bold uppercase tracking-widest text-xs h-10 px-6">
              Review Compliance

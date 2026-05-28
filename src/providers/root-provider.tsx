@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { AuthProvider } from './auth-provider';
-import { PlatformModalProvider } from './partnership-provider';
+import { ReduxProvider } from './redux-provider';
+import { GlobalModals } from '@/components/modals/global-modals';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,19 +17,13 @@ const queryClient = new QueryClient({
 
 export function RootProvider({ children }: { children: React.ReactNode }) {
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="dark"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <PlatformModalProvider>
-            {children}
-          </PlatformModalProvider>
-        </AuthProvider>
-      </QueryClientProvider>
-    </NextThemesProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <ReduxProvider>
+          {children}
+          <GlobalModals />
+        </ReduxProvider>
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }

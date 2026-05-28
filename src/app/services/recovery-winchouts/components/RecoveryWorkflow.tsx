@@ -93,9 +93,9 @@ export const RecoveryWorkflow = () => {
         {/* Workflow Pipeline */}
         <div className="relative">
            {/* Connection Lines (Desktop) */}
-           <div className="absolute top-[120px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-blue/20 to-transparent hidden lg:block z-0" />
+           <div className="absolute top-[40px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-blue/20 to-transparent hidden lg:block z-0" />
            
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8 relative z-10">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-12 lg:gap-4 relative z-10">
               {steps.map((step, i) => {
                 const Icon = step.icon;
                 return (
@@ -103,93 +103,79 @@ export const RecoveryWorkflow = () => {
                     key={step.id}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    transition={{ delay: i * 0.08, duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="flex flex-col group"
+                    className="flex flex-col items-center text-center group relative"
                   >
-                    {/* Main Card */}
-                    <GlassPanel className="p-0 border-brand-border bg-card/40 hover:bg-card hover:border-brand-blue/40 transition-all duration-500 overflow-hidden group-hover:shadow-[0_30px_60px_rgba(0,0,0,0.4)] group-hover:-translate-y-4 rounded-[2rem]">
-                       {/* Image Header */}
-                       <div className="h-56 w-full relative bg-brand-bg/50 overflow-hidden border-b border-brand-border">
-                          <div className="absolute inset-0 bg-brand-blue/5 group-hover:bg-brand-blue/10 transition-colors" />
-                          <img 
-                            src={step.image} 
-                            alt={step.title} 
-                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 relative z-10" 
-                          />
-                          
-                          {/* Step Number Badge */}
-                          <div className="absolute top-4 right-4 h-8 w-8 rounded-xl bg-brand-blue text-white flex items-center justify-center text-[11px] font-black shadow-lg shadow-brand-blue/20 z-20">
-                             {step.id}
-                          </div>
-                       </div>
-
-                       {/* Content Area */}
-                       <div className="p-6 space-y-3">
-                          <div className="flex items-center gap-3">
-                             <div className="h-8 w-8 rounded-lg bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-                                <Icon className="h-4 w-4" />
+                    {/* Node Container */}
+                    <div className="relative mb-8">
+                       
+                       {/* Floating Premium Dashboard Hover Preview Panel (Visible on Hover) */}
+                       <div className="absolute -top-6 left-1/2 -translate-x-1/2 -translate-y-full w-64 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-30 scale-95 group-hover:scale-100">
+                          <div className="relative p-4 bg-[#0a192f]/95 backdrop-blur-2xl border border-[#2F80FF]/40 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_20px_rgba(47,128,255,0.2)] overflow-hidden">
+                             
+                             {/* Ambient background glow inside hover card */}
+                             <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full bg-[#2F80FF]/15 blur-[20px] pointer-events-none" />
+                             
+                             {/* Description text - Centrally aligned */}
+                             <div className="text-center relative z-10">
+                                <p className="text-[13px] text-white/90 leading-relaxed font-medium">{step.desc}</p>
                              </div>
-                             <h3 className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-widest group-hover:text-brand-blue transition-colors">
-                                {step.title}
-                             </h3>
+
                           </div>
-                          <p className="text-[12px] text-brand-slate font-medium leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity min-h-[60px]">
-                             {step.desc}
-                          </p>
+                          {/* Anchor Arrow pointing directly to the node bubble */}
+                          <div className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-[#2F80FF]/40 mx-auto" />
                        </div>
 
-                       {/* Connection Indicator (Mobile/Tablet) */}
+                       {/* Connection Indicator (Desktop) */}
                        {i < steps.length - 1 && (
-                         <div className="lg:hidden h-12 flex items-center justify-center">
-                           <ChevronRight className="h-5 w-5 text-brand-blue/30 rotate-90" />
+                         <div className="absolute top-1/2 left-full w-full h-px bg-brand-blue/20 hidden lg:block overflow-hidden -translate-y-1/2">
+                            <motion.div 
+                               animate={{ x: ['-100%', '200%'] }}
+                               transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: i * 0.4 }}
+                               className="h-full w-1/2 bg-gradient-to-r from-transparent via-brand-blue to-transparent"
+                            />
                          </div>
                        )}
-                    </GlassPanel>
 
-                    {/* Desktop Connector Animated Pulse */}
+                       {/* The Node Bubble */}
+                       <div className="relative h-20 w-20 bg-[#0a192f]/80 backdrop-blur-2xl border border-white/[0.08] rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-[#2F80FF]/50 group-hover:shadow-[0_0_40px_rgba(47,128,255,0.25)] group-hover:-translate-y-2 transition-all duration-300 z-10 cursor-default select-none">
+                          <Icon className="h-7 w-7 text-brand-slate group-hover:text-brand-blue transition-colors duration-300" />
+                          
+                          {/* Step Number Tag */}
+                          <div className="absolute -top-3 -right-3 h-7 w-7 rounded-lg bg-brand-blue text-white flex items-center justify-center text-[10px] font-black border border-[#081120] shadow-lg shadow-brand-blue/25">
+                             0{step.id}
+                          </div>
+
+                          {/* Inner Glow Effect */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                       </div>
+
+                       {/* Active Telemetry Dot */}
+                       <motion.div
+                         animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.8, 0.3] }}
+                         transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                         className="absolute -bottom-4 left-1/2 -translate-x-1/2 h-1.5 w-1.5 rounded-full bg-brand-blue/50"
+                       />
+                    </div>
+
+                    {/* Content */}
+                    <div className="px-2 w-full flex flex-col items-center">
+                       <h3 className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-[0.2em] mb-3 group-hover:text-brand-blue transition-colors min-h-[32px] flex items-center justify-center">
+                          {step.title}
+                       </h3>
+                    </div>
+
+                    {/* Arrow Indicator for Mobile */}
                     {i < steps.length - 1 && (
-                      <div className="absolute top-[120px] left-full w-full h-px hidden lg:block overflow-hidden">
-                        <motion.div 
-                          animate={{ x: ['-100%', '200%'] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: i * 0.3 }}
-                          className="h-full w-1/2 bg-gradient-to-r from-transparent via-brand-blue to-transparent"
-                        />
+                      <div className="mt-8 lg:hidden">
+                        <ChevronRight className="h-5 w-5 text-brand-blue/40 rotate-90" />
                       </div>
                     )}
                   </motion.div>
                 );
               })}
            </div>
-        </div>
-
-        {/* Operational Metrics */}
-        <div className="mt-32 border-t border-brand-border pt-16 flex flex-wrap justify-center gap-x-16 gap-y-10">
-           {[
-             { label: 'Pipeline Latency', val: '< 2.4s', icon: Zap, detail: 'End-to-End' },
-             { label: 'Validation Accuracy', val: '99.9%', icon: ShieldCheck, detail: 'Automated' },
-             { label: 'Live Node Sync', val: 'Active', icon: Activity, detail: 'Nationwide' }
-           ].map((m, i) => (
-             <motion.div 
-               key={i}
-               initial={{ opacity: 0, x: -20 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: 0.5 + i * 0.1 }}
-               className="flex items-center gap-5"
-             >
-                <div className="h-12 w-12 rounded-xl bg-card border border-brand-border flex items-center justify-center shadow-lg">
-                   <m.icon className="h-5 w-5 text-brand-blue opacity-40" />
-                </div>
-                <div>
-                   <p className="text-[9px] font-black text-brand-slate uppercase tracking-[0.3em] mb-1">{m.label}</p>
-                   <div className="flex items-baseline gap-2">
-                      <p className="text-xl font-black text-foreground dark:text-white">{m.val}</p>
-                      <span className="text-[8px] font-black text-brand-blue uppercase tracking-widest">{m.detail}</span>
-                   </div>
-                </div>
-             </motion.div>
-           ))}
         </div>
       </div>
     </section>

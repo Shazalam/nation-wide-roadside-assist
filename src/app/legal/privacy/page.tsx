@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { History, ShieldCheck, Download } from 'lucide-react';
@@ -14,7 +14,7 @@ export default function PrivacyPage() {
         </div>
         <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white tracking-tight">Privacy Policy</h2>
         <p className="text-brand-slate text-lg leading-relaxed">
-          At Nationwide Trans Inc., we take a "Privacy-by-Design" approach to mobility infrastructure. This policy outlines how we handle data within our mesh network.
+          At Nationwide Roadside Assist, we take a "Privacy-by-Design" approach to mobility infrastructure. This policy outlines how we handle data within our mesh network.
         </p>
         <div className="flex gap-4">
            <button className="text-[10px] font-bold text-foreground dark:text-white uppercase tracking-widest flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-brand-border hover:bg-white/10 transition-all">

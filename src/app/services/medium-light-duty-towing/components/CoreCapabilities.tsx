@@ -13,8 +13,8 @@ const capabilities = [
     color: 'text-[#2F80FF]'
   },
   {
-    title: 'Nationwide Reach',
-    desc: 'Full coverage across 50 states with a managed network of 12,000+ verified light-duty vendors.',
+    title: 'North American Reach',
+    desc: 'Full coverage across USA and Canada with a managed network of 12,000+ verified light-duty vendors.',
     icon: Globe,
     color: 'text-purple-400'
   },

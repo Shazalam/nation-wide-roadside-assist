@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -81,7 +81,7 @@ export const WhyJoinUs = () => {
              viewport={{ once: true }}
              className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight"
            >
-              Why Join <span className="text-[#2F80FF]">Nationwide Trans</span>
+              Why Join <span className="text-[#2F80FF]">Nationwide Roadside Assist</span>
            </motion.h2>
         </div>
 

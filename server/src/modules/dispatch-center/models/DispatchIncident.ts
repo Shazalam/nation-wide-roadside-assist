@@ -15,4 +15,4 @@ const dispatchIncidentSchema = new mongoose.Schema({
   assignedTowUnit: { type: mongoose.Schema.Types.ObjectId, ref: 'TowUnit' }
 }, { timestamps: true });
 
-export const DispatchIncident = mongoose.model('DispatchIncident', dispatchIncidentSchema);
+export const DispatchIncident = mongoose.models.DispatchCenterIncident || mongoose.model('DispatchCenterIncident', dispatchIncidentSchema);

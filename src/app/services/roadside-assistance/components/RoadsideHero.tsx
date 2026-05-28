@@ -5,10 +5,15 @@ import { motion } from 'framer-motion';
 import { Shield, Zap, Globe, Clock, ArrowRight, Activity, MapPin, Search, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { GlassPanel } from '@/components/ui/glass-panel';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setPartnershipOpen } from '@/store';
 import { useRoadsideStats } from '../hooks/use-roadside-stats';
 import { Badge } from '@/components/ui/badge';
 
 export const RoadsideHero = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const { stats } = useRoadsideStats();
 
   return (
@@ -55,19 +60,7 @@ export const RoadsideHero = () => {
               Nationwide roadside dispatch coordination, enterprise-grade support operations, and API-first assistance infrastructure engineered for insurers, fleets, OEMs, and mobility providers.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-14 px-10 rounded-xl shadow-[0_0_30px_rgba(47,128,255,0.4)]">
-                Schedule Enterprise Demo
-              </Button>
-              <Button variant="outline" size="lg" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-10 rounded-xl">
-                Explore Assistance APIs
-              </Button>
-            </motion.div>
+
 
             {/* Quick Stats Grid */}
             <motion.div

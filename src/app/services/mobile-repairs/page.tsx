@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Navbar } from '@/components/layout/navbar';
 import { RepairHero } from './components/RepairHero';
 import { TrustSection } from './components/TrustSection';
@@ -10,7 +10,7 @@ import { RepairCTA } from './components/RepairCTA';
 import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
 
 export const metadata = {
-  title: 'Mobile Repair Operations | Nationwide Trans Inc.',
+  title: 'Mobile Repair Operations | Nationwide Roadside Assist',
   description: 'Enterprise mobile repair infrastructure, nationwide mechanic dispatch, and real-time roadside intelligence engineered for fleets and mobility providers.',
 };
 

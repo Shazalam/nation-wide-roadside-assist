@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -18,7 +18,7 @@ export const CompanyOverviewSection = () => {
               </h2>
               <div className="space-y-6 text-brand-slate font-medium leading-relaxed text-sm md:text-base">
                  <p>
-                    Nationwide Trans Inc. operates the underlying operational architecture that powers the modern mobility and recovery economy. We are not a traditional roadside provider; we are the enterprise dispatch intelligence engine that makes nationwide coordination possible.
+                    Nationwide Roadside Assist operates the underlying operational architecture that powers the modern mobility and recovery economy. We are not a traditional roadside provider; we are the enterprise dispatch intelligence engine that makes nationwide coordination possible.
                  </p>
                  <p>
                     From heavy-duty commercial fleet recoveries to complex multi-vehicle incident management, our API-first platform orchestrates real-time telemetry, vendor matching, and SLA-driven dispatch protocols to minimize downtime and maximize operational reliability.
