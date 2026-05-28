@@ -1,158 +1,313 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Copy, Check, Terminal, Code2, Shield, Zap, Database } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { EnterpriseTabs } from '@/components/ui/enterprise-tabs';
+import {
+  Cpu, Eye, Activity, Box, ShieldCheck, Sparkles, Check, HelpCircle, Terminal
+} from 'lucide-react';
 
-const codeExamples = {
-  mobility: `curl -X POST https://api.nationwidetrans.com/v1/mobility \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "incidentId": "INC-7824",
-    "serviceType": "rental_vehicle",
-    "pickupLocation": "Orlando, FL",
-    "dropoffLocation": "Miami, FL",
-    "vehicleType": "standard",
-    "customerId": "CUST-45678",
-    "priority": "high"
-  }'`,
-  telemetry: `// WebSocket connection for real-time telemetry
-const socket = new WebSocket('wss://stream.nationwidetrans.com/telemetry');
-
-socket.onmessage = (event) => {
-  const data = JSON.parse(event.data);
-  if (data.type === 'ETA_UPDATE') {
-    updateDashboard(data.incidentId, data.newEta);
+const solutions = [
+  {
+    id: 'mobility',
+    label: 'Mobility',
+    icon: Cpu,
+    title: 'Trip Continuation API',
+    desc: 'Integrate nationwide trip continuation, ride-hailing vouchers, rental vehicles, and passenger lodging directly into your claims flow or driver portals.',
+    prompt: 'Mobility Features',
+    features: [
+      'Ride-hailing voucher integration',
+      'Rental vehicle dispatch checks',
+      'Instant lodging booking sync',
+      'SLA transit limits check',
+      'Custom customer references',
+      'Multi-channel transit routing'
+    ],
+    cards: [
+      {
+        title: 'Ride Vouchers',
+        desc: 'Generates direct passenger transport vouchers on breakdown alerts.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Rental Matching',
+        desc: 'Identifies nearest available corporate vehicle classes automatically.',
+        glow: 'rgba(6,182,212,0.15)'
+      },
+      {
+        title: 'Lodging Sync',
+        desc: 'Ensures immediate overnight lodging coverage for stranded travelers.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Transit Priority',
+        desc: 'Maps dispatch priorities dynamically according to customer tiers.',
+        glow: 'rgba(236,72,153,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'telemetry',
+    label: 'Telemetry',
+    icon: Eye,
+    title: 'Real-Time ETA Telemetry',
+    desc: 'Monitor passenger travel status, driver ETA changes, and ride coordinates live via WebSocket streams.',
+    prompt: 'Telemetry Streams',
+    features: [
+      'Live coordinates tracker',
+      'Continuous ride status updates',
+      'WebSocket message broker',
+      'ETA recalculated warnings',
+      'Drift alert diagnostics',
+      'Automated dispatch alerts'
+    ],
+    cards: [
+      {
+        title: 'Live Tracking',
+        desc: 'Feeds high-precision coordinates directly to traveler dashboards.',
+        glow: 'rgba(245,158,11,0.15)'
+      },
+      {
+        title: 'Dynamic ETAs',
+        desc: 'Updates arrival calculations on map interfaces dynamically.',
+        glow: 'rgba(6,182,212,0.15)'
+      },
+      {
+        title: 'Status Sync',
+        desc: 'Maintains alignment across call centers and driver tablets.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Broker Node',
+        desc: 'Connected telemetry broker handling multi-cloud routing.',
+        glow: 'rgba(139,92,246,0.15)'
+      }
+    ]
   }
-};`
+];
+
+const gridVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1
+    }
+  }
+};
+
+const cardVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    x: 25, 
+    y: 10, 
+    scale: 0.96, 
+    filter: 'blur(4px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
+  },
+  show: { 
+    opacity: 1, 
+    x: 0, 
+    y: 0, 
+    scale: 1, 
+    filter: 'blur(0px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+    transition: {
+      type: 'spring',
+      stiffness: 140,
+      damping: 18,
+      mass: 0.8
+    }
+  },
+  exit: {
+    opacity: 0,
+    x: -25,
+    y: -5,
+    filter: 'blur(4px)',
+    transition: {
+      duration: 0.3,
+      ease: 'easeInOut'
+    }
+  }
 };
 
 export const APIInfrastructure = () => {
-  const [activeTab, setActiveTab] = useState<'mobility' | 'telemetry'>('mobility');
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(codeExamples[activeTab]);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const [activeTab, setActiveTab] = useState('mobility');
+  const activeSolution = solutions.find(s => s.id === activeTab) || solutions[0];
 
   return (
-    <section className="py-24 bg-brand-bg relative z-10 border-t border-brand-border">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left: Info */}
-          <div>
-            <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-6">
-              API-First <br />Infrastructure
-            </h2>
-            <p className="text-brand-slate font-medium text-lg max-w-lg mb-10 leading-relaxed">
-              Powerful APIs and real-time webhooks to integrate mobility continuation into your platforms, workflows, and claims systems.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-6 mb-10">
-               {[
-                 { label: 'Mobility APIs', icon: Terminal },
-                 { label: 'Transportation APIs', icon: Truck },
-                 { label: 'Customer APIs', icon: Code2 },
-                 { label: 'Webhooks', icon: Zap },
-                 { label: 'Authentication', icon: Shield },
-                 { label: 'Sandbox Environment', icon: Database }
-               ].map((item, i) => (
-                 <div key={i} className="flex items-center gap-3">
-                    <div className="h-6 w-6 rounded bg-[#2F80FF]/10 flex items-center justify-center border border-[#2F80FF]/20">
-                       <Check className="h-3 w-3 text-[#2F80FF]" />
-                    </div>
-                    <span className="text-[11px] font-bold text-foreground dark:text-white uppercase tracking-wider">{item.label}</span>
-                 </div>
-               ))}
-            </div>
+    <section className="py-32 bg-brand-bg/30 relative overflow-hidden border-t border-brand-border">
+      
+      {/* Decorative background grid overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
 
-            <Button size="lg" className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold px-8 h-12 rounded-xl">
-               View API Documentation <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+      {/* Floating ambient background glows */}
+      <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] right-[20%] w-[450px] h-[450px] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none z-0" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        
+        {/* Section Header */}
+        <div className="max-w-4xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
+            <Terminal className="w-3.5 h-3.5 text-[#2F80FF]" />
+            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Developer Ecosystem</span>
           </div>
-
-          {/* Right: Code Block */}
-          <div className="relative">
-             <div className="absolute inset-0 bg-gradient-to-r from-[#2F80FF]/20 to-purple-500/20 blur-3xl -z-10 rounded-[3rem]" />
-             
-             <div className="rounded-2xl border border-brand-border bg-card/90 backdrop-blur-xl overflow-hidden shadow-2xl">
-                {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-brand-border bg-white/[0.02]">
-                   <div className="flex gap-4">
-                      {(['mobility', 'telemetry'] as const).map(tab => (
-                        <button 
-                          key={tab}
-                          onClick={() => setActiveTab(tab)}
-                          suppressHydrationWarning
-                          className={`text-[11px] font-mono font-bold uppercase tracking-widest transition-colors relative pb-4 -mb-4 ${
-                            activeTab === tab ? 'text-[#2F80FF]' : 'text-brand-slate hover:text-foreground dark:text-white'
-                          }`}
-                        >
-                           {tab === 'mobility' ? 'POST /mobility' : 'WSS /telemetry'}
-                           {activeTab === tab && (
-                             <motion.div layoutId="api-tab" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#2F80FF]" />
-                           )}
-                        </button>
-                      ))}
-                   </div>
-                   <div className="flex items-center gap-4">
-                      <select className="bg-white/5 border border-brand-border rounded-md text-[10px] text-foreground dark:text-white font-mono px-2 py-1 outline-none">
-                         <option>cURL</option>
-                         <option>Node.js</option>
-                         <option>Python</option>
-                      </select>
-                      <button onClick={handleCopy} suppressHydrationWarning className="text-brand-slate hover:text-foreground dark:text-white transition-colors">
-                         {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
-                      </button>
-                   </div>
-                </div>
-
-                {/* Code Area */}
-                <div className="p-6 overflow-x-auto">
-                   <pre className="font-mono text-xs leading-relaxed text-[#A3B8CC]">
-                      <code>
-{activeTab === 'mobility' ? (
-<span>
-<span className="text-pink-400">curl</span> -X POST https://api.nationwidetrans.com/v1/mobility \
-<br/>  -H <span className="text-emerald-300">"Authorization: Bearer YOUR_API_KEY"</span> \
-<br/>  -H <span className="text-emerald-300">"Content-Type: application/json"</span> \
-<br/>  -d <span className="text-yellow-300">'{'{'}
-<br/>    "incidentId": "INC-7824",
-<br/>    "serviceType": "rental_vehicle",
-<br/>    "pickupLocation": "Orlando, FL",
-<br/>    "dropoffLocation": "Miami, FL",
-<br/>    "vehicleType": "standard",
-<br/>    "customerId": "CUST-45678",
-<br/>    "priority": "high"
-<br/>  {'}'}'</span>
-</span>
-) : (
-<span>
-<span className="text-brand-slate italic">// WebSocket connection for real-time telemetry</span>
-<br/><span className="text-purple-400">const</span> socket = <span className="text-purple-400">new</span> <span className="text-[#2F80FF]">WebSocket</span>(<span className="text-emerald-300">'wss://stream.nationwidetrans.com/telemetry'</span>);
-<br/><br/>socket.<span className="text-blue-300">onmessage</span> = (event) =&gt; {'{'}
-<br/>  <span className="text-purple-400">const</span> data = JSON.<span className="text-blue-300">parse</span>(event.data);
-<br/>  <span className="text-purple-400">if</span> (data.type === <span className="text-emerald-300">'ETA_UPDATE'</span>) {'{'}
-<br/>    <span className="text-blue-300">updateDashboard</span>(data.incidentId, data.newEta);
-<br/>  {'}'}
-<br/>{'}'};
-</span>
-)}
-                      </code>
-                   </pre>
-                </div>
-             </div>
-          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            API-First <span className="text-brand-blue">Infrastructure.</span>
+          </h2>
+          <p className="text-brand-slate text-lg max-w-3xl">
+            Powerful APIs and real-time webhooks to integrate mobility continuation into your platforms, workflows, and claims systems.
+          </p>
         </div>
+
+        {/* Interactive Tabs */}
+        <EnterpriseTabs 
+          activeTab={activeTab} 
+          onChange={setActiveTab}
+          tabs={solutions.map(s => ({ id: s.id, label: s.label }))}
+          className="mb-12"
+        />
+
+        {/* Full-width container with synchronized transitions */}
+        <div className="w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 40, y: 10, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, x: 0, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, x: -40, y: -10, filter: 'blur(8px)' }}
+              transition={{ 
+                duration: 0.5, 
+                ease: [0.25, 1, 0.5, 1] 
+              }}
+              className="space-y-12"
+            >
+              {/* TOP ROW: Title, Desc, and features */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                {/* Left side: Icon, title, and description (8 columns) */}
+                <div className="lg:col-span-8 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="h-16 w-16 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center relative overflow-hidden group/icon shadow-[0_0_20px_rgba(47,128,255,0.1)]">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/10 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500" />
+                      <activeSolution.icon className="h-8 w-8 text-brand-blue relative z-10" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">{activeSolution.title}</h3>
+                  </div>
+                  <p className="text-brand-slate text-base md:text-lg leading-relaxed max-w-4xl font-medium">{activeSolution.desc}</p>
+                </div>
+
+                {/* Right side: Key features checklist (4 columns) */}
+                <div className="lg:col-span-4 bg-white/[0.02] border border-white/[0.06] rounded-3xl p-6 backdrop-blur-xl relative overflow-hidden">
+                  <div className="absolute inset-px rounded-[22px] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-4">{activeSolution.prompt}</h4>
+                  <div className="space-y-3 relative z-10">
+                    {activeSolution.features.map(f => (
+                      <div key={f} className="flex items-center gap-3 group/item">
+                        <div className="h-5 w-5 rounded-md bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center flex-shrink-0 group-hover/item:border-brand-blue/40 transition-colors">
+                          <Check className="h-3 w-3 text-brand-blue" />
+                        </div>
+                        <span className="text-xs text-foreground font-semibold group-hover/item:text-white transition-colors duration-300">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              {/* BOTTOM ROW: Frog-glass cards */}
+              <div className="relative pt-6">
+                
+                {/* SVG connection line running horizontally */}
+                <svg className="hidden lg:block absolute top-[50%] left-0 w-full h-[10px] pointer-events-none opacity-40 z-0 overflow-visible" viewBox="0 0 100 10" preserveAspectRatio="none" fill="none">
+                  <defs>
+                    <linearGradient id="line-grad-horizontal-api" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#2F80FF" stopOpacity="0" />
+                      <stop offset="15%" stopColor="#2F80FF" stopOpacity="0.4" />
+                      <stop offset="50%" stopColor="#06B6D4" stopOpacity="1" />
+                      <stop offset="85%" stopColor="#8B5CF6" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M 5,5 L 95,5" stroke="url(#line-grad-horizontal-api)" strokeWidth="0.5" strokeDasharray="1 2" />
+                  <g>
+                    <circle r="0.6" fill="#06B6D4" opacity="0.3">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                    <circle r="0.25" fill="#fff">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </svg>
+
+                {/* Staggered card grid */}
+                <motion.div 
+                  variants={gridVariants}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+                >
+                  {activeSolution.cards.map((card, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={cardVariants}
+                      whileHover={{ 
+                        y: -8, 
+                        scale: 1.02,
+                        borderColor: 'rgba(47, 128, 255, 0.35)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                        boxShadow: '0 15px 35px rgba(47, 128, 255, 0.15)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                      className="relative p-6 rounded-[2rem] border border-white/[0.06] bg-white/[0.02] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col justify-between overflow-hidden select-none group/card cursor-default min-h-[140px]"
+                    >
+                      <div 
+                        className="absolute -right-8 -bottom-8 w-20 h-20 rounded-full blur-[25px] opacity-25 group-hover/card:opacity-45 transition-opacity duration-300 pointer-events-none"
+                        style={{ backgroundColor: card.glow }}
+                      />
+                      <div className="absolute inset-px rounded-[1.9rem] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                      
+                      <div className="relative z-10 space-y-3">
+                        <h4 className="text-xs font-black text-white uppercase tracking-wider group-hover/card:text-brand-blue transition-colors duration-300">
+                          {card.title}
+                        </h4>
+                        <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
       </div>
     </section>
   );
-};
-
-// Also adding ArrowRight import that was missing
-import { ArrowRight, Truck } from 'lucide-react';
+}

@@ -60,28 +60,7 @@ export const RoadsideHero = () => {
               Nationwide roadside dispatch coordination, enterprise-grade support operations, and API-first assistance infrastructure engineered for insurers, fleets, OEMs, and mobility providers.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Button
-                size="lg"
-                onClick={() => dispatch(setPartnershipOpen(true))}
-                className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-14 px-10 rounded-xl shadow-[0_0_30px_rgba(47,128,255,0.4)]"
-              >
-                Schedule Enterprise Demo
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => router.push('/developer')}
-                className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-10 rounded-xl"
-              >
-                Explore Assistance APIs
-              </Button>
-            </motion.div>
+
 
             {/* Quick Stats Grid */}
             <motion.div

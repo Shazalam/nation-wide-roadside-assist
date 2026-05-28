@@ -121,15 +121,6 @@ export const HeroSection = () => {
               Schedule Enterprise Demo{' '}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1.5 transition-transform" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => router.push('/developer')}
-              className="border-white/10 bg-white/5 text-white hover:bg-white/10 h-16 px-10 rounded-2xl font-black backdrop-blur-xl transition-all hover:border-brand-blue/40 group flex items-center gap-3"
-            >
-              <span className="opacity-40 group-hover:opacity-100 font-mono transition-opacity">{'</>'}</span>
-              Explore Dispatch APIs
-            </Button>
           </motion.div>
 
           {/* KPI Analytics Strip */}
@@ -173,25 +164,6 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* ─── FLOATING OPERATIONAL HUD (bottom-right) ─────────────────────── */}
-      <div className="absolute bottom-12 right-12 z-20 hidden xl:block">
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md">
-            <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest leading-none">
-              Dispatch Network Active
-            </span>
-          </div>
-          {stats && (
-            <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/20 backdrop-blur-md">
-              <div className="h-1.5 w-1.5 rounded-full bg-brand-blue animate-pulse" />
-              <span className="text-[9px] font-black text-brand-blue uppercase tracking-widest leading-none">
-                {stats.activeDispatches.toLocaleString()} Active Dispatches
-              </span>
-            </div>
-          )}
-        </div>
-      </div>
     </section>
   );
 };

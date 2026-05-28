@@ -6,13 +6,10 @@ import { Navbar } from '@/components/layout/navbar';
 import { HeroSection } from './components/HeroSection';
 import { DispatchOverview } from './components/DispatchOverview';
 import { CoreCapabilities } from './components/CoreCapabilities';
-import { CommandCenter } from './components/CommandCenter';
 import { DispatchWorkflow } from './components/DispatchWorkflow';
 import { IndustrySolutions } from './components/IndustrySolutions';
-import { TelemetrySection } from './components/TelemetrySection';
 import { APIInfrastructure } from './components/APIInfrastructure';
 import { MetricsDashboard } from './components/MetricsDashboard';
-import { TrustCompliance } from './components/TrustCompliance';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { MountedOnly } from '@/components/utils/mounted-only';
@@ -37,26 +34,17 @@ export default function EnterpriseDispatchPage() {
         <CoreCapabilities />
 
         <MountedOnly>
-          {/* 4. Live Dispatch Command Center */}
-          <CommandCenter />
-
           {/* 5. Enterprise Dispatch Workflow */}
           <DispatchWorkflow />
 
           {/* 6. Industry Dispatch Solutions */}
           <IndustrySolutions />
 
-          {/* 7. Enterprise Telemetry Section */}
-          <TelemetrySection />
-
           {/* 8. API-First Infrastructure */}
           <APIInfrastructure />
 
           {/* 9. Operational Metrics Dashboard */}
           <MetricsDashboard />
-
-          {/* 10. Trust & Compliance Section */}
-          <TrustCompliance />
         </MountedOnly>
 
         {/* 11. Final CTA Section */}

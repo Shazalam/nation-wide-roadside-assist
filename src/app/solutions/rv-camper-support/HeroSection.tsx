@@ -105,25 +105,7 @@ export default function HeroSection() {
               Nationwide roadside intelligence, specialized RV dispatch operations, and API-driven mobility support engineered for motorhomes, travel trailers, campground networks, insurers, and enterprise mobility ecosystems.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-14">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(47,128,255,0.5)' }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => dispatch(setPartnershipOpen(true))}
-                className="px-8 py-4 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(47,128,255,0.3)] flex items-center justify-center gap-2 group"
-              >
-                Schedule Enterprise Demo
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.08)' }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => router.push('/developer')}
-                className="px-8 py-4 bg-transparent border border-[rgba(255,255,255,0.15)] text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2"
-              >
-                Explore RV APIs <span className="font-mono text-[#2F80FF]">{`</>`}</span>
-              </motion.button>
-            </div>
+
 
           </motion.div>
 

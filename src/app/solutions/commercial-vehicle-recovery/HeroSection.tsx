@@ -103,25 +103,7 @@ export default function HeroSection() {
               Nationwide heavy-duty dispatch intelligence, commercial vehicle recovery operations, and API-first roadside infrastructure engineered for fleets, logistics providers, insurers, and enterprise mobility ecosystems.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-5 mb-16">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(47,128,255,0.4)' }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => dispatch(setPartnershipOpen(true))}
-                className="px-10 py-5 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest shadow-lg flex items-center justify-center gap-3 group"
-              >
-                Schedule Enterprise Demo
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.08)' }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => router.push('/developer')}
-                className="px-10 py-5 bg-transparent border border-brand-border text-foreground dark:text-white rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-3"
-              >
-                Explore Recovery APIs <Terminal className="w-4 h-4 text-[#2F80FF]" />
-              </motion.button>
-            </div>
+
 
 
           </motion.div>

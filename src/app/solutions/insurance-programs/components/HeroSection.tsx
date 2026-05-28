@@ -31,7 +31,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen pt-24 pb-12 lg:pt-32 lg:pb-20 flex items-center overflow-hidden bg-[#020617]">
+    <section className="relative min-h-[90vh] lg:min-h-screen pt-20 pb-8 lg:pt-28 lg:pb-12 flex items-center overflow-hidden bg-[#020617]">
 
       {/* ─── FULL BLEED BACKGROUND IMAGE ─────────────────────────────────── */}
       <div className="absolute inset-0 z-0">
@@ -117,31 +117,7 @@ export default function HeroSection() {
             </motion.p>
           </div>
 
-          {/* Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-5"
-          >
-            <Button
-              size="lg"
-              onClick={() => dispatch(setPartnershipOpen(true))}
-              className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_50px_var(--brand-glow)] transition-all hover:-translate-y-1.5 active:scale-95 group"
-            >
-              Schedule Enterprise Demo
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1.5 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => router.push('/developer')}
-              className="border-white/10 bg-white/5 text-white hover:bg-white/10 h-16 px-10 rounded-2xl font-black backdrop-blur-xl transition-all hover:border-brand-blue/40 group flex items-center gap-3"
-            >
-              <span className="opacity-40 group-hover:opacity-100 font-mono transition-opacity">{'</>'}</span>
-              View API Documentation
-            </Button>
-          </motion.div>
+
 
           {/* KPI Analytics Strip */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-12">
@@ -186,28 +162,6 @@ export default function HeroSection() {
       </div>
 
       {/* ─── FLOATING OPERATIONAL HUD (bottom-right) ─────────────────────── */}
-      <div className="absolute bottom-12 right-12 z-20 hidden xl:block">
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md">
-            <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest leading-none">
-              Claims Processing Live
-            </span>
-          </div>
-          <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/20 backdrop-blur-md">
-            <div className="h-1.5 w-1.5 rounded-full bg-brand-blue animate-pulse" />
-            <span className="text-[9px] font-black text-brand-blue uppercase tracking-widest leading-none">
-              {stats.activeIncidents.toLocaleString()} Active Incidents
-            </span>
-          </div>
-          <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-brand-orange/10 border border-brand-orange/20 backdrop-blur-md">
-            <div className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-pulse" />
-            <span className="text-[9px] font-black text-brand-orange uppercase tracking-widest leading-none">
-              {stats.completedToday.toLocaleString()} Resolved Today
-            </span>
-          </div>
-        </div>
-      </div>
 
     </section>
   );

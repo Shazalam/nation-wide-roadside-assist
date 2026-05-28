@@ -100,31 +100,7 @@ export const DispatchHero = () => {
             </motion.p>
           </div>
 
-          {/* Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-5"
-          >
-            <Button
-              size="lg"
-              onClick={() => dispatch(setPartnershipOpen(true))}
-              className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_50px_var(--brand-glow)] transition-all hover:-translate-y-1.5 active:scale-95 group"
-            >
-              Schedule Operations Demo
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1.5 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => router.push('/developer')}
-              className="border-white/10 bg-white/5 text-white hover:bg-white/10 h-16 px-10 rounded-2xl font-black backdrop-blur-xl transition-all hover:border-brand-blue/40 group flex items-center gap-3"
-            >
-              <span className="opacity-40 group-hover:opacity-100 font-mono transition-opacity">{'</>'}</span>
-              Explore Dispatch APIs
-            </Button>
-          </motion.div>
+
 
         </div>
       </div>

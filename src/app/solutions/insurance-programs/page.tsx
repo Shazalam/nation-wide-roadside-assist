@@ -1,6 +1,5 @@
 import React from 'react';
 import HeroSection from './components/HeroSection';
-import MarketIntelligence from './components/MarketIntelligence';
 import CapabilitiesGrid from './components/CapabilitiesGrid';
 import WorkflowTimeline from './components/WorkflowTimeline';
 import IndustryEcosystem from './components/IndustryEcosystem';
@@ -20,7 +19,6 @@ export default function InsuranceProgramsPage() {
       <Navbar />
       
       <HeroSection />
-      <MarketIntelligence />
       <CapabilitiesGrid />
       <WorkflowTimeline />
       <IndustryEcosystem />

@@ -136,14 +136,6 @@ export const RecoveryHero = () => {
       </div>
 
       {/* Floating Operational HUD */}
-      <div className="absolute bottom-12 right-12 z-20 hidden xl:block">
-         <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md">
-               <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-               <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest leading-none">Fleet Active</span>
-            </div>
-         </div>
-      </div>
     </section>
   );
 };

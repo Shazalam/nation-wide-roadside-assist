@@ -58,30 +58,6 @@ const FEATURE_CARDS = [
     icon: ShieldCheck,
     glows: ['rgba(6,182,212,0.18)', 'rgba(59,130,246,0.12)'],
   },
-  {
-    id: 7,
-    title: 'FLEET MOBILITY NETWORK',
-    subtitle: 'CONNECTED ENTERPRISE SUPPORT',
-    desc: 'Operational roadside coverage for fleets, rental providers, and logistics platforms.',
-    icon: Network,
-    glows: ['rgba(147,51,234,0.18)', 'rgba(236,72,153,0.12)'],
-  },
-  {
-    id: 8,
-    title: 'EMERGENCY RESPONSE GRID',
-    subtitle: '24/7 RAPID ASSISTANCE',
-    desc: 'High-availability roadside escalation and emergency dispatch infrastructure.',
-    icon: AlertTriangle,
-    glows: ['rgba(249,115,22,0.18)', 'rgba(236,72,153,0.12)'],
-  },
-  {
-    id: 9,
-    title: 'OEM & DEALER CONNECTIVITY',
-    subtitle: 'CONNECTED VEHICLE SUPPORT',
-    desc: 'Roadside coordination systems for OEM programs and dealership ecosystems.',
-    icon: Building,
-    glows: ['rgba(59,130,246,0.18)', 'rgba(6,182,212,0.12)'],
-  },
 ];
 
 export const Hero = () => {

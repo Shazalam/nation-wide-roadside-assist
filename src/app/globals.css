@@ -176,3 +176,36 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Global premium spacing override layer */
+@utility py-32 {
+  padding-top: 3rem !important; /* 48px */
+  padding-bottom: 3rem !important;
+  @media (min-width: 1024px) {
+    padding-top: 4rem !important; /* 64px */
+    padding-bottom: 4rem !important;
+  }
+}
+
+@utility py-24 {
+  padding-top: 2.5rem !important; /* 40px */
+  padding-bottom: 2.5rem !important;
+  @media (min-width: 1024px) {
+    padding-top: 3.5rem !important; /* 56px */
+    padding-bottom: 3.5rem !important;
+  }
+}
+
+@utility mb-32 {
+  margin-bottom: 2.5rem !important; /* 40px */
+  @media (min-width: 1024px) {
+    margin-bottom: 3rem !important; /* 48px */
+  }
+}
+
+@utility mb-20 {
+  margin-bottom: 2rem !important; /* 32px */
+  @media (min-width: 1024px) {
+    margin-bottom: 2.5rem !important; /* 40px */
+  }
+}

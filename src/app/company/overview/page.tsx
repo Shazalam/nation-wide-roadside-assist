@@ -135,7 +135,6 @@ const OverviewContent = () => (
       <p className="text-brand-slate text-base leading-relaxed font-medium mb-6">
         Our infrastructure powers seamless recovery operations through a vast nationwide vendor ecosystem —
         connecting highways, fleets, and emergency response networks with speed, precision, and unwavering reliability.
-
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {[
@@ -194,6 +193,31 @@ const OverviewContent = () => (
       </div>
     </DocumentationSection>
 
+    <DocumentationSection id="technology" title="Technology Platform">
+      <p className="text-brand-slate text-base leading-relaxed font-medium">
+        Our technology stack is purpose-built for enterprise-scale operations with real-time performance requirements:
+      </p>
+      <div className="bg-brand-navy border border-brand-border rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 bg-white/[0.03] border-b border-brand-border">
+          <span className="text-[10px] font-black text-brand-blue uppercase tracking-widest">Platform Architecture</span>
+        </div>
+        <div className="p-6">
+          <pre className="font-mono text-[11px] text-[#2F80FF]/80 leading-relaxed">
+            {`{
+  "dispatch_engine": "Real-time AI-assisted routing",
+  "telematics": "OBD-II / CAN bus / OEM APIs",
+  "infrastructure": "Multi-region, Active-Active",
+  "uptime_sla": "99.95% guaranteed",
+  "api_protocol": "REST + GraphQL + WebSocket",
+  "security": "SOC 2 Type II + Zero Trust",
+  "data_processing": "3.2M+ events/year",
+  "vendor_network": "18,000+ nationwide"
+}`}
+          </pre>
+        </div>
+      </div>
+    </DocumentationSection>
+
     <DocumentationSection id="operations" title="Nationwide Operations">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-4">
@@ -207,9 +231,8 @@ const OverviewContent = () => (
         <div className="space-y-4">
           <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Operational Reach</h4>
           <div className="space-y-2">
-            <p className="text-[11px] text-brand-slate font-medium">USA and Canada coverage with regional command centers</p>
-            <p className="text-[11px] text-brand-slate font-medium">Multi-region dispatch hubs (East, West, Central)</p>
-            <p className="text-[11px] text-brand-slate font-medium">24/7/365 operational availability</p>
+            <p className="text-[11px] text-brand-slate font-medium">Seamless coast-to-coast coverage across the United States and Canada, driven by a unified dispatch ecosystem engineered for speed, coordination, and uninterrupted mobility.</p>
+            <p className="text-[11px] text-brand-slate font-medium">24/7 operational vigilance, delivering unwavering roadside support with speed, precision, and relentless reliability.</p>
           </div>
         </div>
       </div>
@@ -220,8 +243,8 @@ const OverviewContent = () => (
         <div className="space-y-4">
           <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Enterprise Sales</h4>
           <div className="space-y-2">
-            <p className="text-[11px] font-mono text-brand-blue">enterprise@nationwidetrans.com</p>
-            <p className="text-[11px] font-mono text-brand-blue">1-800-Nationwide Roadside Assist-FLEET</p>
+            <p className="text-[11px] font-mono text-brand-blue">kongl@nationwidetransinc.com</p>
+            <p className="text-[11px] font-mono text-brand-blue">+1 (855)-613-3131</p>
           </div>
         </div>
         <div className="space-y-4">

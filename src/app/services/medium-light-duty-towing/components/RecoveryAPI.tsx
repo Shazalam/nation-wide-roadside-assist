@@ -1,144 +1,408 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Code2, Cpu, Globe, Lock, Zap, ArrowRight, CheckCircle2, Terminal } from 'lucide-react';
-import { GlassPanel } from '@/components/ui/glass-panel';
+import React, { useState } from 'react';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { EnterpriseTabs } from '@/components/ui/enterprise-tabs';
+import {
+  Cpu, Globe, Lock, Terminal, Check, HelpCircle, Zap, ShieldCheck, Activity
+} from 'lucide-react';
 
-const apiFeatures = [
+const solutions = [
   {
-    title: 'Automated Dispatch API',
-    desc: 'Low-latency REST endpoints for programmatic roadside assistance triggering and vendor assignment.',
-    icon: Zap,
-    code: 'POST /v1/dispatch/request'
-  },
-  {
-    title: 'Real-time Telemetry Webhooks',
-    desc: 'Instant event notifications for dispatch status changes, on-scene arrivals, and job completions.',
-    icon: Globe,
-    code: 'WEBHOOK: rsa.status.updated'
-  },
-  {
-    title: 'Enterprise Billing Gateway',
-    desc: 'Seamless integration with insurance and fleet billing systems for automated financial reconciliation.',
-    icon: Lock,
-    code: 'GET /v1/billing/reconcile'
-  },
-  {
-    title: 'Vendor Availability Mesh',
-    desc: 'Live query engine for real-time light and medium duty vendor density across all US zip codes.',
+    id: 'dispatch',
+    label: 'Dispatch',
     icon: Cpu,
-    code: 'GET /v1/network/density'
+    title: 'Automated Dispatch API',
+    desc: 'Every roadside request becomes part of a centralized operational stream. Low-latency REST endpoints allow you to trigger dispatches instantly, verify service eligibility, and assign nearby vendors faster.',
+    prompt: 'Dispatch Capabilities',
+    features: [
+      'Low-latency REST endpoints',
+      'Programmatic request routing',
+      'Automatic vehicle class checks',
+      'Location geo-fence validation',
+      'SLA-based vendor matching',
+      'Secure token authorization'
+    ],
+    cards: [
+      {
+        title: 'REST Endpoints',
+        desc: 'POST endpoints with < 12ms payload ingestion latency.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Geo-Intake',
+        desc: 'Translates raw GPS telemetry to nearest highway marker points.',
+        glow: 'rgba(6,182,212,0.15)'
+      },
+      {
+        title: 'Class Identification',
+        desc: 'Classifies light and medium duty assets automatically.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Token Security',
+        desc: 'Digitally signed request verification with OAuth2 protocols.',
+        glow: 'rgba(236,72,153,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'telemetry',
+    label: 'Telemetry',
+    icon: Globe,
+    title: 'Real-Time Telemetry Webhooks',
+    desc: 'Instant event notifications keep your system updated. Receive real-time updates for dispatch status changes, on-scene arrivals, active tow tracking, and job completions.',
+    prompt: 'Telemetry Streams',
+    features: [
+      'Event-driven architecture',
+      'Technician status changes',
+      'High-frequency GPS streams',
+      'Retry policy queuing',
+      'Signed payload payloads',
+      'Custom webhook triggers'
+    ],
+    cards: [
+      {
+        title: 'Status Triggers',
+        desc: 'Triggers actions on assignment, transit, and service.',
+        glow: 'rgba(245,158,11,0.15)'
+      },
+      {
+        title: 'High-Freq GPS',
+        desc: 'GPS updates streamed dynamically every 5 seconds.',
+        glow: 'rgba(6,182,212,0.15)'
+      },
+      {
+        title: 'Automatic Retry',
+        desc: 'Retries failed webhook endpoints with exponential backoff.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Payload Signatures',
+        desc: 'HMAC SHA256 header tags protect webhook integration endpoints.',
+        glow: 'rgba(139,92,246,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'billing',
+    label: 'Billing',
+    icon: Lock,
+    title: 'Enterprise Billing Gateway',
+    desc: 'Seamless integration with insurance and fleet billing systems. Automatically reconcile financial records, handle itemized invoicing, and reduce manual processing.',
+    prompt: 'Financial Integrations',
+    features: [
+      'Automated financial sync',
+      'Instant itemized invoices',
+      'Flexible payment rails',
+      'Real-time billing checks',
+      'Reconciliation matching',
+      'Multi-currency ready'
+    ],
+    cards: [
+      {
+        title: 'Instant Invoicing',
+        desc: 'Generates clean, itemized invoice payloads upon job sign-off.',
+        glow: 'rgba(16,185,129,0.15)'
+      },
+      {
+        title: 'Auto Reconciliation',
+        desc: 'Matches invoice payloads with original dispatch agreements.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Audit Logging',
+        desc: 'Continuous immutable logs record every financial milestone.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'API Settlement',
+        desc: 'Programmatic payment triggers settle balances dynamically.',
+        glow: 'rgba(236,72,153,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'network',
+    label: 'Availability Mesh',
+    icon: Zap,
+    title: 'Vendor Availability Mesh',
+    desc: 'Live query engine for real-time light and medium duty vendor density. Instantly analyze truck capacity indexes, active equipment classes, and coverage rules.',
+    prompt: 'Mesh Capabilities',
+    features: [
+      'Dynamic zip code search',
+      'Active capacity indexes',
+      'Equipment capability filter',
+      'Real-time response estimates',
+      'Multi-region density map',
+      'Intelligent routing mesh'
+    ],
+    cards: [
+      {
+        title: 'Zip Code Lookup',
+        desc: 'Instant queries scan nationwide coverage in under 5ms.',
+        glow: 'rgba(239,68,68,0.15)'
+      },
+      {
+        title: 'Capability Filters',
+        desc: 'Filter by tow class, wheel-lift, flatbeds, and rotators.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Active Truck Sync',
+        desc: 'Displays vendor assets actively cruising local coverage zones.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Capacity Engine',
+        desc: 'Dynamically computes dispatch acceptance probability.',
+        glow: 'rgba(6,182,212,0.15)'
+      }
+    ]
   }
 ];
 
+const gridVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1
+    }
+  }
+};
+
+const cardVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    x: 25, 
+    y: 10, 
+    scale: 0.96, 
+    filter: 'blur(4px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
+  },
+  show: { 
+    opacity: 1, 
+    x: 0, 
+    y: 0, 
+    scale: 1, 
+    filter: 'blur(0px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+    transition: {
+      type: 'spring',
+      stiffness: 140,
+      damping: 18,
+      mass: 0.8
+    }
+  },
+  exit: {
+    opacity: 0,
+    x: -25,
+    y: -5,
+    filter: 'blur(4px)',
+    transition: {
+      duration: 0.3,
+      ease: 'easeInOut'
+    }
+  }
+};
+
 export const RecoveryAPI = () => {
+  const [activeTab, setActiveTab] = useState('dispatch');
+  const activeSolution = solutions.find(s => s.id === activeTab) || solutions[0];
+
   return (
-    <section className="py-24 bg-brand-bg relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#2F80FF]/5 blur-[120px] rounded-full pointer-events-none" />
+    <section className="py-12 lg:py-16 bg-brand-bg/30 relative overflow-hidden border-t border-brand-border">
       
-      <div className="max-w-[1600px] mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.3em]">Developer Infrastructure</span>
-              <h2 className="text-3xl md:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight">
-                Roadside Assistance <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2F80FF] to-white">API Framework</span>
-              </h2>
-              <p className="text-brand-slate text-lg font-medium leading-relaxed max-w-xl">
-                Integrate nationwide medium and light duty recovery capabilities directly into your fleet management or insurance application.
+      {/* Decorative background grid overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      {/* Floating ambient background glows */}
+      <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] right-[20%] w-[450px] h-[450px] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none z-0" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        
+        {/* Section Header */}
+        <div className="max-w-4xl mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
+            <Terminal className="w-3.5 h-3.5 text-[#2F80FF]" />
+            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Developer Infrastructure</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            Roadside Assistance <span className="text-brand-blue">API Framework</span>
+          </h2>
+          <p className="text-brand-slate text-lg max-w-3xl">
+            Integrate nationwide medium and light duty recovery capabilities directly into your fleet management or insurance application. Our infrastructure transforms fragmented roadside operations into one intelligent, connected mobility network.
+          </p>
+        </div>
+
+        {/* Why It Matters Callout */}
+        <div className="p-8 md:p-10 rounded-[2.5rem] bg-card border border-brand-border relative overflow-hidden group hover:border-[#2F80FF]/30 transition-all duration-300 mb-10">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[80px] rounded-full pointer-events-none" />
+          <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
+            <div className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-[#2F80FF]">
+              <HelpCircle className="w-8 h-8" />
+            </div>
+            <div className="space-y-4 max-w-5xl">
+              <h3 className="text-lg font-black text-foreground dark:text-white uppercase tracking-wider">Why It Matters</h3>
+              <p className="text-brand-slate text-sm leading-relaxed">
+                In traditional roadside operations, delays happen because systems do not communicate. Dispatch teams work separately from billing managers. Live tracking is disconnected from customer platforms.
+              </p>
+              <div className="h-px bg-brand-border my-2" />
+              <p className="text-brand-blue font-bold text-sm leading-relaxed">
+                An API-first framework removes those boundaries, creating an event-driven flow that links customers, dispatchers, and billing gates programmatically.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {apiFeatures.map((f, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="space-y-3"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-[#2F80FF]/10 rounded-lg">
-                      <f.icon className="h-4 w-4 text-[#2F80FF]" />
-                    </div>
-                    <h4 className="text-sm font-black text-foreground dark:text-white uppercase tracking-wider">{f.title}</h4>
-                  </div>
-                  <p className="text-xs text-brand-slate font-medium leading-relaxed">{f.desc}</p>
-                  <div className="flex items-center gap-2 font-mono text-[9px] text-[#2F80FF]/80 bg-[#2F80FF]/5 p-2 rounded-md border border-[#2F80FF]/10 w-fit">
-                    <Terminal className="h-3 w-3" />
-                    {f.code}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="pt-6 flex flex-wrap gap-4">
-               <button className="px-8 py-4 bg-white text-black font-black text-xs uppercase tracking-widest rounded-xl hover:bg-[#2F80FF] hover:text-foreground dark:text-white transition-all shadow-xl">
-                  Documentation Hub
-               </button>
-               <button className="px-8 py-4 bg-white/5 border border-brand-border text-foreground dark:text-white font-black text-xs uppercase tracking-widest rounded-xl hover:bg-white/10 transition-all">
-                  API Playground
-               </button>
-            </div>
           </div>
-
-          <div className="relative">
-            {/* Code Block Visualization */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative z-10"
-            >
-              <GlassPanel className="p-0 border-brand-border bg-card/80 shadow-[0_40px_80px_rgba(0,0,0,0.6)] rounded-2xl overflow-hidden">
-                <div className="px-6 py-4 border-b border-brand-border bg-white/[0.02] flex items-center justify-between">
-                   <div className="flex gap-2">
-                      <div className="h-3 w-3 rounded-full bg-red-500/50" />
-                      <div className="h-3 w-3 rounded-full bg-yellow-500/50" />
-                      <div className="h-3 w-3 rounded-full bg-green-500/50" />
-                   </div>
-                   <span className="text-[10px] font-mono text-brand-slate uppercase tracking-widest">dispatch_request.js</span>
-                </div>
-                <div className="p-8 font-mono text-sm leading-relaxed overflow-x-auto whitespace-pre text-[#2F80FF]">
-{`{
-  "api_version": "2026-Q2",
-  "operation": "RSA_DISPATCH",
-  "parameters": {
-    "vehicle_class": "CLASS_2",
-    "location": {
-      "lat": 34.0522,
-      "lng": -118.2437
-    },
-    "service_type": "TIRE_CHANGE",
-    "priority": "URGENT"
-  },
-  "metadata": {
-    "fleet_id": "FL-82910-US",
-    "tracking": true
-  }
-}`}
-                </div>
-                <div className="p-4 bg-black/40 border-t border-brand-border flex items-center justify-between">
-                   <div className="flex items-center gap-3">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                      <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">200 OK — 142ms</span>
-                   </div>
-                   <div className="text-[10px] font-mono text-brand-slate">Request ID: rsa_9281...</div>
-                </div>
-              </GlassPanel>
-            </motion.div>
-
-            {/* Decorative Elements */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#FF7A1A]/10 blur-[80px] rounded-full pointer-events-none" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#2F80FF]/10 blur-[80px] rounded-full pointer-events-none" />
-          </div>
-
         </div>
+
+        {/* Interactive Tabs */}
+        <EnterpriseTabs 
+          activeTab={activeTab} 
+          onChange={setActiveTab}
+          tabs={solutions.map(s => ({ id: s.id, label: s.label }))}
+          className="mb-12"
+        />
+
+        {/* Full-width container with synchronized transitions */}
+        <div className="w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 40, y: 10, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, x: 0, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, x: -40, y: -10, filter: 'blur(8px)' }}
+              transition={{ 
+                duration: 0.5, 
+                ease: [0.25, 1, 0.5, 1] 
+              }}
+              className="space-y-12"
+            >
+              {/* TOP ROW: Title, Desc, and features */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                {/* Left side: Icon, title, and description (8 columns) */}
+                <div className="lg:col-span-8 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="h-16 w-16 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center relative overflow-hidden group/icon shadow-[0_0_20px_rgba(47,128,255,0.1)]">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/10 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500" />
+                      <activeSolution.icon className="h-8 w-8 text-brand-blue relative z-10" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">{activeSolution.title}</h3>
+                  </div>
+                  <p className="text-brand-slate text-base md:text-lg leading-relaxed max-w-4xl font-medium">{activeSolution.desc}</p>
+                </div>
+
+                {/* Right side: Key features checklist (4 columns) */}
+                <div className="lg:col-span-4 bg-white/[0.02] border border-white/[0.06] rounded-3xl p-6 backdrop-blur-xl relative overflow-hidden">
+                  <div className="absolute inset-px rounded-[22px] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-4">{activeSolution.prompt}</h4>
+                  <div className="space-y-3 relative z-10">
+                    {activeSolution.features.map(f => (
+                      <div key={f} className="flex items-center gap-3 group/item">
+                        <div className="h-5 w-5 rounded-md bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center flex-shrink-0 group-hover/item:border-brand-blue/40 transition-colors">
+                          <Check className="h-3 w-3 text-brand-blue" />
+                        </div>
+                        <span className="text-xs text-foreground font-semibold group-hover/item:text-white transition-colors duration-300">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              {/* BOTTOM ROW: Frog-glass cards */}
+              <div className="relative pt-6">
+                
+                {/* SVG connection line running horizontally */}
+                <svg className="hidden lg:block absolute top-[50%] left-0 w-full h-[10px] pointer-events-none opacity-40 z-0 overflow-visible" viewBox="0 0 100 10" preserveAspectRatio="none" fill="none">
+                  <defs>
+                    <linearGradient id="line-grad-horizontal-api-recovery" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#2F80FF" stopOpacity="0" />
+                      <stop offset="15%" stopColor="#2F80FF" stopOpacity="0.4" />
+                      <stop offset="50%" stopColor="#06B6D4" stopOpacity="1" />
+                      <stop offset="85%" stopColor="#8B5CF6" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M 5,5 L 95,5" stroke="url(#line-grad-horizontal-api-recovery)" strokeWidth="0.5" strokeDasharray="1 2" />
+                  <g>
+                    <circle r="0.6" fill="#06B6D4" opacity="0.3">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                    <circle r="0.25" fill="#fff">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </svg>
+
+                {/* Staggered card grid */}
+                <motion.div 
+                  variants={gridVariants}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+                >
+                  {activeSolution.cards.map((card, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={cardVariants}
+                      whileHover={{ 
+                        y: -8, 
+                        scale: 1.02,
+                        borderColor: 'rgba(47, 128, 255, 0.35)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                        boxShadow: '0 15px 35px rgba(47, 128, 255, 0.15)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                      className="relative p-6 rounded-[2rem] border border-white/[0.06] bg-white/[0.02] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col justify-between overflow-hidden select-none group/card cursor-default min-h-[140px]"
+                    >
+                      <div 
+                        className="absolute -right-8 -bottom-8 w-20 h-20 rounded-full blur-[25px] opacity-25 group-hover/card:opacity-45 transition-opacity duration-300 pointer-events-none"
+                        style={{ backgroundColor: card.glow }}
+                      />
+                      <div className="absolute inset-px rounded-[1.9rem] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                      
+                      <div className="relative z-10 space-y-3">
+                        <h4 className="text-xs font-black text-white uppercase tracking-wider group-hover/card:text-brand-blue transition-colors duration-300">
+                          {card.title}
+                        </h4>
+                        <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
       </div>
     </section>
   );
