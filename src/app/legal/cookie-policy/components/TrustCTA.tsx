@@ -59,10 +59,10 @@ export const TrustCTA = () => {
           {/* Infrastructure Grid Texture */}
           <div className="pt-24 grid grid-cols-2 md:grid-cols-4 gap-4 opacity-40">
              {[
-               { label: 'GDPR READY', icon: Shield },
-               { label: 'CCPA COMPLIANT', icon: Lock },
-               { label: 'SOC 2 TYPE II', icon: Globe },
-               { label: 'ISO 27001', icon: Shield }
+               { label: 'PRIVACY-FOCUSED', icon: Shield },
+               { label: 'Privacy Controls COMPLIANT', icon: Lock },
+               { label: 'ENTERPRISE-GRADE SECURITY', icon: Globe },
+               { label: 'Industry-Standard Security Practices', icon: Shield }
              ].map((t, i) => (
                <div key={i} className="flex items-center justify-center gap-3 py-4 border border-brand-border rounded-xl">
                   <t.icon className="h-3.5 w-3.5 text-[#2F80FF]" />

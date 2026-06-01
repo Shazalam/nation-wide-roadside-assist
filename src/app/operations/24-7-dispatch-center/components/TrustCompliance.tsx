@@ -10,8 +10,8 @@ import {
 
 const trustModules = [
   {
-    title: 'SOC 2 Type II Certified',
-    code: 'SEC-SOC2',
+    title: 'Enterprise-Grade Security',
+    code: 'SEC-ENTSEC',
     description: 'Enterprise operational controls designed for secure dispatch workflows and protected infrastructure access.',
     icon: Lock,
     status: 'AUDITED & ACTIVE',
@@ -28,8 +28,8 @@ const trustModules = [
     metric: 'SLA Match: 99.8%',
   },
   {
-    title: 'PCI-DSS Security',
-    code: 'FIN-PCI',
+    title: 'Secure Payment Processing',
+    code: 'FIN-PAYSEC',
     description: 'Secure payment handling infrastructure for roadside transactions and fleet operations.',
     icon: CreditCard,
     status: 'COMPLIANT v4.0',
@@ -42,17 +42,26 @@ const trustModules = [
     description: '24/7 dispatch infrastructure supporting large-scale roadside coordination across North America.',
     icon: Globe,
     status: 'ONLINE',
-    statusColor: 'text-blue-400 bg-blue-500/10 border-blue-500/20',
+    statusColor: 'text-[#2F80FF] bg-[#2F80FF]/10 border-[#2F80FF]/20',
     metric: 'Active Nodes: 59k+',
   },
   {
-    title: 'Heavy-Duty Recovery Certified',
+    title: 'Heavy-Duty Recovery',
     code: 'OPS-HDR',
     description: 'Commercial recovery coordination systems for Class 1–8 roadside and towing operations.',
     icon: Wrench,
     status: 'CERTIFIED VENDORS',
     statusColor: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
     metric: 'Classes: 1-8 Heavy',
+  },
+  {
+    title: 'Cross-Border Dispatch',
+    code: 'OPS-INT',
+    description: 'Integrated USA & Canada roadside escalation and mobility routing infrastructure.',
+    icon: Compass,
+    status: 'MULTI-REGION',
+    statusColor: 'text-purple-400 bg-purple-500/10 border-purple-500/20',
+    metric: 'Regions: USA/CAN',
   }
 ];
 
@@ -83,76 +92,39 @@ const capabilities = [
     icon: CheckCircle2,
   },
   {
-    title: 'Cross-Border Dispatch Coordination',
-    description: 'Integrated USA & Canada roadside escalation and mobility routing infrastructure.',
-    icon: Compass,
+    title: 'Emergency Comm Networks',
+    description: 'Priority routing for municipal and critical response fleet integrations.',
+    icon: Radio,
   }
 ];
 
 export const TrustCompliance = () => {
   return (
-    <section className="relative py-28 md:py-36 border-y border-brand-border bg-[#020712] overflow-hidden">
+    <section className="relative py-28 md:py-36 border-y border-brand-border bg-brand-bg overflow-hidden">
       
       {/* ─── BACKGROUND DECORATIONS ────────────────────────────────────── */}
       <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
+        className="absolute inset-0 opacity-[0.02] pointer-events-none z-0"
         style={{
-          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 0)',
-          backgroundSize: '32px 32px',
+          backgroundImage: 'radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)',
+          backgroundSize: '48px 48px',
         }}
       />
-      <div className="absolute top-[25%] right-[-10%] w-[550px] h-[550px] bg-[#2F80FF]/8 blur-[130px] rounded-full pointer-events-none z-0" />
-      <div className="absolute bottom-[20%] left-[-10%] w-[450px] h-[450px] bg-purple-500/4 blur-[150px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-[25%] right-[-10%] w-[600px] h-[600px] bg-[#2F80FF]/5 blur-[150px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] bg-[#00C6FF]/5 blur-[150px] rounded-full pointer-events-none z-0" />
 
-      {/* Floating Telemetry Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 rounded-full bg-[#2F80FF]/30"
-            style={{
-              top: `${15 + i * 15}%`,
-              left: `${10 + (i * 23) % 80}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              x: [0, 15, 0],
-              opacity: [0.2, 0.7, 0.2],
-            }}
-            transition={{
-              duration: 7 + i * 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10 max-w-[1536px]">
         
         {/* ─── HEADER ────────────────────────────────────────────────────── */}
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2F80FF]/5 border border-[#2F80FF]/15 backdrop-blur-md mb-6"
-          >
-            <Activity className="h-3 w-3 text-[#2F80FF] animate-pulse" />
-            <span className="text-[9px] font-black uppercase tracking-[0.25em] text-[#2F80FF]">
-              Operational Trust Framework
-            </span>
-          </motion.div>
-
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-28">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-[1.05] mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8"
           >
-            Enterprise <span className="bg-gradient-to-r from-[#2F80FF] via-[#00C6FF] to-[#2F80FF] bg-clip-text text-transparent">Trust &amp; Compliance</span> Infrastructure
+            Enterprise <span className="text-[#2F80FF]">Trust &amp; Compliance</span> <br className="hidden md:block"/> Infrastructure
           </motion.h2>
 
           <motion.p
@@ -164,69 +136,61 @@ export const TrustCompliance = () => {
           >
             Mission-critical roadside dispatch infrastructure engineered for secure, scalable, and enterprise-grade mobility operations.
           </motion.p>
-
-          {/* Glowing Animated Divider */}
-          <div className="w-48 h-[1px] bg-gradient-to-r from-transparent via-[#2F80FF]/30 to-transparent mt-8 relative">
-            <motion.div 
-              animate={{ left: ['-50%', '150%'] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute top-0 w-12 h-full bg-gradient-to-r from-transparent via-[#00C6FF]/80 to-transparent"
-            />
-          </div>
         </div>
 
         {/* ─── GRID LAYOUT: TRUST CARDS ─────────────────────── */}
-        <div className="mb-24 md:mb-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mb-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
             {trustModules.map((m, i) => {
               const Icon = m.icon;
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 25 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ type: 'spring', stiffness: 260, damping: 22, delay: i * 0.1 }}
-                  whileHover={{ 
-                    y: -8, 
-                    scale: 1.02,
-                    boxShadow: '0 20px 40px rgba(47,128,255,0.08)'
-                  }}
-                  className="relative bg-white/[0.02] backdrop-blur-3xl border border-white/[0.06] rounded-[2rem] p-8 transition-all duration-300 group hover:border-[#2F80FF]/30 cursor-default"
+                  transition={{ delay: i * 0.1 }}
+                  className="group h-full cursor-pointer relative"
                 >
-                  {/* Subtle hover gradient reflection */}
-                  <div className="absolute inset-px rounded-[2rem] bg-gradient-to-br from-white/[0.04] to-transparent pointer-events-none group-hover:from-white/[0.08] transition-all" />
-                  
-                  {/* Top row: Icon + Pill */}
-                  <div className="flex items-center justify-between gap-4 mb-6 relative z-10">
-                    <div className="h-12 w-12 rounded-2xl bg-[#2F80FF]/5 flex items-center justify-center border border-[#2F80FF]/15 group-hover:bg-[#2F80FF]/15 group-hover:border-[#2F80FF]/30 transition-all duration-300">
-                      <Icon className="h-5 w-5 text-[#2F80FF] group-hover:drop-shadow-[0_0_8px_rgba(47,128,255,0.6)] transition-all" />
-                    </div>
-                    
-                    <div className={`px-3 py-1 rounded-full text-[9px] font-black border tracking-wider flex items-center gap-1.5 ${m.statusColor}`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
-                      {m.status}
-                    </div>
+                  {/* Floating Icon Bubble */}
+                  <div className="absolute top-0 left-8 -translate-y-1/2 z-20">
+                     <motion.div
+                       whileHover={{ scale: 1.1 }}
+                       className="h-16 w-16 bg-card/90 backdrop-blur-2xl border border-brand-border rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(47,128,255,0.15)] group-hover:border-[#2F80FF]/40 group-hover:shadow-[0_0_40px_rgba(47,128,255,0.3)] transition-all relative overflow-hidden"
+                     >
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/20 to-transparent" />
+                        <Icon className="h-7 w-7 text-[#2F80FF] relative z-10 transition-transform group-hover:scale-110" />
+                        <div className="absolute inset-0 rounded-2xl border-2 border-[#2F80FF]/20 animate-pulse" />
+                     </motion.div>
                   </div>
 
-                  {/* Text details */}
-                  <div className="relative z-10 space-y-3">
-                    <div className="flex items-baseline gap-2.5">
-                      <h3 className="text-lg font-black text-foreground dark:text-white tracking-tight">
-                        {m.title}
-                      </h3>
-                      <span className="text-[9px] font-mono text-brand-slate opacity-40">{m.code}</span>
-                    </div>
+                  {/* Glassmorphism Card */}
+                  <div className="relative bg-card/55 backdrop-blur-[24px] border border-white/[0.08] rounded-[28px] pt-16 p-8 h-full flex flex-col transition-all duration-500 group-hover:border-[#2F80FF]/40 group-hover:bg-card/80 group-hover:-translate-y-4 shadow-lg group-hover:shadow-[0_30px_60px_rgba(47,128,255,0.15)] overflow-hidden">
+                     {/* Background Glow */}
+                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#2F80FF]/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                     
+                     <div className="relative z-10 flex-grow">
+                        <div className="flex justify-between items-start mb-4">
+                          <h3 className="text-xl font-black text-foreground dark:text-white tracking-tight leading-tight group-hover:text-[#2F80FF] transition-colors">
+                            {m.title}
+                          </h3>
+                        </div>
 
-                    <p className="text-xs text-brand-slate leading-relaxed font-medium">
-                      {m.description}
-                    </p>
-                  </div>
+                        <p className="text-sm text-brand-slate leading-relaxed font-medium mb-6">
+                          {m.description}
+                        </p>
+                     </div>
 
-                  {/* Footer telemetry tracker */}
-                  <div className="mt-6 pt-4 border-t border-white/[0.04] flex justify-between items-center relative z-10 text-[9px] font-mono text-brand-slate">
-                    <span>{m.metric}</span>
-                    <span className="opacity-40 uppercase">AES-256 Enabled</span>
+                     <div className="relative z-10 pt-4 border-t border-brand-border/50 flex flex-col gap-3">
+                        <div className={`self-start px-3 py-1 rounded-full text-[10px] font-black border tracking-wider flex items-center gap-2 ${m.statusColor}`}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                          {m.status}
+                        </div>
+                        <div className="flex justify-between items-center text-[10px] font-mono text-brand-slate uppercase tracking-wider">
+                          <span>{m.metric}</span>
+                          <span className="opacity-50">{m.code}</span>
+                        </div>
+                     </div>
                   </div>
                 </motion.div>
               );
@@ -234,47 +198,7 @@ export const TrustCompliance = () => {
           </div>
         </div>
 
-        {/* ─── BOTTOM CAPABILITIES CHIPS ─────────────────────────────────── */}
-        <div className="border-t border-white/[0.05] pt-20">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-             <span className="text-[10px] font-black text-brand-slate uppercase tracking-[0.3em]">
-               Operational Infrastructure Capabilities
-             </span>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {capabilities.map((c, i) => {
-              const Icon = c.icon;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  whileHover={{ 
-                    x: 6,
-                    borderColor: 'rgba(47,128,255,0.4)',
-                    backgroundColor: 'rgba(255,255,255,0.03)'
-                  }}
-                  className="flex items-start gap-4 border-l-2 border-[#2F80FF]/30 pl-6 py-4 bg-white/[0.01] rounded-r-xl border-y border-r border-white/[0.02] transition-all duration-300 group cursor-default"
-                >
-                  <div className="p-2.5 rounded-lg bg-white/5 group-hover:bg-[#2F80FF]/10 transition-colors">
-                    <Icon className="h-4 w-4 text-[#2F80FF]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest mb-1.5">
-                      {c.title}
-                    </h4>
-                    <p className="text-[10.5px] text-brand-slate leading-relaxed font-medium">
-                      {c.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
 
       </div>
     </section>

@@ -25,6 +25,7 @@ export const FinalCTA = () => {
                 src="/mobility_ops_night.jpg"
                 alt="Mobility Operations"
                 className="w-full h-full object-cover object-center opacity-85"
+                loading="lazy"
                 style={{
                   maskImage: 'linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.05) 8%, rgba(0, 0, 0, 0.25) 20%, rgba(0, 0, 0, 0.65) 45%, black 75%)',
                   WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.05) 8%, rgba(0, 0, 0, 0.25) 20%, rgba(0, 0, 0, 0.65) 45%, black 75%)'
@@ -92,24 +93,24 @@ export const FinalCTA = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                  <Link href="/register" className="w-full sm:w-auto">
+                  <Link href="/company/contact" className="w-full sm:w-auto">
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       className="w-full px-6 py-3 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group shadow-[0_10px_20px_rgba(47,128,255,0.15)] hover:shadow-[0_15px_30px_rgba(47,128,255,0.3)] transition-all hover:-translate-y-0.5 h-12"
                     >
-                      Contact our Team
+                      CONTACT OUR TEAM
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </motion.button>
                   </Link>
-                  <Link href="/contact" className="w-full sm:w-auto">
+                  <Link href="/company/capability-report" className="w-full sm:w-auto">
                     <motion.button
                       whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
                       whileTap={{ scale: 0.98 }}
                       className="w-full px-6 py-3 bg-card/40 backdrop-blur-xl border border-brand-border text-foreground dark:text-white rounded-xl font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] hover:border-[#2F80FF]/30 transition-all hover:-translate-y-0.5 h-12"
                     >
                       REQUEST CAPABILITY REPORT
-                      <Terminal className="w-4 h-4 text-foreground dark:text-white/70" />
+                      <ArrowRight className="w-4 h-4 text-foreground dark:text-white/70" />
                     </motion.button>
                   </Link>
                 </div>

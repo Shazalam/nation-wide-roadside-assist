@@ -542,7 +542,7 @@ export default function CapabilityReportPage() {
           </div>
 
           {/* ── FOOTER ── */}
-          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between">
+          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between relative z-20">
             <div className="flex items-center gap-3">
               <Globe size={11} className="text-[#2F80FF]"/>
               <span className="text-[clamp(10px,0.9vw,12px)] font-bold text-[#2F80FF] uppercase tracking-widest">Areas Served</span>
@@ -551,8 +551,8 @@ export default function CapabilityReportPage() {
               ))}
             </div>
             <div className="flex items-center gap-5 text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500">
-              <span className="flex items-center gap-1"><Phone size={9}/> +1-855-613-3131</span>
-              <span className="flex items-center gap-1"><Mail size={9}/> KONGL@NATIONWIDETRANSINC.COM</span>
+              <span className="flex items-center gap-1"><Phone size={9}/> +1 (855) 613-3131</span>
+              <span className="flex items-center gap-1"><Mail size={9}/> partnerships@nationwideroadsideassist.com</span>
               <span className="flex items-center gap-1"><MapPin size={9}/> 11727 East End Avenue, Chino, CA 91710</span>
               <span className="flex items-center gap-1"><Globe size={9}/> www.nationwideroadsideassist.com</span>
             </div>
@@ -655,7 +655,6 @@ export default function CapabilityReportPage() {
                     <Globe size={11} className="text-[#2F80FF]" />
                     Regional Coverage Ecosystem — High-fidelity Hub Network
                   </span>
-                  <span className="text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500 uppercase">Engineered for Modern Insurance Operations</span>
                 </div>
 
                 {/* Regional Hub Cards Grid */}
@@ -854,7 +853,7 @@ export default function CapabilityReportPage() {
           </div>
 
           {/* ── FOOTER ── */}
-          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between">
+          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between relative z-20">
             <div className="flex items-center gap-3">
               <Globe size={11} className="text-[#2F80FF]"/>
               <span className="text-[clamp(10px,0.9vw,12px)] font-bold text-[#2F80FF] uppercase tracking-widest">Areas Served</span>
@@ -864,7 +863,7 @@ export default function CapabilityReportPage() {
             </div>
             <div className="flex items-center gap-5 text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500">
               <span className="flex items-center gap-1"><Phone size={9}/> +1-855-613-3131</span>
-              <span className="flex items-center gap-1"><Mail size={9}/> KONGL@NATIONWIDETRANSINC.COM</span>
+              <span className="flex items-center gap-1"><Mail size={9}/>partnerships@nationwideroadsideassist.com</span>
               <span className="flex items-center gap-1"><MapPin size={9}/> 11727 East End Avenue, Chino, CA 91710</span>
               <span className="flex items-center gap-1"><Globe size={9}/> www.nationwideroadsideassist.com</span>
             </div>
@@ -1069,7 +1068,7 @@ export default function CapabilityReportPage() {
           </div>
 
           {/* ── FOOTER ── */}
-          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between">
+          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between relative z-20">
             <div className="flex items-center gap-3">
               <Globe size={11} className="text-[#2F80FF]"/>
               <span className="text-[clamp(10px,0.9vw,12px)] font-bold text-[#2F80FF] uppercase tracking-widest">Areas Served</span>
@@ -1079,7 +1078,7 @@ export default function CapabilityReportPage() {
             </div>
             <div className="flex items-center gap-5 text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500">
               <span className="flex items-center gap-1"><Phone size={9}/> +1-855-613-3131</span>
-              <span className="flex items-center gap-1"><Mail size={9}/> KONGL@NATIONWIDETRANSINC.COM</span>
+              <span className="flex items-center gap-1"><Mail size={9}/> partnerships@nationwideroadsideassist.com</span>
               <span className="flex items-center gap-1"><MapPin size={9}/> 11727 East End Avenue, Chino, CA 91710</span>
               <span className="flex items-center gap-1"><Globe size={9}/> www.nationwideroadsideassist.com</span>
             </div>
@@ -1385,7 +1384,7 @@ export default function CapabilityReportPage() {
           </div>
 
           {/* ── FOOTER ── */}
-          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between">
+          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between relative z-20">
             <div className="flex items-center gap-3">
               <Globe size={11} className="text-[#2F80FF]"/>
               <span className="text-[clamp(10px,0.9vw,12px)] font-bold text-[#2F80FF] uppercase tracking-widest">Areas Served</span>
@@ -1395,7 +1394,7 @@ export default function CapabilityReportPage() {
             </div>
             <div className="flex items-center gap-5 text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500">
               <span className="flex items-center gap-1"><Phone size={9}/> +1-855-613-3131</span>
-              <span className="flex items-center gap-1"><Mail size={9}/> KONGL@NATIONWIDETRANSINC.COM</span>
+              <span className="flex items-center gap-1"><Mail size={9}/> partnerships@nationwideroadsideassist.com</span>
               <span className="flex items-center gap-1"><MapPin size={9}/> 11727 East End Avenue, Chino, CA 91710</span>
               <span className="flex items-center gap-1"><Globe size={9}/> www.nationwideroadsideassist.com</span>
             </div>
@@ -1750,7 +1749,7 @@ export default function CapabilityReportPage() {
           </div>
 
           {/* ── FOOTER ── */}
-          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between">
+          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between relative z-20">
             <div className="flex items-center gap-3">
               <Globe size={11} className="text-[#2F80FF]"/>
               <span className="text-[clamp(10px,0.9vw,12px)] font-bold text-[#2F80FF] uppercase tracking-widest">Areas Served</span>
@@ -1760,7 +1759,7 @@ export default function CapabilityReportPage() {
             </div>
             <div className="flex items-center gap-5 text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500">
               <span className="flex items-center gap-1"><Phone size={9}/> +1-855-613-3131</span>
-              <span className="flex items-center gap-1"><Mail size={9}/> KONGL@NATIONWIDETRANSINC.COM</span>
+              <span className="flex items-center gap-1"><Mail size={9}/> partnerships@nationwideroadsideassist.com</span>
               <span className="flex items-center gap-1"><MapPin size={9}/> 11727 East End Avenue, Chino, CA 91710</span>
               <span className="flex items-center gap-1"><Globe size={9}/> www.nationwideroadsideassist.com</span>
             </div>
@@ -1907,7 +1906,7 @@ export default function CapabilityReportPage() {
           </div>
 
           {/* ── FOOTER ── */}
-          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between">
+          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between relative z-20">
             <div className="flex items-center gap-3">
               <Globe size={11} className="text-[#2F80FF]"/>
               <span className="text-[clamp(10px,0.9vw,12px)] font-bold text-[#2F80FF] uppercase tracking-widest">Areas Served</span>
@@ -1917,7 +1916,7 @@ export default function CapabilityReportPage() {
             </div>
             <div className="flex items-center gap-5 text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500">
               <span className="flex items-center gap-1"><Phone size={9}/> +1-855-613-3131</span>
-              <span className="flex items-center gap-1"><Mail size={9}/> KONGL@NATIONWIDETRANSINC.COM</span>
+              <span className="flex items-center gap-1"><Mail size={9}/> partnerships@nationwideroadsideassist.com</span>
               <span className="flex items-center gap-1"><MapPin size={9}/> 11727 East End Avenue, Chino, CA 91710</span>
               <span className="flex items-center gap-1"><Globe size={9}/> www.nationwideroadsideassist.com</span>
             </div>
@@ -2092,7 +2091,7 @@ export default function CapabilityReportPage() {
           </div>
 
           {/* ── FOOTER ── */}
-          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between">
+          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between relative z-20">
             <div className="flex items-center gap-3">
               <Globe size={11} className="text-[#2F80FF]"/>
               <span className="text-[clamp(10px,0.9vw,12px)] font-bold text-[#2F80FF] uppercase tracking-widest">Areas Served</span>
@@ -2102,7 +2101,7 @@ export default function CapabilityReportPage() {
             </div>
             <div className="flex items-center gap-5 text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500">
               <span className="flex items-center gap-1"><Phone size={9}/> +1-855-613-3131</span>
-              <span className="flex items-center gap-1"><Mail size={9}/> KONGL@NATIONWIDETRANSINC.COM</span>
+              <span className="flex items-center gap-1"><Mail size={9}/> partnerships@nationwideroadsideassist.com</span>
               <span className="flex items-center gap-1"><MapPin size={9}/> 11727 East End Avenue, Chino, CA 91710</span>
               <span className="flex items-center gap-1"><Globe size={9}/> www.nationwideroadsideassist.com</span>
             </div>
@@ -2116,7 +2115,7 @@ export default function CapabilityReportPage() {
           id="slide-9"
           className="min-h-[100dvh] h-auto lg:h-screen w-full snap-start flex flex-col justify-between bg-[#020617] px-6 pt-[68px] pb-1.5 relative overflow-hidden"
         >
-          <div className="w-full flex-1 min-h-0 max-w-[1800px] mx-auto flex flex-col justify-between z-10 relative">
+          <div className="w-full flex-1 min-h-0 max-w-[1800px] mx-auto flex flex-col justify-between z-10 relative overflow-y-auto scrollbar-none pr-1">
             {/* TIER 1: HERO & TOP METRICS (33% height on desktop) */}
             <div className="lg:h-[33%] h-auto shrink-0 min-h-min grid grid-cols-1 lg:grid-cols-12 gap-4 mt-2">
                {/* Title & 6 Icons */}
@@ -2134,7 +2133,7 @@ export default function CapabilityReportPage() {
                       Scalable recovery infrastructure for enterprise and commercial mobility operations.
                     </p>
                   </div>
-                  <div className="grid grid-cols-3 gap-2 mt-auto pb-1">
+                  <div className="grid grid-cols-3 gap-1.5 mt-auto pb-1">
                     {[
                       { icon: Network, label: "Enterprise Network" },
                       { icon: Search, label: "24/7 Coordination" },
@@ -2143,9 +2142,9 @@ export default function CapabilityReportPage() {
                       { icon: Shield, label: "Operational Continuity" },
                       { icon: Clock, label: "Real-Time Visibility" }
                     ].map((item, idx) => (
-                      <div key={idx} className="flex flex-col items-center justify-center border border-white/10 rounded-lg bg-slate-900/40 p-1 backdrop-blur-sm h-14 xl:h-16 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-                        <item.icon size={18} className="text-[#2F80FF] mb-1.5" strokeWidth={1.5} />
-                        <span className="text-[clamp(10px,0.85vw,12px)] text-slate-300 text-center uppercase leading-tight font-bold">{item.label}</span>
+                      <div key={idx} className="flex flex-col items-center justify-center border border-white/10 rounded-lg bg-slate-900/40 p-1 backdrop-blur-sm h-12 xl:h-14 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                        <item.icon size={16} className="text-[#2F80FF] mb-1.5" strokeWidth={1.5} />
+                        <span className="text-[clamp(9.5px,0.8vw,11.5px)] text-slate-300 text-center uppercase leading-tight font-bold">{item.label}</span>
                       </div>
                     ))}
                   </div>
@@ -2162,14 +2161,14 @@ export default function CapabilityReportPage() {
                   {/* Heavy-Duty Capabilities Tab */}
                   <div className="flex flex-col h-full bg-slate-900/40 rounded-xl border border-white/10 p-2">
                     <div className="text-[clamp(12px,1.05vw,14px)] text-slate-300 font-extrabold uppercase tracking-widest border-b border-white/10 pb-1 mb-1.5">HEAVY-DUTY CAPABILITIES</div>
-                    <div className="flex-1 flex flex-col gap-1.5">
+                    <div className="flex-1 flex flex-col gap-1">
                       {[
                         { title: "Rotators & Cranes", desc: "50-75 ton rotator capabilities for complex recoveries" },
                         { title: "Air Cushion Recovery", desc: "Specialized airbags for uprighting delicate cargo & loaded trailers" },
                         { title: "Landoll Trailers", desc: "Specialized equipment for transporting low-clearance vehicles" },
                         { title: "Heavy Winching", desc: "Multi-winch operations for complex off-road extractions" }
                       ].map((item, idx) => (
-                        <div key={idx} className="flex-1 bg-slate-950/60 border border-white/5 rounded p-2 flex flex-col justify-center hover:border-cyan-500/30 transition-all duration-300">
+                        <div key={idx} className="flex-1 bg-slate-950/60 border border-white/5 rounded p-1.5 flex flex-col justify-center hover:border-cyan-500/30 transition-all duration-300">
                            <div className="text-[#2F80FF] font-extrabold text-[clamp(11.5px,1vw,13px)] uppercase mb-0.5 flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></div>{item.title}</div>
                            <div className="text-slate-300 text-[clamp(10.5px,0.9vw,12px)] leading-relaxed">{item.desc}</div>
                         </div>
@@ -2180,14 +2179,14 @@ export default function CapabilityReportPage() {
                   {/* Commercial Fleet Support Tab */}
                   <div className="flex flex-col h-full bg-slate-900/40 rounded-xl border border-white/10 p-2">
                     <div className="text-[clamp(12px,1.05vw,14px)] text-slate-300 font-extrabold uppercase tracking-widest border-b border-white/10 pb-1 mb-1.5">COMMERCIAL FLEET SUPPORT</div>
-                    <div className="flex-1 flex flex-col gap-1.5">
+                    <div className="flex-1 flex flex-col gap-1">
                       {[
                         { title: "Load Shifts & Transfers", desc: "Secure handling of cargo transfers to minimize loss" },
                         { title: "Hazardous Material (Hazmat)", desc: "Certified recovery teams for environmental compliance" },
                         { title: "Secure Storage", desc: "24/7 monitored facilities for recovered assets & cargo" },
                         { title: "Incident Management", desc: "Scene safety coordination with local authorities" }
                       ].map((item, idx) => (
-                        <div key={idx} className="flex-1 bg-slate-950/60 border border-white/5 rounded p-2 flex flex-col justify-center hover:border-cyan-500/30 transition-all duration-300">
+                        <div key={idx} className="flex-1 bg-slate-950/60 border border-white/5 rounded p-1.5 flex flex-col justify-center hover:border-cyan-500/30 transition-all duration-300">
                            <div className="text-[#2F80FF] font-extrabold text-[clamp(11.5px,1vw,13px)] uppercase mb-0.5 flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></div>{item.title}</div>
                            <div className="text-slate-300 text-[clamp(10.5px,0.9vw,12px)] leading-relaxed">{item.desc}</div>
                         </div>
@@ -2198,8 +2197,8 @@ export default function CapabilityReportPage() {
             </div>
 
             {/* TIER 2: INFRASTRUCTURE PROCESS FLOW (23% height on desktop) */}
-            <div className="lg:h-[23%] h-auto shrink-0 min-h-min mt-4">
-               <div className="h-full border border-white/10 rounded-xl bg-slate-900/40 relative pt-8 lg:pt-7 pb-4 px-4 flex flex-col justify-center">
+            <div className="lg:h-[23%] h-auto shrink-0 min-h-min mt-2">
+               <div className="h-full border border-white/10 rounded-xl bg-slate-900/40 relative pt-6 lg:pt-5 pb-2 px-3 flex flex-col justify-center">
                  <div className="absolute -top-4 left-4 bg-[#020617] px-2.5 z-20">
                    <span className="text-[clamp(13px,1.4vw,20px)] whitespace-nowrap bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-extrabold tracking-widest uppercase">
                      COMMERCIAL MOBILITY RECOVERY INFRASTRUCTURE
@@ -2218,11 +2217,11 @@ export default function CapabilityReportPage() {
                      { icon: CheckCircle2, title: "OPERATIONAL RECOVERY\nRESOLUTION", desc: "Incident resolution,\nclearance, reporting,\nand operational\ncontinuity restored.", color: "text-emerald-500" }
                    ].map((step, idx) => (
                      <div key={idx} className="flex flex-col items-center z-10 w-[180px] lg:w-[12%] text-center relative shrink-0 whitespace-normal">
-                        <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-[#020617] border border-white/20 flex items-center justify-center mb-3 shadow-[0_0_15px_rgba(0,0,0,0.6)]">
-                          <step.icon size={20} className={step.color} strokeWidth={1.5} />
+                        <div className="w-10 h-10 rounded-full bg-[#020617] border border-white/20 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(0,0,0,0.6)]">
+                          <step.icon size={16} className={step.color} strokeWidth={1.5} />
                         </div>
-                        <div className="text-[clamp(11px,0.95vw,13px)] text-[#2F80FF] font-extrabold uppercase leading-tight mb-2">{step.title}</div>
-                        <div className="text-[clamp(10px,0.85vw,11.5px)] text-slate-300 leading-snug whitespace-pre-wrap">{step.desc}</div>
+                        <div className="text-[clamp(10px,0.85vw,12px)] text-[#2F80FF] font-extrabold uppercase leading-tight mb-1">{step.title}</div>
+                        <div className="text-[clamp(9px,0.75vw,10.5px)] text-slate-300 leading-snug whitespace-pre-wrap">{step.desc}</div>
                      </div>
                    ))}
                  </div>
@@ -2230,7 +2229,7 @@ export default function CapabilityReportPage() {
             </div>
 
             {/* TIER 3: SERVICES AND METRICS (28% height on desktop) */}
-            <div className="lg:h-[28%] h-auto shrink-0 min-h-min mt-4">
+            <div className="lg:h-[28%] h-auto shrink-0 min-h-min mt-2">
                {/* Image Cards */}
                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 lg:h-full h-auto">
                   {[
@@ -2241,16 +2240,16 @@ export default function CapabilityReportPage() {
                     { title: "ACCIDENT RECOVERY", img: "/tire_change_hero_cinematic_1778819076922.png", list: ["Accident Response", "Incident Management", "Emergency Escalation", "Recovery Command", "Operational Oversight"] }
                   ].map((card, idx) => (
                     <div key={idx} className="group flex flex-col h-full bg-slate-900/60 border border-white/10 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_4px_25px_rgba(56,189,248,0.1)]">
-                      <div className="text-[clamp(11.5px,1.05vw,14px)] text-slate-200 font-extrabold uppercase text-center py-2 bg-[#020617] shrink-0 tracking-wider">{card.title}</div>
-                      <div className="h-10 lg:h-11 xl:h-14 shrink-0 w-full overflow-hidden relative border-b border-white/10">
+                      <div className="text-[clamp(10px,0.85vw,12.5px)] text-slate-200 font-extrabold uppercase text-center py-1 bg-[#020617] shrink-0 tracking-wider">{card.title}</div>
+                      <div className="h-8 lg:h-9 xl:h-11 shrink-0 w-full overflow-hidden relative border-b border-white/10">
                          <div className="absolute inset-0 bg-[#2F80FF]/10 mix-blend-overlay z-10"></div>
                          <img src={card.img} alt={card.title} className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-500" />
                       </div>
-                      <div className="flex-1 px-3 py-2 flex flex-col justify-center gap-1 xl:gap-1.5">
+                      <div className="flex-1 px-3 py-1 flex flex-col justify-center gap-0.5 xl:gap-1">
                         {card.list.map((l, i) => (
                            <div key={i} className="flex items-center gap-2">
-                             <div className="w-1 h-1 lg:w-1.5 lg:h-1.5 rounded-full bg-[#38bdf8] shrink-0 shadow-[0_0_4px_rgba(56,189,248,0.6)]"></div>
-                             <span className="text-[clamp(10.5px,0.95vw,12.5px)] text-slate-300 font-medium leading-tight">{l}</span>
+                             <div className="w-1 h-1 rounded-full bg-[#38bdf8] shrink-0 shadow-[0_0_4px_rgba(56,189,248,0.6)]"></div>
+                             <span className="text-[clamp(9.5px,0.8vw,11px)] text-slate-300 font-medium leading-tight">{l}</span>
                            </div>
                         ))}
                       </div>
@@ -2261,7 +2260,7 @@ export default function CapabilityReportPage() {
           </div>
 
           {/* ── FOOTER ── */}
-          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between">
+          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between relative z-20">
             <div className="flex items-center gap-3">
               <Globe size={11} className="text-[#2F80FF]"/>
               <span className="text-[clamp(10px,0.9vw,12px)] font-bold text-[#2F80FF] uppercase tracking-widest">Areas Served</span>
@@ -2271,7 +2270,7 @@ export default function CapabilityReportPage() {
             </div>
             <div className="flex items-center gap-5 text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500">
               <span className="flex items-center gap-1"><Phone size={9}/> +1-855-613-3131</span>
-              <span className="flex items-center gap-1"><Mail size={9}/> KONGL@NATIONWIDETRANSINC.COM</span>
+              <span className="flex items-center gap-1"><Mail size={9}/> partnerships@nationwideroadsideassist.com</span>
               <span className="flex items-center gap-1"><MapPin size={9}/> 11727 East End Avenue, Chino, CA 91710</span>
               <span className="flex items-center gap-1"><Globe size={9}/> www.nationwideroadsideassist.com</span>
             </div>
@@ -2285,7 +2284,7 @@ export default function CapabilityReportPage() {
           id="slide-10"
           className="min-h-[100dvh] h-auto lg:h-screen w-full snap-start flex flex-col justify-between bg-[#020617] px-6 pt-[68px] pb-1.5 relative overflow-hidden"
         >
-          <div className="w-full flex-1 min-h-0 max-w-[1800px] mx-auto flex flex-col justify-between z-10 relative">
+          <div className="w-full flex-1 min-h-0 max-w-[1800px] mx-auto flex flex-col justify-between z-10 relative overflow-y-auto scrollbar-none pr-1">
             {/* TIER 1: STRATEGIC PARTNERSHIP HERO (35%) */}
             <div className="lg:h-[35%] h-auto shrink-0 min-h-min grid grid-cols-1 lg:grid-cols-12 gap-4 mt-2 relative">
               {/* Center Map Background Glow */}
@@ -2296,35 +2295,35 @@ export default function CapabilityReportPage() {
                   
                   <span className="text-slate-400 text-[clamp(8px,0.7vw,10px)] tracking-widest uppercase">PARTNERSHIP OPPORTUNITIES</span>
                 </div>
-                <h2 className="text-2xl lg:text-3xl xl:text-4xl font-black text-white leading-[0.9] tracking-tighter uppercase mb-3">
+                <h2 className="text-2xl lg:text-3xl xl:text-4xl font-black text-white leading-[0.9] tracking-tighter uppercase mb-2">
                   STRATEGIC RSA<br/>
                   <span className="text-[#2F80FF]">PARTNERSHIP</span><br/>
                   ECOSYSTEM
                 </h2>
-                <p className="text-[clamp(10px,0.9vw,12px)] text-cyan-400 font-medium leading-relaxed max-w-lg mb-4">
+                <p className="text-[clamp(10px,0.9vw,12px)] text-cyan-400 font-medium leading-relaxed max-w-lg mb-3">
                   NationwideRoadsideAssist enables enterprise organizations to outsource and scale roadside operations through centralized dispatch infrastructure, intelligent workflow coordination, and nationwide provider ecosystems.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
-                  <div className="border border-white/10 rounded-lg p-3 bg-slate-900/40 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.3)]">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <Globe size={18} className="text-[#2F80FF]" />
-                      <span className="text-[clamp(11px,1.0vw,13px)] text-white font-bold uppercase">NATIONWIDE INFRASTRUCTURE</span>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5">
+                  <div className="border border-white/10 rounded-lg p-2 bg-slate-900/40 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.3)]">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Globe size={16} className="text-[#2F80FF]" />
+                      <span className="text-[clamp(11px,0.9vw,12.5px)] text-white font-bold uppercase">NATIONWIDE INFRASTRUCTURE</span>
                     </div>
-                    <span className="text-[clamp(9.5px,0.85vw,11.5px)] text-slate-400">Coast-to-Coast Coverage</span>
+                    <span className="text-[clamp(9.5px,0.8vw,11px)] text-slate-400">Coast-to-Coast Coverage</span>
                   </div>
-                  <div className="border border-white/10 rounded-lg p-3 bg-slate-900/40 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.3)]">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <ShieldCheck size={18} className="text-emerald-400" />
-                      <span className="text-[clamp(11px,1.0vw,13px)] text-white font-bold uppercase">ENTERPRISE GRADE SECURITY</span>
+                  <div className="border border-white/10 rounded-lg p-2 bg-slate-900/40 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.3)]">
+                    <div className="flex items-center gap-2 mb-1">
+                      <ShieldCheck size={16} className="text-emerald-400" />
+                      <span className="text-[clamp(11px,0.9vw,12.5px)] text-white font-bold uppercase">ENTERPRISE GRADE SECURITY</span>
                     </div>
-                    <span className="text-[clamp(9.5px,0.85vw,11.5px)] text-slate-400">ISO 27001 Certified & SOC 2</span>
+                    <span className="text-[clamp(9.5px,0.8vw,11px)] text-slate-400">Industry-Standard Security Practices & Enterprise Security</span>
                   </div>
-                  <div className="border border-white/10 rounded-lg p-3 bg-slate-900/40 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.3)]">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <BrainCircuit size={18} className="text-cyan-400" />
-                      <span className="text-[clamp(11px,1.0vw,13px)] text-white font-bold uppercase">AI-POWERED DISPATCH</span>
+                  <div className="border border-white/10 rounded-lg p-2 bg-slate-900/40 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.3)]">
+                    <div className="flex items-center gap-2 mb-1">
+                      <BrainCircuit size={16} className="text-cyan-400" />
+                      <span className="text-[clamp(11px,0.9vw,12.5px)] text-white font-bold uppercase">AI-POWERED DISPATCH</span>
                     </div>
-                    <span className="text-[clamp(9.5px,0.85vw,11.5px)] text-slate-400">Real-Time Routing Intelligence</span>
+                    <span className="text-[clamp(9.5px,0.8vw,11px)] text-slate-400">Real-Time Routing Intelligence</span>
                   </div>
                 </div>
               </div>
@@ -2334,53 +2333,53 @@ export default function CapabilityReportPage() {
                  <img src="/us-nodes-map.jpg" alt="Nationwide Dispatch Mesh" className="w-full h-full object-contain opacity-90 mix-blend-screen drop-shadow-[0_0_20px_rgba(47,128,255,0.4)] pointer-events-none" />
               </div>
 
-              <div className="lg:col-span-4 border border-white/10 rounded-xl bg-slate-900/40 p-3 relative shadow-[0_0_15px_rgba(0,0,0,0.5)] backdrop-blur-sm z-10">
+              <div className="lg:col-span-4 border border-white/10 rounded-xl bg-slate-900/40 p-2 relative shadow-[0_0_15px_rgba(0,0,0,0.5)] backdrop-blur-sm z-10">
                 <div className="absolute -top-4 left-4 bg-[#020617] px-2.5 z-20">
                   <span className="text-[clamp(13px,1.4vw,20px)] whitespace-nowrap bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-extrabold tracking-widest uppercase">
                     ENTERPRISE RSA ECOSYSTEM ARCHITECTURE
                   </span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:h-full h-auto pt-8 lg:pt-7">
-                  <div className="flex items-start gap-2 bg-slate-950/60 p-2 rounded border border-white/5">
-                    <div className="text-blue-400 shrink-0 mt-0.5"><Layers size={16} /></div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 lg:h-full h-auto pt-6 lg:pt-5">
+                  <div className="flex items-start gap-2 bg-slate-950/60 p-1.5 rounded border border-white/5">
+                    <div className="text-blue-400 shrink-0 mt-0.5"><Layers size={14} /></div>
                     <div>
-                      <div className="text-[clamp(10px,0.95vw,12px)] text-white font-bold uppercase mb-0.5">WHITE-LABEL RSA PROGRAMS</div>
-                      <div className="text-[clamp(8.5px,0.8vw,10.5px)] text-slate-400 leading-tight">Branded infrastructure & workflows</div>
+                      <div className="text-[clamp(10px,0.85vw,11px)] text-white font-bold uppercase mb-0.5">WHITE-LABEL RSA PROGRAMS</div>
+                      <div className="text-[clamp(8.5px,0.75vw,10px)] text-slate-400 leading-tight">Branded infrastructure & workflows</div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2 bg-slate-950/60 p-2 rounded border border-white/5">
-                    <div className="text-cyan-400 shrink-0 mt-0.5"><Truck size={16} /></div>
+                  <div className="flex items-start gap-2 bg-slate-950/60 p-1.5 rounded border border-white/5">
+                    <div className="text-cyan-400 shrink-0 mt-0.5"><Truck size={14} /></div>
                     <div>
-                      <div className="text-[clamp(10px,0.95vw,12px)] text-white font-bold uppercase mb-0.5">FLEET PARTNERSHIPS</div>
-                      <div className="text-[clamp(8.5px,0.8vw,10.5px)] text-slate-400 leading-tight">Mobility continuity ecosystems</div>
+                      <div className="text-[clamp(10px,0.85vw,11px)] text-white font-bold uppercase mb-0.5">FLEET PARTNERSHIPS</div>
+                      <div className="text-[clamp(8.5px,0.75vw,10px)] text-slate-400 leading-tight">Mobility continuity ecosystems</div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2 bg-slate-950/60 p-2 rounded border border-white/5">
-                    <div className="text-emerald-400 shrink-0 mt-0.5"><Activity size={16} /></div>
+                  <div className="flex items-start gap-2 bg-slate-950/60 p-1.5 rounded border border-white/5">
+                    <div className="text-emerald-400 shrink-0 mt-0.5"><Activity size={14} /></div>
                     <div>
-                      <div className="text-[clamp(10px,0.95vw,12px)] text-white font-bold uppercase mb-0.5">DISPATCH OUTSOURCING</div>
-                      <div className="text-[clamp(8.5px,0.8vw,10.5px)] text-slate-400 leading-tight">Centralized dispatch routing</div>
+                      <div className="text-[clamp(10px,0.85vw,11px)] text-white font-bold uppercase mb-0.5">DISPATCH OUTSOURCING</div>
+                      <div className="text-[clamp(8.5px,0.75vw,10px)] text-slate-400 leading-tight">Centralized dispatch routing</div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2 bg-slate-950/60 p-2 rounded border border-white/5">
-                    <div className="text-purple-400 shrink-0 mt-0.5"><Headphones size={16} /></div>
+                  <div className="flex items-start gap-2 bg-slate-950/60 p-1.5 rounded border border-white/5">
+                    <div className="text-purple-400 shrink-0 mt-0.5"><Headphones size={14} /></div>
                     <div>
-                      <div className="text-[clamp(10px,0.95vw,12px)] text-white font-bold uppercase mb-0.5">CALL CENTER OPERATIONS</div>
-                      <div className="text-[clamp(8.5px,0.8vw,10.5px)] text-slate-400 leading-tight">24/7 intake & support</div>
+                      <div className="text-[clamp(10px,0.85vw,11px)] text-white font-bold uppercase mb-0.5">CALL CENTER OPERATIONS</div>
+                      <div className="text-[clamp(8.5px,0.75vw,10px)] text-slate-400 leading-tight">24/7 intake & support</div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2 bg-slate-950/60 p-2 rounded border border-white/5">
-                    <div className="text-orange-400 shrink-0 mt-0.5"><Users size={16} /></div>
+                  <div className="flex items-start gap-2 bg-slate-950/60 p-1.5 rounded border border-white/5">
+                    <div className="text-orange-400 shrink-0 mt-0.5"><Users size={14} /></div>
                     <div>
-                      <div className="text-[clamp(10px,0.95vw,12px)] text-white font-bold uppercase mb-0.5">VENDOR COORDINATION</div>
-                      <div className="text-[clamp(8.5px,0.8vw,10.5px)] text-slate-400 leading-tight">Provider network orchestration</div>
+                      <div className="text-[clamp(10px,0.85vw,11px)] text-white font-bold uppercase mb-0.5">VENDOR COORDINATION</div>
+                      <div className="text-[clamp(8.5px,0.75vw,10px)] text-slate-400 leading-tight">Provider network orchestration</div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2 bg-slate-950/60 p-2 rounded border border-white/5">
-                    <div className="text-pink-400 shrink-0 mt-0.5"><BarChart3 size={16} /></div>
+                  <div className="flex items-start gap-2 bg-slate-950/60 p-1.5 rounded border border-white/5">
+                    <div className="text-pink-400 shrink-0 mt-0.5"><BarChart3 size={14} /></div>
                     <div>
-                      <div className="text-[clamp(10px,0.95vw,12px)] text-white font-bold uppercase mb-0.5">REPORTING & VISIBILITY</div>
-                      <div className="text-[clamp(8.5px,0.8vw,10.5px)] text-slate-400 leading-tight">Real-time enterprise analytics</div>
+                      <div className="text-[clamp(10px,0.85vw,11px)] text-white font-bold uppercase mb-0.5">REPORTING & VISIBILITY</div>
+                      <div className="text-[clamp(8.5px,0.75vw,10px)] text-slate-400 leading-tight">Real-time enterprise analytics</div>
                     </div>
                   </div>
                 </div>
@@ -2388,8 +2387,8 @@ export default function CapabilityReportPage() {
             </div>
 
             {/* TIER 2: RSA ECOSYSTEM ARCHITECTURE (25%) */}
-            <div className="lg:h-[25%] h-auto shrink-0 min-h-min mt-4">
-              <div className="h-full border border-white/10 rounded-xl bg-slate-900/40 relative pt-8 lg:pt-7 pb-4 px-4 flex flex-col justify-center">
+            <div className="lg:h-[25%] h-auto shrink-0 min-h-min mt-2">
+              <div className="h-full border border-white/10 rounded-xl bg-slate-900/40 relative pt-6 lg:pt-5 pb-2 px-3 flex flex-col justify-center">
                 <div className="absolute -top-4 left-4 bg-[#020617] px-2.5 z-20">
                   <span className="text-[clamp(13px,1.4vw,20px)] whitespace-nowrap bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-extrabold tracking-widest uppercase">
                     END-TO-END RSA WORKFLOW INFRASTRUCTURE
@@ -2409,20 +2408,20 @@ export default function CapabilityReportPage() {
                   ].map((step, idx) => (
                     <div key={idx} className="flex flex-col items-center z-10 w-[180px] lg:w-[15%] text-center relative shrink-0 whitespace-normal">
                       {/* The Node Bubble */}
-                      <div className="relative w-12 h-12 bg-[#0b1221] border border-[#1e293b] rounded-xl flex items-center justify-center mb-3 shadow-lg z-10">
-                        <step.icon size={18} className="text-slate-300" />
+                      <div className="relative w-10 h-10 bg-[#0b1221] border border-[#1e293b] rounded-xl flex items-center justify-center mb-2 shadow-lg z-10">
+                        <step.icon size={16} className="text-slate-300" />
                         
                         {/* Step Number */}
-                        <div className="absolute -top-1.5 -right-1.5 h-4 w-4 rounded-md bg-[#2F80FF] text-white flex items-center justify-center text-[clamp(8px,0.7vw,10px)] font-bold shadow-md">
+                        <div className="absolute -top-1.5 -right-1.5 h-3.5 w-3.5 rounded bg-[#2F80FF] text-white flex items-center justify-center text-[clamp(7px,0.65vw,9px)] font-bold shadow-md">
                            {step.num}
                         </div>
                       </div>
 
                       {/* Active Telemetry Dot */}
-                      <div className="h-1 w-1 rounded-full bg-[#2F80FF] mb-2 opacity-80" />
+                      <div className="h-1 w-1 rounded-full bg-[#2F80FF] mb-1 opacity-80" />
 
-                      <h3 className="text-[clamp(10px,0.9vw,12.5px)] text-white font-extrabold text-center uppercase leading-tight mb-1 whitespace-pre-line">{step.title}</h3>
-                      <p className="text-[clamp(9px,0.8vw,11px)] text-slate-400 text-center whitespace-pre-line leading-tight">{step.desc}</p>
+                      <h3 className="text-[clamp(9.5px,0.85vw,11.5px)] text-white font-extrabold text-center uppercase leading-tight mb-1 whitespace-pre-line">{step.title}</h3>
+                      <p className="text-[clamp(8.5px,0.75vw,10px)] text-slate-400 text-center whitespace-pre-line leading-tight">{step.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -2430,74 +2429,74 @@ export default function CapabilityReportPage() {
             </div>
 
             {/* TIER 3: OPERATIONAL WORKFLOW & INTEGRATION LAYER (25%) */}
-            <div className="lg:h-[25%] h-auto shrink-0 min-h-min mt-4 border border-white/10 rounded-xl bg-slate-900/40 p-3 relative shadow-[0_0_15px_rgba(0,0,0,0.5)] backdrop-blur-sm">
+            <div className="lg:h-[25%] h-auto shrink-0 min-h-min mt-2 border border-white/10 rounded-xl bg-slate-900/40 p-2 relative shadow-[0_0_15px_rgba(0,0,0,0.5)] backdrop-blur-sm">
               <div className="absolute -top-4 left-4 bg-[#020617] px-2.5 z-20">
                 <span className="text-[clamp(13px,1.4vw,20px)] whitespace-nowrap bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-extrabold tracking-widest uppercase">
                   OPERATIONAL WORKFLOW & INTEGRATION LAYER
                 </span>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 lg:h-full h-auto pt-8 lg:pt-6">
-                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-3 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
-                  <div className="text-[clamp(11px,1vw,13.5px)] text-white font-extrabold uppercase mb-2 text-center">FULL RSA WORKFLOW<br/>MANAGEMENT</div>
-                  <img src="/workflow-management.png" className="w-full h-12 object-cover rounded opacity-80 mb-2 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
-                  <div className="flex flex-col gap-1.5 flex-1 mt-auto">
-                    {["Roadside Event Intake", "Customer Coordination", "AI Dispatch Assignment", "Provider Orchestration", "Escalation Management", "Resolution Tracking", "Operational Reporting"].map((t, i) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 lg:h-full h-auto pt-6 lg:pt-5">
+                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-2 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
+                  <div className="text-[clamp(10px,0.85vw,12px)] text-white font-extrabold uppercase mb-1.5 text-center">FULL RSA WORKFLOW<br/>MANAGEMENT</div>
+                  <img src="/workflow-management.png" className="hidden xl:block w-full h-10 object-cover rounded opacity-80 mb-1 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
+                  <div className="flex flex-col gap-0.5 flex-1 mt-auto">
+                    {["Roadside Event Intake", "Customer Coordination", "Escalation Management", "Resolution Tracking", "Operational Reporting"].map((t, i) => (
                       <div key={i} className="flex items-center gap-1.5">
-                        <CheckCircle size={10} className="text-emerald-400 shrink-0" />
-                        <span className="text-[clamp(9.5px,0.85vw,11.5px)] text-slate-300 leading-tight">{t}</span>
+                        <CheckCircle size={9} className="text-emerald-400 shrink-0" />
+                        <span className="text-[clamp(9px,0.75vw,10.5px)] text-slate-300 leading-tight">{t}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 
-                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-3 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
-                  <div className="text-[clamp(11px,1vw,13.5px)] text-white font-extrabold uppercase mb-2 text-center">CALL CENTER<br/>OPERATIONS</div>
-                  <img src="/callcenter-dashboard.png" className="w-full h-12 object-cover rounded opacity-80 mb-2 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
-                  <div className="flex flex-col gap-1.5 flex-1 mt-auto">
+                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-2 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
+                  <div className="text-[clamp(10px,0.85vw,12px)] text-white font-extrabold uppercase mb-1.5 text-center">CALL CENTER<br/>OPERATIONS</div>
+                  <img src="/callcenter-dashboard.png" className="hidden xl:block w-full h-10 object-cover rounded opacity-80 mb-1 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
+                  <div className="flex flex-col gap-0.5 flex-1 mt-auto">
                     {["24/7 Mobility Support", "Intake & Verification", "Customer Communication", "Incident Coordination"].map((t, i) => (
                       <div key={i} className="flex items-center gap-1.5">
-                        <CheckCircle size={10} className="text-[#2F80FF] shrink-0" />
-                        <span className="text-[clamp(9.5px,0.85vw,11.5px)] text-slate-300 leading-tight">{t}</span>
+                        <CheckCircle size={9} className="text-[#2F80FF] shrink-0" />
+                        <span className="text-[clamp(9px,0.75vw,10.5px)] text-slate-300 leading-tight">{t}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 
-                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-3 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
-                  <div className="text-[clamp(11px,1vw,13.5px)] text-white font-extrabold uppercase mb-2 text-center">DISPATCH<br/>COORDINATION</div>
-                  <img src="/dispatch-coordination-map.png" className="w-full h-12 object-cover rounded opacity-80 mb-2 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
-                  <div className="flex flex-col gap-1.5 flex-1 mt-auto">
+                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-2 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
+                  <div className="text-[clamp(10px,0.85vw,12px)] text-white font-extrabold uppercase mb-1.5 text-center">DISPATCH<br/>COORDINATION</div>
+                  <img src="/dispatch-coordination-map.png" className="hidden xl:block w-full h-10 object-cover rounded opacity-80 mb-1 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
+                  <div className="flex flex-col gap-0.5 flex-1 mt-auto">
                     {["AI-Powered Routing", "Provider Matching", "Real-Time GPS Tracking", "ETAs & Status Updates"].map((t, i) => (
                       <div key={i} className="flex items-center gap-1.5">
-                        <CheckCircle size={10} className="text-cyan-400" shrink-0 />
-                        <span className="text-[clamp(9.5px,0.85vw,11.5px)] text-slate-300 leading-tight">{t}</span>
+                        <CheckCircle size={9} className="text-cyan-400 shrink-0" />
+                        <span className="text-[clamp(9px,0.75vw,10.5px)] text-slate-300 leading-tight">{t}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 
-                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-3 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
-                  <div className="text-[clamp(11px,1vw,13.5px)] text-white font-extrabold uppercase mb-2 text-center">ESCALATION<br/>MANAGEMENT</div>
-                  <img src="/escalation-management.png" className="w-full h-12 object-cover rounded opacity-80 mb-2 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
-                  <div className="flex flex-col gap-1.5 flex-1 mt-auto">
+                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-2 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
+                  <div className="text-[clamp(10px,0.85vw,12px)] text-white font-extrabold uppercase mb-1.5 text-center">ESCALATION<br/>MANAGEMENT</div>
+                  <img src="/escalation-management.png" className="hidden xl:block w-full h-10 object-cover rounded opacity-80 mb-1 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
+                  <div className="flex flex-col gap-0.5 flex-1 mt-auto">
                     {["High-Priority Incidents", "Critical Event Handling", "Recovery Coordination", "Executive Escalations"].map((t, i) => (
                       <div key={i} className="flex items-center gap-1.5">
-                        <CheckCircle size={10} className="text-orange-400 shrink-0" />
-                        <span className="text-[clamp(9.5px,0.85vw,11.5px)] text-slate-300 leading-tight">{t}</span>
+                        <CheckCircle size={9} className="text-orange-400 shrink-0" />
+                        <span className="text-[clamp(9px,0.75vw,10.5px)] text-slate-300 leading-tight">{t}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 
-                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-3 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
-                  <div className="text-[clamp(11px,1vw,13.5px)] text-white font-extrabold uppercase mb-2 text-center">REAL-TIME OPERATIONAL<br/>INTELLIGENCE</div>
-                  <img src="/dashboard-charts.png" className="w-full h-12 object-cover rounded opacity-80 mb-2 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
-                  <div className="flex flex-col gap-1.5 flex-1 mt-auto">
+                <div className="flex flex-col h-full border border-white/10 rounded-xl bg-slate-900/40 backdrop-blur-md bg-gradient-to-br from-white/5 to-transparent p-2 shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-white/20 transition-colors duration-300">
+                  <div className="text-[clamp(10px,0.85vw,12px)] text-white font-extrabold uppercase mb-1.5 text-center">REAL-TIME OPERATIONAL<br/>INTELLIGENCE</div>
+                  <img src="/dashboard-charts.png" className="hidden xl:block w-full h-10 object-cover rounded opacity-80 mb-1 border border-white/10" onError={(e) => e.currentTarget.style.display = 'none'} />
+                  <div className="flex flex-col gap-0.5 flex-1 mt-auto">
                     {["Live Event Monitoring", "Performance Analytics", "SLA & KPI Reporting", "Enterprise Dashboards"].map((t, i) => (
                       <div key={i} className="flex items-center gap-1.5">
-                        <CheckCircle size={10} className="text-emerald-400 shrink-0" />
-                        <span className="text-[clamp(9.5px,0.85vw,11.5px)] text-slate-300 leading-tight">{t}</span>
+                        <CheckCircle size={9} className="text-emerald-400 shrink-0" />
+                        <span className="text-[clamp(9px,0.75vw,10.5px)] text-slate-300 leading-tight">{t}</span>
                       </div>
                     ))}
                   </div>
@@ -2507,7 +2506,7 @@ export default function CapabilityReportPage() {
           </div>
 
           {/* ── FOOTER ── */}
-          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between">
+          <div className="shrink-0 border-t border-white/5 bg-[#020810] px-5 py-1.5 flex items-center justify-between relative z-20">
             <div className="flex items-center gap-3">
               <Globe size={11} className="text-[#2F80FF]"/>
               <span className="text-[clamp(10px,0.9vw,12px)] font-bold text-[#2F80FF] uppercase tracking-widest">Areas Served</span>
@@ -2517,7 +2516,7 @@ export default function CapabilityReportPage() {
             </div>
             <div className="flex items-center gap-5 text-[clamp(10px,0.9vw,12px)] font-mono text-slate-500">
               <span className="flex items-center gap-1"><Phone size={9}/> +1-855-613-3131</span>
-              <span className="flex items-center gap-1"><Mail size={9}/> KONGL@NATIONWIDETRANSINC.COM</span>
+              <span className="flex items-center gap-1"><Mail size={9}/> partnerships@nationwideroadsideassist.com</span>
               <span className="flex items-center gap-1"><MapPin size={9}/> 11727 East End Avenue, Chino, CA 91710</span>
               <span className="flex items-center gap-1"><Globe size={9}/> www.nationwideroadsideassist.com</span>
             </div>

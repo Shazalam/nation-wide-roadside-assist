@@ -4,120 +4,105 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { EnterpriseTabs } from '@/components/ui/enterprise-tabs';
 import {
-  Cpu, Eye, Activity, Box, ShieldCheck, Sparkles, Check, HelpCircle, Terminal
+  Cpu, Eye, Activity, Box, ShieldCheck, Sparkles, Check, HelpCircle, Terminal, ExternalLink
 } from 'lucide-react';
 
 const solutions = [
   {
-    id: 'dispatch',
-    label: 'Dispatch Node',
+    id: 'intake',
+    label: 'Request Intake',
     icon: Cpu,
-    title: 'Automated Dispatch & Verification',
-    desc: 'Request roadside assistance programmatically. Verify policy benefit coverage in real time and automatically select from a nationwide vendor network.',
-    prompt: 'Dispatch Features',
-    features: [
-      'Instant service dispatch triggers',
-      'Automated benefit checks',
-      'Intelligent provider sorting',
-      'Class 1-8 service profiles',
-      'JSON REST/GraphQL endpoints',
-      'Enterprise auditing systems'
+    title: 'Structured RSA Request Intake',
+    desc: 'Clients submit roadside assistance requests through API or secure form workflows. Requests include customer details, policy information, service type, vehicle data, pickup location, drop-off location, and priority level.',
+    steps: [
+      { step: 1, label: 'Client API/Form Request', actor: 'Client Action', color: 'border-brand-blue/30 text-brand-blue bg-brand-blue/5' },
+      { step: 2, label: 'Internal Dispatch Dashboard', actor: 'Internal Systems', color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5' }
     ],
     cards: [
       {
-        title: 'Smart Sorting',
-        desc: 'Matches requests automatically to the nearest qualified provider.',
+        title: 'Customer & Policy Details',
+        desc: 'Validate client identity and coverage terms dynamically during intake.',
         glow: 'rgba(59,130,246,0.15)'
       },
       {
-        title: 'Instant Benefits',
-        desc: 'Validates customer tier and policy limits programmatically.',
+        title: 'Location Telemetry',
+        desc: 'Capture precise pickup and drop-off coordinates for dispatch routing.',
         glow: 'rgba(6,182,212,0.15)'
       },
       {
-        title: 'Developer Friendly',
-        desc: 'Clean JSON payload interfaces for effortless client integration.',
+        title: 'Vehicle & Service Specs',
+        desc: 'Identify Class 1–8 profiles and request types for optimal allocation.',
         glow: 'rgba(139,92,246,0.15)'
       },
       {
-        title: 'Scalable Ingest',
-        desc: 'Handles spikes in dispatch volume without operational delays.',
+        title: 'Dashboard Routing',
+        desc: 'Route incoming payloads directly to our operations command center.',
         glow: 'rgba(236,72,153,0.15)'
       }
     ]
   },
   {
-    id: 'tracking',
-    label: 'Tracking Stream',
-    icon: Eye,
-    title: 'Active GPS Tracking & Telemetry',
-    desc: 'Broker real-time GPS coordinate feeds, watch en-route provider movement, and update member-facing maps with accurate and dynamic ETAs.',
-    prompt: 'Telemetry Streams',
-    features: [
-      'Live GPS tracking telemetry',
-      'Calculated dynamic ETAs',
-      'Technician status alerts',
-      'Route verification algorithms',
-      'Multi-cloud data broker',
-      'Customer maps sync'
+    id: 'operations',
+    label: 'Dispatch Operations',
+    icon: Terminal,
+    title: 'Internal Dispatch Team Assignment',
+    desc: 'Every request is received by our internal backend dispatch team. Our team validates the request, identifies the correct service type, coordinates with the right provider, and manages the roadside operation.',
+    steps: [
+      { step: 3, label: 'Backend Team Review', actor: 'Operations Command', color: 'border-purple-500/30 text-purple-400 bg-purple-500/5' },
+      { step: 4, label: 'Provider Coordination', actor: 'Ops Management', color: 'border-cyan-500/30 text-cyan-400 bg-cyan-500/5' }
     ],
     cards: [
       {
-        title: 'Live Tracking',
-        desc: 'Streams active coordinate updates from en-route technician vehicles.',
+        title: 'Operations Dashboard',
+        desc: 'Direct control center ingestion for prompt, professional request review.',
         glow: 'rgba(245,158,11,0.15)'
       },
       {
-        title: 'Dynamic ETA',
-        desc: 'Recalculates ETA continuously based on active GPS and traffic updates.',
+        title: 'Team Assignment',
+        desc: 'Our backend dispatch specialists hand-assign qualified tow and recovery units.',
         glow: 'rgba(6,182,212,0.15)'
       },
       {
-        title: 'Status Updates',
-        desc: 'Reports status progression from dispatched to arrival and completion.',
+        title: 'Provider Coordination',
+        desc: 'Our dispatchers coordinate and follow up on the roadside job directly.',
         glow: 'rgba(59,130,246,0.15)'
       },
       {
-        title: 'Secure Ingestion',
-        desc: 'Secures mobile app telemetry updates from dispatch nodes.',
+        title: 'Escalation Systems',
+        desc: '24/7 supervisor support for heavy-duty or complex recovery operations.',
         glow: 'rgba(139,92,246,0.15)'
       }
     ]
   },
   {
-    id: 'webhooks',
-    label: 'Webhooks Ingest',
+    id: 'status',
+    label: 'Status Updates',
     icon: Activity,
-    title: 'Event-Driven Webhooks Hub',
-    desc: 'Receive immediate push notifications for critical dispatch changes. Orchestrate automated claims creation, payment processing, and driver alerts.',
-    prompt: 'Webhook Inbound',
-    features: [
-      'dispatch.created webhooks',
-      'technician.arrived webhooks',
-      'service.completed webhooks',
-      'Secure HMAC authorization',
-      'Automatic callback retries',
-      'Custom metadata options'
+    title: 'Real-Time Job Updates & Completion Flow',
+    desc: 'Clients receive operational updates as the service progresses, including request received, dispatch assigned, provider en route, service in progress, completed, and closed.',
+    steps: [
+      { step: 5, label: 'ETA & Status Updates', actor: 'Real-Time Telemetry', color: 'border-orange-500/30 text-orange-400 bg-orange-500/5' },
+      { step: 6, label: 'Job Completion Report', actor: 'Audit & Analytics', color: 'border-indigo-500/30 text-indigo-400 bg-indigo-500/5' }
     ],
     cards: [
       {
-        title: 'Milestone Events',
-        desc: 'Triggers webhooks immediately when job stages are reached.',
+        title: 'Booking Alerts',
+        desc: 'Instant verification notifies the client that ingestion was successful.',
         glow: 'rgba(16,185,129,0.15)'
       },
       {
-        title: 'Signed Payloads',
-        desc: 'Verifies webhook authenticity using signature check headers.',
+        title: 'Progress Tracking',
+        desc: 'Live milestone updates from dispatched and en-route to arrival.',
         glow: 'rgba(59,130,246,0.15)'
       },
       {
-        title: 'Auto Claims',
-        desc: 'Triggers claims billing flows automatically upon service finalization.',
+        title: 'Service Verification',
+        desc: 'Direct logging of arrival, completion, and job site parameters.',
         glow: 'rgba(139,92,246,0.15)'
       },
       {
-        title: 'Arbitrary Refs',
-        desc: 'Carries custom fleet identifiers and policy references throughout.',
+        title: 'Completion Reports',
+        desc: 'Export detailed dispatch logs, billing invoices, and SLA reports.',
         glow: 'rgba(236,72,153,0.15)'
       }
     ]
@@ -182,7 +167,7 @@ const cardVariants: Variants = {
 };
 
 export const APIInfrastructure = () => {
-  const [activeTab, setActiveTab] = useState('dispatch');
+  const [activeTab, setActiveTab] = useState('intake');
   const activeSolution = solutions.find(s => s.id === activeTab) || solutions[0];
 
   return (
@@ -208,15 +193,11 @@ export const APIInfrastructure = () => {
         
         {/* Section Header */}
         <div className="max-w-4xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
-            <Terminal className="w-3.5 h-3.5 text-[#2F80FF]" />
-            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Developer Ecosystem</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            API-First <span className="text-brand-blue">Core.</span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            API-First Dispatch <span className="text-brand-blue">Request Core</span>
           </h2>
-          <p className="text-brand-slate text-lg max-w-3xl">
-            Nationwide Roadside Assist is built as programmatic infrastructure. No complex portal setups required. Integrate directly using secure and reliable APIs.
+          <p className="text-brand-slate text-lg max-w-3xl leading-relaxed">
+            NationwideRoadsideAssist provides enterprise clients with secure API and form-based request intake. Clients submit roadside assistance requests with customer, policy, vehicle, pickup, and drop-off details. Each request is routed into our internal dispatch system, where our operations team coordinates the appropriate roadside provider and manages the job until completion.
           </p>
         </div>
 
@@ -242,11 +223,11 @@ export const APIInfrastructure = () => {
               }}
               className="space-y-12"
             >
-              {/* TOP ROW: Title, Desc, and features */}
+              {/* TOP ROW: Title, Desc, and workflow tracker */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
-                {/* Left side: Icon, title, and description (8 columns) */}
-                <div className="lg:col-span-8 space-y-6">
+                {/* Left side: Icon, title, and description (7 columns) */}
+                <div className="lg:col-span-7 space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="h-16 w-16 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center relative overflow-hidden group/icon shadow-[0_0_20px_rgba(47,128,255,0.1)]">
                       <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/10 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500" />
@@ -257,17 +238,31 @@ export const APIInfrastructure = () => {
                   <p className="text-brand-slate text-base md:text-lg leading-relaxed max-w-4xl font-medium">{activeSolution.desc}</p>
                 </div>
 
-                {/* Right side: Key features checklist (4 columns) */}
-                <div className="lg:col-span-4 bg-white/[0.02] border border-white/[0.06] rounded-3xl p-6 backdrop-blur-xl relative overflow-hidden">
+                {/* Right side: Request Flow Panel (5 columns) */}
+                <div className="lg:col-span-5 bg-[#0A192F]/65 border border-brand-border rounded-3xl p-6 backdrop-blur-2xl relative overflow-hidden shadow-2xl">
                   <div className="absolute inset-px rounded-[22px] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
-                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-4">{activeSolution.prompt}</h4>
-                  <div className="space-y-3 relative z-10">
-                    {activeSolution.features.map(f => (
-                      <div key={f} className="flex items-center gap-3 group/item">
-                        <div className="h-5 w-5 rounded-md bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center flex-shrink-0 group-hover/item:border-brand-blue/40 transition-colors">
-                          <Check className="h-3 w-3 text-brand-blue" />
+                  <h4 className="text-xs font-black uppercase tracking-widest text-[#2F80FF] mb-6 flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#2F80FF] animate-pulse" />
+                    Request Execution Flow
+                  </h4>
+                  <div className="relative pl-8 space-y-6 z-10">
+                    {/* Vertical connector line */}
+                    <div className="absolute left-[15px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-[#2F80FF] via-emerald-500 to-[#8B5CF6] opacity-35" />
+                    
+                    {activeSolution.steps.map((item, i) => (
+                      <div key={i} className="relative flex items-center">
+                        {/* Circle bullet on the timeline */}
+                        <div className="absolute -left-[32px] h-8 w-8 rounded-xl bg-[#0A192F] border border-white/10 flex items-center justify-center font-mono text-xs font-bold text-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                          {item.step}
                         </div>
-                        <span className="text-xs text-foreground font-semibold group-hover/item:text-white transition-colors duration-300">{f}</span>
+                        
+                        {/* Step Card */}
+                        <div
+                          className={`w-full relative z-10 flex flex-col p-4 border rounded-2xl backdrop-blur-md transition-all duration-300 hover:scale-[1.02] bg-[#0A192F]/40 ${item.color}`}
+                        >
+                          <p className="text-xs font-black uppercase tracking-wide leading-tight">{item.label}</p>
+                          <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">{item.actor}</p>
+                        </div>
                       </div>
                     ))}
                   </div>

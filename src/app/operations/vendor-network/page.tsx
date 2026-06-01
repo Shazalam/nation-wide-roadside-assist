@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { Navbar } from "@/components/layout/navbar";
 import { EnterpriseFooter } from "@/components/landing/enterprise-footer";
 import { VendorHero } from "./components/VendorHero";
-import { VendorGrid } from "./components/VendorGrid";
 import { ServiceEcosystem } from "./components/ServiceEcosystem";
 import { VehicleCoverage } from "./components/VehicleCoverage";
 import { DispatchWorkflow } from "./components/DispatchWorkflow";
@@ -22,18 +21,11 @@ export default function VendorNetworkPage() {
       
       <div className="relative z-10 pt-24">
         <VendorHero />
-        <VendorGrid />
         <ServiceEcosystem />
         
-        <div className="grid lg:grid-cols-2 gap-6 container mx-auto px-4 mb-24">
-           <VehicleCoverage />
-           <DispatchWorkflow />
-        </div>
-
-        <div className="max-w-4xl mx-auto px-4 mb-24">
-           <APIInfrastructure />
-        </div>
-        
+        <VehicleCoverage />
+        <DispatchWorkflow />
+        <APIInfrastructure />        
         <OperationalMetrics />
         <VendorCTA />
       </div>

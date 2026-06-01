@@ -50,15 +50,6 @@ export const WorkflowTimeline = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         
         <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="flex items-center justify-center gap-3 mb-4"
-          >
-            <div className="h-[1px] w-8 bg-[#2F80FF]" />
-            <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.3em]">Operational Flow</span>
-            <div className="h-[1px] w-8 bg-[#2F80FF]" />
-          </motion.div>
           <h2 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight">
             Service <span className="text-[#2F80FF]">Workflow</span>
           </h2>

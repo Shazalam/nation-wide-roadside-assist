@@ -10,8 +10,8 @@ const partners = [
 ];
 
 const compliance = [
-  { label: 'SOC 2', type: 'Type II', icon: ShieldCheck },
-  { label: 'PCI-DSS', type: 'Compliant', icon: Lock },
+  { label: 'Enterprise Security', type: 'Type II', icon: ShieldCheck },
+  { label: 'Secure Payment Processing', type: 'Compliant', icon: Lock },
   { label: 'ISO', type: '27001', icon: Globe },
   { label: '24/7', type: 'Operations', icon: Clock }
 ];

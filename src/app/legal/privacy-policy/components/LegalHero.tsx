@@ -65,8 +65,8 @@ export const LegalHero = () => {
           {/* Trust Metric Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full pt-8">
             {[
-              { label: 'SOC 2 Type II Certified', icon: Shield },
-              { label: 'GDPR Ready Infrastructure', icon: Globe },
+              { label: 'Enterprise-Grade Security', icon: Shield },
+              { label: 'Privacy-Focused Systems', icon: Globe },
               { label: '256-bit Encryption Standards', icon: Lock },
               { label: '24/7 Security Monitoring', icon: Activity }
             ].map((m, i) => (

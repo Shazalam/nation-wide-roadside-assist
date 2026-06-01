@@ -48,17 +48,6 @@ export const RecoveryHero = () => {
               <ChevronRight className="h-3 w-3 text-brand-blue" />
               <span className="text-white">Medium & Light Duty</span>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-brand-blue/5 border border-brand-blue/20 backdrop-blur-md">
-                <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse shadow-[0_0_10px_var(--brand-blue)]" />
-                <span className="text-[9px] font-black text-white uppercase tracking-[0.25em]">Tier-1 Consumer Assistance Network</span>
-              </div>
-            </motion.div>
           </div>
 
           {/* Heading Section */}
@@ -83,21 +72,7 @@ export const RecoveryHero = () => {
             </motion.p>
           </div>
 
-          {/* Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-5"
-          >
-            <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-black h-16 px-10 rounded-2xl shadow-[0_20px_50px_var(--brand-glow)] transition-all hover:-translate-y-1.5 active:scale-95 group">
-              Request RSA Support <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1.5 transition-transform" />
-            </Button>
-            <Button variant="outline" size="lg" className="border-white/10 bg-white/5 text-white hover:bg-white/10 h-16 px-10 rounded-2xl font-black backdrop-blur-xl transition-all hover:border-brand-blue/40 group flex items-center gap-3">
-               <span className="opacity-40 group-hover:opacity-100 font-mono transition-opacity">{'</>'}</span>
-               Enterprise Solutions
-            </Button>
-          </motion.div>
+
 
           {/* KPI Analytics Strip */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-12">

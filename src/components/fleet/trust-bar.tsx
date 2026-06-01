@@ -14,9 +14,9 @@ const integrationBadges = [
 ];
 
 const complianceBadges = [
-  { label: 'SOC 2 Type II', icon: ShieldCheck },
-  { label: 'ISO 27001', icon: Globe },
-  { label: 'PCI-DSS', icon: Lock },
+  { label: 'Enterprise-Grade Security', icon: ShieldCheck },
+  { label: 'Industry-Standard Security Practices', icon: Globe },
+  { label: 'Secure Payment Processing', icon: Lock },
   { label: 'DOT Compliance', icon: CheckCircle },
 ];
 

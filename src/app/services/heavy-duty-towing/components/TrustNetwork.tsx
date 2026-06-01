@@ -11,8 +11,8 @@ const partners = [
 
 const compliance = [
   { label: 'DOT', type: 'Certified', icon: ShieldCheck },
-  { label: 'SOC 2', type: 'Type II', icon: Lock },
-  { label: 'PCI-DSS', type: 'Compliant', icon: Globe },
+  { label: 'Enterprise Security', type: 'Type II', icon: Lock },
+  { label: 'Secure Payment Processing', type: 'Compliant', icon: Globe },
   { label: 'ISO', type: '27001', icon: Clock },
   { label: 'Heavy Recovery', type: 'Certified', icon: CheckCircle2 }
 ];

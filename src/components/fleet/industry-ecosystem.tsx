@@ -3,8 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Building2, Ship, Truck, Radio, Database, 
-  ArrowUpRight, Activity 
+  Building2, Ship, Truck, Radio, Database
 } from 'lucide-react';
 
 const ecosystemCards = [
@@ -70,10 +69,6 @@ export const IndustryEcosystem = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#2F80FF]" />
-              <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.4em]">Ecosystem Network</span>
-            </div>
             <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
                The Mobility <span className="text-[#2F80FF]">Infrastructure</span> Ecosystem
             </h2>
@@ -120,34 +115,6 @@ export const IndustryEcosystem = () => {
                       <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
                         {card.desc}
                       </p>
-                   </div>
-
-                   {/* Operational Telemetry */}
-                   <div className="mt-auto relative z-10 pt-6 border-t border-brand-border">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-[0.2em]">{card.label}</span>
-                        <div className="flex items-center gap-1 text-emerald-400 text-[9px] font-black bg-emerald-400/10 px-2 py-0.5 rounded-full">
-                           <ArrowUpRight className="w-3 h-3" />
-                           {card.trend}
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-baseline gap-2">
-                         <span className="text-2xl font-black text-foreground dark:text-white font-mono tracking-tighter group-hover:text-[#2F80FF] transition-colors">
-                            {card.kpi}
-                         </span>
-                         <Activity className="w-3 h-3 text-[#2F80FF] animate-pulse opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-
-                      {/* Small Progress Line */}
-                      <div className="mt-4 h-0.5 w-full bg-white/5 rounded-full overflow-hidden relative">
-                         <motion.div 
-                           initial={{ width: 0 }}
-                           whileInView={{ width: '100%' }}
-                           transition={{ duration: 1.5, ease: 'easeOut' }}
-                           className="h-full bg-gradient-to-r from-[#2F80FF] to-[#2F80FF]/20"
-                         />
-                      </div>
                    </div>
 
                    {/* Edge Glow Pulse */}

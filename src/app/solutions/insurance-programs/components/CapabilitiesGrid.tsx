@@ -16,15 +16,7 @@ export default function CapabilitiesGrid() {
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6"
-          >
-            <Shield className="w-3.5 h-3.5 text-[#2F80FF]" />
-            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-[0.2em]">Insurance Infrastructure Platform</span>
-          </motion.div>
+
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +24,7 @@ export default function CapabilitiesGrid() {
             transition={{ delay: 0.1 }}
             className="text-4xl lg:text-5xl font-black tracking-tight text-foreground dark:text-white mb-6"
           >
-            Engineered for Modern Insurance Operations
+             Platform <span className="text-[#2F80FF]">Capabilities</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

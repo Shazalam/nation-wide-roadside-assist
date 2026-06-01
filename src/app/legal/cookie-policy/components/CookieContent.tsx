@@ -1,9 +1,8 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GlassPanel } from '@/components/ui/glass-panel';
-import { Shield, Zap, Lock, Activity, Database, AlertCircle, Info, Server, BarChart3, Globe } from 'lucide-react';
 
 const PolicySection = ({ id, title, children }: { id: string, title: string, children: React.ReactNode }) => (
    <motion.section
@@ -25,141 +24,292 @@ const PolicySection = ({ id, title, children }: { id: string, title: string, chi
 
 export const CookieContent = () => {
    return (
-      <div className="flex-grow max-w-4xl pb-32">
+      <div className="flex-grow max-w-4xl mx-auto pb-32">
+        <PolicySection id="overview" title="Cookie Policy">
+          <p className="text-brand-slate text-base leading-relaxed font-medium"><strong>Last updated May 28, 2026</strong></p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium">
+            This Cookie Policy explains how <strong>Nationwide Roadside Assist</strong> ("Company", "we", "us", and "our") uses cookies and similar technologies to recognize you when you visit our website and mobility operations platform at:
+          </p>
+          <p className="text-brand-blue font-mono text-sm">
+            <a href="https://www.nationwideroadsideassist.com/" className="hover:underline">https://www.nationwideroadsideassist.com/</a>
+          </p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium">This Cookie Policy explains:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>What cookies are</li>
+            <li>Why we use them</li>
+            <li>How we use tracking technologies</li>
+            <li>Your rights to control them</li>
+            <li>How enterprise operational systems interact with analytics and platform telemetry</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">
+            By continuing to use our platform, you agree to the use of cookies and related technologies in accordance with this Cookie Policy.
+          </p>
+        </PolicySection>
 
-         <PolicySection id="overview" title="Overview">
+        <PolicySection id="what-are-cookies" title="What Are Cookies?">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">
+            Cookies are small data files stored on your computer, tablet, or mobile device when you visit a website. Cookies are commonly used to make websites operate efficiently, improve user experience, enhance security, and provide analytical reporting.
+          </p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">Cookies may be:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li><strong>First-party cookies</strong> — set directly by Nationwide Roadside Assist</li>
+            <li><strong>Third-party cookies</strong> — set by external service providers, analytics vendors, advertising networks, or embedded enterprise tools</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">Cookies may collect information related to:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Browser type</li>
+            <li>Device information</li>
+            <li>Geographic region</li>
+            <li>Session identifiers</li>
+            <li>Operational analytics</li>
+            <li>API performance</li>
+            <li>Dispatch workflow interactions</li>
+            <li>User preferences</li>
+          </ul>
+        </PolicySection>
+
+        <PolicySection id="why-use-cookies" title="Why Do We Use Cookies?">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">Nationwide Roadside Assist uses cookies and tracking technologies to support:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Enterprise infrastructure reliability</li>
+            <li>Roadside dispatch intelligence systems</li>
+            <li>Vendor coordination workflows</li>
+            <li>API session management</li>
+            <li>Security monitoring</li>
+            <li>Fraud prevention</li>
+            <li>Performance optimization</li>
+            <li>Customer experience enhancements</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">Cookies help us:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Maintain secure user sessions</li>
+            <li>Improve website performance</li>
+            <li>Understand user interactions</li>
+            <li>Optimize roadside workflows</li>
+            <li>Monitor API usage</li>
+            <li>Analyze operational telemetry</li>
+            <li>Deliver a more efficient platform experience</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">
+            Some cookies are strictly necessary for the operation of our services and cannot be disabled.
+          </p>
+        </PolicySection>
+
+        <PolicySection id="types-of-cookies" title="Types of Cookies We Use">
+          <h3 className="text-xl font-bold text-foreground dark:text-white mt-4 mb-4">1. ESSENTIAL COOKIES</h3>
+          <p className="text-brand-slate text-base leading-relaxed font-medium">These cookies are required for core platform functionality.</p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">Examples include:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-2 ml-4 font-medium">
+            <li>Authentication sessions</li>
+            <li>Security verification</li>
+            <li>Load balancing</li>
+            <li>API gateway routing</li>
+            <li>Fraud prevention systems</li>
+            <li>Enterprise login protection</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4 mb-8">Without these cookies, portions of the platform may not function properly.</p>
+
+          <div className="h-px w-full bg-brand-border my-8" />
+
+          <h3 className="text-xl font-bold text-foreground dark:text-white mb-4">2. PERFORMANCE & ANALYTICS COOKIES</h3>
+          <p className="text-brand-slate text-base leading-relaxed font-medium">These cookies help us understand how users interact with our infrastructure platform.</p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">Examples include:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-2 ml-4 font-medium">
+            <li>Page performance tracking</li>
+            <li>Dispatch workflow monitoring</li>
+            <li>API latency measurements</li>
+            <li>User interaction reporting</li>
+            <li>Operational analytics</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">These analytics help improve:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-2 ml-4 font-medium mb-8">
+            <li>Operational efficiency</li>
+            <li>Platform reliability</li>
+            <li>Service performance</li>
+          </ul>
+
+          <div className="h-px w-full bg-brand-border my-8" />
+
+          <h3 className="text-xl font-bold text-foreground dark:text-white mb-4">3. FUNCTIONAL COOKIES</h3>
+          <p className="text-brand-slate text-base leading-relaxed font-medium">Functional cookies enable enhanced platform experiences such as:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Saved preferences</li>
+            <li>Dashboard configurations</li>
+            <li>Regional settings</li>
+            <li>Enterprise onboarding states</li>
+            <li>Accessibility options</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4 mb-8">These cookies improve platform usability and operational continuity.</p>
+
+          <div className="h-px w-full bg-brand-border my-8" />
+
+          <h3 className="text-xl font-bold text-foreground dark:text-white mb-4">4. SECURITY COOKIES</h3>
+          <p className="text-brand-slate text-base leading-relaxed font-medium">Security cookies help detect and prevent:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Unauthorized access</li>
+            <li>Fraud attempts</li>
+            <li>Malicious API requests</li>
+            <li>Suspicious authentication behavior</li>
+            <li>Infrastructure abuse</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4 mb-8">These cookies support enterprise-grade platform protection and operational governance.</p>
+
+          <div className="h-px w-full bg-brand-border my-8" />
+
+          <h3 className="text-xl font-bold text-foreground dark:text-white mb-4">5. THIRD-PARTY COOKIES</h3>
+          <p className="text-brand-slate text-base leading-relaxed font-medium">Certain third-party services integrated into the platform may place cookies for:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Analytics</li>
+            <li>Infrastructure monitoring</li>
+            <li>Customer communication systems</li>
+            <li>Embedded enterprise dashboards</li>
+            <li>Operational support tools</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">Third-party cookies are governed by the privacy policies of their respective providers.</p>
+        </PolicySection>
+
+        <PolicySection id="how-to-control" title="How Can You Control Cookies?">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">You have the right to decide whether to accept or reject cookies.</p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">You may control cookie preferences by:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-2 ml-4 font-medium">
+            <li>Adjusting browser settings</li>
+            <li>Using cookie preference banners</li>
+            <li>Disabling non-essential cookies</li>
+            <li>Configuring tracking permissions directly within your browser</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">Please note:</p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-2">Disabling certain cookies may affect:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-2 ml-4 font-medium">
+            <li>Operational functionality</li>
+            <li>Authentication systems</li>
+            <li>Dashboard performance</li>
+            <li>API session continuity</li>
+            <li>Enterprise platform features</li>
+          </ul>
+        </PolicySection>
+
+        <PolicySection id="browser-management" title="Browser Cookie Management">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">Most web browsers allow you to control cookies through browser settings.</p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">Common browser resources include:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-2 ml-4 font-medium">
+            <li>Google Chrome</li>
+            <li>Microsoft Edge</li>
+            <li>Mozilla Firefox</li>
+            <li>Safari</li>
+            <li>Opera</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">You may configure your browser to:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-2 ml-4 font-medium">
+            <li>Block cookies</li>
+            <li>Delete existing cookies</li>
+            <li>Notify you when cookies are used</li>
+            <li>Limit tracking technologies</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">Please note that restricting cookies may reduce certain platform capabilities and user experience features.</p>
+        </PolicySection>
+
+        <PolicySection id="web-beacons" title="Web Beacons & Tracking Technologies">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">In addition to cookies, Nationwide Roadside Assist may use technologies such as:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Tracking pixels</li>
+            <li>Web beacons</li>
+            <li>Telemetry scripts</li>
+            <li>API observability tools</li>
+            <li>Session analytics systems</li>
+            <li>Operational monitoring technologies</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">These technologies help us:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Measure traffic patterns</li>
+            <li>Improve infrastructure performance</li>
+            <li>Analyze operational efficiency</li>
+            <li>Enhance enterprise reliability</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">These systems are used solely to support secure and efficient mobility operations.</p>
+        </PolicySection>
+
+        <PolicySection id="targeted-advertising" title="Targeted Advertising">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">Certain third-party providers may use cookies and tracking technologies to deliver relevant advertisements or analyze campaign effectiveness.</p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">These technologies may collect limited information regarding:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Browsing behavior</li>
+            <li>Device interactions</li>
+            <li>Referral sources</li>
+            <li>Website engagement</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">Nationwide Roadside Assist does not use cookie data to directly identify individual users unless voluntarily provided through platform interactions.</p>
+        </PolicySection>
+
+        <PolicySection id="data-retention" title="Data Retention">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">Cookies remain stored for varying durations depending on their purpose.</p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">Retention periods may include:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Session-based durations</li>
+            <li>Short-term operational storage</li>
+            <li>Long-term analytical reporting</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">Expired cookies are automatically removed by your browser or system settings.</p>
+        </PolicySection>
+
+        <PolicySection id="enterprise-security" title="Enterprise Security & Compliance">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">Nationwide Roadside Assist maintains enterprise-grade security and operational governance standards.</p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">Our infrastructure incorporates practices aligned with:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>SOC 2 Type II</li>
+            <li>GDPR Readiness</li>
+            <li>PCI-DSS Security Practices</li>
+            <li>ISO 27001 Operational Standards</li>
+            <li>Enterprise Access Control Systems</li>
+            <li>Encrypted Operational Infrastructure</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">Cookies and telemetry systems are used responsibly to support secure operational workflows.</p>
+        </PolicySection>
+
+        <PolicySection id="policy-updates" title="Policy Updates">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">We may update this Cookie Policy periodically to reflect:</p>
+          <ul className="list-disc list-inside text-brand-slate space-y-2 mt-4 ml-4 font-medium">
+            <li>Operational changes</li>
+            <li>Technology improvements</li>
+            <li>Legal requirements</li>
+            <li>Infrastructure updates</li>
+            <li>Regulatory compliance obligations</li>
+          </ul>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-6">The "Last Updated" date at the top of this Cookie Policy reflects the latest revision.</p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">We encourage users to review this Cookie Policy regularly.</p>
+        </PolicySection>
+
+        <PolicySection id="contact-information" title="Contact Information">
+          <p className="text-brand-slate text-base leading-relaxed font-medium mb-6">If you have questions regarding this Cookie Policy or our use of cookies and tracking technologies, you may contact us at:</p>
+          
+          <div className="bg-brand-blue/5 border border-brand-blue/20 rounded-2xl p-6 space-y-4">
+            <h4 className="text-lg font-bold text-foreground dark:text-white">Nationwide Roadside Assist</h4>
             <p className="text-brand-slate text-base leading-relaxed font-medium">
-               Nationwide Roadside Assist ("Nationwide Roadside Assist", "we", "us", or "our") uses cookies and similar tracking technologies to ensure the reliability of our nationwide roadside infrastructure, optimize dispatch intelligence, and provide a secure, high-performance experience for our enterprise partners. This policy explains how we utilize these technologies in alignment with our enterprise governance and data accountability standards.
+              11727 East End Ave<br />
+              Chino, CA 91710<br />
+              United States
             </p>
-            <div className="p-5 bg-brand-blue/5 border border-brand-blue/20 rounded-2xl flex items-start gap-4">
-               <Info className="h-5 w-5 text-[#2F80FF] mt-0.5 shrink-0" />
-               <p className="text-xs font-medium text-brand-slate leading-relaxed">
-                  <span className="text-foreground dark:text-white font-bold block mb-1 uppercase tracking-wider">Governance Notice:</span>
-                  Our tracking infrastructure is audited annually for compliance with GDPR, CCPA, and SOC 2 Type II security frameworks.
-               </p>
+            <div className="pt-4 space-y-2">
+              <p className="text-brand-slate text-base font-medium">
+                <strong className="text-foreground dark:text-white">Email:</strong> <a href="mailto:kongl@nationwidetransinc.com" className="text-brand-blue hover:underline">kongl@nationwidetransinc.com</a>
+              </p>
+              <p className="text-brand-slate text-base font-medium">
+                <strong className="text-foreground dark:text-white">Website:</strong> <a href="https://www.nationwideroadsideassist.com/" className="text-brand-blue hover:underline">https://www.nationwideroadsideassist.com/</a>
+              </p>
+              <p className="text-brand-slate text-base font-medium">
+                <strong className="text-foreground dark:text-white">Phone:</strong> +1 (855) 613-3131
+              </p>
             </div>
-         </PolicySection>
+          </div>
+        </PolicySection>
 
-         <PolicySection id="what-are-cookies" title="What Are Cookies">
-            <p className="text-brand-slate text-base leading-relaxed font-medium">
-               Cookies are small data packets stored on your device that allow our infrastructure to recognize session states, authenticate users, and gather operational telemetry. We also use "web beacons" and "pixel tags" to monitor dispatch event propagation and API performance across our mobility network.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-               <div className="p-5 bg-white/[0.02] border border-brand-border rounded-xl space-y-3">
-                  <div className="flex items-center gap-2">
-                     <Zap className="h-3.5 w-3.5 text-[#2F80FF]" />
-                     <span className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest">Session Cookies</span>
-                  </div>
-                  <p className="text-[11px] text-brand-slate font-medium leading-relaxed">Temporary indicators that expire once your operational session ends. Used primarily for real-time dispatch state management.</p>
-               </div>
-               <div className="p-5 bg-white/[0.02] border border-brand-border rounded-xl space-y-3">
-                  <div className="flex items-center gap-2">
-                     <Database className="h-3.5 w-3.5 text-[#2F80FF]" />
-                     <span className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest">Persistent Cookies</span>
-                  </div>
-                  <p className="text-[11px] text-brand-slate font-medium leading-relaxed">Data nodes that remain on your device for a set period. Used for localized preferences and long-term infrastructure analytics.</p>
-               </div>
-            </div>
-         </PolicySection>
-
-         <PolicySection id="essential" title="Essential Infrastructure">
-            <div className="space-y-6">
-               <p className="text-brand-slate text-base leading-relaxed font-medium">
-                  These cookies are mission-critical for the operation of the Nationwide Roadside Assist platform. They cannot be disabled through our consent management system as they are required for core infrastructure stability.
-               </p>
-               <table className="w-full text-left border-collapse">
-                  <thead>
-                     <tr className="border-b border-brand-border">
-                        <th className="py-4 text-[10px] font-black text-brand-slate uppercase tracking-widest">Node Name</th>
-                        <th className="py-4 text-[10px] font-black text-brand-slate uppercase tracking-widest">Purpose</th>
-                        <th className="py-4 text-[10px] font-black text-brand-slate uppercase tracking-widest">Retention</th>
-                     </tr>
-                  </thead>
-                  <tbody className="divide-y divide-brand-border/50">
-                     {[
-                        { name: 'NTI_AUTH_TOKEN', purpose: 'Enterprise authentication and session mesh', retention: 'Session' },
-                        { name: 'DISPATCH_ID_SYNC', purpose: 'Real-time dispatch event coordination', retention: '24 Hours' },
-                        { name: 'INFRA_HEALTH_CK', purpose: 'Load balancing and node availability checks', retention: 'Persistent' }
-                     ].map((row, i) => (
-                        <tr key={i} className="hover:bg-white/[0.01] transition-colors">
-                           <td className="py-4 text-[11px] font-mono text-[#2F80FF]">{row.name}</td>
-                           <td className="py-4 text-[11px] text-brand-slate font-medium">{row.purpose}</td>
-                           <td className="py-4 text-[11px] text-brand-slate font-mono">{row.retention}</td>
-                        </tr>
-                     ))}
-                  </tbody>
-               </table>
-            </div>
-         </PolicySection>
-
-         <PolicySection id="analytics" title="Operational Analytics">
-            <div className="space-y-6">
-               <p className="text-brand-slate text-base leading-relaxed font-medium">
-                  We utilize analytics cookies to monitor the propagation of roadside events, API latency, and operational efficiency across our nationwide network. This telemetry is anonymized and used strictly for infrastructure optimization.
-               </p>
-               <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-4 p-4 bg-white/[0.02] border border-brand-border rounded-2xl">
-                     <div className="h-10 w-10 rounded-lg bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
-                        <BarChart3 className="h-5 w-5 text-emerald-400" />
-                     </div>
-                     <div>
-                        <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest">Performance Observability</h4>
-                        <p className="text-[10px] text-brand-slate font-medium">Monitoring dispatch engine throughput and regional response times.</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </PolicySection>
-
-         <PolicySection id="gdpr-rights" title="GDPR Cookie Rights">
-            <div className="space-y-6">
-               <p className="text-brand-slate text-base leading-relaxed font-medium">
-                  Under the General Data Protection Regulation (GDPR), European Union residents have specific rights regarding tracking and consent management.
-               </p>
-               <ul className="space-y-4">
-                  {[
-                     "The right to be informed about how cookies are used in our mobility network.",
-                     "The right to provide explicit consent before non-essential tracking is initiated.",
-                     "The right to withdraw consent at any time via our Trust Center.",
-                     "The right to access and delete your specific consent history nodes."
-                  ].map((item, i) => (
-                     <li key={i} className="flex items-start gap-3">
-                        <div className="h-5 w-5 rounded-full bg-[#2F80FF]/10 border border-[#2F80FF]/30 flex items-center justify-center shrink-0 mt-0.5">
-                           <div className="h-1 w-1 rounded-full bg-[#2F80FF]" />
-                        </div>
-                        <span className="text-sm text-brand-slate font-medium">{item}</span>
-                     </li>
-                  ))}
-               </ul>
-            </div>
-         </PolicySection>
-
-         <PolicySection id="contact" title="Contact Information">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-               <div className="space-y-4">
-                  <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest flex items-center gap-2">
-                     <Globe className="h-3.5 w-3.5 text-[#2F80FF]" />
-                     Governance Division
-                  </h4>
-                  <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
-                     Nationwide Roadside Assist<br />
-                     Data Sovereignty & Consent Team<br />
-                     11727 East End Avenue<br />
-                     Chino, CA 91710
-                  </p>
-               </div>
-               <div className="space-y-4">
-                  <h4 className="text-xs font-black text-foreground dark:text-white uppercase tracking-widest flex items-center gap-2">
-                     <Lock className="h-3.5 w-3.5 text-[#2F80FF]" />
-                     Consent Support
-                  </h4>
-                  <div className="space-y-2">
-                     <p className="text-[11px] font-mono text-brand-blue font-bold">privacy@nationwidetrans.com</p>
-                     <p className="text-[11px] font-mono text-brand-blue font-bold">consent-ops@nationwidetrans.com</p>
-                  </div>
-               </div>
-            </div>
-         </PolicySection>
+        <PolicySection id="enterprise-notice" title="Enterprise Notice">
+          <p className="text-brand-slate text-base leading-relaxed font-medium">
+            Nationwide Roadside Assist operates enterprise roadside assistance infrastructure, dispatch intelligence systems, API integrations, roadside operational networks, fleet support ecosystems, and nationwide vendor coordination platforms.
+          </p>
+          <p className="text-brand-slate text-base leading-relaxed font-medium mt-4">
+            Our use of cookies and related technologies is intended to support secure, reliable, and optimized enterprise mobility operations.
+          </p>
+        </PolicySection>
 
       </div>
    );

@@ -4,10 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { LegalHero } from './components/LegalHero';
 import { ComplianceBar } from './components/ComplianceBar';
 import { LegalContent } from './components/LegalContent';
-import { GovernanceCards } from './components/GovernanceCards';
-import { SecuritySection } from './components/SecuritySection';
-import { VersionHistory } from './components/VersionHistory';
-import { ContactSection } from './components/ContactSection';
+
 import { TrustCTA } from './components/TrustCTA';
 import { MountedOnly } from '@/components/utils/mounted-only';
 
@@ -55,10 +52,7 @@ export default function PrivacyPolicyPage() {
            <LegalContent />
         </div>
 
-        <GovernanceCards />
-        <SecuritySection />
-        <VersionHistory />
-        <ContactSection />
+
       </MountedOnly>
       
       <TrustCTA />

@@ -30,7 +30,7 @@ export const EnterpriseCTA = () => {
 
                 <div className="flex flex-wrap gap-4">
                    <Button size="lg" suppressHydrationWarning className="bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-12 px-8 rounded-lg shadow-[0_10px_30px_rgba(47,128,255,0.3)] group text-xs">
-                      Contact Enterprise Operations <ArrowRight className="ml-3 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                      CONTACT OUR TEAM <ArrowRight className="ml-3 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                    </Button>
                    <Button
                       variant="outline"
@@ -40,7 +40,7 @@ export const EnterpriseCTA = () => {
                       disabled={isGeneratingPdf}
                       className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-12 px-8 rounded-lg font-bold uppercase tracking-widest text-[10px] group"
                    >
-                      {isGeneratingPdf ? 'Generating PDF...' : 'Request Capability Report'} <FileText className="ml-3 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                      {isGeneratingPdf ? 'Generating PDF...' : 'REQUEST CAPABILITY REPORT'} <ArrowRight className="ml-3 h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                    </Button>
                 </div>
              </motion.div>

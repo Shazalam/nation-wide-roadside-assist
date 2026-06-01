@@ -86,10 +86,7 @@ export const VendorCTA = () => {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-7 space-y-4 text-left"
               >
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#2F80FF] animate-pulse" />
-                  <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-[0.3em] font-mono">Infrastructure Scaling</span>
-                </div>
+
                 
                 <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white uppercase tracking-tight leading-[1.1]">
                   Modernize Your <span className="text-[#2F80FF]">Vendor Coordination</span> Infrastructure
@@ -101,10 +98,10 @@ export const VendorCTA = () => {
                 
                 <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
                   <Button className="w-full sm:w-auto bg-[#2F80FF] hover:bg-[#2F80FF]/90 text-foreground dark:text-white font-bold h-12 px-6 rounded-xl shadow-[0_10px_20px_rgba(47,128,255,0.15)] hover:shadow-[0_15px_30px_rgba(47,128,255,0.3)] transition-all hover:-translate-y-0.5">
-                    Contact Enterprise Team <ArrowRight className="ml-2 h-4 w-4" />
+                    CONTACT OUR TEAM <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                   <Button variant="outline" className="w-full sm:w-auto border-brand-border text-foreground dark:text-white hover:bg-white/5 h-12 px-6 rounded-xl font-bold bg-card/40 backdrop-blur-xl border shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] hover:border-[#2F80FF]/30 transition-all hover:-translate-y-0.5">
-                    Request Capability Report <FileText className="ml-2 h-4 w-4 text-brand-slate" />
+                    Request Capability Report <ArrowRight className="ml-2 h-4 w-4 text-brand-slate" />
                   </Button>
                 </div>
               </motion.div>

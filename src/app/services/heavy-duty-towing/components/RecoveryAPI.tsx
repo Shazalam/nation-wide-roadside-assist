@@ -1,190 +1,340 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Terminal, Code2, Copy, Check, Database, Shield, Globe, Zap, Key, Box, Braces, ChevronRight } from 'lucide-react';
-import { GlassPanel } from '@/components/ui/glass-panel';
-import { Button } from '@/components/ui/button';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { EnterpriseTabs } from '@/components/ui/enterprise-tabs';
+import { Terminal, Database, Zap, Check } from 'lucide-react';
 
-const codeExamples = {
-  recovery: `curl -X POST https://api.nationwidetrans.com/v1/heavy-recovery/dispatch \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -d '{
-    "type": "semi_recovery",
-    "priority": "critical",
-    "vehicle_class": 8,
-    "location": {
-      "lat": 39.7392,
-      "lng": -104.9903,
-      "address": "I-70, Denver, CO"
-    },
-    "requirements": ["rotator", "heavy_wrecker"]
-  }'`,
-  telemetry: `{
-  "incident_id": "INC-7849",
-  "status": "on_scene",
-  "operator": {
-    "name": "Heavy Haul Inc.",
-    "truck_id": "RT-402",
-    "telemetry": {
-      "lat": 39.7412,
-      "lng": -104.9885,
-      "speed_mph": 0,
-      "heading": 215
+const solutions = [
+  {
+    id: 'dispatch',
+    label: 'Dispatch API',
+    icon: Terminal,
+    title: 'Heavy Recovery Dispatch',
+    desc: 'Seamlessly integrate nationwide heavy-duty recovery orchestration into your existing platforms with our high-performance APIs. Order rotators, lowboys, and underlifts programmatically.',
+    prompt: 'Recovery Features',
+    features: [
+      'JSON dispatch payloads',
+      'Priority routing parameters',
+      'Vehicle weight classification',
+      'Required equipment arrays',
+      'Dynamic ETA responses',
+      'Live vendor matching'
+    ],
+    cards: [
+      {
+        title: 'Global Endpoints',
+        desc: 'RESTful orchestration across the entire US and Canada.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Equipment Flags',
+        desc: 'Specify rotators or heavy wreckers dynamically.',
+        glow: 'rgba(6,182,212,0.15)'
+      },
+      {
+        title: 'Priority Matrix',
+        desc: 'Escalate critical incidents blocking major interstates.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Developer SDKs',
+        desc: 'Native libraries for Go, Node.js, and Python integration.',
+        glow: 'rgba(236,72,153,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'telemetry',
+    label: 'Telemetry',
+    icon: Database,
+    title: 'Operator Telemetry Stream',
+    desc: 'Receive live coordinates, speed, and status updates directly from the responding heavy-duty operator in the field. Keep your logistics teams fully informed.',
+    prompt: 'Telemetry Ingest',
+    features: [
+      'High-frequency GPS tracking',
+      'Operator identification data',
+      'Truck speed and heading',
+      'Live incident status updates',
+      'Secure tokenized access',
+      'Automated drift warnings'
+    ],
+    cards: [
+      {
+        title: 'GPS Streaming',
+        desc: 'Sub-second coordinate updates mapped to incident IDs.',
+        glow: 'rgba(16,185,129,0.15)'
+      },
+      {
+        title: 'Status Tracking',
+        desc: 'Live transitions from en-route to on-scene and towing.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Operator Sync',
+        desc: 'Truck IDs and company names injected into telemetry.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Encrypted Feed',
+        desc: 'SSL-secured data streams protecting asset locations.',
+        glow: 'rgba(236,72,153,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'webhooks',
+    label: 'Webhooks',
+    icon: Zap,
+    title: 'Event-Driven Webhooks',
+    desc: 'Push real-time recovery event data directly into your TMS, ERP, or billing platforms. Automate invoicing and compliance logging instantly.',
+    prompt: 'Webhook Channels',
+    features: [
+      'recovery.incident.completed',
+      'vendor.matched events',
+      'ETA update notifications',
+      'Billing summary sync',
+      'HMAC signature security',
+      'Automated retry logic'
+    ],
+    cards: [
+      {
+        title: 'Instant POSTs',
+        desc: 'Immediate HTTP pushes when critical milestones hit.',
+        glow: 'rgba(239,68,68,0.15)'
+      },
+      {
+        title: 'Billing Sync',
+        desc: 'Auto-completes invoices with final recovery costs.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'HMAC Security',
+        desc: 'Validates payload authenticity with signed headers.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Sandbox Mesh',
+        desc: 'Testing environment to validate webhook handling.',
+        glow: 'rgba(6,182,212,0.15)'
+      }
+    ]
+  }
+];
+
+const gridVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1
     }
   }
-}`,
-  webhooks: `// Recovery Event: recovery.incident.completed
-{
-  "id": "evt_9l4k8j2",
-  "type": "recovery.incident.completed",
-  "created": 1683902400,
-  "data": {
-    "incident_id": "INC-7849",
-    "recovery_duration": "42m",
-    "resolution": "tractor_recovered",
-    "billing_summary": {
-      "amount": 2450.00,
-      "currency": "USD"
+};
+
+const cardVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    x: 25, 
+    y: 10, 
+    scale: 0.96, 
+    filter: 'blur(4px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
+  },
+  show: { 
+    opacity: 1, 
+    x: 0, 
+    y: 0, 
+    scale: 1, 
+    filter: 'blur(0px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+    transition: {
+      type: 'spring',
+      stiffness: 140,
+      damping: 18,
+      mass: 0.8
+    }
+  },
+  exit: {
+    opacity: 0,
+    x: -25,
+    y: -5,
+    filter: 'blur(4px)',
+    transition: {
+      duration: 0.3,
+      ease: 'easeInOut'
     }
   }
-}`
 };
 
 export const RecoveryAPI = () => {
-  const [activeTab, setActiveTab] = useState<'recovery' | 'telemetry' | 'webhooks'>('recovery');
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(codeExamples[activeTab]);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const [activeTab, setActiveTab] = useState('dispatch');
+  const activeSolution = solutions.find(s => s.id === activeTab) || solutions[0];
 
   return (
-    <section className="py-32 relative z-10 bg-card/50 border-y border-brand-border">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-          
-          {/* Content */}
-          <div className="lg:col-span-5 space-y-12">
-            <div>
-              <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Developer Infrastructure</p>
-              <h2 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-none mb-10">API-First Recovery <br />Operations</h2>
-              <p className="text-lg text-brand-slate leading-relaxed font-medium">
-                Seamlessly integrate nationwide heavy-duty recovery orchestration into your existing platforms with our high-performance APIs and SDKs.
-              </p>
-            </div>
+    <section className="py-32 bg-brand-bg/30 relative overflow-hidden border-t border-brand-border">
+      
+      {/* Decorative background grid overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-               {[
-                 { title: 'Recovery APIs', desc: 'Global JSON endpoints for heavy recovery orchestration.', icon: Braces },
-                 { title: 'Fleet Webhooks', desc: 'Real-time event streaming for recovery lifecycle.', icon: Zap },
-                 { title: 'Sandbox Mesh', desc: 'Testing environment for operational workflows.', icon: Database },
-                 { title: 'Developer SDKs', desc: 'Native libraries for Go, Node.js, and Python.', icon: Box }
-               ].map((item, i) => (
-                 <div key={i} className="flex gap-5 group cursor-default">
-                    <div className="h-12 w-12 shrink-0 rounded-2xl bg-white/5 flex items-center justify-center border border-brand-border group-hover:border-brand-blue/30 transition-colors">
-                       <item.icon className="h-5 w-5 text-brand-blue" />
-                    </div>
-                    <div>
-                       <p className="text-[12px] font-black text-foreground dark:text-white uppercase tracking-widest mb-1.5">{item.title}</p>
-                       <p className="text-[11px] text-brand-slate leading-relaxed font-medium">{item.desc}</p>
-                    </div>
-                 </div>
-               ))}
-            </div>
+      {/* Floating ambient background glows */}
+      <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] right-[20%] w-[450px] h-[450px] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none z-0" />
 
-            <div className="flex flex-wrap gap-5 pt-4">
-               <Button className="bg-brand-blue hover:bg-brand-blue/90 text-foreground dark:text-white font-black h-14 px-10 rounded-2xl shadow-[0_0_25px_rgba(47,128,255,0.3)]">
-                  Explore Documentation
-               </Button>
-               <Button variant="outline" className="border-brand-border text-foreground dark:text-white hover:bg-white/5 h-14 px-10 rounded-2xl font-bold uppercase tracking-widest text-[11px]">
-                  Request API Key
-               </Button>
-            </div>
-          </div>
-
-          {/* Terminal */}
-          <div className="lg:col-span-7 relative">
-             <div className="absolute -inset-10 bg-brand-blue/10 blur-[120px] rounded-full pointer-events-none" />
-             
-             <GlassPanel className="p-0 border-brand-border bg-brand-bg shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden">
-                {/* Header */}
-                <div className="px-10 py-6 border-b border-brand-border bg-white/[0.02] flex items-center justify-between">
-                   <div className="flex items-center gap-10">
-                      {(['recovery', 'telemetry', 'webhooks'] as const).map(t => (
-                        <button 
-                          key={t}
-                          onClick={() => setActiveTab(t)}
-                          className={`text-[12px] font-mono font-bold uppercase tracking-[0.2em] transition-colors relative pb-1 ${
-                            activeTab === t ? 'text-brand-blue' : 'text-brand-slate hover:text-foreground dark:text-white'
-                          }`}
-                        >
-                          {t === 'recovery' ? 'dispatch.sh' : t + '.json'}
-                          {activeTab === t && (
-                            <motion.div layoutId="recoveryApiActive" className="absolute -bottom-7 left-0 right-0 h-[3px] bg-brand-blue" />
-                          )}
-                        </button>
-                      ))}
-                   </div>
-                   <button onClick={handleCopy} className="text-brand-slate hover:text-foreground dark:text-white transition-colors group p-2">
-                      {copied ? <Check className="h-5 w-5 text-emerald-400" /> : <Copy className="h-5 w-5 group-hover:scale-110 transition-transform" />}
-                   </button>
-                </div>
-
-                {/* Code Body */}
-                <div className="p-12 h-[500px] overflow-auto font-mono text-[14px] leading-relaxed no-scrollbar bg-brand-bg/80">
-                   <pre className="text-foreground dark:text-white/80 whitespace-pre-wrap">
-                      <code className="selection:bg-brand-blue/30">{codeExamples[activeTab]}</code>
-                   </pre>
-                </div>
-
-                {/* Status Bar */}
-                <div className="px-10 py-5 border-t border-brand-border bg-white/[0.02] flex items-center justify-between">
-                   <div className="flex items-center gap-4">
-                      <div className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span className="text-[11px] font-mono font-bold text-brand-slate uppercase tracking-widest">API Endpoint: stable-v2.recovery.ops</span>
-                   </div>
-                   <div className="flex gap-8">
-                      <span className="text-[11px] font-mono text-brand-blue font-black cursor-pointer hover:underline">Mesh v4.2.1</span>
-                      <span className="text-[11px] font-mono text-foreground dark:text-white/20 font-black">SSL SECURE</span>
-                   </div>
-                </div>
-             </GlassPanel>
-
-             {/* Animated Events Sidebar Overlay */}
-             <motion.div
-               initial={{ x: 30, opacity: 0 }}
-               whileInView={{ x: 0, opacity: 1 }}
-               className="absolute top-20 -right-24 w-72 bg-card/95 border border-brand-border p-8 rounded-[2rem] shadow-2xl backdrop-blur-3xl hidden xl:block z-20"
-             >
-                <div className="text-[12px] font-black text-foreground dark:text-white uppercase tracking-widest mb-8 flex items-center gap-3">
-                   <Zap className="h-4 w-4 text-brand-blue" /> Live Webhook Stream
-                </div>
-                <div className="space-y-6">
-                   {[
-                     { e: 'recovery.created', t: '2s ago', s: 'bg-brand-blue' },
-                     { e: 'vendor.matched', t: '8s ago', s: 'bg-emerald-500' },
-                     { e: 'eta.updated', t: '15s ago', s: 'bg-brand-orange' },
-                     { e: 'incident.on_scene', t: '22s ago', s: 'bg-purple-500' },
-                     { e: 'incident.completed', t: '30s ago', s: 'bg-brand-blue' }
-                   ].map((evt, i) => (
-                     <div key={i} className="flex items-center justify-between group cursor-pointer border-b border-brand-border pb-4 last:border-0">
-                        <div className="flex items-center gap-3">
-                           <div className={`h-1.5 w-1.5 rounded-full ${evt.s}`} />
-                           <span className="text-[11px] font-mono font-bold text-brand-slate group-hover:text-foreground dark:text-white transition-colors">{evt.e}</span>
-                        </div>
-                        <span className="text-[10px] font-mono text-foreground dark:text-white/20">{evt.t}</span>
-                     </div>
-                   ))}
-                </div>
-                <button className="w-full mt-10 py-4 text-[10px] font-black text-brand-blue border border-brand-blue/20 rounded-2xl hover:bg-brand-blue/10 transition-all flex items-center justify-center gap-3 uppercase tracking-widest">
-                   Stream Dashboard <ChevronRight className="h-4 w-4" />
-                </button>
-             </motion.div>
-          </div>
+      <div className="container mx-auto px-4 relative z-10">
+        
+        {/* Section Header */}
+        <div className="max-w-4xl mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">API-First <span className="text-brand-blue">Recovery.</span></h2>
+          <p className="text-brand-slate text-lg max-w-3xl">Seamlessly integrate nationwide heavy-duty recovery orchestration into your existing platforms with our high-performance APIs and SDKs.</p>
         </div>
+
+        {/* Interactive Tabs */}
+        <EnterpriseTabs 
+          activeTab={activeTab} 
+          onChange={setActiveTab}
+          tabs={solutions.map(s => ({ id: s.id, label: s.label }))}
+          className="mb-12"
+        />
+
+        {/* Full-width container with synchronized transitions */}
+        <div className="w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 40, y: 10, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, x: 0, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, x: -40, y: -10, filter: 'blur(8px)' }}
+              transition={{ 
+                duration: 0.5, 
+                ease: [0.25, 1, 0.5, 1] 
+              }}
+              className="space-y-12"
+            >
+              {/* TOP ROW: Title, Desc, and features */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                {/* Left side: Icon, title, and description (8 columns) */}
+                <div className="lg:col-span-8 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="h-16 w-16 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center relative overflow-hidden group/icon shadow-[0_0_20px_rgba(47,128,255,0.1)]">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/10 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500" />
+                      <activeSolution.icon className="h-8 w-8 text-brand-blue relative z-10" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">{activeSolution.title}</h3>
+                  </div>
+                  <p className="text-brand-slate text-base md:text-lg leading-relaxed max-w-4xl font-medium">{activeSolution.desc}</p>
+                </div>
+
+                {/* Right side: Key features checklist (4 columns) */}
+                <div className="lg:col-span-4 bg-white/[0.02] border border-white/[0.06] rounded-3xl p-6 backdrop-blur-xl relative overflow-hidden">
+                  <div className="absolute inset-px rounded-[22px] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-4">{activeSolution.prompt}</h4>
+                  <div className="space-y-3 relative z-10">
+                    {activeSolution.features.map(f => (
+                      <div key={f} className="flex items-center gap-3 group/item">
+                        <div className="h-5 w-5 rounded-md bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center flex-shrink-0 group-hover/item:border-brand-blue/40 transition-colors">
+                          <Check className="h-3 w-3 text-brand-blue" />
+                        </div>
+                        <span className="text-xs text-foreground font-semibold group-hover/item:text-white transition-colors duration-300">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              {/* BOTTOM ROW: Frog-glass cards */}
+              <div className="relative pt-6">
+                
+                {/* SVG connection line running horizontally */}
+                <svg className="hidden lg:block absolute top-[50%] left-0 w-full h-[10px] pointer-events-none opacity-40 z-0 overflow-visible" viewBox="0 0 100 10" preserveAspectRatio="none" fill="none">
+                  <defs>
+                    <linearGradient id="line-grad-horizontal-api" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#2F80FF" stopOpacity="0" />
+                      <stop offset="15%" stopColor="#2F80FF" stopOpacity="0.4" />
+                      <stop offset="50%" stopColor="#06B6D4" stopOpacity="1" />
+                      <stop offset="85%" stopColor="#8B5CF6" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M 5,5 L 95,5" stroke="url(#line-grad-horizontal-api)" strokeWidth="0.5" strokeDasharray="1 2" />
+                  <g>
+                    <circle r="0.6" fill="#06B6D4" opacity="0.3">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                    <circle r="0.25" fill="#fff">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </svg>
+
+                {/* Staggered card grid */}
+                <motion.div 
+                  variants={gridVariants}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+                >
+                  {activeSolution.cards.map((card, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={cardVariants}
+                      whileHover={{ 
+                        y: -8, 
+                        scale: 1.02,
+                        borderColor: 'rgba(47, 128, 255, 0.35)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                        boxShadow: '0 15px 35px rgba(47, 128, 255, 0.15)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                      className="relative p-6 rounded-[2rem] border border-white/[0.06] bg-white/[0.02] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col justify-between overflow-hidden select-none group/card cursor-default min-h-[140px]"
+                    >
+                      <div 
+                        className="absolute -right-8 -bottom-8 w-20 h-20 rounded-full blur-[25px] opacity-25 group-hover/card:opacity-45 transition-opacity duration-300 pointer-events-none"
+                        style={{ backgroundColor: card.glow }}
+                      />
+                      <div className="absolute inset-px rounded-[1.9rem] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                      
+                      <div className="relative z-10 space-y-3">
+                        <h4 className="text-xs font-black text-white uppercase tracking-wider group-hover/card:text-brand-blue transition-colors duration-300">
+                          {card.title}
+                        </h4>
+                        <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
       </div>
     </section>
   );

@@ -55,7 +55,6 @@ export const TechShowcase = () => {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em]">Technology Platform</p>
               <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight">Advanced Core <br />Orchestration</h2>
               <p className="text-brand-slate">Intelligent operations command center for real-time fleet health and recovery monitoring.</p>
             </motion.div>

@@ -83,11 +83,6 @@ export const RecoveryCTA = () => {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-7 space-y-4 text-left"
               >
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#2F80FF] animate-pulse" />
-                  <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-[0.3em] font-mono">Infrastructure Scaling</span>
-                </div>
-
                 <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white uppercase tracking-tight leading-[1.1]">
                   Scale Your <span className="text-[#2F80FF]">Roadside</span> Infrastructure
                 </h2>
@@ -113,7 +108,7 @@ export const RecoveryCTA = () => {
                     className="w-full sm:w-auto px-6 py-3 bg-card/40 backdrop-blur-xl border border-brand-border text-foreground dark:text-white rounded-xl font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] hover:border-[#2F80FF]/30 transition-all hover:-translate-y-0.5 h-12 disabled:opacity-50"
                   >
                     {isGeneratingPdf ? 'Generating PDF...' : 'Speak with Ops'}
-                    <FileText className="w-4 h-4 text-foreground dark:text-white/70" />
+                    <ArrowRight className="w-4 h-4 text-foreground dark:text-white/70" />
                   </motion.button>
                 </div>
               </motion.div>

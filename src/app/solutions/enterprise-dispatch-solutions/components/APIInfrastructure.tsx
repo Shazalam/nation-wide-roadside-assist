@@ -208,16 +208,8 @@ export const APIInfrastructure = () => {
         
         {/* Section Header */}
         <div className="max-w-4xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
-            <Terminal className="w-3.5 h-3.5 text-[#2F80FF]" />
-            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Developer Ecosystem</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Dispatch APIs <span className="text-brand-blue">For Enterprise.</span>
-          </h2>
-          <p className="text-brand-slate text-lg max-w-3xl">
-            Integrate nationwide dispatch operations directly into your mobility stack. Our API-first infrastructure enables programmatic recovery, real-time telemetry, and automated vendor orchestration.
-          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Dispatch APIs <span className="text-brand-blue">For Enterprise.</span></h2>
+          <p className="text-brand-slate text-lg max-w-3xl">Integrate nationwide dispatch operations directly into your mobility stack. Our API-first infrastructure enables programmatic recovery, real-time telemetry, and automated vendor orchestration.</p>
         </div>
 
         {/* Interactive Tabs */}

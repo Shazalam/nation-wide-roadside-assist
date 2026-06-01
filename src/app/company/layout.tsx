@@ -11,7 +11,6 @@ import {
   Headphones, 
   Search, 
   ChevronRight,
-  Briefcase,
   Globe,
   Shield,
   FileText,
@@ -22,7 +21,6 @@ import { cn } from '@/lib/utils';
 const companyLinks = [
   { group: "Company", items: [
     { label: "Overview", href: "/company/overview", icon: Building2 },
-    { label: "Careers", href: "/company/careers", icon: Briefcase },
     { label: "Contact", href: "/company/contact", icon: Headphones },
     { label: "CAPABILITY REPORT PDF", href: "#", icon: FileText, isPdf: true },
   ]},
@@ -125,8 +123,8 @@ export default function CompanyLayout({ children }: { children: React.ReactNode 
 
             <div className="pt-8 border-t border-brand-border opacity-0 group-hover/sidebar:opacity-100 transition-opacity">
                <div className="flex items-center gap-3 opacity-40 px-2">
-                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase">SOC 2</div>
-                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase tracking-tighter">PCI-DSS</div>
+                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase">Enterprise Security</div>
+                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase tracking-tighter">Secure Payment Processing</div>
                </div>
             </div>
           </div>

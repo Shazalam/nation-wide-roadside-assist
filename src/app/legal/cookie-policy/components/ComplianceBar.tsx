@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Lock, Globe, FileText, Zap, Shield, Eye, Database } from 'lucide-react';
 
 const complianceItems = [
-  { label: 'GDPR Ready', icon: ShieldCheck },
-  { label: 'CCPA Compliant', icon: Shield },
-  { label: 'SOC 2 Type II', icon: Lock },
-  { label: 'ISO 27001', icon: Globe },
+  { label: 'Privacy-Focused', icon: ShieldCheck },
+  { label: 'Privacy-Focused Data Handling', icon: Shield },
+  { label: 'Enterprise-Grade Security', icon: Lock },
+  { label: 'Industry-Standard Security Practices', icon: Globe },
   { label: 'Secure Consent', icon: Database },
   { label: 'Privacy Controls', icon: Eye }
 ];

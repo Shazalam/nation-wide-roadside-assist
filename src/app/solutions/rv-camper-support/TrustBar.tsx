@@ -27,8 +27,8 @@ const operationalBadges = [
 ];
 
 const complianceBadges = [
-  { label: 'SOC 2 Type II', icon: Shield },
-  { label: 'PCI-DSS', icon: Shield },
+  { label: 'Enterprise-Grade Security', icon: Shield },
+  { label: 'Secure Payment Processing', icon: Shield },
   { label: 'DOT Certified', icon: Shield },
   { label: '24/7 Operations', icon: Radio },
 ];

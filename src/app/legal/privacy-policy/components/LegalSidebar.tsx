@@ -17,8 +17,8 @@ const sections = [
   { id: 'compliance', label: 'Compliance & Governance' },
   { id: 'providers', label: 'Third-Party Providers' },
   { id: 'user-rights', label: 'User Rights' },
-  { id: 'gdpr', label: 'GDPR Rights' },
-  { id: 'ccpa', label: 'CCPA Rights' },
+  { id: 'gdpr', label: 'Privacy Compliance Rights' },
+  { id: 'ccpa', label: 'Privacy Controls Rights' },
   { id: 'contact', label: 'Contact Information' },
   { id: 'updates', label: 'Policy Updates' }
 ];

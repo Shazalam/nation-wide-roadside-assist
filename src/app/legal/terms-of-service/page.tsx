@@ -4,11 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { TermsHero } from './components/TermsHero';
 import { ComplianceStrip } from './components/ComplianceStrip';
 import { TermsContent } from './components/TermsContent';
-import { GovernanceCards } from './components/GovernanceCards';
-import { APIRules } from './components/APIRules';
-import { ServiceAvailability } from './components/ServiceAvailability';
-import { VersionTimeline } from './components/VersionTimeline';
-import { ContactSupport } from './components/ContactSupport';
+
 import { GovernanceCTA } from './components/GovernanceCTA';
 import { MountedOnly } from '@/components/utils/mounted-only';
 
@@ -57,11 +53,7 @@ export default function TermsOfServicePage() {
            <TermsContent />
         </div>
 
-        <GovernanceCards />
-        <APIRules />
-        <ServiceAvailability />
-        <VersionTimeline />
-        <ContactSupport />
+
       </MountedOnly>
       
       <GovernanceCTA />

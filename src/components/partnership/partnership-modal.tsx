@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -53,9 +53,27 @@ interface PartnershipModalProps {
 export const PartnershipModal = ({ isOpen, onClose }: PartnershipModalProps) => {
   const [activeTab, setActiveTab] = useState<'form' | 'details'>('form');
   const [isSuccess, setIsSuccess] = useState(false);
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<PartnershipFormData>({
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<PartnershipFormData>({
     resolver: zodResolver(partnershipSchema),
   });
+
+  const handlePromptClick = (type: 'coverage' | 'api' | 'fleet') => {
+    setActiveTab('form');
+    if (type === 'coverage') {
+      setValue('companyType', 'fleet');
+      setValue('services', ['Dispatch', 'Recovery']);
+      setValue('message', 'We are looking to implement nationwide roadside assistance coverage across our operational footprint.');
+    } else if (type === 'api') {
+      setValue('companyType', 'logistics');
+      setValue('services', ['Dispatch', 'API Access']);
+      setValue('message', 'We are interested in integrating the Nationwide Roadside Assist dispatch API into our systems.');
+    } else if (type === 'fleet') {
+      setValue('companyType', 'fleet');
+      setValue('services', ['Recovery', 'Fleet Ops']);
+      setValue('message', 'We are seeking to automate our fleet recovery operations using your centralized coordination platform.');
+    }
+    toast.info('Form fields pre-filled based on your selection!');
+  };
 
   const mutation = usePartnerRequest();
 
@@ -115,21 +133,24 @@ export const PartnershipModal = ({ isOpen, onClose }: PartnershipModalProps) => 
            <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#2F80FF]/5 blur-[200px] rounded-full animate-pulse-slow" />
         </motion.div>
 
-        {/* Modal Container */}
+        {/* Modal Wrapper (allows close button to extend outside without overflow clipping) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 40 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="relative w-full max-w-7xl h-full lg:h-[min(800px,90vh)] rounded-2xl lg:rounded-[32px] overflow-hidden border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.55),0_0_50px_rgba(47,128,255,0.18),inset_0_1px_0_rgba(255,255,255,0.05)] bg-gradient-to-br from-[#0A192F]/70 to-[#081120]/60 backdrop-blur-[32px] flex flex-col lg:flex-row"
+          className="relative w-[calc(100%-2rem)] max-w-7xl h-full lg:h-[min(800px,90vh)] m-4"
         >
-           {/* Close Button */}
-           <button 
-             onClick={onClose}
-             className="absolute top-6 right-6 z-[60] h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-slate hover:text-white hover:bg-white/10 transition-all group"
-           >
-              <X className="h-5 w-5 group-hover:scale-110 transition-transform" />
-           </button>
+          {/* Close Button (half-on, half-off the card border) */}
+          <button 
+            onClick={onClose}
+            className="absolute -top-3.5 -right-3.5 z-[70] h-9 w-9 rounded-full bg-[#020712] border border-white/20 flex items-center justify-center text-brand-slate hover:text-white hover:border-[#2F80FF] hover:bg-[#2F80FF]/15 hover:shadow-[0_0_20px_rgba(47,128,255,0.7)] hover:scale-105 active:scale-95 transition-all duration-300 group cursor-pointer"
+          >
+             <X className="h-4.5 w-4.5 group-hover:scale-110 transition-transform group-hover:drop-shadow-[0_0_8px_#2F80FF]" />
+          </button>
+
+          {/* Modal Container Card (with overflow-hidden) */}
+          <div className="w-full h-full rounded-2xl lg:rounded-[32px] overflow-hidden border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.55),0_0_50px_rgba(47,128,255,0.18),inset_0_1px_0_rgba(255,255,255,0.05)] bg-gradient-to-br from-[#0A192F]/70 to-[#081120]/60 backdrop-blur-[32px] flex flex-col lg:flex-row">
 
            {/* LEFT PANEL — IMMERSIVE EXPERIENCE */}
            <div className="lg:w-[45%] h-1/3 lg:h-full relative overflow-hidden bg-[#0A192F]/40 border-b lg:border-b-0 lg:border-r border-white/5">
@@ -176,32 +197,67 @@ export const PartnershipModal = ({ isOpen, onClose }: PartnershipModalProps) => 
                        </p>
                     </div>
 
-                       <div className="flex flex-wrap gap-3 pt-6">
-                       {[
-                         { text: "Need nationwide roadside coverage?", icon: Navigation },
-                         { text: "Looking for dispatch API integration?", icon: Terminal },
-                         { text: "Automating fleet recovery operations?", icon: Zap }
-                       ].map((prompt, i) => (
-                         <motion.button
-                           key={i}
-                           initial={{ opacity: 0, y: 10 }}
-                           animate={{ opacity: 1, y: 0 }}
-                           transition={{ delay: 0.5 + i * 0.1 }}
-                           whileHover={{ y: -2, scale: 1.02 }}
-                           className="px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-[10px] font-black text-brand-slate uppercase tracking-widest hover:text-white hover:border-[#2F80FF]/40 hover:bg-[#2F80FF]/5 transition-all flex items-center gap-2 group"
-                         >
-                           <prompt.icon className="h-3 w-3 text-[#2F80FF] opacity-50 group-hover:opacity-100 transition-opacity" />
-                           {prompt.text}
-                         </motion.button>
-                       ))}
-                    </div>
+                      <div className="flex flex-col gap-3.5 pt-6 w-full">
+                        {[
+                          { 
+                            text: "Need nationwide roadside coverage?", 
+                            desc: "Configure white-label roadside programs & carrier coverage",
+                            icon: Navigation, 
+                            type: 'coverage' as const 
+                          },
+                          { 
+                            text: "Looking for dispatch API integration?", 
+                            desc: "Explore developer API specs & incident dispatch webhook orchestration",
+                            icon: Terminal, 
+                            type: 'api' as const 
+                          },
+                          { 
+                            text: "Automating fleet recovery operations?", 
+                            desc: "Deploy centralized recovery tracking for logistics & car rental networks",
+                            icon: Zap, 
+                            type: 'fleet' as const 
+                          }
+                        ].map((prompt, i) => (
+                          <motion.button
+                            key={i}
+                            onClick={() => handlePromptClick(prompt.type)}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 + i * 0.1 }}
+                            whileHover={{ y: -2 }}
+                            className="w-full text-left p-4 rounded-2xl bg-white/[0.02] hover:bg-[#2F80FF]/5 border border-white/5 hover:border-[#2F80FF]/30 transition-all duration-300 flex items-center justify-between gap-4 group shadow-sm backdrop-blur-md cursor-pointer"
+                          >
+                            <div className="flex items-center gap-3.5">
+                              {/* Icon Wrapper */}
+                              <div className="h-10 w-10 rounded-xl bg-[#2F80FF]/5 border border-[#2F80FF]/10 flex items-center justify-center text-[#2F80FF] group-hover:bg-[#2F80FF]/15 group-hover:border-[#2F80FF]/35 group-hover:scale-105 transition-all shrink-0">
+                                <prompt.icon className="h-4.5 w-4.5 group-hover:rotate-6 transition-transform" />
+                              </div>
+                              
+                              {/* Text Blocks */}
+                              <div className="flex flex-col">
+                                <span className="text-[11px] font-black text-white uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
+                                  {prompt.text}
+                                </span>
+                                <span className="text-[10px] font-medium text-brand-slate mt-0.5 leading-snug group-hover:text-brand-slate/80 transition-colors">
+                                  {prompt.desc}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Chevron Indicator */}
+                            <div className="h-6 w-6 rounded-lg bg-white/[0.02] border border-white/5 group-hover:border-[#2F80FF]/25 flex items-center justify-center shrink-0 transition-colors">
+                              <ChevronRight className="h-3.5 w-3.5 text-brand-slate group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+                            </div>
+                          </motion.button>
+                        ))}
+                      </div>
                  </div>
 
               </div>
            </div>
 
-           {/* RIGHT PANEL — INTERACTIVE FORM MODULE */}
-           <div className="lg:w-[55%] h-2/3 lg:h-full flex flex-col bg-[#081120]/20 p-8 lg:p-12 overflow-y-auto no-scrollbar">
+            {/* RIGHT PANEL — INTERACTIVE FORM MODULE */}
+            <div className="lg:w-[55%] h-2/3 lg:h-full flex flex-col bg-[#020712]/95 backdrop-blur-3xl p-8 lg:p-12 overflow-y-auto no-scrollbar relative">
               {/* Tab Switcher */}
               <div className="flex justify-center mb-12">
                  <div className="inline-flex p-1.5 rounded-full bg-[#0F172A]/80 border border-white/10 backdrop-blur-md shadow-inner relative z-10">
@@ -365,46 +421,132 @@ export const PartnershipModal = ({ isOpen, onClose }: PartnershipModalProps) => 
                       )}
                    </motion.div>
                  ) : (
-                   <motion.div
-                     key="details"
-                     initial={{ opacity: 0, x: 20 }}
-                     animate={{ opacity: 1, x: 0 }}
-                     exit={{ opacity: 0, x: -20 }}
-                     className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                   >
-                      {[
-                        { title: 'Partnership Ops', value: 'enterprise@nationwidetrans.com', icon: Mail, label: 'Enterprise Email' },
-                        { title: '24/7 Operations', value: '+1 (888) Nationwide Roadside Assist-MESH', icon: Phone, label: 'Partnership Line' },
-                        { title: 'Integration Hub', value: 'SF Headquarters / Global', icon: MapPin, label: 'Operations Base' },
-                        { title: 'Support SLA', value: '< 2 Hour Response', icon: Clock, label: 'Response Target' }
-                      ].map((card, i) => (
-                        <GlassPanel key={i} className="p-6 border-white/10 bg-white/[0.02] space-y-4 hover:border-[#2F80FF]/30 transition-all">
-                           <div className="h-10 w-10 rounded-xl bg-[#2F80FF]/10 border border-[#2F80FF]/20 flex items-center justify-center text-[#2F80FF]">
-                              <card.icon className="h-5 w-5" />
-                           </div>
-                           <div className="space-y-1">
-                              <p className="text-[9px] font-black text-brand-slate uppercase tracking-widest">{card.label}</p>
-                              <h4 className="text-sm font-bold text-white">{card.value}</h4>
-                              <p className="text-[10px] text-brand-slate font-medium">{card.title}</p>
-                           </div>
-                        </GlassPanel>
-                      ))}
-                      
-                      <div className="col-span-1 md:col-span-2 pt-8 flex items-center justify-between border-t border-white/5">
-                         <div className="flex items-center gap-4">
-                            <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                            <span className="text-[10px] font-black text-white uppercase tracking-widest">Global Support Mesh Active</span>
-                         </div>
-                         <div className="flex gap-4">
-                            {[Terminal, Lock, Activity].map((Icon, i) => (
-                              <Icon key={i} className="h-4 w-4 text-brand-slate hover:text-white transition-colors cursor-pointer" />
-                            ))}
-                         </div>
+                    <motion.div
+                      key="details"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      className="space-y-10 flex flex-col w-full relative pt-2"
+                    >
+                      {/* Premium Ambient glow effects */}
+                      <div className="absolute top-10 right-10 h-72 w-72 rounded-full bg-[#2F80FF]/5 blur-[80px] pointer-events-none animate-pulse" />
+                      <div className="absolute bottom-10 left-10 h-72 w-72 rounded-full bg-cyan-500/5 blur-[80px] pointer-events-none animate-pulse-slow" />
+
+                      {/* Header info */}
+                      <div className="space-y-4 relative z-10">
+                        <motion.h3 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.1 }}
+                          className="text-4xl lg:text-5xl font-black text-white tracking-tighter leading-tight"
+                        >
+                          Connect With Our <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-[#2F80FF] bg-clip-text text-transparent">Partnership Infrastructure</span>
+                        </motion.h3>
+                        <motion.p 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2 }}
+                          className="text-brand-slate text-sm lg:text-base leading-relaxed max-w-2xl font-medium"
+                        >
+                          Enterprise roadside operations, dispatch coordination, and mobility support infrastructure serving organizations across the USA and Canada.
+                        </motion.p>
                       </div>
-                   </motion.div>
+
+                      {/* 2x2 Grid of Premium Glass Cards */}
+                      <motion.div 
+                        variants={{
+                          hidden: { opacity: 0 },
+                          show: {
+                            opacity: 1,
+                            transition: { staggerChildren: 0.15 }
+                          }
+                        }}
+                        initial="hidden"
+                        animate="show"
+                        className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10"
+                      >
+                        {[
+                          {
+                            title: 'Enterprise Partnerships',
+                            value: 'partnerships@nationwideroadsideassist.com',
+                            href: 'mailto:partnerships@nationwideroadsideassist.com',
+                            icon: Mail,
+                            desc: 'Strategic RSA & mobility operations partnerships.',
+                            accentColor: 'group-hover:text-blue-400'
+                          },
+                          {
+                            title: '24/7 Dispatch Operations',
+                            value: '+1 (855) 613-3131',
+                            href: 'tel:+18556133131',
+                            icon: Phone,
+                            desc: 'Enterprise roadside coordination & dispatch support.',
+                            accentColor: 'group-hover:text-cyan-400'
+                          },
+                          {
+                            title: 'Operations Headquarters',
+                            value: '11727 East End Avenue, Chino, CA 91710',
+                            href: 'https://maps.google.com/?q=11727+East+End+Avenue,+Chino,+CA+91710',
+                            icon: MapPin,
+                            desc: 'North American roadside operations & coordination hub.',
+                            accentColor: 'group-hover:text-blue-400'
+                          },
+                          {
+                            title: 'Enterprise Mobility Platform',
+                            value: 'www.nationwideroadsideassist.com',
+                            href: 'https://www.nationwideroadsideassist.com',
+                            icon: Globe,
+                            desc: 'API-first roadside infrastructure serving USA & Canada.',
+                            accentColor: 'group-hover:text-cyan-400'
+                          }
+                        ].map((card, i) => (
+                          <motion.div
+                            key={i}
+                            variants={{
+                              hidden: { opacity: 0, y: 30 },
+                              show: { opacity: 1, y: 0, transition: { type: 'spring', bounce: 0.2, duration: 0.8 } }
+                            }}
+                            whileHover={{ 
+                              y: -6,
+                              transition: { duration: 0.3, ease: 'easeOut' }
+                            }}
+                            className="group relative backdrop-blur-3xl bg-white/[0.02] border border-white/[0.06] rounded-2xl p-5 lg:p-6 hover:border-[#2F80FF]/40 hover:bg-[#2F80FF]/[0.02] transition-all duration-500 flex flex-col justify-between min-h-[200px] shadow-2xl"
+                          >
+                            {/* Inner Radial Glow */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#2F80FF]/[0.01] to-[#2F80FF]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-2xl" />
+                            <div className="absolute -top-24 -left-24 h-48 w-48 rounded-full bg-[#2F80FF]/10 blur-[60px] opacity-40 group-hover:opacity-75 group-hover:bg-cyan-500/10 transition-all duration-700 pointer-events-none" />
+
+                            {/* Card Content Top: Icon & Title */}
+                            <div className="flex items-start gap-3 relative z-10">
+                              <div className="h-11 w-11 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-brand-slate group-hover:text-[#2F80FF] group-hover:bg-[#2F80FF]/10 group-hover:border-[#2F80FF]/25 shadow-inner transition-all duration-500 shrink-0">
+                                <card.icon className="h-5 w-5 group-hover:scale-110 transition-transform duration-500" />
+                              </div>
+                              <div className="space-y-0.5 min-w-0">
+                                <h4 className="text-[11px] font-bold text-brand-slate uppercase tracking-[0.2em]">{card.title}</h4>
+                                <p className="text-[10px] text-brand-slate/60 font-medium tracking-wide leading-snug">{card.desc}</p>
+                              </div>
+                            </div>
+
+                            {/* Card Content Bottom: Primary Text Link */}
+                            <div className="relative z-10 pt-3 w-full min-w-0">
+                              <a 
+                                href={card.href} 
+                                target={card.href.startsWith('http') ? '_blank' : undefined}
+                                rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                className={`text-[13px] font-bold text-white hover:underline decoration-[#2F80FF]/50 transition-all group-hover:text-white break-all leading-relaxed ${card.accentColor}`}
+                              >
+                                {card.value}
+                                <ArrowRight className="inline-block h-3.5 w-3.5 ml-1.5 text-brand-slate opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-[#2F80FF] transition-all duration-500 align-middle" />
+                              </a>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+
+                    </motion.div>
                  )}
               </AnimatePresence>
-           </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </AnimatePresence>

@@ -246,10 +246,6 @@ export const RecoveryAPI = () => {
         
         {/* Section Header */}
         <div className="max-w-4xl mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
-            <Terminal className="w-3.5 h-3.5 text-[#2F80FF]" />
-            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Developer Infrastructure</span>
-          </div>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Roadside Assistance <span className="text-brand-blue">API Framework</span>
           </h2>

@@ -82,8 +82,8 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
 
             <div className="pt-8 border-t border-brand-border">
                <div className="flex items-center gap-3 opacity-40">
-                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase">SOC 2</div>
-                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase tracking-tighter">PCI-DSS</div>
+                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase">Enterprise Security</div>
+                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase tracking-tighter">Secure Payment Processing</div>
                </div>
             </div>
           </div>

@@ -67,11 +67,7 @@ export const OperationsWorkflow = () => {
           viewport={{ once: true }}
           className="text-center mb-32"
         >
-          <div className="flex items-center justify-center gap-2 mb-4">
-             <div className="h-1.5 w-1.5 rounded-full bg-[#2F80FF]" />
-             <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.4em]">Operational Architecture</span>
-          </div>
-          <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
+                    <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
              Mission-Critical <span className="text-[#2F80FF]">Dispatch Mesh</span>
           </h2>
           <p className="text-brand-slate font-medium text-lg max-w-2xl mx-auto leading-relaxed">

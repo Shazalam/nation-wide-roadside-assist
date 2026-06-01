@@ -55,16 +55,7 @@ export const RecoveryHero = () => {
               <span className="text-white">Heavy-Duty Towing</span>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-brand-blue/5 border border-brand-blue/20 backdrop-blur-md">
-                <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse shadow-[0_0_10px_var(--brand-blue)]" />
-                <span className="text-[9px] font-black text-white uppercase tracking-[0.25em]">Tier-1 Commercial Recovery Network</span>
-              </div>
-            </motion.div>
+
           </div>
 
           {/* Heading Section */}

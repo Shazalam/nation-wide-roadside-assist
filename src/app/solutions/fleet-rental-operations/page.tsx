@@ -4,7 +4,6 @@ import React from 'react';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { FleetHero } from '@/components/fleet/fleet-hero';
 import { CoreCapabilities } from '@/components/fleet/core-capabilities';
-import { TechShowcase } from '@/components/fleet/tech-showcase';
 import { OperationsWorkflow } from '@/components/fleet/operations-workflow';
 import { IndustryEcosystem } from '@/components/fleet/industry-ecosystem';
 import { FleetAPISection } from '@/components/fleet/fleet-api-section';
@@ -33,9 +32,6 @@ export default function FleetRentalOperationsPage() {
 
         {/* 3. Core Capabilities Grid */}
         <CoreCapabilities />
-
-        {/* 4. Enterprise Technology Showcase */}
-        <TechShowcase />
 
         {/* 5. Enterprise Operations Workflow */}
         <OperationsWorkflow />

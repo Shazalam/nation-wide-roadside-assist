@@ -39,20 +39,15 @@ export default function Error({
             onClick={() => reset()}
             className="w-full py-4 bg-red-500 text-foreground dark:text-white rounded-xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-red-600 transition-all shadow-[0_0_20px_rgba(239,68,68,0.2)]"
           >
-            <RefreshCcw className="w-4 h-4" /> Attempt Recovery
+            <RefreshCcw className="w-4 h-4" /> Try Again
           </button>
           
           <Link 
             href="/"
             className="w-full py-4 bg-white/5 border border-brand-border text-foreground dark:text-white rounded-xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
           >
-            <Home className="w-4 h-4" /> Return to Command Center
+            <Home className="w-4 h-4" /> Go to Homepage
           </Link>
-        </div>
-
-        <div className="mt-8 pt-8 border-t border-brand-border flex items-center justify-center gap-2">
-           <MessageSquare className="w-4 h-4 text-brand-slate" />
-           <span className="text-[10px] font-mono text-brand-slate uppercase">Contact Network Support: 1-800-TRANS-OPS</span>
         </div>
       </motion.div>
     </div>
