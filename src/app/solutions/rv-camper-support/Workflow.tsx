@@ -65,8 +65,6 @@ export default function Workflow() {
              viewport={{ once: true }}
              className="flex items-center justify-center gap-2 mb-4"
            >
-              <div className="h-1.5 w-1.5 rounded-full bg-[#2F80FF]" />
-              <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.4em]">Operational Sequence</span>
            </motion.div>
            <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
               RV Roadside <span className="text-[#2F80FF]">Operations</span> Workflow
@@ -164,23 +162,7 @@ export default function Workflow() {
            </div>
         </div>
 
-        {/* Global Operational Metrics Footer */}
-        <div className="mt-32 border-t border-brand-border pt-16 flex flex-wrap justify-center gap-16">
-           {[
-             { label: 'Dispatch Velocity', val: '< 90s', detail: 'Real-Time' },
-             { label: 'Workflow Sync', val: '98.7%', detail: 'Optimized' },
-             { label: 'Cust. Satisfaction', val: '4.8★', detail: 'Enterprise' },
-             { label: 'Automation Load', val: 'Active', detail: 'Live' }
-           ].map((m, i) => (
-             <div key={i} className="flex flex-col items-center">
-                <span className="text-[9px] font-black text-brand-slate uppercase tracking-[0.4em] mb-2">{m.label}</span>
-                <div className="flex items-baseline gap-2">
-                   <span className="text-2xl font-black text-foreground dark:text-white">{m.val}</span>
-                   <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-widest">{m.detail}</span>
-                </div>
-             </div>
-           ))}
-        </div>
+
       </div>
     </section>
   );

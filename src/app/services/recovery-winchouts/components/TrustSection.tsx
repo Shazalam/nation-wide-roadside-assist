@@ -15,9 +15,9 @@ const partners = [
 ];
 
 const badges = [
-  { label: 'SOC 2 Type II', icon: Lock },
+  { label: 'Enterprise-Grade Security', icon: Lock },
   { label: 'DOT Certified', icon: FileText },
-  { label: 'PCI-DSS Compliant', icon: ShieldCheck },
+  { label: 'Secure Payment Processing Compliant', icon: ShieldCheck },
   { label: 'Nationwide Coverage', icon: Globe },
   { label: 'Heavy-Duty Certified', icon: CheckCircle2 }
 ];

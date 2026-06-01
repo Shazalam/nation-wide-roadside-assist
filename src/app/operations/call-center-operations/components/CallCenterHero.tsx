@@ -79,18 +79,7 @@ export const CallCenterHero = () => {
               <span className="text-white">Call Center Operations</span>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-brand-blue/5 border border-brand-blue/20 backdrop-blur-md">
-                <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse shadow-[0_0_10px_var(--brand-blue)]" />
-                <span className="text-[9px] font-black text-white uppercase tracking-[0.25em]">
-                  Enterprise-Grade 24/7 Response Infrastructure
-                </span>
-              </div>
-            </motion.div>
+
           </div>
 
           {/* Heading */}
@@ -101,8 +90,7 @@ export const CallCenterHero = () => {
               transition={{ delay: 0.2 }}
               className="text-5xl lg:text-[5.5rem] font-black tracking-tighter text-white leading-[0.9] drop-shadow-2xl"
             >
-              Enterprise <span className="text-brand-blue">Call Center</span> <br />
-              Operations Platform
+              Enterprise <span className="text-brand-blue">Call Center</span>
             </motion.h1>
 
             <motion.p

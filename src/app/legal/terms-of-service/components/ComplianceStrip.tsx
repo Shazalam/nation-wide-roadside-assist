@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Lock, Globe, FileText, Zap, Shield } from 'lucide-react';
 
 const certifications = [
-  { label: 'SOC 2 Type II', icon: ShieldCheck },
-  { label: 'ISO 27001', icon: Globe },
-  { label: 'PCI-DSS', icon: Lock },
-  { label: 'GDPR Ready', icon: Shield },
+  { label: 'Enterprise-Grade Security', icon: ShieldCheck },
+  { label: 'Industry-Standard Security Practices', icon: Globe },
+  { label: 'Secure Payment Processing', icon: Lock },
+  { label: 'Privacy-Focused', icon: Shield },
   { label: 'Enterprise SLA', icon: Zap },
   { label: 'Secure API', icon: FileText }
 ];

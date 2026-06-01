@@ -6,9 +6,9 @@ import { ShieldCheck, Lock, FileText, Globe, Truck, FileSearch, Users, Server, D
 import { GlassPanel } from '@/components/ui/glass-panel';
 
 const complianceBadges = [
-  { label: 'SOC 2 Type II', icon: Lock },
+  { label: 'Enterprise-Grade Security', icon: Lock },
   { label: 'DOT Certified', icon: Truck },
-  { label: 'PCI-DSS Compliant', icon: ShieldCheck },
+  { label: 'Secure Payment Processing Compliant', icon: ShieldCheck },
   { label: 'Nationwide Coverage', icon: Globe },
   { label: 'Heavy-Duty Certified', icon: FileText }
 ];

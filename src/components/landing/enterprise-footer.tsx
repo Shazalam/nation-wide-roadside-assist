@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Shield, ExternalLink, Globe, Zap, Activity, Share2 } from 'lucide-react';
+import { Shield, ExternalLink, Globe, Zap, Activity, Share2, Lock } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { setPartnershipOpen } from '@/store';
 import { Logo } from '@/components/ui/logo';
@@ -44,7 +44,6 @@ const footerLinks = [
     title: 'Company',
     links: [
       { name: 'Overview', href: '/company/overview' },
-      { name: 'Careers', href: '/company/careers' },
       { name: 'Contact', href: '/company/contact' },
       { name: 'Privacy Policy', href: '/legal/privacy-policy' },
       { name: 'Security Hub', href: '/legal/security' },
@@ -117,6 +116,7 @@ export const EnterpriseFooter = () => {
           ))}
         </div>
 
+
         {/* Bottom Legal & Status Row */}
         <div className="py-5 border-t border-brand-border flex flex-col lg:flex-row items-center justify-between gap-4 relative z-10">
           
@@ -126,15 +126,6 @@ export const EnterpriseFooter = () => {
             <Link href="/legal/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</Link>
             <Link href="/legal/cookie-policy" className="hover:text-foreground transition-colors">Cookie Policy</Link>
             <Link href="/legal/compliance" className="hover:text-foreground transition-colors">SLA Agreement</Link>
-          </div>
-          
-          <div className="flex items-center gap-5">
-             <span className="text-xs text-brand-slate font-mono">ISO 27001 Certified</span>
-             <div className="h-3 w-px bg-brand-border" />
-             <div className="flex items-center gap-2 bg-brand-blue/5 px-3 py-1.5 rounded-full border border-brand-blue/10">
-                <div className="h-1.5 w-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Operational</span>
-             </div>
           </div>
 
         </div>

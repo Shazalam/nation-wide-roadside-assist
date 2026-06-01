@@ -37,10 +37,6 @@ export default function CoreCapabilities() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
 
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
-            <Radio className="w-3 h-3 text-[#2F80FF] animate-pulse" />
-            <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Enterprise Infrastructure</span>
-          </div>
           <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-foreground dark:text-white mb-6">
             Mission-Critical Core Capabilities
           </h2>
@@ -93,33 +89,13 @@ export default function CoreCapabilities() {
                     ))}
                   </div>
 
-                  <div className="mt-10 pt-6 border-t border-brand-border flex items-center justify-between">
-                    <span className="text-[10px] font-mono text-brand-slate uppercase tracking-widest">Capabilities Tier 01</span>
-                    <div className="flex items-center gap-1">
-                      <div className="w-1 h-1 rounded-full bg-[#2F80FF]" />
-                      <div className="w-4 h-1 rounded-full bg-[#2F80FF]" />
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Floating background stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 opacity-30">
-          {[
-            { label: 'Uptime', val: '99.99%' },
-            { label: 'Nodes', val: '12.4k' },
-            { label: 'Requests', val: '1.2B' },
-            { label: 'Latency', val: '<40ms' }
-          ].map((s, i) => (
-            <div key={i} className="text-center py-4 border-r border-brand-border last:border-0">
-              <div className="text-xl font-mono font-black text-foreground dark:text-white">{s.val}</div>
-              <div className="text-[9px] uppercase tracking-[0.2em] text-brand-slate">{s.label}</div>
-            </div>
-          ))}
-        </div>
+
       </div>
     </section>
   );

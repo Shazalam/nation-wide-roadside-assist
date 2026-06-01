@@ -14,10 +14,10 @@ const partners = [
 ];
 
 const compliance = [
-  { label: 'SOC 2 TYPE II', icon: ShieldCheck },
-  { label: 'ISO 27001', icon: Globe },
-  { label: 'PCI-DSS', icon: Lock },
-  { label: 'GDPR READY', icon: CheckCircle2 }
+  { label: 'ENTERPRISE-GRADE SECURITY', icon: ShieldCheck },
+  { label: 'Industry-Standard Security Practices', icon: Globe },
+  { label: 'Secure Payment Processing', icon: Lock },
+  { label: 'PRIVACY-FOCUSED', icon: CheckCircle2 }
 ];
 
 export const TrustBar = () => {
@@ -28,7 +28,6 @@ export const TrustBar = () => {
           
           {/* Partners Scroller */}
           <div className="lg:col-span-7 space-y-6">
-            <p className="text-[10px] font-black text-brand-slate uppercase tracking-[0.3em]">Trusted by Industry Leaders</p>
             <div className="flex flex-wrap items-center gap-x-12 gap-y-8 opacity-40 hover:opacity-100 transition-opacity duration-700">
                {partners.map((p, i) => (
                  <motion.div
@@ -47,9 +46,6 @@ export const TrustBar = () => {
 
           {/* Compliance Badges */}
           <div className="lg:col-span-5 flex flex-wrap lg:justify-end gap-6">
-             <div className="w-full lg:text-right mb-2">
-                <p className="text-[10px] font-black text-brand-slate uppercase tracking-[0.3em]">Compliance & Security</p>
-             </div>
              {compliance.map((c, i) => (
                <motion.div
                  key={i}

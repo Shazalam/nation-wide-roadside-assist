@@ -2,232 +2,225 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Truck, Activity, Info, ChevronRight, Zap, Weight, Shield } from 'lucide-react';
+import { Maximize2, Weight } from 'lucide-react';
+import { GlassPanel } from '@/components/ui/glass-panel';
 
 const vehicleClasses = [
   {
-    id: 1,
-    label: 'Class 1',
+    id: 'CLASS 1',
     weight: '6,000 lbs or less',
     category: 'Light Duty',
     examples: 'Pickups, SUVs, Vans',
-    towType: 'Light Duty Towing',
+    image: '/assets/3d/class1.png',
     color: '#2F80FF',
   },
   {
-    id: 2,
-    label: 'Class 2',
+    id: 'CLASS 2',
     weight: '6,001–10,000 lbs',
     category: 'Light Duty',
     examples: 'Heavy Pickups, Step Vans',
-    towType: 'Light/Medium Duty',
+    image: '/assets/3d/class2.png',
     color: '#2F80FF',
   },
   {
-    id: 3,
-    label: 'Class 3',
+    id: 'CLASS 3',
     weight: '10,001–14,000 lbs',
     category: 'Medium Duty',
     examples: 'Box Trucks, City Delivery',
-    towType: 'Medium Duty Towing',
+    image: '/assets/3d/class3.png',
     color: '#FF7A1A',
   },
   {
-    id: 4,
-    label: 'Class 4',
+    id: 'CLASS 4',
     weight: '14,001–16,000 lbs',
     category: 'Medium Duty',
     examples: 'Large Box Trucks, Utility',
-    towType: 'Medium Duty Towing',
+    image: '/assets/3d/class4.png',
     color: '#FF7A1A',
   },
   {
-    id: 5,
-    label: 'Class 5',
+    id: 'CLASS 5',
     weight: '16,001–19,500 lbs',
     category: 'Medium Duty',
     examples: 'Bucket Trucks, Heavy Vans',
-    towType: 'Medium Duty Recovery',
+    image: '/assets/3d/class5.png',
     color: '#FF7A1A',
   },
   {
-    id: 6,
-    label: 'Class 6',
+    id: 'CLASS 6',
     weight: '19,501–26,000 lbs',
     category: 'Medium Duty',
     examples: 'School Buses, Rack Trucks',
-    towType: 'Heavy Duty Towing',
+    image: '/assets/3d/class6.png',
     color: '#FF7A1A',
   },
   {
-    id: 7,
-    label: 'Class 7',
+    id: 'CLASS 7',
     weight: '26,001–33,000 lbs',
     category: 'Heavy Duty',
     examples: 'Refuse Trucks, Tow Trucks',
-    towType: 'Heavy Duty Recovery',
+    image: '/assets/3d/class7.png',
     color: '#E11D48',
   },
   {
-    id: 8,
-    label: 'Class 8',
+    id: 'CLASS 8',
     weight: '33,001 lbs or above',
     category: 'Super Heavy Duty',
     examples: 'Semi-Tractors, Cement Mixers',
-    towType: 'Super Heavy Recovery',
+    image: '/assets/3d/class8.png',
     color: '#9F1239',
   },
 ];
 
 export default function VehicleClassIntelligence() {
-  const [selectedClass, setSelectedClass] = useState(vehicleClasses[7]);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <section className="py-24 bg-brand-bg relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-        
-        <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4">
-              <Zap className="w-3 h-3 text-[#2F80FF]" />
-              <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Classification Intelligence</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground dark:text-white mb-6">
-              Vehicle Class Intelligence Dashboard
-            </h2>
-            <p className="text-brand-slate text-lg leading-relaxed">
-              Automated classification systems ensure the right equipment is dispatched for every recovery event. Our platform categorizes over 50,000 vehicle types into 8 operational weight classes.
-            </p>
-          </div>
-          <div className="flex items-center gap-4 text-xs font-mono text-brand-slate">
-            <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-emerald-500" /> Real-time Telemetry</span>
-            <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-500" /> Dispatch Sync</span>
-          </div>
+    <section className="py-20 lg:py-24 bg-brand-bg relative overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }} />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-blue/5 blur-[150px] rounded-full -mr-96 -mt-96 pointer-events-none" />
+
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-24">
+           <h2 className="text-4xl lg:text-7xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
+              Vehicle Class <span className="text-brand-blue">Intelligence</span>
+           </h2>
+           <p className="text-brand-slate font-medium text-lg max-w-2xl leading-relaxed">
+              Automated classification platform categorizes over 50,000 vehicle types into 8 operational weight classes for precise dispatching.
+           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Class Grid Selector */}
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {vehicleClasses.map((cls) => (
-              <motion.button
-                key={cls.id}
-                whileHover={{ y: -4, borderColor: cls.color }}
-                onClick={() => setSelectedClass(cls)}
-                className={`relative p-6 rounded-2xl border bg-card/50 backdrop-blur-xl transition-all text-left overflow-hidden ${
-                  selectedClass.id === cls.id ? 'border-white/20 ring-1 ring-white/10' : 'border-brand-border grayscale opacity-60 hover:grayscale-0 hover:opacity-100'
-                }`}
-              >
-                {selectedClass.id === cls.id && (
-                  <motion.div 
-                    layoutId="activeClassGlow"
-                    className="absolute -inset-1 bg-gradient-to-br from-white/10 to-transparent blur-xl" 
-                  />
-                )}
-                <div className="relative z-10">
-                  <div className="text-[10px] font-mono mb-1" style={{ color: cls.color }}>{cls.category}</div>
-                  <div className="text-2xl font-black text-foreground dark:text-white mb-1">{cls.label}</div>
-                  <div className="text-[9px] text-brand-slate font-mono tracking-tight">{cls.weight}</div>
-                </div>
-                <div className="absolute bottom-2 right-2 opacity-10">
-                   <Truck className="w-12 h-12" />
-                </div>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Details Dashboard */}
-          <div className="lg:col-span-5">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={selectedClass.id}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-                className="bg-card/80 backdrop-blur-3xl border border-brand-border rounded-2xl overflow-hidden shadow-2xl"
-              >
-                <div className="bg-brand-bg p-6 border-b border-brand-border flex items-center justify-between">
-                  <div>
-                    <h3 className="text-xl font-black text-foreground dark:text-white">{selectedClass.label} Recovery Intelligence</h3>
-                    <div className="text-[10px] font-mono text-brand-slate uppercase tracking-widest mt-1">Operational Parameters</div>
-                  </div>
-                  <div className="p-2 rounded-xl bg-white/5">
-                    <Activity className="w-5 h-5 text-[#2F80FF]" />
-                  </div>
-                </div>
-
-                <div className="p-8 space-y-8">
-                  {/* Weight Visualizer */}
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <Weight className="w-4 h-4 text-brand-slate" />
-                        <span className="text-xs font-mono text-brand-slate uppercase">Weight Threshold</span>
-                      </div>
-                      <span className="text-sm font-black text-foreground dark:text-white">{selectedClass.weight}</span>
-                    </div>
-                    <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+           {vehicleClasses.map((item, i) => (
+             <div
+               key={item.id}
+               className={`relative h-[400px] transition-all duration-300 ${hoveredId === item.id ? 'z-[100]' : 'z-10'}`}
+               onMouseEnter={() => setHoveredId(item.id)}
+               onMouseLeave={() => setHoveredId(null)}
+             >
+                <AnimatePresence>
+                   {hoveredId !== item.id ? (
+                      /* Stable Card State */
                       <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${(selectedClass.id / 8) * 100}%` }}
-                        className="h-full rounded-full"
-                        style={{ backgroundColor: selectedClass.color }}
-                      />
-                    </div>
-                  </div>
+                        key="stable"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
+                        className="absolute inset-0 cursor-pointer"
+                      >
+                         <GlassPanel className="h-full p-6 border-brand-border bg-card/40 backdrop-blur-xl rounded-[2rem] flex flex-col overflow-hidden group">
+                            <div className="flex justify-between items-start mb-6">
+                               <div>
+                                  <p className="text-[9px] font-black text-brand-slate uppercase tracking-widest mb-1 opacity-60">
+                                     Support Node {item.id.split(' ')[1]}
+                                  </p>
+                                  <h3 className="text-xl font-black text-foreground dark:text-white group-hover:text-brand-blue transition-colors">
+                                     {item.category}
+                                  </h3>
+                               </div>
+                               <div className="h-8 w-8 rounded-lg bg-card border border-brand-border flex items-center justify-center text-brand-slate">
+                                  <Maximize2 className="h-3 w-3" />
+                               </div>
+                            </div>
 
-                  {/* Info Cards */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 rounded-xl bg-brand-bg border border-brand-border">
-                      <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-2">Category</div>
-                      <div className="text-sm font-bold text-foreground dark:text-white">{selectedClass.category}</div>
-                    </div>
-                    <div className="p-4 rounded-xl bg-brand-bg border border-brand-border">
-                      <div className="text-[9px] text-brand-slate uppercase tracking-widest mb-2">Recovery Target</div>
-                      <div className="text-sm font-bold text-[#2F80FF]">{selectedClass.towType}</div>
-                    </div>
-                  </div>
+                            <div className="flex flex-col items-center gap-4 mb-auto">
+                               <div className="relative h-36 w-36 bg-brand-bg/50 rounded-2xl border border-brand-border flex items-center justify-center overflow-hidden">
+                                  <img 
+                                    src={item.image} 
+                                    alt={item.id} 
+                                    className="w-24 h-24 object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-500" 
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent" />
+                               </div>
+                               <div className="text-center">
+                                  <p className="text-2xl font-black text-foreground dark:text-white tracking-tighter mb-1">{item.weight}</p>
+                                  <p className="text-[10px] font-black text-brand-blue uppercase tracking-widest">{item.examples.length > 25 ? item.examples.substring(0, 25) + '...' : item.examples}</p>
+                               </div>
+                            </div>
+                         </GlassPanel>
+                      </motion.div>
+                   ) : (
+                      /* Hover Detailed State (Glassmorphism Expansion) */
+                      <motion.div
+                        key="hover"
+                        initial={{ opacity: 0, scale: 0.98, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.98, y: 20 }}
+                        transition={{ 
+                           type: 'spring', 
+                           damping: 30, 
+                           stiffness: 80,
+                           mass: 1.2
+                        }}
+                        className="absolute inset-0 z-50 pointer-events-none"
+                      >
+                         <GlassPanel className="h-auto w-full md:w-[105%] md:-left-[2.5%] -top-2 md:-top-4 p-4 md:p-5 border-brand-blue/40 bg-card/80 backdrop-blur-[60px] rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.7),0_0_60px_rgba(47,128,255,0.2)] flex flex-col overflow-visible pointer-events-auto z-50">
 
-                  <div className="space-y-4">
-                    <div className="text-[10px] font-mono text-brand-slate uppercase tracking-widest flex items-center gap-2">
-                      <Info className="w-3 h-3" /> Vehicle Examples
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedClass.examples.split(', ').map((ex, i) => (
-                        <span key={i} className="px-3 py-1 rounded-full bg-white/5 border border-brand-border text-[10px] font-medium text-foreground dark:text-white">
-                          {ex}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
 
-                  {/* Dispatch Intelligence */}
-                  <div className="pt-6 border-t border-brand-border">
-                    <div className="bg-blue-500/5 rounded-xl p-4 border border-blue-500/10 flex items-start gap-4">
-                      <Shield className="w-5 h-5 text-blue-400 mt-1" />
-                      <div>
-                        <div className="text-[11px] font-black text-foreground dark:text-white uppercase tracking-wider mb-1">Dispatch Intelligence</div>
-                        <p className="text-[10px] text-brand-slate leading-normal">
-                          Requires specialized {selectedClass.towType.toLowerCase()} units with certified {selectedClass.category.toLowerCase()} operators. Automated routing will prioritize proximity to heavy-duty recovery nodes.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                            <div className="mb-3 md:mb-4">
+                               <h4 className="text-[9px] md:text-[10px] font-black text-brand-blue uppercase tracking-[0.3em] mb-1 md:mb-2">Class Identification</h4>
+                               <h2 className="text-3xl md:text-4xl font-black text-foreground dark:text-white tracking-tighter">
+                                  {item.id}
+                               </h2>
+                               <p className="text-xs md:text-sm font-medium text-brand-slate tracking-tight opacity-70">{item.category} Configuration</p>
+                            </div>
 
-                  <button className="w-full py-4 bg-white/5 hover:bg-white/10 border border-brand-border rounded-xl text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 group">
-                    View Technical Specifications <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                            <div className="relative h-24 md:h-28 w-full mb-4 flex items-center justify-center">
+                               <div className="absolute inset-0 bg-brand-blue/10 rounded-full blur-2xl animate-pulse" />
+                               <motion.img 
+                                 initial={{ scale: 0.8, rotate: -10 }}
+                                 animate={{ scale: 1, rotate: 0 }}
+                                 src={item.image} 
+                                 alt={item.id}
+                                 className="w-24 h-24 md:w-32 md:h-32 object-contain relative z-10 drop-shadow-[0_20px_50px_rgba(47,128,255,0.3)]"
+                               />
+                            </div>
+
+                            <div className="space-y-3 mt-auto">
+
+                               <div className="space-y-2">
+                                  {/* Weight Visualizer */}
+                                  <div className="space-y-3 mb-2">
+                                    <div className="flex justify-between items-center">
+                                      <div className="flex items-center gap-2">
+                                        <Weight className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-slate" />
+                                        <span className="text-[9px] md:text-[10px] font-mono text-brand-slate uppercase tracking-widest">Weight Threshold</span>
+                                      </div>
+                                      <span className="text-xs md:text-sm font-black text-foreground dark:text-white">{item.weight}</span>
+                                    </div>
+                                    <div className="h-1.5 md:h-2 bg-white/5 rounded-full overflow-hidden">
+                                      <motion.div
+                                        initial={{ width: 0 }}
+                                        animate={{ width: `${(parseInt(item.id.replace('CLASS ', '')) / 8) * 100}%` }}
+                                        className="h-full rounded-full"
+                                        style={{ backgroundColor: item.color }}
+                                      />
+                                    </div>
+                                  </div>
+
+                                  <div className="bg-brand-bg/40 p-3 md:p-4 rounded-xl border border-brand-border">
+                                     <div>
+                                        <p className="text-[8px] md:text-[9px] font-black text-brand-slate uppercase tracking-widest mb-0.5">Vehicle Types</p>
+                                        <p className="text-xs md:text-sm font-black text-foreground dark:text-white leading-tight">{item.examples}</p>
+                                     </div>
+                                  </div>
+                               </div>
+
+                            </div>
+
+                            {/* Large background number */}
+                            <div className="absolute top-[-40px] right-[-20px] text-[10rem] font-black text-brand-blue/5 pointer-events-none select-none -z-10">
+                               {item.id.split(' ')[1]}
+                            </div>
+                         </GlassPanel>
+                      </motion.div>
+                   )}
+                </AnimatePresence>
+             </div>
+           ))}
         </div>
-      </div>
-      
-      {/* Decorative background class labels */}
-      <div className="absolute top-0 right-0 p-12 pointer-events-none opacity-[0.02]">
-        <div className="text-[15rem] font-black leading-none select-none">CLASS {selectedClass.id}</div>
       </div>
     </section>
   );

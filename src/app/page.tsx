@@ -11,6 +11,8 @@ import { motion } from "framer-motion";
 export default function HomePage() {
   return (
     <LandingLayout>
+      <title>Nationwide Roadside Assist | Enterprise Mobility Infrastructure</title>
+      <meta name="description" content="Enterprise-grade dispatch, nationwide vendor coordination, and API-first technology engineered for insurers, fleets, OEMs, and roadside providers." />
       {/* Cinematic Entry Section */}
       <div className="relative">
         <Hero />

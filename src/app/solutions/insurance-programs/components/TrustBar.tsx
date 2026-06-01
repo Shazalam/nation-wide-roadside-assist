@@ -14,10 +14,10 @@ const partners = [
 ];
 
 const compliance = [
-  { label: 'SOC 2 TYPE II', icon: Shield },
-  { label: 'ISO 27001', icon: Lock },
-  { label: 'PCI-DSS', icon: Shield },
-  { label: 'GDPR READY', icon: CheckCircle },
+  { label: 'ENTERPRISE-GRADE SECURITY', icon: Shield },
+  { label: 'Industry-Standard Security Practices', icon: Lock },
+  { label: 'Secure Payment Processing', icon: Shield },
+  { label: 'PRIVACY-FOCUSED', icon: CheckCircle },
 ];
 
 export default function TrustBar() {

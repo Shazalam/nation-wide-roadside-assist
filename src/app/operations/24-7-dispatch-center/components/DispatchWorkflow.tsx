@@ -2,60 +2,148 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { 
+  Radio, ShieldCheck, Search, Cpu, 
+  Map, Database, ChevronRight 
+} from 'lucide-react';
 
 const steps = [
-  { id: 1, title: 'Incident Detected', desc: 'Telemetry or API trigger.' },
-  { id: 2, title: 'Dispatch Validation', desc: 'Automated data verification.' },
-  { id: 3, title: 'Tow Assignment', desc: 'Algorithmic vendor matching.' },
-  { id: 4, title: 'Fleet Coordination', desc: 'Enterprise notifications sent.' },
-  { id: 5, title: 'Route Optimization', desc: 'GPS vector routing active.' },
-  { id: 6, title: 'Live Tracking', desc: 'Real-time ETA updates.' },
-  { id: 7, title: 'Recovery Complete', desc: 'Asset secured.' },
-  { id: 8, title: 'Auto Reporting', desc: 'Data synchronized.' }
+  {
+    id: 1,
+    title: 'Incident Detected',
+    description: 'Telemetry or API trigger ingests the incident payload instantly into our nationwide routing engine.',
+    icon: Radio,
+  },
+  {
+    id: 2,
+    title: 'Dispatch Validation',
+    description: 'Automated data verification checks coverage limits, location accuracy, and vehicle requirements.',
+    icon: ShieldCheck,
+  },
+  {
+    id: 3,
+    title: 'Intelligent Assignment',
+    description: 'Algorithmic vendor matching selects the optimal tow operator based on proximity and SLA performance.',
+    icon: Search,
+  },
+  {
+    id: 4,
+    title: 'Fleet Coordination',
+    description: 'Enterprise notifications automatically sync with fleet managers to update them on asset recovery status.',
+    icon: Cpu,
+  },
+  {
+    id: 5,
+    title: 'Live Telemetry',
+    description: 'Real-time ETA updates and GPS vector tracking ensure complete operational visibility.',
+    icon: Map,
+  },
+  {
+    id: 6,
+    title: 'Auto Reporting',
+    description: 'Post-recovery data is synchronized automatically with enterprise ERPs and billing platforms.',
+    icon: Database,
+  },
 ];
 
 export const DispatchWorkflow = () => {
   return (
-    <section className="py-32 bg-card/20 relative z-10 overflow-hidden border-t border-brand-border">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20">
-           <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight">
-              Automated Dispatch Workflow
+    <section className="py-12 lg:py-16 bg-brand-bg relative z-10 overflow-hidden border-t border-brand-border">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }} />
+      <div className="absolute top-1/2 right-0 w-[800px] h-[800px] bg-[#2F80FF]/5 blur-[150px] rounded-full pointer-events-none" />
+
+      <div className="max-w-[1536px] mx-auto px-6 lg:px-12">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 lg:mb-12">
+           <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
+              Automated Dispatch <span className="text-[#2F80FF]">Workflow</span>
            </h2>
+           <p className="text-brand-slate font-medium text-lg max-w-2xl mx-auto leading-relaxed">
+             Our automated systems streamline the entire dispatch lifecycle, ensuring lightning-fast vendor assignments and complete operational transparency.
+           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto">
-           {/* Connecting Line (Desktop) */}
-           <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#2F80FF]/30 to-transparent hidden lg:block" />
-           <div className="absolute top-8 left-[10%] right-[10%] h-0.5 bg-transparent border-t border-dashed border-[#2F80FF]/50 hidden lg:block" />
+        {/* Workflow Pipeline */}
+        <div className="relative">
+           {/* Primary Pipeline Trace Line (Desktop) */}
+           <div className="absolute top-[40px] left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#2F80FF]/30 to-transparent hidden lg:block z-0" />
            
-           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 relative z-10">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={step.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  viewport={{ once: true }}
-                  className="flex flex-col items-center text-center group relative"
-                >
-                   <div className="relative mb-6">
-                      <div className="h-16 w-16 rounded-xl border border-brand-border flex items-center justify-center relative z-10 group-hover:border-[#2F80FF] group-hover:shadow-[0_0_20px_rgba(47,128,255,0.4)] transition-all bg-brand-bg">
-                         <span className="text-lg font-black text-foreground dark:text-white">{step.id}</span>
-                      </div>
-                      
-                      {/* Pulse Indicator */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#2F80FF]/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                   </div>
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-4 relative z-10">
+              {steps.map((step, i) => {
+                const Icon = step.icon;
+                return (
+                  <motion.div
+                    key={step.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08, duration: 0.5 }}
+                    className="flex flex-col items-center text-center group relative"
+                  >
+                    {/* Node Container */}
+                    <div className="relative mb-8">
+                       
+                       {/* Floating Premium Dashboard Hover Preview Panel */}
+                       <div className="absolute -top-6 left-1/2 -translate-x-1/2 -translate-y-full w-64 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-30 scale-95 group-hover:scale-100">
+                          <div className="relative p-4 bg-[#0a192f]/95 backdrop-blur-2xl border border-[#2F80FF]/40 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_20px_rgba(47,128,255,0.2)] overflow-hidden">
+                             
+                             <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full bg-[#2F80FF]/15 blur-[20px] pointer-events-none" />
+                             
+                             <div className="text-center relative z-10">
+                                <p className="text-[13px] text-white/90 leading-relaxed font-medium">{step.description}</p>
+                             </div>
+                          </div>
+                          <div className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-[#2F80FF]/40 mx-auto" />
+                       </div>
 
-                   <h3 className="text-[9px] font-black text-foreground dark:text-white uppercase tracking-widest leading-tight mb-2 h-6">
-                      {step.title}
-                   </h3>
-                   <p className="text-[9px] text-brand-slate font-medium leading-relaxed max-w-[100px] mx-auto">
-                      {step.desc}
-                   </p>
-                </motion.div>
-              ))}
+                       {/* Connection Line Indicator between nodes */}
+                       {i < steps.length - 1 && (
+                         <div className="absolute top-1/2 left-full w-full h-0.5 bg-[#2F80FF]/10 hidden lg:block overflow-hidden">
+                            <motion.div 
+                               animate={{ x: ['-100%', '200%'] }}
+                               transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: i * 0.4 }}
+                               className="h-full w-1/2 bg-gradient-to-r from-transparent via-[#2F80FF]/50 to-transparent"
+                            />
+                         </div>
+                       )}
+
+                       {/* The Node Bubble */}
+                       <div className="relative h-20 w-20 bg-[#0a192f]/80 backdrop-blur-2xl border border-white/[0.08] rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-[#2F80FF]/50 group-hover:shadow-[0_0_40px_rgba(47,128,255,0.25)] group-hover:-translate-y-2 transition-all duration-300 z-10 cursor-default select-none">
+                          <Icon className="h-7 w-7 text-brand-slate group-hover:text-[#2F80FF] transition-colors duration-300" />
+                          
+                          {/* Step Number Tag */}
+                          <div className="absolute -top-3 -right-3 h-7 w-7 rounded-lg bg-[#2F80FF] text-white flex items-center justify-center text-[10px] font-black border border-[#081120] shadow-lg shadow-[#2F80FF]/25">
+                             0{step.id}
+                          </div>
+
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                       </div>
+
+                       {/* Active Telemetry Halo */}
+                       <motion.div
+                         animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
+                         transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.3 }}
+                         className="absolute -bottom-4 left-1/2 -translate-x-1/2 h-1.5 w-1.5 rounded-full bg-[#2F80FF]/40"
+                       />
+                    </div>
+
+                    <div className="px-2 w-full flex flex-col items-center">
+                       <h3 className="text-[11px] font-black text-white uppercase tracking-[0.2em] mb-3 group-hover:text-[#2F80FF] transition-colors duration-300 min-h-[32px] flex items-center justify-center">
+                          {step.title}
+                       </h3>
+                    </div>
+
+                    {i < steps.length - 1 && (
+                      <div className="mt-8 lg:hidden flex justify-center w-full">
+                        <ChevronRight className="h-5 w-5 text-[#2F80FF]/40 rotate-90" />
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
            </div>
         </div>
       </div>

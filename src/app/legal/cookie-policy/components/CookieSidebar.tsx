@@ -16,8 +16,8 @@ const sections = [
   { id: 'consent-preferences', label: 'Consent Preferences' },
   { id: 'retention', label: 'Cookie Retention' },
   { id: 'browser-controls', label: 'Browser Controls' },
-  { id: 'gdpr-rights', label: 'GDPR Cookie Rights' },
-  { id: 'ccpa-rights', label: 'CCPA Rights' },
+  { id: 'gdpr-rights', label: 'Privacy Compliance Cookie Rights' },
+  { id: 'ccpa-rights', label: 'Privacy Controls Rights' },
   { id: 'infrastructure', label: 'Enterprise Tracking Infrastructure' },
   { id: 'updates', label: 'Policy Updates' },
   { id: 'contact', label: 'Contact Information' }

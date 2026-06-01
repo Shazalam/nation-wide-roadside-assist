@@ -2,122 +2,245 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Map, Zap, Server, Activity, ArrowUpRight, Network } from 'lucide-react';
-
-const features = [
-  {
-    title: "Nationwide Vendor Coverage",
-    description: "50-state vendor network with real-time availability intelligence and regional density analytics.",
-    icon: Map,
-    metric: "98.9%",
-    metricLabel: "Coverage",
-    trend: "+1.2%",
-    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80'
-  },
-  {
-    title: "SLA-Driven Dispatch Intelligence",
-    description: "AI-powered vendor matching, SLA monitoring, and performance-based routing for mission-critical events.",
-    icon: Zap,
-    metric: "96.3%",
-    metricLabel: "Match Accuracy",
-    trend: "+2.5%",
-    image: 'https://images.unsplash.com/photo-1551288049-bbbda536ad0a?auto=format&fit=crop&q=80'
-  },
-  {
-    title: "API-Connected Infrastructure",
-    description: "Seamless integrations, real-time webhooks, and enterprise-grade APIs powering the mobility ecosystem.",
-    icon: Server,
-    metric: "99.99%",
-    metricLabel: "API Uptime",
-    trend: "Stable",
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80'
-  }
-];
+import { 
+  Map, Zap, Server, ArrowUpRight, Activity, Cloud
+} from 'lucide-react';
 
 export const VendorGrid = () => {
   return (
-    <section className="py-32 relative bg-brand-bg overflow-hidden">
+    <section className="py-12 lg:py-16 bg-brand-bg relative overflow-hidden">
       {/* Background Ambience */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
-           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }} />
-      <div className="absolute top-1/2 right-0 w-[800px] h-[800px] bg-[#2F80FF]/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#2F80FF]/10 blur-[150px] rounded-full pointer-events-none" />
+      
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        
+        {/* Header Section */}
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16 pt-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl lg:text-5xl font-black tracking-tight text-foreground dark:text-white mb-6"
+          >
+             Network <span className="text-[#2F80FF]">Capabilities</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-brand-slate text-lg leading-relaxed max-w-2xl mx-auto"
+          >
+            Our platform provides the infrastructure needed to mobilize the nation's largest vendor network, ensuring rapid response and unparalleled reliability.
+          </motion.p>
+        </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-16">
-          {features.map((feature, i) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative group h-full"
-              >
-                {/* Floating Icon Bubble (50% Overlap) */}
-                <div className="absolute top-0 left-10 -translate-y-1/2 z-20">
-                   <motion.div
-                     whileHover={{ scale: 1.2 }}
-                     className="h-16 w-16 bg-card/90 backdrop-blur-2xl border border-brand-border rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(47,128,255,0.2)] group-hover:border-[#2F80FF]/40 group-hover:shadow-[0_0_40px_rgba(47,128,255,0.4)] transition-all relative overflow-hidden"
-                   >
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/20 to-transparent" />
-                      <Icon className="h-7 w-7 text-[#2F80FF] relative z-10 transition-transform group-hover:scale-110" />
-                      <div className="absolute inset-0 rounded-2xl border-2 border-[#2F80FF]/20 animate-pulse" />
-                   </motion.div>
+        {/* Cards Grid - 3 Core Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          
+          {/* Card 1: Nationwide Vendor Coverage */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="group relative bg-card border border-brand-border rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            {/* Left Content Area */}
+            <div className="flex-1 flex flex-col w-full h-full relative z-10 justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2F80FF]/20 to-transparent border border-[#2F80FF]/30 flex items-center justify-center shrink-0">
+                  <Map className="w-5 h-5 text-[#2F80FF]" />
                 </div>
+                <h3 className="text-lg font-bold text-foreground dark:text-white leading-snug">
+                  Nationwide Vendor<br/>Coverage
+                </h3>
+              </div>
+              <p className="text-[13px] text-brand-slate leading-relaxed mb-6">
+                50-state vendor network with real-time availability intelligence and regional density analytics.
+              </p>
+              
+              <div className="mt-auto pt-4 border-t border-brand-border/50 w-full">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.2em]">COVERAGE</span>
+                  <div className="flex items-center gap-1 text-emerald-400 text-[10px] font-black bg-emerald-400/10 px-2 py-0.5 rounded-full">
+                     <ArrowUpRight className="w-3 h-3" />
+                     +1.2%
+                  </div>
+                </div>
+                <div className="text-3xl font-black font-mono text-foreground dark:text-white tracking-tighter">
+                   98.9%
+                </div>
+              </div>
+            </div>
 
-                {/* Glassmorphism Card */}
-                <div className="relative bg-card/55 backdrop-blur-[24px] border border-white/[0.08] rounded-[28px] pt-16 p-10 h-full flex flex-col transition-all duration-400 group-hover:border-[#2F80FF]/40 group-hover:bg-card/80 group-hover:-translate-y-6 group-hover:scale-[1.08] shadow-[0_15px_50px_rgba(0,0,0,0.5)] group-hover:shadow-[0_40px_80px_rgba(47,128,255,0.25)] overflow-hidden">
-                   {/* Background Image Ghost */}
-                   <div className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-5 mix-blend-luminosity transition-opacity duration-700 pointer-events-none scale-110 group-hover:scale-100" 
-                        style={{ backgroundImage: `url(${feature.image})` }} />
-
-                   <div className="relative z-10 mb-8">
-                      <h3 className="text-xl md:text-2xl font-black text-foreground dark:text-white tracking-tight mb-4 group-hover:text-[#2F80FF] transition-colors">
-                        {feature.title}
-                      </h3>
-                      <p className="text-[14px] text-brand-slate font-medium leading-relaxed">
-                        {feature.description}
-                      </p>
-                   </div>
-
-                   {/* Operational Telemetry */}
-                   <div className="mt-auto relative z-10 pt-8 border-t border-brand-border">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.2em]">{feature.metricLabel}</span>
-                        <div className="flex items-center gap-1 text-emerald-400 text-[10px] font-black bg-emerald-400/10 px-2 py-0.5 rounded-full">
-                           <ArrowUpRight className="w-3 h-3" />
-                           {feature.trend}
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-baseline gap-2">
-                         <span className="text-4xl md:text-5xl font-black text-foreground dark:text-white font-mono tracking-tighter group-hover:text-[#2F80FF] transition-colors">
-                            {feature.metric}
-                         </span>
-                         <Activity className="w-4 h-4 text-[#2F80FF] animate-pulse opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-
-                      {/* Small Progress Line */}
-                      <div className="mt-6 h-1 w-full bg-white/5 rounded-full overflow-hidden relative">
-                         <motion.div 
-                           initial={{ width: 0 }}
-                           whileInView={{ width: '100%' }}
-                           transition={{ duration: 1.5, ease: 'easeOut' }}
-                           className="h-full bg-gradient-to-r from-[#2F80FF] to-[#2F80FF]/20"
-                         />
-                      </div>
-                   </div>
-
-                   {/* Edge Glow Pulse */}
-                   <div className="absolute inset-0 rounded-[28px] border-2 border-[#2F80FF]/0 group-hover:border-[#2F80FF]/10 transition-all duration-500 pointer-events-none" />
+            {/* Visual Area (Adapted from CapabilitiesGrid) */}
+            <div className="flex-1 relative h-[250px] w-full flex items-center justify-center mt-6 lg:mt-0 pointer-events-none overflow-visible">
+              <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[220px] h-[80px] border border-[#2F80FF]/20 rounded-[100%] rotate-x-60 opacity-50" />
+              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[140px] h-[40px] border border-[#2F80FF]/30 rounded-[100%] rotate-x-60 opacity-80 shadow-[0_0_30px_rgba(47,128,255,0.4)]" />
+              
+              <motion.div 
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute right-0 top-6 w-36 h-24 bg-brand-bg/80 backdrop-blur-md border border-brand-border rounded-xl shadow-2xl p-2.5 transform perspective-1000 rotate-y-[-15deg] rotate-x-[5deg]"
+              >
+                <div className="flex gap-1.5 mb-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-500/50" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-500/50" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-500/50" />
+                </div>
+                <div className="w-1/2 h-1 bg-white/10 rounded mb-3" />
+                <div className="flex gap-2">
+                  <div className="w-8 h-8 rounded-full border-2 border-[#2F80FF]/40 border-t-[#2F80FF] flex items-center justify-center"><Activity className="w-3 h-3 text-[#2F80FF]" /></div>
+                  <div className="flex-1 space-y-1.5 pt-1">
+                    <div className="w-full h-1 bg-white/10 rounded" />
+                    <div className="w-2/3 h-1 bg-white/10 rounded" />
+                    <div className="w-4/5 h-1 bg-[#2F80FF]/40 rounded" />
+                  </div>
                 </div>
               </motion.div>
-            );
-          })}
+
+              <motion.div 
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                className="absolute left-2 bottom-4 w-20 h-36 bg-card border-4 border-[#081120] rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col"
+              >
+                <div className="bg-[#2F80FF] h-8 w-full flex items-center justify-center">
+                  <div className="w-6 h-1 bg-white/30 rounded-full" />
+                </div>
+                <div className="p-2 space-y-2 flex-1">
+                  <div className="w-full h-12 bg-[#2F80FF]/10 rounded-lg flex items-center justify-center border border-[#2F80FF]/20">
+                    <Map className="w-4 h-4 text-[#2F80FF]/60" />
+                  </div>
+                  <div className="w-3/4 h-1 bg-white/10 rounded" />
+                  <div className="w-1/2 h-1 bg-white/10 rounded" />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Card 2: SLA-Driven Dispatch Intelligence */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="group relative bg-card border border-brand-border rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            {/* Left Content Area */}
+            <div className="flex-1 flex flex-col w-full h-full relative z-10 justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2F80FF]/20 to-transparent border border-[#2F80FF]/30 flex items-center justify-center shrink-0">
+                  <Zap className="w-5 h-5 text-[#2F80FF]" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground dark:text-white leading-snug">
+                  Dispatch<br/>Intelligence
+                </h3>
+              </div>
+              <p className="text-[13px] text-brand-slate leading-relaxed mb-6">
+                AI-powered vendor matching, SLA monitoring, and performance-based routing for mission-critical events.
+              </p>
+
+              <div className="mt-auto pt-4 border-t border-brand-border/50 w-full">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.2em]">MATCH ACCURACY</span>
+                  <div className="flex items-center gap-1 text-emerald-400 text-[10px] font-black bg-emerald-400/10 px-2 py-0.5 rounded-full">
+                     <ArrowUpRight className="w-3 h-3" />
+                     +2.5%
+                  </div>
+                </div>
+                <div className="text-3xl font-black font-mono text-foreground dark:text-white tracking-tighter">
+                   96.3%
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-1 relative h-[250px] w-full flex items-center justify-center mt-6 lg:mt-0 pointer-events-none overflow-visible">
+              <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 300 200">
+                <path d="M50,100 Q100,50 150,100 T250,100" fill="none" stroke="#2F80FF" strokeWidth="1" strokeDasharray="4" />
+                <path d="M50,150 Q100,100 150,150 T250,150" fill="none" stroke="#2F80FF" strokeWidth="1" strokeDasharray="4" />
+                <circle cx="150" cy="100" r="3" fill="#2F80FF" />
+                <circle cx="200" cy="100" r="2" fill="#FF7A1A" />
+                <circle cx="100" cy="150" r="2" fill="#2F80FF" />
+              </svg>
+
+              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[180px] h-[60px] border border-brand-border rounded-[100%] rotate-x-60" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-[30px] border border-[#2F80FF]/30 rounded-[100%] rotate-x-60 shadow-[0_0_20px_rgba(47,128,255,0.3)]" />
+
+              <div className="absolute bottom-[20%] left-[45%]">
+                 <div className="relative">
+                    <div className="w-10 h-10 rounded-full bg-[#2F80FF]/20 animate-ping absolute inset-0" />
+                    <div className="w-10 h-10 rounded-full bg-[#2F80FF] shadow-[0_0_30px_#2F80FF] flex items-center justify-center relative z-10 border-2 border-white/20">
+                       <Zap className="w-4 h-4 text-foreground dark:text-white" />
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 3: API-Connected Infrastructure */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="group relative bg-card border border-brand-border rounded-[24px] p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-6 hover:border-[#2F80FF]/50 transition-all duration-500 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            {/* Left Content Area */}
+            <div className="flex-1 flex flex-col w-full h-full relative z-10 justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2F80FF]/20 to-transparent border border-[#2F80FF]/30 flex items-center justify-center shrink-0">
+                  <Server className="w-5 h-5 text-[#2F80FF]" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground dark:text-white leading-snug">
+                  API-Connected<br/>Infrastructure
+                </h3>
+              </div>
+              <p className="text-[13px] text-brand-slate leading-relaxed mb-6">
+                Seamless integrations, real-time webhooks, and enterprise-grade APIs powering the mobility ecosystem.
+              </p>
+
+              <div className="mt-auto pt-4 border-t border-brand-border/50 w-full">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.2em]">API UPTIME</span>
+                  <div className="flex items-center gap-1 text-emerald-400 text-[10px] font-black bg-emerald-400/10 px-2 py-0.5 rounded-full">
+                     <ArrowUpRight className="w-3 h-3" />
+                     Stable
+                  </div>
+                </div>
+                <div className="text-3xl font-black font-mono text-foreground dark:text-white tracking-tighter">
+                   99.99%
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-1 relative h-[250px] w-full flex items-center justify-center mt-6 lg:mt-0 pointer-events-none overflow-visible">
+              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[160px] h-[50px] border border-[#2F80FF]/20 rounded-[100%] rotate-x-60 opacity-50" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-[30px] border border-[#2F80FF]/40 rounded-[100%] rotate-x-60 opacity-80 shadow-[0_0_20px_rgba(47,128,255,0.4)]" />
+
+              <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex items-center justify-center">
+                <div className="absolute w-16 h-16 rounded-full bg-[#2F80FF]/15 animate-ping" />
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#0A192F] to-[#081120] border border-[#2F80FF] shadow-[0_0_30px_rgba(47,128,255,0.5)] flex items-center justify-center relative z-20">
+                  <span className="text-[#2F80FF] font-black text-sm tracking-wider">API</span>
+                </div>
+              </div>
+
+              <div className="absolute top-[10%] left-1/2 -translate-x-1/2">
+                 <Cloud className="w-10 h-10 text-[#2F80FF]/40 drop-shadow-[0_0_12px_rgba(47,128,255,0.6)]" />
+                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-12 bg-gradient-to-b from-[#2F80FF]/50 to-transparent" />
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
   );
-};
+}

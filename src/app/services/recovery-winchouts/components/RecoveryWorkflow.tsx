@@ -72,16 +72,6 @@ export const RecoveryWorkflow = () => {
 
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-32">
-           <motion.div
-             initial={{ opacity: 0, y: 10 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="flex items-center gap-2 mb-4"
-           >
-              <Badge className="bg-brand-blue/10 text-brand-blue border-brand-blue/20 text-[10px] uppercase font-black tracking-[0.4em] px-6 py-1.5">
-                Operational Pipeline
-              </Badge>
-           </motion.div>
            <h2 className="text-4xl lg:text-7xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
               The Recovery <span className="bg-gradient-to-r from-brand-blue to-brand-blue/60 bg-clip-text text-transparent">Lifecycle</span>
            </h2>

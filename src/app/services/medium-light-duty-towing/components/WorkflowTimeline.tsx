@@ -61,9 +61,7 @@ export const WorkflowTimeline = () => {
              viewport={{ once: true }}
              className="flex items-center justify-center gap-2 mb-4"
            >
-              <div className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
-              <span className="text-[10px] font-black text-brand-blue uppercase tracking-[0.4em]">Operational Pipeline</span>
-           </motion.div>
+            </motion.div>
            <h2 className="text-4xl lg:text-6xl font-black text-foreground tracking-tighter leading-tight mb-8">
               The Dispatch <span className="text-brand-blue">Lifecycle</span>
            </h2>

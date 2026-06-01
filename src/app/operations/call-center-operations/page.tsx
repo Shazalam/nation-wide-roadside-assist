@@ -6,7 +6,6 @@ import { CapabilitiesGrid } from "./components/CapabilitiesGrid";
 import { SupportServices } from "./components/SupportServices";
 import { VehicleCoverage } from "./components/VehicleCoverage";
 import { ResponseWorkflow } from "./components/ResponseWorkflow";
-import { OperationalMetrics } from "./components/OperationalMetrics";
 import { CallCenterCTA } from "./components/CallCenterCTA";
 
 export const metadata: Metadata = {
@@ -24,12 +23,9 @@ export default function CallCenterOperationsPage() {
         <CapabilitiesGrid />
         <SupportServices />
         
-        <div className="grid lg:grid-cols-2 gap-6 container mx-auto px-4 mb-24">
-           <VehicleCoverage />
-           <ResponseWorkflow />
-         </div>
+        <VehicleCoverage />
+        <ResponseWorkflow />
 
-        <OperationalMetrics />
         <CallCenterCTA />
       </div>
       

@@ -1,235 +1,427 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, Zap, Activity, Info, Maximize2, Truck, Car, Cpu, LayoutGrid } from 'lucide-react';
-import { GlassPanel } from '@/components/ui/glass-panel';
-import { Badge } from '@/components/ui/badge';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { EnterpriseTabs } from '@/components/ui/enterprise-tabs';
+import { Shield, Truck, Car, Cpu, LayoutGrid, Check } from 'lucide-react';
 
-const ecosystems = [
+const solutions = [
   {
-    id: '01',
-    title: "Insurance Providers",
-    desc: "Seamless claims experience and cost optimization for high-volume carriers.",
+    id: 'insurance',
+    label: 'Insurance',
     icon: Shield,
-    image: '/assets/3d/insurance_3d.png',
-    specs: { perf: "98.5%", label: "SLA PERFORMANCE" },
-    details: "Automated claims intake, real-time vendor dispatch, and predictive cost analysis for national insurance carriers.",
-    accent: "text-[#2F80FF]"
+    title: 'Claims-Driven Assistance',
+    desc: 'Seamless claims experience and cost optimization for high-volume carriers. Integrated tire-change operations into your policy management system.',
+    features: ['Instant Policy Verification', 'Automated Claim Creation', 'Fraud Detection Mesh', 'Real-time Cost Recovery'],
+    visuals: {
+      cards: [
+        {
+          title: 'Vendor Coordination',
+          desc: 'Nationwide provider dispatch infrastructure.',
+          glow: 'rgba(6,182,212,0.15)'
+        },
+        {
+          title: 'Fleet Operations',
+          desc: 'Enterprise roadside coverage ecosystem.',
+          glow: 'rgba(59,130,246,0.15)'
+        },
+        {
+          title: 'Claims Integration',
+          desc: 'Connected insurance dispatch workflows.',
+          glow: 'rgba(147,51,234,0.15)'
+        },
+        {
+          title: 'Recovery Network',
+          desc: 'Tire replacement coordination systems.',
+          glow: 'rgba(236,72,153,0.15)'
+        }
+      ]
+    }
   },
   {
-    id: '02',
-    title: "Fleet Operations",
-    desc: "Reduce downtime and improve fleet productivity with automated recovery.",
+    id: 'fleet',
+    label: 'Fleet Operations',
     icon: Truck,
-    image: '/assets/3d/fleet_3d.png',
-    specs: { perf: "99.1%", label: "FLEET UPTIME IMPACT" },
-    details: "Mission-critical dispatch for commercial fleets, ranging from regional delivery to long-haul logistics.",
-    accent: "text-[#FF7A1A]"
+    title: 'Asset Uptime Optimization',
+    desc: 'Reduce downtime and improve fleet productivity with automated recovery. Maximize fleet utilization with predictive tire maintenance and rapid response.',
+    features: ['Multi-tenant Visibility', 'Maintenance Prediction', 'Driver App Integration', 'Cost-per-Mile Analytics'],
+    visuals: {
+      cards: [
+        {
+          title: 'Asset Tracking',
+          desc: 'Real-time fleet location and utilization tracking.',
+          glow: 'rgba(245,158,11,0.15)'
+        },
+        {
+          title: 'Diagnostics Feed',
+          desc: 'Predictive maintenance vehicle telemetry alerts.',
+          glow: 'rgba(6,182,212,0.15)'
+        },
+        {
+          title: 'Fleet API Mesh',
+          desc: 'Instant integration for commercial assets.',
+          glow: 'rgba(59,130,246,0.15)'
+        },
+        {
+          title: 'Uptime Systems',
+          desc: 'Rapid roadside intervention routing engines.',
+          glow: 'rgba(139,92,246,0.15)'
+        }
+      ]
+    }
   },
   {
-    id: '03',
-    title: "Rental Mobility",
-    desc: "Keep rental vehicles on the road and customers satisfied nationwide.",
+    id: 'rental',
+    label: 'Rental Mobility',
     icon: Car,
-    image: '/assets/3d/rental_3d.png',
-    specs: { perf: "97.8%", label: "CUSTOMER SATISFACTION" },
-    details: "Rapid roadside response for rental car customers, integrated directly with rental management systems.",
-    accent: "text-emerald-400"
+    title: 'Keep Rentals Moving',
+    desc: 'Keep rental vehicles on the road and customers satisfied nationwide. Instant tire replacement workflows for large rental fleets.',
+    features: ['White-Label Branding', 'Customer Portal Link', 'Priority Queue Access', 'Cross-State Support'],
+    visuals: {
+      cards: [
+        {
+          title: 'Rental Portal',
+          desc: 'Direct driver roadside request dashboard.',
+          glow: 'rgba(16,185,129,0.15)'
+        },
+        {
+          title: 'SLA Guarantee',
+          desc: 'Strict sub-15 minute response operational nodes.',
+          glow: 'rgba(59,130,246,0.15)'
+        },
+        {
+          title: 'Routing Core',
+          desc: 'Auto-dispatching rental incident coordinator.',
+          glow: 'rgba(139,92,246,0.15)'
+        },
+        {
+          title: 'Benefit Mapping',
+          desc: 'Dynamic coverage tier configuration.',
+          glow: 'rgba(236,72,153,0.15)'
+        }
+      ]
+    }
   },
   {
-    id: '04',
-    title: "OEM Connected",
-    desc: "Integrated roadside assistance for modern software-defined vehicles.",
+    id: 'oem',
+    label: 'OEM Connected',
     icon: Cpu,
-    image: '/assets/3d/oem_3d.png',
-    specs: { perf: "100+", label: "OEM INTEGRATIONS" },
-    details: "API-first integration with vehicle head units and mobile apps for seamless owner assistance.",
-    accent: "text-purple-400"
+    title: 'Software-Defined Support',
+    desc: 'Integrated roadside assistance for modern software-defined vehicles. Leverage telemetry and connected car data for predictive flat tire resolution.',
+    features: ['Vehicle Telemetry Sync', 'Remote Diagnostics', 'Over-The-Air Integration', 'Branded UX'],
+    visuals: {
+      cards: [
+        {
+          title: 'Telemetry Feed',
+          desc: 'Direct tire pressure monitoring system integration.',
+          glow: 'rgba(239,68,68,0.15)'
+        },
+        {
+          title: 'Dash Displays',
+          desc: 'In-car infotainment roadside request routing.',
+          glow: 'rgba(59,130,246,0.15)'
+        },
+        {
+          title: 'SLA Priority',
+          desc: 'Premium branded customer uptime protection.',
+          glow: 'rgba(139,92,246,0.15)'
+        },
+        {
+          title: 'Sovereign Security',
+          desc: 'Encrypted connected vehicle routing protocols.',
+          glow: 'rgba(6,182,212,0.15)'
+        }
+      ]
+    }
   },
   {
-    id: '05',
-    title: "Dispatch Platforms",
-    desc: "API-first infrastructure built for extreme scale and operational reliability.",
+    id: 'dispatch',
+    label: 'Dispatch Platforms',
     icon: LayoutGrid,
-    image: '/assets/3d/dispatch_3d.png',
-    specs: { perf: "99.99%", label: "PLATFORM UPTIME" },
-    details: "White-label dispatch technology for enterprise platforms requiring high-performance roadside fulfillment.",
-    accent: "text-brand-blue"
+    title: 'Extreme Scale Operations',
+    desc: 'API-first infrastructure built for extreme scale and operational reliability. Connect seamlessly into existing dispatch tools and tow management platforms.',
+    features: ['API-Based Dispatch', 'Webhook Notifications', 'Multi-Region Operations', 'Vendor Grid Access'],
+    visuals: {
+      cards: [
+        {
+          title: 'Scale Architecture',
+          desc: 'High-concurrency global API dispatch core.',
+          glow: 'rgba(59,130,246,0.15)'
+        },
+        {
+          title: 'Multi-Cloud Nodes',
+          desc: 'Dynamic failover deployment across AWS/Azure.',
+          glow: 'rgba(6,182,212,0.15)'
+        },
+        {
+          title: 'Active Tracking',
+          desc: 'Live coordinate data feeding GPS streams.',
+          glow: 'rgba(139,92,246,0.15)'
+        },
+        {
+          title: 'Ecosystem Mesh',
+          desc: 'Standardized programmatic roadside interfaces.',
+          glow: 'rgba(236,72,153,0.15)'
+        }
+      ]
+    }
   }
 ];
 
+// Grid Stagger Animation variants
+const gridVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1
+    }
+  }
+};
+
+// Custom metrics card animations with explicit hover fallbacks
+const cardVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    x: 25, 
+    y: 10, 
+    scale: 0.96, 
+    filter: 'blur(4px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
+  },
+  show: { 
+    opacity: 1, 
+    x: 0, 
+    y: 0, 
+    scale: 1, 
+    filter: 'blur(0px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+    transition: {
+      type: 'spring',
+      stiffness: 140,
+      damping: 18,
+      mass: 0.8
+    }
+  },
+  exit: {
+    opacity: 0,
+    x: -25,
+    y: -5,
+    filter: 'blur(4px)',
+    transition: {
+      duration: 0.3,
+      ease: 'easeInOut'
+    }
+  }
+};
+
 export const EcosystemSection = () => {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState('insurance');
+  const activeSolution = solutions.find(s => s.id === activeTab) || solutions[0];
 
   return (
-    <section className="py-32 bg-brand-bg relative overflow-hidden border-t border-brand-border">
-      {/* Background Ambience */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
-           style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #94A3B8 1px, transparent 0)`, backgroundSize: '64px 64px' }} />
-      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#2F80FF]/5 blur-[150px] rounded-full -ml-96 -mt-96 pointer-events-none" />
+    <section className="py-32 bg-brand-bg transition-colors duration-500 relative overflow-hidden border-t border-brand-border">
+      
+      {/* Decorative background grid overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
 
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-24">
-           <motion.div
-             initial={{ opacity: 0, y: 10 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="flex items-center gap-2 mb-4"
-           >
-              <Badge className="bg-[#2F80FF]/10 text-[#2F80FF] border-[#2F80FF]/20 text-[10px] uppercase font-black tracking-[0.4em] px-6 py-1.5">
-                Vertical Solutions
-              </Badge>
-           </motion.div>
-           <h2 className="text-4xl lg:text-7xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
-              Powering the <span className="text-[#2F80FF]">Mobility Ecosystem</span>
-           </h2>
-           <p className="text-brand-slate font-medium text-lg max-w-2xl leading-relaxed">
-              Nationwide roadside infrastructure engineered for the most demanding enterprise mobility sectors.
-           </p>
+      {/* Slow floating ambient background glows */}
+      <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full animate-float-slow pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] right-[20%] w-[450px] h-[450px] bg-[#FF7A1A]/5 blur-[100px] rounded-full animate-float-slow pointer-events-none z-0" style={{ animationDelay: '-3s' }} />
+
+      {/* Background Telemetry Particles (drifting slowly) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <svg className="w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10%" cy="20%" r="1.2" fill="#3B82F6">
+            <animate attributeName="opacity" values="0.1;0.7;0.1" dur="7s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="20%;18%;20%" dur="8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="85%" cy="15%" r="1" fill="#06B6D4">
+            <animate attributeName="opacity" values="0.2;0.8;0.2" dur="6s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="15%;17%;15%" dur="9s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="75%" cy="85%" r="1.5" fill="#8B5CF6">
+            <animate attributeName="opacity" values="0.1;0.6;0.1" dur="8s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="85%;83%;85%" dur="10s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="30%" cy="75%" r="1" fill="#EF4444">
+            <animate attributeName="opacity" values="0.1;0.5;0.1" dur="9s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="75%;77%;75%" dur="7s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10 max-w-[1536px]">
+        <div className="max-w-3xl mb-16 mx-auto text-center">
+          <h2 className="text-4xl lg:text-6xl font-black text-foreground dark:text-white tracking-tighter leading-tight mb-8">
+            Powering the <span className="text-[#2F80FF]">Mobility Ecosystem</span>
+          </h2>
+          <p className="text-brand-slate text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+            Nationwide roadside infrastructure engineered for the most demanding enterprise mobility sectors.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-           {ecosystems.map((item, i) => (
-             <div
-               key={item.id}
-               className={`relative h-[380px] transition-all duration-300 ${hoveredId === item.id ? 'z-[100]' : 'z-10'}`}
-               onMouseEnter={() => setHoveredId(item.id)}
-               onMouseLeave={() => setHoveredId(null)}
-             >
-                <AnimatePresence>
-                   {hoveredId !== item.id ? (
-                      <motion.div
-                        key="stable"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
-                        className="absolute inset-0 cursor-pointer"
-                      >
-                         <GlassPanel className="h-full p-6 border-brand-border bg-card/40 backdrop-blur-xl rounded-[2rem] flex flex-col overflow-hidden group">
-                            <div className="flex justify-between items-start mb-6">
-                               <div>
-                                  <p className="text-[9px] font-black text-brand-slate uppercase tracking-widest mb-1 opacity-60">
-                                     Sector {item.id}
-                                  </p>
-                                  <h3 className="text-sm font-black text-foreground dark:text-white group-hover:text-[#2F80FF] transition-colors leading-tight">
-                                     {item.title}
-                                  </h3>
-                                </div>
-                                <div className="h-7 w-7 rounded-lg bg-card border border-brand-border flex items-center justify-center text-brand-slate">
-                                   <Maximize2 className="h-3 w-3" />
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col items-center gap-4 mb-auto">
-                               <div className="relative h-28 w-28 bg-brand-bg/50 rounded-2xl border border-brand-border flex items-center justify-center overflow-hidden">
-                                  <img 
-                                    src={item.image} 
-                                    alt={item.title} 
-                                    className="w-20 h-20 object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-500" 
-                                  />
-                                  <div className="absolute inset-0 bg-gradient-to-br from-[#2F80FF]/5 to-transparent" />
-                               </div>
-                               <div className="text-center px-2">
-                                  <p className="text-[10px] text-brand-slate font-medium leading-relaxed line-clamp-2">
-                                     {item.desc}
-                                  </p>
-                               </div>
-                            </div>
-
-                            <div className="mt-auto pt-4 border-t border-brand-border/50">
-                               <p className="text-[8px] font-black text-brand-slate uppercase tracking-widest mb-1">{item.specs.label}</p>
-                               <p className="text-xl font-black text-foreground dark:text-white tracking-tighter">{item.specs.perf}</p>
-                            </div>
-                         </GlassPanel>
-                      </motion.div>
-                   ) : (
-                      <motion.div
-                        key="hover"
-                        initial={{ opacity: 0, scale: 0.98, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.98, y: 20 }}
-                        transition={{ 
-                           type: 'spring', 
-                           damping: 30, 
-                           stiffness: 80,
-                           mass: 1.2
-                        }}
-                        className="absolute inset-0 z-50 pointer-events-none"
-                      >
-                         <GlassPanel className="min-h-[480px] h-auto w-full md:w-[110%] md:-left-[5%] -top-10 md:-top-20 p-6 border-[#2F80FF]/40 bg-card/90 backdrop-blur-[60px] rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.7),0_0_60px_rgba(47,128,255,0.2)] flex flex-col overflow-visible pointer-events-auto">
-                            <div className="flex items-center justify-between mb-6">
-                               <Badge className="bg-[#2F80FF]/20 text-[#2F80FF] border-[#2F80FF]/30 text-[9px] uppercase font-black py-1 px-4">
-                                  Enterprise Solution Node
-                               </Badge>
-                               <div className="flex gap-1">
-                                  {[1,2,3].map(i => <div key={i} className="h-1 w-3 rounded-full bg-[#2F80FF]" />)}
-                               </div>
-                            </div>
-
-                            <div className="mb-4">
-                               <h4 className="text-[10px] font-black text-[#2F80FF] uppercase tracking-[0.3em] mb-1">Market Segment</h4>
-                               <h2 className="text-2xl font-black text-foreground dark:text-white tracking-tighter">
-                                  {item.title}
-                               </h2>
-                            </div>
-
-                            <div className="relative h-32 w-full mb-6 flex items-center justify-center">
-                               <div className="absolute inset-0 bg-[#2F80FF]/10 rounded-full blur-3xl animate-pulse" />
-                               <motion.img 
-                                 initial={{ scale: 0.8, rotate: -5 }}
-                                 animate={{ scale: 1, rotate: 0 }}
-                                 src={item.image} 
-                                 alt={item.title}
-                                 className="w-28 h-28 object-contain relative z-10 drop-shadow-[0_20px_40px_rgba(47,128,255,0.3)]"
-                               />
-                            </div>
-
-                            <div className="space-y-4 mt-auto">
-                               <div className="grid grid-cols-2 gap-4">
-                                  <div className="space-y-1">
-                                     <p className="text-[8px] font-black text-brand-slate uppercase tracking-widest opacity-60 flex items-center gap-2">
-                                        <Activity className="h-3 w-3 text-[#2F80FF]" /> {item.specs.label.split(' ')[0]}
-                                     </p>
-                                     <p className="text-base font-black text-foreground dark:text-white">{item.specs.perf}</p>
-                                  </div>
-                                  <div className="space-y-1">
-                                     <p className="text-[8px] font-black text-brand-slate uppercase tracking-widest opacity-60 flex items-center gap-2">
-                                        <Shield className="h-3 w-3 text-[#2F80FF]" /> UPTIME
-                                     </p>
-                                     <p className="text-base font-black text-foreground dark:text-white">99.9%</p>
-                                  </div>
-                               </div>
-
-                               <div className="p-4 bg-brand-bg/40 rounded-2xl border border-brand-border">
-                                  <div className="flex items-start gap-3">
-                                      <div className="h-7 w-7 rounded-lg bg-[#2F80FF]/10 flex items-center justify-center text-[#2F80FF] shrink-0">
-                                         <Info className="h-3 w-3" />
-                                       </div>
-                                       <p className="text-[11px] text-brand-slate font-medium leading-relaxed">
-                                          {item.details}
-                                       </p>
-                                  </div>
-                               </div>
-
-                               <div className="h-12 w-full rounded-2xl bg-[#2F80FF] flex items-center justify-center text-white text-[10px] font-black uppercase tracking-widest shadow-lg shadow-brand-blue/20 group/btn overflow-hidden relative cursor-pointer">
-                                  <span className="relative z-10 flex items-center">
-                                    Analyze Segment <Zap className="ml-2 h-3 w-3 fill-white group-hover/btn:scale-125 transition-transform" />
-                                  </span>
-                                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300" />
-                               </div>
-                            </div>
-
-                            <div className="absolute top-[-30px] right-[-10px] text-[8rem] font-black text-brand-blue/5 pointer-events-none select-none -z-10">
-                               {item.id}
-                            </div>
-                         </GlassPanel>
-                      </motion.div>
-                   )}
-                </AnimatePresence>
-             </div>
-           ))}
+        <div className="flex justify-center mb-16 w-full">
+          <EnterpriseTabs 
+            activeTab={activeTab} 
+            onChange={setActiveTab}
+            tabs={solutions.map(s => ({ id: s.id, label: s.label }))}
+          />
         </div>
+
+        {/* Full-width container with synchronized transitions */}
+        <div className="w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 40, y: 10, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, x: 0, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, x: -40, y: -10, filter: 'blur(8px)' }}
+              transition={{ 
+                duration: 0.5, 
+                ease: [0.25, 1, 0.5, 1] 
+              }}
+              className="space-y-12"
+            >
+              {/* TOP ROW: Title, Desc, and features */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                {/* Left side: Icon, title, and description (8 columns) */}
+                <div className="lg:col-span-8 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="h-16 w-16 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center relative overflow-hidden group/icon shadow-[0_0_20px_rgba(47,128,255,0.1)]">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/10 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500" />
+                      <activeSolution.icon className="h-8 w-8 text-brand-blue relative z-10" />
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-bold text-foreground">{activeSolution.title}</h3>
+                  </div>
+                  <p className="text-brand-slate text-lg md:text-xl leading-relaxed max-w-4xl font-medium">{activeSolution.desc}</p>
+                </div>
+
+                {/* Right side: Key features checklist (4 columns) */}
+                <div className="lg:col-span-4 bg-white/[0.02] border border-white/[0.06] rounded-3xl p-6 backdrop-blur-xl relative overflow-hidden">
+                  <div className="absolute inset-px rounded-[22px] bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
+                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-4">Core Capabilities</h4>
+                  <div className="space-y-3.5 relative z-10">
+                    {activeSolution.features.map(f => (
+                      <div key={f} className="flex items-center gap-3 group/item">
+                        <div className="h-5 w-5 rounded-md bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center flex-shrink-0 group-hover/item:border-brand-blue/40 transition-colors">
+                          <Check className="h-3 w-3 text-brand-blue" />
+                        </div>
+                        <span className="text-sm text-foreground font-semibold group-hover/item:text-white transition-colors duration-300">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              {/* BOTTOM ROW: The 4 frosted-glass capability cards, spanning 4 columns */}
+              <div className="relative pt-6">
+                
+                {/* SVG connection line running horizontally behind the 4 cards (hidden on smaller screens) */}
+                <svg className="hidden lg:block absolute top-[50%] left-0 w-full h-[10px] pointer-events-none opacity-40 z-0 overflow-visible" viewBox="0 0 100 10" preserveAspectRatio="none" fill="none">
+                  <defs>
+                    <linearGradient id="line-grad-horizontal" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#2F80FF" stopOpacity="0" />
+                      <stop offset="15%" stopColor="#2F80FF" stopOpacity="0.4" />
+                      <stop offset="50%" stopColor="#06B6D4" stopOpacity="1" />
+                      <stop offset="85%" stopColor="#8B5CF6" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Connecting path */}
+                  <path d="M 5,5 L 95,5" stroke="url(#line-grad-horizontal)" strokeWidth="0.5" strokeDasharray="1 2" />
+
+                  {/* Pulsing particles traveling horizontally */}
+                  <g>
+                    <circle r="0.6" fill="#06B6D4" opacity="0.3">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                    <circle r="0.25" fill="#fff">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                  <g>
+                    <circle r="0.6" fill="#8B5CF6" opacity="0.3">
+                      <animateMotion path="M 95,5 L 5,5" dur="6s" repeatCount="indefinite" />
+                    </circle>
+                    <circle r="0.25" fill="#fff">
+                      <animateMotion path="M 95,5 L 5,5" dur="6s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </svg>
+
+                {/* Staggered card grid */}
+                <motion.div 
+                  variants={gridVariants}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+                >
+                  {activeSolution.visuals.cards.map((card, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={cardVariants}
+                      whileHover={{ 
+                        y: -8, 
+                        scale: 1.02,
+                        borderColor: 'rgba(47, 128, 255, 0.35)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                        boxShadow: '0 15px 35px rgba(47, 128, 255, 0.15)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                      className="relative p-6 rounded-[2rem] border border-white/[0.06] bg-white/[0.02] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col justify-between overflow-hidden select-none group/card cursor-default min-h-[140px]"
+                    >
+                      {/* Card glow overlays */}
+                      <div 
+                        className="absolute -right-8 -bottom-8 w-20 h-20 rounded-full blur-[25px] opacity-25 group-hover/card:opacity-45 transition-opacity duration-300 pointer-events-none"
+                        style={{ backgroundColor: card.glow }}
+                      />
+                      
+                      {/* Card inner highlight reflection */}
+                      <div className="absolute inset-px rounded-[1.9rem] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                      
+                      <div className="relative z-10 space-y-3">
+                        <h4 className="text-xs font-black text-white uppercase tracking-wider group-hover/card:text-brand-blue transition-colors duration-300">
+                          {card.title}
+                        </h4>
+                        <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
       </div>
     </section>
   );

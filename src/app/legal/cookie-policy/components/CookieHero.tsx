@@ -7,7 +7,7 @@ import { GlassPanel } from '@/components/ui/glass-panel';
 import { Badge } from '@/components/ui/badge';
 
 const trustCards = [
-  { label: 'GDPR Ready Consent', desc: 'Enterprise Compliance Mesh', icon: CheckCircle2 },
+  { label: 'Privacy-Focused Consent', desc: 'Enterprise Compliance Mesh', icon: CheckCircle2 },
   { label: 'Cookie Governance', desc: 'Transparent Tracking Standards', icon: Shield },
   { label: 'Secure Analytics', desc: 'Infrastructure Observability', icon: Database },
   { label: 'Preference Controls', desc: 'Real-Time User Sovereignty', icon: Activity }

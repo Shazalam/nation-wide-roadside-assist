@@ -1,78 +1,380 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Terminal, Database, Shield, Webhook, Key } from 'lucide-react';
-import { GlassPanel } from '@/components/ui/glass-panel';
+import React, { useState } from 'react';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { EnterpriseTabs } from '@/components/ui/enterprise-tabs';
+import {
+  Terminal, Database, Webhook, Key, Check
+} from 'lucide-react';
+
+const solutions = [
+  {
+    id: 'dispatch',
+    label: 'Dispatch APIs',
+    icon: Terminal,
+    title: 'Programmatic Dispatch Creation',
+    desc: 'Integrate directly with our dispatch engine. Build programmatic incident creation, manage active roadside requests, and update vehicle data instantly from your own software ecosystem.',
+    prompt: 'Dispatch Capabilities',
+    features: [
+      'Create dispatch requests',
+      'Update incident parameters',
+      'Cancel active dispatches',
+      'Retrieve vendor assignment',
+      'Update customer location',
+      'Manage vehicle profiles'
+    ],
+    cards: [
+      {
+        title: 'Instant Creation',
+        desc: 'Create dispatches programmatically with comprehensive payloads.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Live Updates',
+        desc: 'Update incident parameters without manual intervention.',
+        glow: 'rgba(6,182,212,0.15)'
+      },
+      {
+        title: 'Vendor Queries',
+        desc: 'Query assigned vendor details and contact information.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Payload Validation',
+        desc: 'Strict schema validation ensures accurate dispatch execution.',
+        glow: 'rgba(236,72,153,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'fleet',
+    label: 'Fleet & Incident APIs',
+    icon: Database,
+    title: 'Fleet Operational Queries',
+    desc: 'Query historical and active operational data. Retrieve aggregated metrics, incident resolution times, and historical vendor performance to power your internal analytics dashboards.',
+    prompt: 'Query Framework',
+    features: [
+      'Historical incident queries',
+      'Aggregated performance metrics',
+      'SLA compliance reporting',
+      'Vendor network analytics',
+      'Resolution time tracking',
+      'Fleet asset histories'
+    ],
+    cards: [
+      {
+        title: 'Historical Data',
+        desc: 'Retrieve detailed historical records for any past incident.',
+        glow: 'rgba(245,158,11,0.15)'
+      },
+      {
+        title: 'Aggregated Metrics',
+        desc: 'Query high-level metrics for SLA and performance tracking.',
+        glow: 'rgba(6,182,212,0.15)'
+      },
+      {
+        title: 'Asset History',
+        desc: 'Track complete roadside history for specific fleet assets.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Custom Reports',
+        desc: 'Generate custom data structures for internal BI tools.',
+        glow: 'rgba(139,92,246,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'webhooks',
+    label: 'Webhook Telemetry',
+    icon: Webhook,
+    title: 'Realtime Event Streaming',
+    desc: 'Never poll for status updates again. Subscribe to our Webhook and WebSocket streams to receive instant operational state changes, ETA adjustments, and vendor assignment notifications.',
+    prompt: 'Streaming Benefits',
+    features: [
+      'Instant state changes',
+      'Live ETA adjustments',
+      'Vendor assignment alerts',
+      'Recovery completion triggers',
+      'Zero-polling architecture',
+      'Guaranteed delivery'
+    ],
+    cards: [
+      {
+        title: 'Zero Polling',
+        desc: 'Receive data exactly when it changes, eliminating API polling.',
+        glow: 'rgba(16,185,129,0.15)'
+      },
+      {
+        title: 'Live ETAs',
+        desc: 'Stream ETA changes directly to your customer-facing apps.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'Status Triggers',
+        desc: 'Trigger internal workflows based on dispatch state changes.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Guaranteed Delivery',
+        desc: 'Robust retry mechanisms ensure you never miss an event.',
+        glow: 'rgba(236,72,153,0.15)'
+      }
+    ]
+  },
+  {
+    id: 'auth',
+    label: 'OAuth & Security',
+    icon: Key,
+    title: 'Enterprise Authentication',
+    desc: 'Secure your integrations with robust, industry-standard authentication mechanisms. We support JWT, OAuth 2.0, and granular API key permissions for safe enterprise deployments.',
+    prompt: 'Security Layers',
+    features: [
+      'OAuth 2.0 implementation',
+      'Granular API permissions',
+      'JWT token validation',
+      'IP whitelisting rules',
+      'Rate limiting & quotas',
+      'Secure sandbox environments'
+    ],
+    cards: [
+      {
+        title: 'OAuth 2.0',
+        desc: 'Industry-standard authentication for secure third-party access.',
+        glow: 'rgba(239,68,68,0.15)'
+      },
+      {
+        title: 'Granular Roles',
+        desc: 'Scope API keys strictly to required endpoints and actions.',
+        glow: 'rgba(59,130,246,0.15)'
+      },
+      {
+        title: 'IP Whitelisting',
+        desc: 'Restrict API access strictly to your corporate IP ranges.',
+        glow: 'rgba(139,92,246,0.15)'
+      },
+      {
+        title: 'Developer Sandbox',
+        desc: 'Test integrations safely in an isolated staging environment.',
+        glow: 'rgba(6,182,212,0.15)'
+      }
+    ]
+  }
+];
+
+const gridVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1
+    }
+  }
+};
+
+const cardVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    x: 25, 
+    y: 10, 
+    scale: 0.96, 
+    filter: 'blur(4px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
+  },
+  show: { 
+    opacity: 1, 
+    x: 0, 
+    y: 0, 
+    scale: 1, 
+    filter: 'blur(0px)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+    transition: {
+      type: 'spring',
+      stiffness: 140,
+      damping: 18,
+      mass: 0.8
+    }
+  },
+  exit: {
+    opacity: 0,
+    x: -25,
+    y: -5,
+    filter: 'blur(4px)',
+    transition: {
+      duration: 0.3,
+      ease: 'easeInOut'
+    }
+  }
+};
 
 export const DispatchAPIs = () => {
+  const [activeTab, setActiveTab] = useState('dispatch');
+  const activeSolution = solutions.find(s => s.id === activeTab) || solutions[0];
+
   return (
-    <section className="py-24 bg-brand-bg relative z-10 border-t border-brand-border">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-           <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white tracking-tight leading-tight mb-4">
-              API & Developer Infrastructure
-           </h2>
-           <p className="text-brand-slate font-medium text-sm">
-             Integrate directly with our dispatch engine. Build programmatic incident creation and monitor realtime recovery telemetry.
-           </p>
+    <section className="py-32 bg-brand-bg/30 relative overflow-hidden border-t border-brand-border">
+      
+      {/* Decorative background grid overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      {/* Floating ambient background glows */}
+      <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] right-[20%] w-[450px] h-[450px] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none z-0" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        
+        {/* Section Header */}
+        <div className="max-w-4xl mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">API & Developer <span className="text-brand-blue">Infrastructures.</span></h2>
+          <p className="text-brand-slate text-lg max-w-3xl">Integrate directly with our dispatch engine. Build programmatic incident creation and monitor realtime recovery telemetry. Our infrastructure transforms fragmented roadside operations into one intelligent, connected mobility network.</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-           <div className="lg:col-span-4 space-y-4">
-              {[
-                { title: 'Dispatch APIs', icon: Terminal, desc: 'Create and manage dispatches.' },
-                { title: 'Fleet & Incident APIs', icon: Database, desc: 'Historical operational queries.' },
-                { title: 'Webhook Telemetry', icon: Webhook, desc: 'Realtime dispatch events.' },
-                { title: 'OAuth & Sandboxing', icon: Key, desc: 'Enterprise authentication.' }
-              ].map((item, i) => (
-                <GlassPanel key={i} className="p-5 border-brand-border bg-white/[0.02] flex items-center gap-4 group hover:bg-[#2F80FF]/5 transition-colors">
-                   <div className="h-10 w-10 shrink-0 rounded bg-white/5 border border-brand-border flex items-center justify-center group-hover:border-[#2F80FF]/30 group-hover:bg-[#2F80FF]/10 transition-colors">
-                      <item.icon className="h-4 w-4 text-[#2F80FF]" />
-                   </div>
-                   <div>
-                      <h4 className="text-[10px] font-black text-foreground dark:text-white uppercase tracking-widest">{item.title}</h4>
-                      <p className="text-[10px] text-brand-slate mt-1">{item.desc}</p>
-                   </div>
-                </GlassPanel>
-              ))}
-           </div>
+        {/* Interactive Tabs */}
+        <EnterpriseTabs 
+          activeTab={activeTab} 
+          onChange={setActiveTab}
+          tabs={solutions.map(s => ({ id: s.id, label: s.label }))}
+          className="mb-12"
+        />
 
-           <div className="lg:col-span-8">
-              <div className="h-full rounded-2xl border border-brand-border bg-card/80 p-1 flex flex-col relative overflow-hidden">
-                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#2F80FF]/10 blur-3xl rounded-full" />
-                 
-                 <div className="flex items-center gap-2 px-4 py-3 border-b border-brand-border bg-white/[0.02]">
-                    <div className="flex gap-1.5">
-                       <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                       <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                       <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+        {/* Full-width container with synchronized transitions */}
+        <div className="w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 40, y: 10, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, x: 0, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, x: -40, y: -10, filter: 'blur(8px)' }}
+              transition={{ 
+                duration: 0.5, 
+                ease: [0.25, 1, 0.5, 1] 
+              }}
+              className="space-y-12"
+            >
+              {/* TOP ROW: Title, Desc, and features */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                {/* Left side: Icon, title, and description (8 columns) */}
+                <div className="lg:col-span-8 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="h-16 w-16 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center relative overflow-hidden group/icon shadow-[0_0_20px_rgba(47,128,255,0.1)]">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/10 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500" />
+                      <activeSolution.icon className="h-8 w-8 text-brand-blue relative z-10" />
                     </div>
-                    <span className="text-[10px] font-mono text-brand-slate ml-2">WebSocket Client</span>
-                 </div>
-                 
-                 <div className="p-6 flex-1 bg-brand-bg/50 overflow-x-auto">
-                    <pre className="font-mono text-[11px] leading-loose text-[#A3B8CC]">
-                       <code>
-<span className="text-brand-slate italic">// Subscribing to live dispatch events</span>
-<br/>
-<span className="text-purple-400">const</span> socket = <span className="text-purple-400">new</span> <span className="text-[#2F80FF]">WebSocket</span>(<span className="text-emerald-300">'wss://stream.nationwidetrans.com/v1/dispatch'</span>);
-<br/>
-<br/>socket.<span className="text-blue-300">onmessage</span> = (event) =&gt; {'{'}
-<br/>  <span className="text-purple-400">const</span> data = JSON.<span className="text-blue-300">parse</span>(event.data);
-<br/>  
-<br/>  <span className="text-purple-400">if</span> (data.event === <span className="text-emerald-300">'eta.changed'</span>) {'{'}
-<br/>    <span className="text-blue-300">updateFleetDashboard</span>(data.incidentId, data.newEta);
-<br/>  {'}'} <span className="text-purple-400">else if</span> (data.event === <span className="text-emerald-300">'escalation.triggered'</span>) {'{'}
-<br/>    <span className="text-blue-300">alertOperationsManager</span>(data.details);
-<br/>  {'}'}
-<br/>{'}'};
-                       </code>
-                    </pre>
-                 </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">{activeSolution.title}</h3>
+                  </div>
+                  <p className="text-brand-slate text-base md:text-lg leading-relaxed max-w-4xl font-medium">{activeSolution.desc}</p>
+                </div>
+
+                {/* Right side: Key features checklist (4 columns) */}
+                <div className="lg:col-span-4 bg-white/[0.02] border border-white/[0.06] rounded-3xl p-6 backdrop-blur-xl relative overflow-hidden">
+                  <div className="absolute inset-px rounded-[22px] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-blue mb-4">{activeSolution.prompt}</h4>
+                  <div className="space-y-3 relative z-10">
+                    {activeSolution.features.map(f => (
+                      <div key={f} className="flex items-center gap-3 group/item">
+                        <div className="h-5 w-5 rounded-md bg-brand-blue/10 border border-brand-blue/20 flex items-center justify-center flex-shrink-0 group-hover/item:border-brand-blue/40 transition-colors">
+                          <Check className="h-3 w-3 text-brand-blue" />
+                        </div>
+                        <span className="text-xs text-foreground font-semibold group-hover/item:text-white transition-colors duration-300">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
               </div>
-           </div>
+
+              {/* BOTTOM ROW: Frog-glass cards */}
+              <div className="relative pt-6">
+                
+                {/* SVG connection line running horizontally */}
+                <svg className="hidden lg:block absolute top-[50%] left-0 w-full h-[10px] pointer-events-none opacity-40 z-0 overflow-visible" viewBox="0 0 100 10" preserveAspectRatio="none" fill="none">
+                  <defs>
+                    <linearGradient id="line-grad-horizontal-api" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#2F80FF" stopOpacity="0" />
+                      <stop offset="15%" stopColor="#2F80FF" stopOpacity="0.4" />
+                      <stop offset="50%" stopColor="#06B6D4" stopOpacity="1" />
+                      <stop offset="85%" stopColor="#8B5CF6" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M 5,5 L 95,5" stroke="url(#line-grad-horizontal-api)" strokeWidth="0.5" strokeDasharray="1 2" />
+                  <g>
+                    <circle r="0.6" fill="#06B6D4" opacity="0.3">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                    <circle r="0.25" fill="#fff">
+                      <animateMotion path="M 5,5 L 95,5" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </svg>
+
+                {/* Staggered card grid */}
+                <motion.div 
+                  variants={gridVariants}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+                >
+                  {activeSolution.cards.map((card, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={cardVariants}
+                      whileHover={{ 
+                        y: -8, 
+                        scale: 1.02,
+                        borderColor: 'rgba(47, 128, 255, 0.35)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                        boxShadow: '0 15px 35px rgba(47, 128, 255, 0.15)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                      className="relative p-6 rounded-[2rem] border border-white/[0.06] bg-white/[0.02] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col justify-between overflow-hidden select-none group/card cursor-default min-h-[140px]"
+                    >
+                      <div 
+                        className="absolute -right-8 -bottom-8 w-20 h-20 rounded-full blur-[25px] opacity-25 group-hover/card:opacity-45 transition-opacity duration-300 pointer-events-none"
+                        style={{ backgroundColor: card.glow }}
+                      />
+                      <div className="absolute inset-px rounded-[1.9rem] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                      
+                      <div className="relative z-10 space-y-3">
+                        <h4 className="text-xs font-black text-white uppercase tracking-wider group-hover/card:text-brand-blue transition-colors duration-300">
+                          {card.title}
+                        </h4>
+                        <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+            </motion.div>
+          </AnimatePresence>
         </div>
+
       </div>
     </section>
   );

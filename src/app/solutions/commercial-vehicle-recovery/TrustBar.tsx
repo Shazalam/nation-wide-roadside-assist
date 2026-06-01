@@ -41,8 +41,8 @@ export default function TrustBar() {
               { label: 'Nationwide Fleet', icon: Globe },
               { label: '24/7 Dispatch', icon: Clock },
               { label: 'Heavy Certified', icon: Zap },
-              { label: 'SOC 2 Type II', icon: Lock },
-              { label: 'PCI-DSS', icon: Shield },
+              { label: 'Enterprise-Grade Security', icon: Lock },
+              { label: 'Secure Payment Processing', icon: Shield },
               { label: 'SLA Guaranteed', icon: CheckCircle },
               { label: 'API-First', icon: Zap },
             ].map((badge, i) => {

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Activity, Zap, Cpu, Map, Network, Database } from 'lucide-react';
+import { ArrowRight, Map, Network, Database } from 'lucide-react';
 
 const CardVisual = ({ type }: { type: 'visibility' | 'dispatch' | 'api' }) => {
   if (type === 'visibility') {
@@ -115,39 +115,22 @@ const CardVisual = ({ type }: { type: 'visibility' | 'dispatch' | 'api' }) => {
   }
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center p-6">
-      <div className="relative z-10 w-full max-w-[200px] flex flex-col gap-3">
-        {[
-          { label: 'Fleet API', color: '#2F80FF' },
-          { label: 'Dispatch API', color: '#2F80FF' },
-          { label: 'Telemetry API', color: '#FF7A1A' },
-          { label: 'Vendor API', color: '#2F80FF' },
-        ].map((api, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="bg-card/80 backdrop-blur-md border border-brand-border rounded-lg p-2.5 flex items-center justify-between group/item hover:border-[#2F80FF]/40 transition-colors shadow-lg"
-          >
-            <div className="flex items-center gap-2">
-              <div 
-                className="w-1.5 h-1.5 rounded-full" 
-                style={{ backgroundColor: api.color, boxShadow: `0 0 8px ${api.color}` }} 
-              />
-              <span className="text-[10px] font-mono text-foreground dark:text-white/80">{api.label}</span>
-            </div>
-            <div className="text-[10px] text-[#2F80FF] opacity-0 group-hover/item:opacity-100 transition-opacity font-mono">
-              GET /v1
-            </div>
-          </motion.div>
-        ))}
+    <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+      <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[160px] h-[50px] border border-[#2F80FF]/20 rounded-[100%] opacity-50" style={{ transform: 'rotateX(60deg)' }} />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] h-[30px] border border-[#2F80FF]/40 rounded-[100%] opacity-80 shadow-[0_0_20px_rgba(47,128,255,0.4)]" style={{ transform: 'rotateX(60deg)' }} />
+
+      <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex items-center justify-center">
+        <div className="absolute w-16 h-16 rounded-full bg-[#2F80FF]/15 animate-ping" />
+        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#0A192F] to-[#081120] border border-[#2F80FF] shadow-[0_0_30px_rgba(47,128,255,0.5)] flex items-center justify-center relative z-20">
+          <span className="text-[#2F80FF] font-black text-sm tracking-wider">API</span>
+        </div>
       </div>
 
-      {/* API Core Visual */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-32 h-32 bg-[#2F80FF]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute w-48 h-48 border border-[#2F80FF]/10 rounded-full border-dashed animate-[spin_40s_linear_infinite]" />
+      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 flex flex-col items-center">
+         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#2F80FF]/40 drop-shadow-[0_0_12px_rgba(47,128,255,0.6)]">
+            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+         </svg>
+         <div className="w-px h-12 bg-gradient-to-b from-[#2F80FF]/50 to-transparent mt-2" />
       </div>
     </div>
   );
@@ -188,10 +171,6 @@ export const CoreCapabilities = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2F80FF]/10 border border-[#2F80FF]/20 mb-6">
-              <Activity className="w-3.5 h-3.5 text-[#2F80FF]" />
-              <span className="text-[10px] font-bold text-[#2F80FF] uppercase tracking-widest">Enterprise Infrastructure</span>
-            </div>
             <h2 className="text-4xl md:text-5xl font-black text-foreground dark:text-white mb-6 tracking-tight">
               Mission-Critical <span className="text-[#2F80FF]">Fleet Infrastructure</span>
             </h2>
@@ -227,10 +206,7 @@ export const CoreCapabilities = () => {
                         {card.desc}
                       </p>
                       
-                      <button className="flex items-center gap-2 text-xs font-bold text-[#2F80FF] hover:gap-4 transition-all group/btn">
-                        LEARN MORE
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                      </button>
+
                     </div>
 
                     {/* Right Side: Visualization */}

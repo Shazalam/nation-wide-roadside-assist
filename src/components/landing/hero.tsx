@@ -72,6 +72,8 @@ export const Hero = () => {
           src="/assets/images/landing/homepage-hero.jpg"
           alt="Nationwide RoadsideAssist Platform"
           className="w-full h-full object-cover object-center lg:object-right opacity-90 select-none pointer-events-none"
+          fetchPriority="high"
+          loading="eager"
         />
 
         {/* Extreme cinematic gradient fade from deep solid blue-black to transparent */}
@@ -188,15 +190,15 @@ export const Hero = () => {
 
                       <div className="flex flex-col h-full justify-between gap-4 relative z-10">
                         <div>
-                          <span className="text-[9.5px] font-bold text-slate-400 uppercase tracking-[0.15em] leading-none block mb-1">
+                          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] leading-none block mb-1.5">
                             {card.title}
                           </span>
-                          <h3 className="text-[12px] font-extrabold text-white group-hover:text-brand-blue transition-colors duration-300 tracking-tight leading-snug">
+                          <h3 className="text-[13px] font-extrabold text-white group-hover:text-brand-blue transition-colors duration-300 tracking-tight leading-snug">
                             {card.subtitle}
                           </h3>
                         </div>
 
-                        <p className="text-[11px] text-slate-400 group-hover:text-slate-300 transition-colors duration-300 leading-relaxed font-medium">
+                        <p className="text-[12px] text-slate-400 group-hover:text-slate-300 transition-colors duration-300 leading-relaxed font-medium">
                           {card.desc}
                         </p>
                       </div>

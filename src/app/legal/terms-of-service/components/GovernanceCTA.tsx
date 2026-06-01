@@ -60,10 +60,10 @@ export const GovernanceCTA = () => {
           {/* Floating Trust Artifacts */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-24">
              {[
-               { label: 'ISO 27001', icon: Globe },
-               { label: 'SOC 2 Type II', icon: Shield },
-               { label: 'PCI-DSS', icon: Lock },
-               { label: 'GDPR READY', icon: Shield }
+               { label: 'Industry-Standard Security Practices', icon: Globe },
+               { label: 'Enterprise-Grade Security', icon: Shield },
+               { label: 'Secure Payment Processing', icon: Lock },
+               { label: 'PRIVACY-FOCUSED', icon: Shield }
              ].map((t, i) => (
                <motion.div
                  key={i}

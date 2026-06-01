@@ -128,7 +128,7 @@ const solutions = [
         },
         {
           title: 'Sovereign Security',
-          desc: 'SOC 2 encrypted cargo routing protocols.',
+          desc: 'Enterprise Security encrypted cargo routing protocols.',
           glow: 'rgba(6,182,212,0.15)'
         }
       ]
@@ -305,17 +305,18 @@ export const IndustryTabs = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-16 mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Vertical Specific <span className="text-brand-blue">Solutions</span></h2>
           <p className="text-brand-slate text-lg">Engineered to meet the unique demands of global enterprise mobility sectors.</p>
         </div>
 
-        <EnterpriseTabs 
-          activeTab={activeTab} 
-          onChange={setActiveTab}
-          tabs={solutions.map(s => ({ id: s.id, label: s.label }))}
-          className="mb-12"
-        />
+        <div className="flex justify-center mb-12 w-full">
+          <EnterpriseTabs 
+            activeTab={activeTab} 
+            onChange={setActiveTab}
+            tabs={solutions.map(s => ({ id: s.id, label: s.label }))}
+          />
+        </div>
 
         {/* Full-width container with synchronized transitions */}
         <div className="w-full">

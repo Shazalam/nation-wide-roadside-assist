@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Shield, Globe, Share2, Activity, ExternalLink } from 'lucide-react';
+import { Shield, Globe, Share2, Activity, ExternalLink, Lock } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 
 const footerLinks = [
@@ -38,7 +38,6 @@ const footerLinks = [
     title: 'Company',
     links: [
       { name: 'Overview', href: '/company/overview' },
-      { name: 'Careers', href: '/company/careers' },
       { name: 'Contact', href: '/company/contact' },
       { name: 'Privacy Policy', href: '/legal/privacy-policy' },
       { name: 'Security Hub', href: '/legal/security' },
@@ -99,6 +98,7 @@ export const Footer = () => {
           </div>
         </div>
 
+
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-brand-border flex flex-col md:flex-row justify-between items-center gap-8">
            <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold text-brand-slate uppercase tracking-widest">
@@ -108,11 +108,6 @@ export const Footer = () => {
               <Link href="/legal/compliance" className="hover:text-foreground dark:text-white transition-colors">Compliance Hub</Link>
            </div>
            
-           <div className="flex items-center gap-3">
-              <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[10px] font-bold text-brand-slate uppercase tracking-widest">All Systems Operational</span>
-           </div>
-
            <p className="text-[10px] font-bold text-brand-slate/40 uppercase tracking-widest">
               © {new Date().getFullYear()} Nationwide Roadside Assist. All rights reserved.
            </p>

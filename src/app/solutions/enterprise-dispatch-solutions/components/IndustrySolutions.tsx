@@ -55,7 +55,6 @@ export const IndustrySolutions = () => {
     <section className="py-32 relative z-10 bg-brand-bg/30">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.3em] mb-4">Ecosystem Alignment</p>
           <h2 className="text-4xl lg:text-5xl font-black text-foreground dark:text-white mb-6">Built for Every Fleet</h2>
         </div>
 
@@ -117,7 +116,6 @@ export const IndustrySolutions = () => {
                                </div>
                              ))}
                           </div>
-                          <Button className="bg-brand-blue text-foreground dark:text-white font-bold h-12 px-8 rounded-xl">Download Sector Report</Button>
                        </div>
 
                        <div className="flex flex-col gap-6">

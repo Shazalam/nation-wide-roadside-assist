@@ -1,14 +1,12 @@
-﻿import React from 'react';
+import React from 'react';
 import { Navbar } from '@/components/layout/navbar';
 import { RepairHero } from './components/RepairHero';
-import { TrustSection } from './components/TrustSection';
 import { RepairCapabilities } from './components/RepairCapabilities';
 import { ServicesGrid } from './components/ServicesGrid';
 import { RepairWorkflow } from './components/RepairWorkflow';
 import { RepairAPI } from './components/RepairAPI';
 import { RepairCTA } from './components/RepairCTA';
 import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
-
 export const metadata = {
   title: 'Mobile Repair Operations | Nationwide Roadside Assist',
   description: 'Enterprise mobile repair infrastructure, nationwide mechanic dispatch, and real-time roadside intelligence engineered for fleets and mobility providers.',
@@ -29,7 +27,6 @@ export default function MobileRepairsPage() {
 
       <div className="relative z-10">
         <RepairHero />
-        <TrustSection />
         <RepairCapabilities />
         <ServicesGrid />
         <RepairWorkflow />

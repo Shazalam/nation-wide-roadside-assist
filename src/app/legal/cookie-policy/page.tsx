@@ -4,11 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { CookieHero } from './components/CookieHero';
 import { ComplianceBar } from './components/ComplianceBar';
 import { CookieContent } from './components/CookieContent';
-import { CategoriesDashboard } from './components/CategoriesDashboard';
-import { ConsentManager } from './components/ConsentManager';
-import { AnalyticsInfrastructure } from './components/AnalyticsInfrastructure';
-import { VersionTimeline } from './components/VersionTimeline';
-import { PrivacyControls } from './components/PrivacyControls';
+
 import { TrustCTA } from './components/TrustCTA';
 import { MountedOnly } from '@/components/utils/mounted-only';
 
@@ -57,11 +53,7 @@ export default function CookiePolicyPage() {
            <CookieContent />
         </div>
 
-        <CategoriesDashboard />
-        <ConsentManager />
-        <AnalyticsInfrastructure />
-        <VersionTimeline />
-        <PrivacyControls />
+
       </MountedOnly>
       
       <TrustCTA />

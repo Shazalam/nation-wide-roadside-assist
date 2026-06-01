@@ -5,11 +5,9 @@ import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/navbar';
 import { HeroSection } from './components/HeroSection';
 import { DispatchOverview } from './components/DispatchOverview';
-import { CoreCapabilities } from './components/CoreCapabilities';
 import { DispatchWorkflow } from './components/DispatchWorkflow';
 import { IndustrySolutions } from './components/IndustrySolutions';
 import { APIInfrastructure } from './components/APIInfrastructure';
-import { MetricsDashboard } from './components/MetricsDashboard';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { MountedOnly } from '@/components/utils/mounted-only';
@@ -30,9 +28,6 @@ export default function EnterpriseDispatchPage() {
         {/* 2. Enterprise Dispatch Overview */}
         <DispatchOverview />
 
-        {/* 3. Core Dispatch Capabilities */}
-        <CoreCapabilities />
-
         <MountedOnly>
           {/* 5. Enterprise Dispatch Workflow */}
           <DispatchWorkflow />
@@ -42,9 +37,6 @@ export default function EnterpriseDispatchPage() {
 
           {/* 8. API-First Infrastructure */}
           <APIInfrastructure />
-
-          {/* 9. Operational Metrics Dashboard */}
-          <MetricsDashboard />
         </MountedOnly>
 
         {/* 11. Final CTA Section */}

@@ -10,7 +10,7 @@ export function proxy(request: NextRequest) {
   const isPublicRoute = pathname === '/login' || pathname === '/register' || pathname === '/';
   
   // Define protected routes
-  const isProtectedRoute = pathname.startsWith('/dashboard');
+  const isProtectedRoute = pathname === '/dashboard' || pathname.startsWith('/dashboard/');
 
   if (isProtectedRoute && !token) {
     const url = new URL('/login', request.url);

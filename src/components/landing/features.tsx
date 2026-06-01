@@ -18,7 +18,7 @@ const features = [
   {
     icon: Shield,
     title: "Sovereign Security",
-    description: "SOC 2 Type II compliant infrastructure with end-to-end encrypted telemetry and data sovereignty.",
+    description: "Enterprise-Grade Security compliant infrastructure with end-to-end encrypted telemetry and data sovereignty.",
   },
   {
     icon: Network, // Global network icon

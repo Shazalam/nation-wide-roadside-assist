@@ -11,10 +11,7 @@ export const CoreCapabilities = () => {
         
         {/* Section Heading - Static and Prominent */}
         <div className="text-center max-w-5xl mx-auto mb-32 space-y-8">
-            <div className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-blue/10 border border-brand-blue/30 w-fit mx-auto backdrop-blur-xl">
-              <div className="h-2 w-2 rounded-full bg-brand-blue animate-pulse shadow-[0_0_10px_#2F80FF]" />
-              <span className="text-[11px] font-black text-brand-blue uppercase tracking-[0.4em]">Operational Infrastructure</span>
-            </div>
+            
             
             <h2 className="text-6xl lg:text-[6rem] font-black text-white tracking-tighter leading-[0.9] uppercase italic drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
               Core <span className="text-brand-blue tracking-normal">Capabilities</span>
@@ -24,7 +21,6 @@ export const CoreCapabilities = () => {
               Enterprise-grade recovery coordination, SLA-driven dispatch intelligence, and API-first infrastructure.
             </p>
         </div>
-
         {/* Capabilities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20">
           {[

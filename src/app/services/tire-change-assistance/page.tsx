@@ -3,7 +3,6 @@
 import React from 'react';
 import { Navbar } from '@/components/layout/navbar';
 import { TireChangeHero } from './components/TireChangeHero';
-import { TrustBar } from './components/TrustBar';
 import { CoreCapabilities } from './components/CoreCapabilities';
 import { WorkflowTimeline } from './components/WorkflowTimeline';
 import { EcosystemSection } from './components/EcosystemSection';
@@ -25,7 +24,6 @@ export default function TireChangeAssistancePage() {
         <TireChangeHero />
         
         <MountedOnly>
-          <TrustBar />
           <CoreCapabilities />
           <WorkflowTimeline />
           <EcosystemSection />

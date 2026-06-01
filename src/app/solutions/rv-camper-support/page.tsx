@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from './HeroSection';
 import CoreCapabilities from './CoreCapabilities';
-import TechShowcase from './TechShowcase';
+
 import Workflow from './Workflow';
 import Ecosystem from './Ecosystem';
 import APIInfrastructure from './APIInfrastructure';
@@ -25,7 +25,7 @@ export default function RVCamperSupportPage() {
       <div className="relative z-10">
         <HeroSection />
         <CoreCapabilities />
-        <TechShowcase />
+
         <Workflow />
         <Ecosystem />
         <APIInfrastructure />

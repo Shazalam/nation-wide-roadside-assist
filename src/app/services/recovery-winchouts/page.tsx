@@ -3,12 +3,10 @@
 import React from 'react';
 import { Navbar } from '@/components/layout/navbar';
 import { RecoveryHero } from './components/RecoveryHero';
-import { TrustSection } from './components/TrustSection';
 import { CapabilitiesGrid } from './components/CapabilitiesGrid';
 import { ServicesGrid } from './components/ServicesGrid';
 import { VehicleClassMatrix } from './components/VehicleClassMatrix';
 import { RecoveryWorkflow } from './components/RecoveryWorkflow';
-import { FleetOperations } from './components/FleetOperations';
 import { APIInfrastructure } from './components/APIInfrastructure';
 import { RecoveryCTA } from './components/RecoveryCTA';
 import { EnterpriseFooter } from '@/components/landing/enterprise-footer';
@@ -26,12 +24,10 @@ export default function RecoveryWinchoutsPage() {
 
       <div className="relative z-10">
         <RecoveryHero />
-        <TrustSection />
         <CapabilitiesGrid />
         <ServicesGrid />
         <VehicleClassMatrix />
         <RecoveryWorkflow />
-        <FleetOperations />
         <APIInfrastructure />
         <RecoveryCTA />
         <EnterpriseFooter />

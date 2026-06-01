@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText } from 'lucide-react';
 import { useDispatch } from 'react-redux';
@@ -84,10 +85,7 @@ export const CallCenterCTA = () => {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-7 space-y-4 text-left"
               >
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#2F80FF] animate-pulse" />
-                  <span className="text-[9px] font-black text-[#2F80FF] uppercase tracking-[0.3em] font-mono">Operations Platform</span>
-                </div>
+
 
                 <h2 className="text-3xl lg:text-5xl font-black text-foreground dark:text-white uppercase tracking-tight leading-[1.1]">
                   Modernize Your Enterprise <span className="text-[#2F80FF]">Call Center Operations</span>
@@ -104,7 +102,7 @@ export const CallCenterCTA = () => {
                     onClick={() => dispatch(setPartnershipOpen(true))}
                     className="w-full sm:w-auto px-6 py-3 bg-[#2F80FF] text-foreground dark:text-white rounded-xl font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group shadow-[0_10px_20px_rgba(47,128,255,0.15)] hover:shadow-[0_15px_30px_rgba(47,128,255,0.3)] transition-all hover:-translate-y-0.5 h-12"
                   >
-                    Contact Enterprise Team
+                    CONTACT OUR TEAM
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </motion.button>
                   <motion.button
@@ -113,7 +111,7 @@ export const CallCenterCTA = () => {
                     className="w-full sm:w-auto px-6 py-3 bg-card/40 backdrop-blur-xl border border-brand-border text-foreground dark:text-white rounded-xl font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-3 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] hover:border-[#2F80FF]/30 transition-all hover:-translate-y-0.5 h-12"
                   >
                     Request Operational Report
-                    <FileText className="w-4 h-4 text-foreground dark:text-white/70" />
+                    <ArrowRight className="w-4 h-4 text-foreground dark:text-white/70" />
                   </motion.button>
                 </div>
               </motion.div>

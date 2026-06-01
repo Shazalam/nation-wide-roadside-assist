@@ -32,7 +32,7 @@ export default function TrustCenterPage() {
           <Globe className="h-8 w-8 text-emerald-500 mb-6" />
           <h3 className="text-xl font-bold text-foreground dark:text-white mb-4">Global Compliance</h3>
           <p className="text-brand-slate text-sm leading-relaxed mb-6">
-            Adherence to international data protection standards including GDPR, CCPA, and regional mobility mandates.
+            Adherence to international data protection standards including Privacy Compliance, Privacy Controls, and regional mobility mandates.
           </p>
           <button className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
             View Compliance <ArrowRight className="h-3 w-3" />
@@ -45,9 +45,9 @@ export default function TrustCenterPage() {
         <h3 className="text-2xl font-bold text-foreground dark:text-white border-b border-brand-border pb-4">Standard & Certifications</h3>
         <div className="space-y-4">
            {[
-             { name: "SOC 2 Type II", status: "Certified", desc: "Security, Availability, and Confidentiality audited." },
+             { name: "Enterprise-Grade Security", status: "Certified", desc: "Security, Availability, and Confidentiality audited." },
              { name: "ISO/IEC 27001", status: "Certified", desc: "Information security management system standard." },
-             { name: "GDPR Sovereign", status: "Compliant", desc: "Localized data residency for European infrastructures." },
+             { name: "Privacy Compliance Sovereign", status: "Compliant", desc: "Localized data residency for European infrastructures." },
              { name: "HIPAA Compatible", status: "Ready", desc: "Infrastructure ready for medical transport coordination." }
            ].map((cert) => (
              <div key={cert.name} className="flex items-center justify-between p-6 rounded-2xl bg-white/[0.02] border border-brand-border">

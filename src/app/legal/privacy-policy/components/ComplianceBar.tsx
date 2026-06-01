@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Globe, Lock, CheckCircle2, Award, Zap } from 'lucide-react';
 
 const certifications = [
-  { label: 'SOC 2 TYPE II', icon: ShieldCheck },
-  { label: 'ISO 27001', icon: Globe },
-  { label: 'PCI-DSS', icon: Lock },
-  { label: 'GDPR READY', icon: CheckCircle2 },
-  { label: 'CCPA COMPLIANT', icon: Award },
+  { label: 'ENTERPRISE-GRADE SECURITY', icon: ShieldCheck },
+  { label: 'Industry-Standard Security Practices', icon: Globe },
+  { label: 'Secure Payment Processing', icon: Lock },
+  { label: 'PRIVACY-FOCUSED', icon: CheckCircle2 },
+  { label: 'Privacy Controls COMPLIANT', icon: Award },
   { label: 'SECURITY VERIFIED', icon: Zap }
 ];
 

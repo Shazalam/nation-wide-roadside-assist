@@ -29,9 +29,7 @@ import {
   User,
   Lock,
   FileText,
-  Eye,
-  Download,
-  Loader2
+  Eye
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Logo } from '@/components/ui/logo';
@@ -110,7 +108,6 @@ const navItems = [
         items: [
           { label: "Overview", href: "/company/overview", icon: Globe, desc: "Our history & mission" },
           { label: "Capability Report", href: "/company/capability-report", icon: FileText, desc: "Strategic operational briefing" },
-          { label: "Careers", href: "/company/careers", icon: Zap, desc: "Shape mobility future" },
           { label: "Contact", href: "/company/contact", icon: Headphones, desc: "24/7 support channels" }
         ]
       },
@@ -132,35 +129,9 @@ export const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const { isAuthenticated, logout, user } = useAuth();
   const dispatch = useDispatch();
   const pathname = usePathname();
-
-  const isCapabilityReportPage = pathname === '/company/capability-report';
-
-  const handleDownloadPdf = async () => {
-    if (isGeneratingPdf) return;
-    setIsGeneratingPdf(true);
-    try {
-      const response = await fetch('/api/generate-pdf');
-      if (!response.ok) throw new Error('PDF generation failed');
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'NationwideRoadsideAssist-Capability-Report.pdf';
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-    } catch (error) {
-      console.error('PDF download error:', error);
-    } finally {
-      setIsGeneratingPdf(false);
-    }
-  };
-
   useEffect(() => {
     setIsMounted(true);
     const handleScroll = () => {
@@ -232,9 +203,13 @@ export const Navbar = () => {
                   onMouseEnter={() => setActiveMenu(item.label)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <button className="flex items-center gap-2 text-[15px] font-black text-brand-slate hover:text-foreground transition-colors py-2 relative z-10 uppercase tracking-tight">
+                  <button 
+                    className="flex items-center gap-2 text-[15px] font-black text-brand-slate hover:text-foreground transition-colors py-2 relative z-10 uppercase tracking-tight"
+                    aria-haspopup="true"
+                    aria-expanded={activeMenu === item.label}
+                  >
                     {item.label}
-                    <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
+                    <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:rotate-180 transition-transform duration-300" aria-hidden="true" />
                   </button>
 
                   {/* Dropdown Panel */}
@@ -288,27 +263,6 @@ export const Navbar = () => {
 
             {/* Right Actions */}
             <div className="hidden lg:flex items-center gap-6 shrink-0 relative z-10">
-              {/* Download PDF — only on capability report page */}
-              {isCapabilityReportPage && (
-                <Button
-                  onClick={handleDownloadPdf}
-                  disabled={isGeneratingPdf}
-                  className="bg-white/[0.06] hover:bg-white/[0.12] text-white/80 hover:text-white font-black h-10 px-4 rounded-xl border border-white/10 hover:border-cyan-400/30 shadow-[0_2px_10px_rgba(0,0,0,0.2)] transition-all hover:-translate-y-0.5 text-[11px] uppercase tracking-wider group flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-                >
-                  {isGeneratingPdf ? (
-                    <>
-                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                      Generating...
-                    </>
-                  ) : (
-                    <>
-                      <Download className="h-3.5 w-3.5 group-hover:text-cyan-400 transition-colors" />
-                      Download PDF
-                    </>
-                  )}
-                </Button>
-              )}
-
               {isMounted && isAuthenticated ? (
                 <div className="flex items-center gap-4">
                   <Link href="/dashboard" className="text-[13px] font-bold text-brand-slate hover:text-foreground transition-colors">
@@ -341,8 +295,10 @@ export const Navbar = () => {
             <button
               className="lg:hidden p-2 text-brand-slate hover:text-foreground transition-colors relative z-10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
             </button>
           </div>
         </motion.div>
@@ -377,22 +333,7 @@ export const Navbar = () => {
                 </div>
               ))}
 
-              {/* Mobile PDF Download */}
-              {isCapabilityReportPage && (
-                <div className="pt-4 border-t border-brand-border">
-                  <Button
-                    onClick={() => { handleDownloadPdf(); setIsMobileMenuOpen(false); }}
-                    disabled={isGeneratingPdf}
-                    className="w-full bg-white/[0.06] hover:bg-white/[0.12] text-white/80 hover:text-white font-bold border border-white/10 hover:border-cyan-400/30 flex items-center justify-center gap-2"
-                  >
-                    {isGeneratingPdf ? (
-                      <><Loader2 className="h-4 w-4 animate-spin" /> Generating PDF...</>
-                    ) : (
-                      <><Download className="h-4 w-4" /> Download Capability Report PDF</>
-                    )}
-                  </Button>
-                </div>
-              )}
+              {/* Mobile PDF Download removed */}
 
               <div className="pt-4 border-t border-brand-border flex flex-col gap-3">
                 {isMounted && isAuthenticated ? (
