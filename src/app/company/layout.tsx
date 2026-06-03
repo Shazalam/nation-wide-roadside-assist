@@ -68,16 +68,7 @@ export default function CompanyLayout({ children }: { children: React.ReactNode 
         {/* Company Sidebar - Collapsible on Desktop */}
         <aside className="fixed left-0 top-20 h-[calc(100vh-80px)] w-0 lg:w-16 lg:hover:w-80 transition-all duration-300 z-50 border-r border-brand-border bg-brand-bg/95 backdrop-blur-xl overflow-hidden group/sidebar shadow-2xl">
           <div className="w-80 p-4 group-hover/sidebar:p-8 space-y-8 h-full overflow-y-auto no-scrollbar">
-            <div className="relative group flex items-center h-10 mt-2">
-              <Search className="absolute left-2 h-5 w-5 text-brand-slate group-hover:text-[#2F80FF] transition-colors z-10" />
-              <input 
-                type="text" 
-                placeholder="Search company..."
-                className="w-full absolute left-0 bg-white/[0.03] border border-brand-border rounded-xl py-2.5 pl-10 pr-4 text-xs font-medium text-foreground dark:text-white placeholder:text-brand-slate focus:outline-none focus:border-[#2F80FF]/50 transition-all opacity-0 group-hover/sidebar:opacity-100 pointer-events-none group-hover/sidebar:pointer-events-auto"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
+
 
             {companyLinks.map((group) => (
               <div key={group.group}>
@@ -121,12 +112,7 @@ export default function CompanyLayout({ children }: { children: React.ReactNode 
               </div>
             ))}
 
-            <div className="pt-8 border-t border-brand-border opacity-0 group-hover/sidebar:opacity-100 transition-opacity">
-               <div className="flex items-center gap-3 opacity-40 px-2">
-                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase">Enterprise Security</div>
-                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase tracking-tighter">Secure Payment Processing</div>
-               </div>
-            </div>
+
           </div>
         </aside>
 

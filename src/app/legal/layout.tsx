@@ -38,16 +38,7 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
         {/* Governance Sidebar */}
         <aside className="w-full lg:w-80 lg:border-r border-brand-border bg-brand-bg/50 backdrop-blur-xl lg:sticky lg:top-20 lg:h-[calc(100vh-80px)] overflow-y-auto no-scrollbar">
           <div className="p-8 space-y-8">
-            <div className="relative group">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-brand-slate group-hover:text-[#2F80FF] transition-colors" />
-              <input 
-                type="text" 
-                placeholder="Search legal..."
-                className="w-full bg-white/[0.03] border border-brand-border rounded-xl py-2.5 pl-10 pr-4 text-xs font-medium text-foreground dark:text-white placeholder:text-brand-slate focus:outline-none focus:border-[#2F80FF]/50 transition-all"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
+
 
             {legalLinks.map((group) => (
               <div key={group.group}>
@@ -80,12 +71,7 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
               </div>
             ))}
 
-            <div className="pt-8 border-t border-brand-border">
-               <div className="flex items-center gap-3 opacity-40">
-                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase">Enterprise Security</div>
-                  <div className="h-10 w-10 rounded border border-white/20 flex items-center justify-center text-[8px] font-black text-foreground dark:text-white text-center p-1 uppercase tracking-tighter">Secure Payment Processing</div>
-               </div>
-            </div>
+
           </div>
         </aside>
 

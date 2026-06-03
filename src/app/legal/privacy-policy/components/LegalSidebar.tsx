@@ -48,14 +48,7 @@ export const LegalSidebar = ({ activeId }: LegalSidebarProps) => {
     <aside className="w-80 hidden lg:block sticky top-36 h-[calc(100vh-160px)] overflow-y-auto no-scrollbar pr-6 pb-12">
       <div className="space-y-8">
         {/* Search Input */}
-        <div className="relative group">
-           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-brand-slate group-hover:text-brand-blue transition-colors" />
-           <input 
-             type="text" 
-             placeholder="Search legal docs..." 
-             className="w-full bg-white/[0.03] border border-brand-border rounded-xl py-2.5 pl-10 pr-4 text-xs font-medium text-foreground dark:text-white placeholder:text-brand-slate focus:outline-none focus:border-brand-blue/50 transition-all"
-           />
-        </div>
+
 
         <nav className="space-y-1">
            <p className="text-[10px] font-black text-brand-slate uppercase tracking-[0.25em] mb-4 px-3">Documentation Sections</p>
